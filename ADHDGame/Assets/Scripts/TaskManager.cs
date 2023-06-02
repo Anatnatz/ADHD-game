@@ -10,6 +10,8 @@ public class TaskManager : MonoBehaviour
 
     Task task;
 
+    
+
     void Start()
     {
         instance = this;
