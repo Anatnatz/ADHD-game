@@ -1,8 +1,7 @@
-
-public enum Task_Enum 
+public enum Task_Enum
 {
     None = 0,
     wash_dishes,
-    eat_breakfast
-
+    eat_breakfast,
+    use_toilet
 }
