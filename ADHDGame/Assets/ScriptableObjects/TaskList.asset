@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee20dfbc4a20302438263ff3b0fc9f77, type: 3}
   m_Name: TaskList
   m_EditorClassIdentifier: 
-  taskList:
-  - {fileID: 11400000, guid: 42c7bd27467b288409780534c167ef01, type: 2}
-  - {fileID: 11400000, guid: 39718d22e7c04e14da4d144c6e975d52, type: 2}
+  tasks:
+  - {fileID: 0}

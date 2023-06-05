@@ -10,8 +10,6 @@ public class TaskManager : MonoBehaviour
 
     Task task;
 
-    
-
     void Start()
     {
         instance = this;
@@ -19,15 +17,15 @@ public class TaskManager : MonoBehaviour
 
     public void StartTask(string name)
     {
-        task = tasks.taskList.Find(t => t.taskName == name);
-        task.StartTask();
+        // task = tasks.taskList.Find(t => t.taskName == name);
+        // task.StartTask();
     }
 
     public void OnApplicationQuit()
     {
-        foreach (Task task in tasks.taskList)
-        {
-            task.isDone = false;
-        }
+        // foreach (Task task in tasks.taskList)
+        // {
+        //     task.isDone = false;
+        // }
     }
 }
