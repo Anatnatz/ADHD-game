@@ -11,6 +11,10 @@ public class Task : ScriptableObject
 {
     public string taskName = "task name";
 
+    public Task_Enum taskType;
+
+    public string textInApp;
+
     public float duration = 3f;
 
     public float waitingTime = 0f;
@@ -19,9 +23,12 @@ public class Task : ScriptableObject
 
     public bool isDone = false;
 
+    // public Status_Enum smtatus;
     public Animation animation;
 
     public Task waitingOnTask;
+
+    public Thought_Enum blockingThought;
 
     public void StartTask()
     {
