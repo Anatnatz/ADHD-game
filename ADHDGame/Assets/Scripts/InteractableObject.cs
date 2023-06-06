@@ -23,20 +23,46 @@ public class InteractableObject : MonoBehaviour
 
     private Button button;
 
+    private GameObject objectText;
+
+    void Start()
+    {
+        objectText = GameObject.FindWithTag("ObjectText");
+        objectText.SetActive(false);
+    }
+
+    void OnMouseEnter()
+    {
+        objectText.SetActive(true);
+    }
+
+    void OnMouseExit()
+    {
+        objectText.SetActive(false);
+    }
+
     void OnMouseDown()
     {
+        ShowTasks();
+        TextMeshProUGUI btnText =
+            button.GetComponentInChildren<TextMeshProUGUI>();
+        btnText.text = relatedTasks[0].taskName;
+        button.onClick.AddListener (StartTask);
+    }
+
+    void ShowTasks()
+    {
         GameObject canvas = GameObject.Find("Canvas");
-        Debug.Log("clicked on" + objectName);
+
         GameObject buttonobj =
             Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
+
         buttonobj.transform.SetParent(canvas.transform);
         RectTransform btnPosition = buttonobj.GetComponent<RectTransform>();
         btnPosition.anchoredPosition =
             new Vector2(transform.position.x, transform.position.y);
+
         button = buttonobj.GetComponent<Button>();
-        buttonobj.transform.GetComponent<Text>().text =
-            relatedTasks[0].taskName;
-        button.onClick.AddListener (StartTask);
     }
 
     void StartTask()
