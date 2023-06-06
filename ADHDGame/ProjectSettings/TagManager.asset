@@ -8,6 +8,8 @@ TagManager:
   - border
   - taskApp
   - Thought
+  - DeleteTaskApp
+  - '   Room_Object '
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Thoughts
-  - 
-  - 
+  - Phone
+  - TaskOnApp
   - 
   - 
   - 
@@ -44,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Phone
+    uniqueID: 582227721
+    locked: 0
+  - name: TaskOnApp
+    uniqueID: 1853745187
     locked: 0

@@ -31,19 +31,33 @@ public class Mouse_Controller : MonoBehaviour
         float mousePositiony = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
         mouseTransform.position = new Vector2  (mousePositionx, mousePositiony);
 
-        
 
 
 
+        //GetMouseButtonDown:
 
-         if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit)
             {
-                dragging = hit.transform;
-                offset = dragging.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Thought:
+
+                if (hit.transform.tag == Tags_Enum.Thought.ToString()) 
+                {
+                    dragging = hit.transform;
+                    offset = dragging.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                }
+
+                //DeleteTaskApp:
+
+                if (hit.transform.tag == Tags_Enum.DeleteTaskApp.ToString())
+                {
+                    
+                   TaskOnApp_Manager.TaskOnAppInstance.DeleteTaskOnApp(hit.transform.name);
+                }
+
             }
         }
 
