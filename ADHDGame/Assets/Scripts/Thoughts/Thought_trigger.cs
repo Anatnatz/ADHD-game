@@ -4,25 +4,33 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Thought_trigger : MonoBehaviour
+
 {
-    
+    [SerializeField]
+    thought_Transform thought_Transform;
+
     private void OnTriggerEnter2D (Collider2D other)
     {
 
 
         if (other.tag == "taskApp")
         {
-            //push to taslApp
-
             Debug.Log("push to taskApp ");
+            thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
+            thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
+            thought_Transform.pushToApp();
+            thought_Transform.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }
 
         if (other.tag == "border")
         {
-            //ignore task
+           
 
             Debug.Log("ignore task ");
+            thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
+            thought_Transform.changeStatuse(ThoughtStatus.Deleted);
+            thought_Transform.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseOver : MonoBehaviour
 {
     [SerializeField]
-    Objects_Data Objects_Data;
+    Room_Object roomObject;
     [SerializeField]
     Thoughts_Manager Thoughts_Manager;
 
@@ -13,9 +13,8 @@ public class MouseOver : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
 
     {
-        Debug.Log(Objects_Data.thoughtType);
-        Debug.Log (other.gameObject);
-        Thoughts_Manager.triggerThought(Objects_Data.thoughtType);
+        Debug.Log(roomObject.thoughtType);
+        Thoughts_Manager.triggerThought(roomObject.thoughtType);
     }
 
 }
