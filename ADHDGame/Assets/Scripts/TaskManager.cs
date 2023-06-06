@@ -34,4 +34,12 @@ public class TaskManager : MonoBehaviour
         //     task.isDone = false;
         // }
     }
+
+    // public IEnumerator WaitForTask(Task current)
+    // {
+    //     Debug.Log("waiting on task to finish " + current.taskName);
+    //     yield return new WaitForSeconds(current.waitingTime);
+    //     Debug.Log("task is ready " + current.taskName);
+    //     current.isDone = true;
+    // }
 }

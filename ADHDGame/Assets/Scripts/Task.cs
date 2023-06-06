@@ -38,7 +38,7 @@ public class Task : ScriptableObject
             Debug.Log("starting task" + taskName);
 
             //play animation
-            TaskManager.instance.StartCoroutine(WaitForTask());
+            TaskManager.instance.StartCoroutine(WaitForDuration());
         }
         else
         {
@@ -52,5 +52,14 @@ public class Task : ScriptableObject
         yield return new WaitForSeconds(waitingTime);
         Debug.Log("task is ready" + taskName);
         isDone = true;
+    }
+
+    public IEnumerator WaitForDuration()
+    {
+        //start animation
+        yield return new WaitForSeconds(duration);
+
+        //end animation
+        TaskManager.instance.StartCoroutine(WaitForTask());
     }
 }

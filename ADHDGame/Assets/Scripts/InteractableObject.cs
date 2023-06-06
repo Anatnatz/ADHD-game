@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// [CreateAssetMenu(fileName = "TaskList", menuName = "ScriptableObjects/Object")]
 public class InteractableObject : MonoBehaviour
 {
     public GameObject taskBtn;
@@ -21,13 +20,26 @@ public class InteractableObject : MonoBehaviour
 
     private Task curTask;
 
-    private Button button;
+    private List<Button> taskButtons;
+
+    private Button curBtn;
 
     private GameObject objectText;
 
+    private GameObject buttonObject;
+
     void Start()
     {
+        SetObjectText();
+        taskButtons = new List<Button>();
+    }
+
+    void SetObjectText()
+    {
         objectText = GameObject.FindWithTag("ObjectText");
+        TextMesh objTxtComponent =
+            objectText.GetComponentInChildren<TextMesh>();
+        objTxtComponent.text = objectName;
         objectText.SetActive(false);
     }
 
@@ -44,31 +56,58 @@ public class InteractableObject : MonoBehaviour
     void OnMouseDown()
     {
         ShowTasks();
-        TextMeshProUGUI btnText =
-            button.GetComponentInChildren<TextMeshProUGUI>();
-        btnText.text = relatedTasks[0].taskName;
-        button.onClick.AddListener (StartTask);
     }
 
     void ShowTasks()
     {
-        GameObject canvas = GameObject.Find("Canvas");
+        foreach (Task relatedTask in relatedTasks)
+        {
+            CreateTaskButton(relatedTask.taskName);
 
-        GameObject buttonobj =
-            Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
-
-        buttonobj.transform.SetParent(canvas.transform);
-        RectTransform btnPosition = buttonobj.GetComponent<RectTransform>();
-        btnPosition.anchoredPosition =
-            new Vector2(transform.position.x, transform.position.y);
-
-        button = buttonobj.GetComponent<Button>();
+            PositionTaskButton();
+            NameTaskButton(relatedTask.taskName);
+        }
+        CreateTaskListeners();
     }
 
-    void StartTask()
+    void CreateTaskButton(string name)
     {
-        string type = "temp";
-        curTask = relatedTasks.Find(t => t.taskName == type);
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject buttonsSpace = GameObject.Find("ButtonsSpace");
+
+        buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
+        buttonObject.name = name;
+        taskButtons.Add(buttonObject.GetComponent<Button>());
+        curBtn = buttonObject.GetComponent<Button>();
+
+        buttonObject.transform.SetParent(buttonsSpace.transform);
+    }
+
+    void PositionTaskButton()
+    {
+        RectTransform btnPosition = buttonObject.GetComponent<RectTransform>();
+        btnPosition.anchoredPosition =
+            new Vector2(transform.position.x, transform.position.y);
+    }
+
+    void NameTaskButton(string name)
+    {
+        TextMeshProUGUI btnText =
+            curBtn.GetComponentInChildren<TextMeshProUGUI>();
+        btnText.text = name;
+    }
+
+    void CreateTaskListeners()
+    {
+        foreach (Button button in taskButtons)
+        {
+            button.onClick.AddListener(() => StartTask(button.name));
+        }
+    }
+
+    void StartTask(string taskName)
+    {
+        curTask = relatedTasks.Find(t => t.taskName == taskName);
         curTask.StartTask();
     }
 

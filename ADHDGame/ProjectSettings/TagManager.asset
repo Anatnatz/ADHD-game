@@ -8,6 +8,7 @@ TagManager:
   - border
   - taskApp
   - Thought
+  - ObjectText
   layers:
   - Default
   - TransparentFX
