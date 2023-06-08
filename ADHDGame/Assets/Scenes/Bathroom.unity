@@ -271,10 +271,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 312637452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a24a12b094e791e499c090562b16c910, type: 3}
+  m_Script: {fileID: 11500000, guid: 016b59f4474d1e7428b67539462c3060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableObject: {fileID: 0}
+  interactableObject: {fileID: 1107910860}
 --- !u!4 &312637454
 Transform:
   m_ObjectHideFlags: 0
@@ -512,6 +512,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bathroom_btn: {fileID: 0}
   bedroom_btn: {fileID: 127729789}
+--- !u!114 &1107910860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1287541516509549653, guid: 4e66cb01d4c2fad48ad49090e8edc32e, type: 3}
+  m_PrefabInstance: {fileID: 780063479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efddeb8d81be87f48939e91eaa33918c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1469265783
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,16 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa09d88e268760545b5caa528049da16, type: 3}
-  m_Name: CleanToilet
+  m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
+  m_Name: Im_starving
   m_EditorClassIdentifier: 
-  taskName: Clean
-  taskType: 4
-  textInApp: Clean the toilet
-  duration: 3
-  waitingTime: 15
-  score: 20
-  isDone: 0
-  animation: {fileID: 0}
-  waitingOnTask: {fileID: 0}
-  blockingThought: 0
+  though: 0
+  game_object: 0
+  task: 0
+  objectType: 0
+  thoughtText: I'm starving!
+  thoughtType: 1
+  thoughtPosition: {x: 0, y: 0}
+  taskType: 0

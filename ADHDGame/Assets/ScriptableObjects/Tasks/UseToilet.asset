@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
+  m_Script: {fileID: 11500000, guid: fa09d88e268760545b5caa528049da16, type: 3}
   m_Name: UseToilet
   m_EditorClassIdentifier: 
   taskName: Use
   taskType: 3
-  textInApp: Go pee
+  textInApp: Go to the toilet
   duration: 3
   waitingTime: 0
   score: 20

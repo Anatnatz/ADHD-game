@@ -101,12 +101,14 @@ public class InteractableObject : MonoBehaviour
     {
         foreach (Button button in taskButtons)
         {
-            button.onClick.AddListener(() => StartTask(button.name));
+            button.onClick.AddListener(() => StartTask(button));
         }
     }
 
-    void StartTask(string taskName)
+    void StartTask(Button taskBtn)
     {
+        string taskName = taskBtn.name;
+        Destroy(taskBtn.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
         curTask.StartTask();
     }
