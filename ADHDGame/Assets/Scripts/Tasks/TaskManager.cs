@@ -6,28 +6,40 @@ public class TaskManager : MonoBehaviour
 {
     public static TaskManager instance;
 
-    public TaskList tasks;
+    public RoomObject roomObject;
 
     Task task;
-
-    
 
     void Start()
     {
         instance = this;
+        roomObject = GetComponent<RoomObject>();
+    }
+
+    void OnMouseDown()
+    {
+        Debug.Log("clicked on" + roomObject.objectName);
     }
 
     public void StartTask(string name)
     {
-        task = tasks.taskList.Find(t => t.taskName == name);
-        task.StartTask();
+        // task = taskList.allTasks.Find(t => t.taskName == name);
+        // task.StartTask();
     }
 
     public void OnApplicationQuit()
     {
-        foreach (Task task in tasks.taskList)
-        {
-            task.isDone = false;
-        }
+        // foreach (Task task in taskList.allTasks)
+        // {
+        //     task.isDone = false;
+        // }
     }
+
+    // public IEnumerator WaitForTask(Task current)
+    // {
+    //     Debug.Log("waiting on task to finish " + current.taskName);
+    //     yield return new WaitForSeconds(current.waitingTime);
+    //     Debug.Log("task is ready " + current.taskName);
+    //     current.isDone = true;
+    // }
 }
