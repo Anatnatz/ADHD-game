@@ -118,7 +118,7 @@ public class RoomObject : MonoBehaviour
     {
         foreach (Task task in relatedTasks)
         {
-            task.isDone = false;
+            task.status = TaskStatus_Enum.none;
         }
     }
 }

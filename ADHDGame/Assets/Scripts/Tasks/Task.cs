@@ -21,7 +21,7 @@ public class Task : ScriptableObject
 
     public int score = 20;
 
-    public bool isDone = false;
+    public TaskStatus_Enum status;
 
     // public Status_Enum smtatus;
     public Animation animation;
@@ -33,7 +33,10 @@ public class Task : ScriptableObject
     public void StartTask()
     {
         Debug.Log("trying to start task" + taskName);
-        if (waitingOnTask == null || waitingOnTask.isDone == true)
+        if (
+            waitingOnTask == null ||
+            waitingOnTask.status == TaskStatus_Enum.Done
+        )
         {
             Debug.Log("starting task" + taskName);
 
@@ -51,7 +54,7 @@ public class Task : ScriptableObject
         Debug.Log("waiting on task to finish" + taskName);
         yield return new WaitForSeconds(waitingTime);
         Debug.Log("task is ready" + taskName);
-        isDone = true;
+        status = TaskStatus_Enum.Done;
     }
 
     public IEnumerator WaitForDuration()
