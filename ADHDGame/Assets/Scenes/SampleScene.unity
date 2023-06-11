@@ -1365,9 +1365,13 @@ MonoBehaviour:
   - {fileID: 1683391321}
   - {fileID: 679870835}
   - {fileID: 702920801}
-  appTransform_Prefab: {fileID: 6061992254718333706, guid: 8a826e23007790b45988e758cdcaeca2, type: 3}
+  markedAsDoneOnAppTasks: []
+  deletedFromAppTasks: []
+  appTransform_Prefab: {fileID: 3059211338934219801, guid: 44899227e8eece245ab538353f88f736, type: 3}
   currentAppTransformNum: 0
   freePosition: 0
+  serialNum: 0
+  numOfPositions: 4
 --- !u!1 &1247674878
 GameObject:
   m_ObjectHideFlags: 0

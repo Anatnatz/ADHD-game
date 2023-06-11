@@ -3,7 +3,7 @@
 public enum TextOnApp_Enum 
 {
     none,
-    Apeared,
-    Ignored,
+    Appeared,
+    Deleted,
     Marked_As_Done
 }

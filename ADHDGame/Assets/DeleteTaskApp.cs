@@ -9,15 +9,15 @@ public class DeleteTaskApp : MonoBehaviour
     AppTransform appTransform;
     [SerializeField]
     Task_Enum taskType;
-    [SerializeField]
-    string taskName;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         taskType = appTransform.taskType;
-        taskName = appTransform.name;
+        this.name = appTransform.gameObject.name;
+
 
         // Update is called once per frame
         void Update()

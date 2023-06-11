@@ -30,7 +30,8 @@ public class Thoughts_Manager : MonoBehaviour
 
         newThought.thoughtText = thoughtsList_[currentThoughtNum].thoughtText;
         newThought.changeText();
-        newThought.name = thoughtsList_[currentThoughtNum].thoughtText;
+        newThought.name = thoughtsList_[currentThoughtNum].thoughtText ;
+        
         changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);
         thought_Transforms.Add(newThought);
     }
@@ -68,6 +69,12 @@ public class Thoughts_Manager : MonoBehaviour
     {
         searchForThoughtType(thoughtType);
         thoughtsList_[currentThoughtNum].thoughtStatus = thoughtStatus;
+    }
+
+    internal void updateNumOfAppearanceOnApp(Thought_Enum thoughtType)
+    {
+        searchForThoughtType(thoughtType);
+        
     }
 }
 

@@ -54,8 +54,9 @@ public class Mouse_Controller : MonoBehaviour
 
                 if (hit.transform.tag == Tags_Enum.DeleteTaskApp.ToString())
                 {
-                    
-                   TaskOnApp_Manager.TaskOnAppInstance.DeleteTaskOnApp(hit.transform.name);
+                    Debug.Log (hit.transform.name);
+
+                   TaskOnApp_Manager.TaskOnAppInstance.markAsDoneTaskOnApp(hit.transform.name);
                 }
 
             }
