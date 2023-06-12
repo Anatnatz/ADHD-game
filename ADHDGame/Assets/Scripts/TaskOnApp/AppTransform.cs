@@ -14,6 +14,7 @@ public class AppTransform : MonoBehaviour
     public bool setText;
     
     public TextOnApp_Enum taskOnAppStatus;
+
     public int positionOnApp;
 
     public bool appeared;

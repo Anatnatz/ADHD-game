@@ -39,19 +39,24 @@ public class TaskOnApp_Manager : MonoBehaviour
 
     public void createTaskOnAppTransform(Task_Enum taskType)
     {
+        //create new appTransform
 
         AppTransform newAppTransform = Instantiate (appTransform_Prefab, appTransform_Prefab.appTransformPosition, Quaternion.identity);
         serialNum++;
+        
+        //insert AppTransform info
+
         newAppTransform.taskType = taskType;
+
         //searchForTaskType(thoughtType);
-        newAppTransform.appTransformText = "Eat Breakfast";
-        //newAppTransform.appTransformText = taskList_[currentThoughtNum].thoughtText;
+        TaskManager.instance.searchTaskOnList(taskType);
+        
+        //changeText:
+        newAppTransform.appTransformText = TaskManager.instance.tasksList[TaskManager.instance.currentTaskNumOnList].textInApp;
         newAppTransform.changeText();
-        newAppTransform.name = "Eat Breakfast";
-        newAppTransform.gameObject.name = "Eat Breakfast" + serialNum;
-        //  newAppTransform.name = thoughtsList_[currentThoughtNum].thoughtText;
-        // changeTakStatus(thoughtType, ThoughtStatus.Appeared);
-       
+       //change name:
+        newAppTransform.gameObject.name = newAppTransform.appTransformText + serialNum;
+        
         appTransforms.Add (newAppTransform);
         
                         
@@ -152,6 +157,14 @@ public class TaskOnApp_Manager : MonoBehaviour
     public void ChangeTaskOnAppStatus(TextOnApp_Enum taskOnAppStatus, int numOnList)
     {
         appTransforms[numOnList].taskOnAppStatus = taskOnAppStatus;
+        ChangeTask_TaskOnAppStatus(taskOnAppStatus, numOnList);
+    }
+
+    private void ChangeTask_TaskOnAppStatus(TextOnApp_Enum taskOnAppStatus, int numOnList)
+    {
+        Task_Enum taskType = appTransforms[numOnList].taskType;
+        TaskManager.instance.searchTaskOnList(taskType);
+        TaskManager.instance.tasksList[TaskManager.instance.currentTaskNumOnList].taskOnAppStatus = taskOnAppStatus;
     }
 
     internal void searchForPositionOnApp()
