@@ -6,8 +6,7 @@ public class AppTransform : MonoBehaviour
 {
     public Task_Enum taskType;
 
-    public string name;
-
+    
     public Vector2 appTransformPosition;
     
     public string appTransformText;
@@ -15,6 +14,9 @@ public class AppTransform : MonoBehaviour
     public bool setText;
     
     public TextOnApp_Enum taskOnAppStatus;
+    public int positionOnApp;
+
+    public bool appeared;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class AppTransform : MonoBehaviour
     void Update()
     {
         
+
     }
     public void changeText()
     {

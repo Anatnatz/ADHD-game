@@ -19,6 +19,7 @@ public class Thought_trigger : MonoBehaviour
             thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
             thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
             thought_Transform.pushToApp();
+            thought_Transform.updateNumOfAppearanceOnApp();
             thought_Transform.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }

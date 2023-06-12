@@ -32,6 +32,8 @@ public class Thought : ScriptableObject
 
     public int nagge;
 
+    
+    
 
 
 

@@ -12,7 +12,9 @@ public class thought_Transform : MonoBehaviour
     public string thoughtText;
     public bool setText;
     public ThoughtStatus thoughtTransformStatus;
+    public int positionOnApp;
     
+
 
     internal void changeStatuse(ThoughtStatus thoughtStatus)
     {
@@ -35,7 +37,8 @@ public class thought_Transform : MonoBehaviour
 
     }
 
-
-
-
+    internal void updateNumOfAppearanceOnApp()
+    {
+        Thoughts_Manager.ThoughtsInstance.updateNumOfAppearanceOnApp(thoughtType);
+    }
 }
