@@ -10,6 +10,8 @@ TagManager:
   - Thought
   - DeleteTaskApp
   - '   Room_Object '
+  - ObjectText
+  - Mouse
   layers:
   - Default
   - TransparentFX

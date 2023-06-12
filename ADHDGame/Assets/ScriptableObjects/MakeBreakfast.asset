@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d546722e77077c94d9f636afb282ed47, type: 3}
-  m_Name: Refrigerator
+  m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
+  m_Name: MakeBreakfast
   m_EditorClassIdentifier: 
-  though: 0
-  game_object: 1
-  task: 0
-  objectName: Refrigerator
-  objectType: 4
-  timeToAppeare: 0
-  thoughtType: 1
-  thoughtPosition: {x: 0, y: 0}
+  taskName: Make Breakfast
   taskType: 2
+  textInApp: Make Breakfast
+  duration: 5
+  waitingTime: 0
+  score: 20
+  isDone: 0
+  animation: {fileID: 0}
+  waitingOnTask: {fileID: 0}
+  blockingThought: 1
