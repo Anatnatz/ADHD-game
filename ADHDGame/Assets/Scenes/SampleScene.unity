@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomObject: {fileID: 0}
-  tasksList: []
+  tasksList:
+  - {fileID: 11400000, guid: e48ed5edfd923a6439244102fda155c9, type: 2}
   currentTaskNumOnList: 0
 --- !u!4 &75799783
 Transform:
