@@ -23,6 +23,9 @@ public class Task : ScriptableObject
 
     public TaskStatus_Enum status;
 
+    public TextOnApp_Enum taskOnAppStatus;
+    
+
     // public Status_Enum smtatus;
     public Animation animation;
 

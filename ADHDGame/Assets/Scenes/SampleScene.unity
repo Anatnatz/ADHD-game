@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomObject: {fileID: 0}
+  tasksList: []
+  currentTaskNumOnList: 0
 --- !u!4 &75799783
 Transform:
   m_ObjectHideFlags: 0

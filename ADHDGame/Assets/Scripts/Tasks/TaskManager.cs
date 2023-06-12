@@ -8,7 +8,10 @@ public class TaskManager : MonoBehaviour
 
     public RoomObject roomObject;
 
+    public List<Task> tasksList;
+
     Task task;
+    public int currentTaskNumOnList;
 
     void Start()
     {
@@ -42,4 +45,19 @@ public class TaskManager : MonoBehaviour
     //     Debug.Log("task is ready " + current.taskName);
     //     current.isDone = true;
     // }
+
+    public void searchTaskOnList(Task_Enum taskType)
+    {
+        for (int i = 0; i < tasksList.Count; i++)
+        {
+            if (tasksList[i].taskType == taskType)
+            { currentTaskNumOnList = i; break; }
+        }
+    }
+
+    public void UpdateTaskStatus(Task_Enum taskType, TaskStatus_Enum status)
+    {
+        searchTaskOnList(taskType);
+        tasksList[currentTaskNumOnList].status = status;
+    }
 }
