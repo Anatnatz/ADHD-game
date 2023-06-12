@@ -7,5 +7,6 @@ public enum Tags_Enum
    taskApp,
    Thought,
    Room_Object,
+   Mouse,
    DeleteTaskApp
 }
