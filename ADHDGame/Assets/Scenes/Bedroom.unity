@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7139481324006750075, guid: 3e95a804e71518840985f12f04f3afcc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Toilet
+      value: Bathroom
       objectReference: {fileID: 0}
     - target: {fileID: 7139481324333286103, guid: 3e95a804e71518840985f12f04f3afcc, type: 3}
       propertyPath: m_text
