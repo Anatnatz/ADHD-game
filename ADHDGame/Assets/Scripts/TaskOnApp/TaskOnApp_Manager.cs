@@ -24,6 +24,8 @@ public class TaskOnApp_Manager : MonoBehaviour
     int serialNum = 0;
     [SerializeField]
     int numOfPositions = 4;
+    [SerializeField]
+    Transform taskOnAppParent;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,7 @@ public class TaskOnApp_Manager : MonoBehaviour
         newAppTransform.gameObject.name = newAppTransform.appTransformText + serialNum;
         
         appTransforms.Add (newAppTransform);
+        newAppTransform.transform.SetParent(taskOnAppParent);
         
                         
         searchForTransformOnLIst(newAppTransform.transform.name);
@@ -72,17 +75,17 @@ public class TaskOnApp_Manager : MonoBehaviour
 
     private void positionTaskOnApp(int transformToPosition)
     {
-        if (currentAppTransformNum + 1 <= numOfPositions)
+        //if (currentAppTransformNum + 1 <= numOfPositions)
 
-        {
+        //{
             searchForPositionOnApp();
 
             positionTaskOnApp(appTransforms[transformToPosition]);
-        }
-        else 
-        {
-            appTransforms[currentAppTransformNum].gameObject.SetActive(false);
-        }
+       // }
+        //else 
+        //{
+       //     appTransforms[currentAppTransformNum].gameObject.SetActive(false);
+       // }
     }
 
     private void AddToList(int currentAppTransformNum, List<AppTransform> newList)

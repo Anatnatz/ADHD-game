@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class RoomObjectTrigger : MonoBehaviour
 {
-    [SerializeField] Room_Object roomObject;
+    [SerializeField] RoomObject roomObject;
     
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == Tags_Enum.Mouse.ToString())
-        {
-
-            Debug.Log(roomObject.thoughtType);
+        {         
             
-            Thoughts_Manager.ThoughtsInstance.triggerThought(roomObject.thoughtType);
+            roomObject.objectTrigger();
         }
     }
 

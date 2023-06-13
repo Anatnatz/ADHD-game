@@ -28,6 +28,8 @@ public class RoomObject : MonoBehaviour
 
     private GameObject buttonObject;
 
+    private int currentThought = 0;
+
     void Start()
     {
         SetObjectText();
@@ -39,7 +41,7 @@ public class RoomObject : MonoBehaviour
         objectText = GameObject.FindWithTag("ObjectText");
         TextMesh objTxtComponent =
             gameObject.GetComponentInChildren<TextMesh>();
-        Debug.Log (objTxtComponent);
+        Debug.Log(objTxtComponent);
         objTxtComponent.text = objectName;
         objectText.SetActive(false);
     }
@@ -120,5 +122,13 @@ public class RoomObject : MonoBehaviour
         {
             task.status = TaskStatus_Enum.none;
         }
+    }
+
+    public void objectTrigger()
+    {
+        
+       
+        Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+        
     }
 }

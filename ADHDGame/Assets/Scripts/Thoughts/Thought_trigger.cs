@@ -20,8 +20,9 @@ public class Thought_trigger : MonoBehaviour
             thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
             thought_Transform.pushToApp();
             thought_Transform.updateNumOfAppearanceOnApp();
-            thought_Transform.gameObject.SetActive(false);
-            this.gameObject.SetActive(false);
+            Destroy(thought_Transform.gameObject);
+            Destroy(this);
+           
         }
 
         if (other.tag == "border")
@@ -31,8 +32,8 @@ public class Thought_trigger : MonoBehaviour
             Debug.Log("ignore task ");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
-            thought_Transform.gameObject.SetActive(false);
-            this.gameObject.SetActive(false);
+            Destroy(thought_Transform.gameObject);
+            Destroy(this);
         }
     }
 

@@ -13,12 +13,19 @@ public class Thoughts_Manager : MonoBehaviour
     [SerializeField]
     thought_Transform thought_Transform_Prefab;
     public int currentThoughtNum;
+    [SerializeField]
+    Transform thoughtsParent;
 
 
     // Start is called before the first frame update
     void Start()
     {
         ThoughtsInstance = this;
+        for (int i = 0; i < thoughtsList_.Count; i++)
+        {
+            thoughtsList_[i].thoughtStatus = ThoughtStatus.None;
+
+        }
     }
 
     void createThought(Thought_Enum thoughtType)
@@ -32,6 +39,7 @@ public class Thoughts_Manager : MonoBehaviour
         newThought.changeText();
         newThought.name = thoughtsList_[currentThoughtNum].thoughtText ;
         
+        newThought.transform.SetParent(thoughtsParent);
         changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);
         thought_Transforms.Add(newThought);
     }
@@ -53,16 +61,16 @@ public class Thoughts_Manager : MonoBehaviour
         }
     }
 
-    private void updateThoughtStatus(int currentThoughtNum)
-    {
-        thoughtsList_[currentThoughtNum].thoughtStatus = ThoughtStatus.Appeared;
-    }
+   
 
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
-        Debug.Log("create thought" + thoughtType);
-        createThought(thoughtType);
+        searchForThoughtType(thoughtType);
+        
+        if (thoughtsList_[currentThoughtNum].thoughtStatus != ThoughtStatus.Appeared)
+          
+        { createThought(thoughtType); }
     }
 
     internal void changeThoughtStatus(Thought_Enum thoughtType, ThoughtStatus thoughtStatus)
