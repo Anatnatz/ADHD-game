@@ -4,7 +4,6 @@ public enum Object_Enum
     Phone,
     Door,
     Sofa,
-    Refrigerator
-
+    Refrigerator,
+    CupWithWater
 }
-
