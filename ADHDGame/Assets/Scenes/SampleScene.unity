@@ -410,7 +410,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -1754,7 +1754,7 @@ MonoBehaviour:
   freePosition: 0
   serialNum: 0
   numOfPositions: 4
-  taskOnAppParent: {fileID: 0}
+  taskOnAppParent: {fileID: 135201258}
 --- !u!1 &1247674878
 GameObject:
   m_ObjectHideFlags: 0
