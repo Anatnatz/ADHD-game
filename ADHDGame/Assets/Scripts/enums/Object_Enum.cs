@@ -5,5 +5,11 @@ public enum Object_Enum
     Door,
     Sofa,
     Refrigerator,
-    CupWithWater
+    CupWithWater,
+    Toilet,
+    Sink,
+    DirtyTowel,
+    Toothbrush,
+    Deordorant,
+    Perfume
 }
