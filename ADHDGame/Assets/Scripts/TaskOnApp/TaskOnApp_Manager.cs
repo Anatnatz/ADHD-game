@@ -9,9 +9,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     public static TaskOnApp_Manager TaskOnAppInstance;
     [SerializeField] 
     List<AppTransform> appTransforms;
-    [SerializeField]
-     List<TaskOnAppPosition> appTransformPositions;
-    
+     
     public List<AppTransform> markedAsDoneOnAppTasks;
     public List<AppTransform> deletedFromAppTasks;
     [SerializeField]
@@ -43,7 +41,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     {
         //create new appTransform
 
-        AppTransform newAppTransform = Instantiate (appTransform_Prefab, appTransform_Prefab.appTransformPosition, Quaternion.identity);
+        AppTransform newAppTransform = Instantiate(appTransform_Prefab);
         serialNum++;
         
         //insert AppTransform info
@@ -60,52 +58,40 @@ public class TaskOnApp_Manager : MonoBehaviour
         newAppTransform.gameObject.name = newAppTransform.appTransformText + serialNum;
         
         appTransforms.Add (newAppTransform);
-        newAppTransform.transform.SetParent(taskOnAppParent);
-        
-                        
+      
+                             
         searchForTransformOnLIst(newAppTransform.transform.name);
-        
-        positionTaskOnApp(currentAppTransformNum);
 
-        ChangeTaskOnAppStatus(TextOnApp_Enum.Appeared, currentAppTransformNum);
-
-        
-
-    }
-
-    private void positionTaskOnApp(int transformToPosition)
-    {
-        //if (currentAppTransformNum + 1 <= numOfPositions)
-
-        //{
-            searchForPositionOnApp();
-
-            positionTaskOnApp(appTransforms[transformToPosition]);
-       // }
-        //else 
-        //{
-       //     appTransforms[currentAppTransformNum].gameObject.SetActive(false);
-       // }
-    }
-
-    private void AddToList(int currentAppTransformNum, List<AppTransform> newList)
-    {
-        newList.Add(appTransforms[currentAppTransformNum]);
+        locationTaskOnAPP(currentAppTransformNum, newAppTransform);
        
+        ChangeTaskOnAppStatus(TextOnApp_Enum.Appeared, currentAppTransformNum);
+         newAppTransform.transform.SetParent(taskOnAppParent);
+
+
+
     }
 
-    internal void positionTaskOnApp(AppTransform tarnsformToPosition)
+    private void locationTaskOnAPP(int currentAppTransformNum, AppTransform transform)
     {
-        tarnsformToPosition.transform.position = appTransformPositions[freePosition].transform.position;
-        appTransformPositions[freePosition].changePositionStatus(TaskOnAppPosition_Enum.Taken);
-        tarnsformToPosition.positionOnApp = freePosition;
+        Vector2 parentPosition = taskOnAppParent.transform.position;
+        
+        Vector2 position = transform.transform.position;
+        
+        float positiony = parentPosition.y + 2 - currentAppTransformNum;
+
+        float positionx = parentPosition.x;
+        position.x = positionx;
+        position.y = positiony;
+        transform.transform.position = position;
+        
     }
+
+   
 
     public void markAsDoneTaskOnApp(string name)
     {
         searchForTransformOnLIst(name);
         ChangeTaskOnAppStatus(TextOnApp_Enum.Marked_As_Done, currentAppTransformNum);
-        appTransformPositions[appTransforms[currentAppTransformNum].positionOnApp].changePositionStatus(TaskOnAppPosition_Enum.Free);
         AddToList(currentAppTransformNum, markedAsDoneOnAppTasks);
         appTransforms[currentAppTransformNum].gameObject.SetActive(false);
         RemoveFromList(currentAppTransformNum, appTransforms);
@@ -115,20 +101,22 @@ public class TaskOnApp_Manager : MonoBehaviour
     {
         searchForTransformOnLIst(name);
         ChangeTaskOnAppStatus(TextOnApp_Enum.Deleted, currentAppTransformNum);
-        appTransformPositions[appTransforms[currentAppTransformNum].positionOnApp].changePositionStatus(TaskOnAppPosition_Enum.Free);
         AddToList(currentAppTransformNum, deletedFromAppTasks);
         appTransforms[currentAppTransformNum].gameObject.SetActive(false);
         RemoveFromList(currentAppTransformNum, appTransforms);
     }
 
+    private void AddToList(int currentAppTransformNum, List<AppTransform> newList)
+    {
+        newList.Add(appTransforms[currentAppTransformNum]);
+
+    }
+
     private void RemoveFromList(int currentAppTransformNum, List<AppTransform> list)
     {
-       // if (list == appTransforms)
-       // {
-       //     if (currentAppTransformNum + 1 <= numOfPositions)
-       //     { repositionAppTransforms(currentAppTransformNum); }
-            
-       // }
+        if (list == appTransforms)
+        { repositionAppTransforms(currentAppTransformNum); }
+       
         list.Remove(list[currentAppTransformNum]);
     }
 
@@ -136,15 +124,15 @@ public class TaskOnApp_Manager : MonoBehaviour
     {
         int nextAppTransform = currentAppTransformNum + 1;
 
-        for (int i = nextAppTransform; i < numOfPositions - currentAppTransformNum; i++)
+        for (int i = nextAppTransform; i < appTransforms.Count; i++)
         {
             if (appTransforms[i] != null)
             {
-                freePosition = appTransforms[i - 1].positionOnApp + 1;
-
-                positionTaskOnApp(appTransforms[i]);
+              
+               locationTaskOnAPP(currentAppTransformNum, appTransforms[i]);
             }
             else { return; }
+            currentAppTransformNum++;
         }
     }
 
@@ -170,19 +158,5 @@ public class TaskOnApp_Manager : MonoBehaviour
         TaskManager.instance.tasksList[TaskManager.instance.currentTaskNumOnList].taskOnAppStatus = taskOnAppStatus;
     }
 
-    internal void searchForPositionOnApp()
-    {
-        for (int i = 0; i < appTransformPositions.Count; i++)
-        {
-         if (appTransformPositions[i] != null)
-            {
-                if (appTransformPositions[i].positionStatus == TaskOnAppPosition_Enum.Free)
-                {
-                freePosition= i;
-                    return;
-                }
-
-            }
-        }
-    }
+    
 }
