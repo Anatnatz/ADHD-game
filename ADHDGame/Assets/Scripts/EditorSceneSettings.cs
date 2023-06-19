@@ -45,8 +45,8 @@ public class EditorSceneSettings
     [MenuItem("Edit/Load Last Editted Scene %&SPACE")]
     public static void StopPlayAtLastEdittedScene()
     {
-        lastEdittedScene.RemoveAt(lastEdittedScene.Count - 1);
         EditorSceneManager
             .OpenScene(lastEdittedScene[lastEdittedScene.Count - 1]);
+        lastEdittedScene.RemoveAt(lastEdittedScene.Count - 1);
     }
 }
