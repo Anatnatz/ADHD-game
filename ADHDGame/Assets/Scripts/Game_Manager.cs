@@ -6,15 +6,14 @@ public class Game_Manager : MonoBehaviour
 {
     public static Game_Manager gameInstance;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartGame(int level)
     {
-        gameInstance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        switch (level)
+        {
+            case 1:
+                Debug.Log("level 1");
+                ScenesManager.SwitchToScene("Bedroom");
+                break;
+        }
     }
 }
