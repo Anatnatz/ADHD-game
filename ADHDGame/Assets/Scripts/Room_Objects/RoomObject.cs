@@ -81,7 +81,10 @@ public class RoomObject : MonoBehaviour
         taskButtons.Add(buttonObject.GetComponent<Button>());
         curBtn = buttonObject.GetComponent<Button>();
 
-        buttonObject.transform.SetParent(buttonsSpace.transform);
+        if (buttonsSpace == null)
+            buttonObject.transform.SetParent(canvas.transform);
+        else
+            buttonObject.transform.SetParent(buttonsSpace.transform);
     }
 
     void PositionTaskButton()

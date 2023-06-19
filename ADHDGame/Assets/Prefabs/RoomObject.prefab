@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1561594719851442121}
   m_Layer: 0
   m_Name: ObjectName
-  m_TagString: Untagged
+  m_TagString: ObjectText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6ca9678d09ec3409e73ec40c9fcfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomObject: {fileID: 0}
 --- !u!1 &7192558714798218889
 GameObject:
   m_ObjectHideFlags: 0

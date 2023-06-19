@@ -4,7 +4,12 @@ public enum Object_Enum
     Phone,
     Door,
     Sofa,
-    Refrigerator
-
+    Refrigerator,
+    CupWithWater,
+    Toilet,
+    Sink,
+    DirtyTowel,
+    Toothbrush,
+    Deordorant,
+    Perfume
 }
-
