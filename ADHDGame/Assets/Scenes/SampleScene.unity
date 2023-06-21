@@ -925,6 +925,7 @@ GameObject:
   - component: {fileID: 1256553545}
   - component: {fileID: 1256553547}
   - component: {fileID: 1256553546}
+  - component: {fileID: 1256553548}
   m_Layer: 5
   m_Name: PhoneScroll
   m_TagString: taskApp
@@ -1133,6 +1134,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256553539}
   m_CullTransparentMesh: 1
+--- !u!114 &1256553548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256553539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29de2094f98db2d40b3bd7a989c9318a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627710896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058123008}
+  - component: {fileID: 2058123009}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1358,6 +1372,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058123009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058123007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29de2094f98db2d40b3bd7a989c9318a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2101971556
 PrefabInstance:
   m_ObjectHideFlags: 0
