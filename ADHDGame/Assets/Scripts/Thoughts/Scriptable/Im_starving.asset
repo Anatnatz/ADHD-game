@@ -19,7 +19,7 @@ MonoBehaviour:
   thoughtText: I'm starving!
   thoughtType: 1
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 1
+  thoughtStatus: 0
   RelevantThought: 0
   nagge: 0
   taskType: 2

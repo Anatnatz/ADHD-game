@@ -5,20 +5,13 @@ using UnityEngine;
 public class RoomObjectTrigger : MonoBehaviour
 {
     [SerializeField]
-    Room_Object roomObject;
+    RoomObject roomObject;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (
-            collision.tag == Tags_Enum.Mouse.ToString() &&
-            roomObject.thoughtType != Thought_Enum.None
-        )
+        if (collision.tag == Tags_Enum.Mouse.ToString())
         {
-            Debug.Log(roomObject.thoughtType);
-
-            Thoughts_Manager
-                .ThoughtsInstance
-                .triggerThought(roomObject.thoughtType);
+            roomObject.objectTrigger();
         }
     }
 

@@ -26,7 +26,7 @@ public class Thought : ScriptableObject
 
     public Vector2 thoughtPosition;
 
-    public ThoughtStatus thoughtStatus;
+    public ThoughtStatus thoughtStatus = ThoughtStatus.None;
 
     public bool RelevantThought;
 
