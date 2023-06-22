@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Use
   taskType: 4
-  textInApp: 
+  textInApp: Go to the loo
   duration: 3
   waitingTime: 0
   score: 20

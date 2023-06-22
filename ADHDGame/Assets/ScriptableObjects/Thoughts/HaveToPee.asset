@@ -15,11 +15,11 @@ MonoBehaviour:
   though: 1
   game_object: 0
   task: 0
-  objectType: 0
+  objectType: 6
   thoughtText: I have to PEE!
   thoughtType: 3
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 0
+  thoughtStatus: 3
   RelevantThought: 0
   nagge: 0
-  taskType: 0
+  taskType: 4

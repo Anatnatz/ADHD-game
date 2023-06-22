@@ -20,4 +20,4 @@ MonoBehaviour:
   timeToAppeare: 0
   thoughtType: 3
   thoughtPosition: {x: 0, y: 0}
-  taskType: 0
+  taskType: 4
