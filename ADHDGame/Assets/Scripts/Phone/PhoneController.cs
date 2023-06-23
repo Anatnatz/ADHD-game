@@ -20,6 +20,13 @@ public class PhoneController : MonoBehaviour
     [SerializeField]
     private TMP_Text timeText;
 
+    [Header("Apps")]
+    [SerializeField]
+    private GameObject allApps;
+
+    [SerializeField]
+    private GameObject todoApp;
+
     void Start()
     {
         FormatTime();
@@ -66,5 +73,19 @@ public class PhoneController : MonoBehaviour
         {
             timeText.SetText(hours + ":" + minutes);
         }
+    }
+
+    public void OpenTaskApp()
+    {
+        allApps.SetActive(false);
+        todoApp.SetActive(true);
+    }
+
+    public void BackToAllApps()
+    {
+        allApps.SetActive(true);
+        todoApp.SetActive(false);
+
+        //set all apps to false active
     }
 }
