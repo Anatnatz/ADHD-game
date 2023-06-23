@@ -4,8 +4,20 @@ public enum Task_Enum
     wash_dishes,
     eat_breakfast,
     Drink_water,
-    use_toilet,
-    wash_hands,
-    brush_teeth,
-    use_general_object
+    use_general_object,
+    Go_to_the_loo,
+    Do_laundry,
+    Get_dressed,
+    Put_away_clean_cloths,
+    Make_the_bed,
+    Make_coffee,
+    Make_lunch,
+    Feed_the_fish,
+    Take_the_wallet,
+    Take_The_bag,
+    Wash_hands,
+    Take_a_keys
+
+
+
 }

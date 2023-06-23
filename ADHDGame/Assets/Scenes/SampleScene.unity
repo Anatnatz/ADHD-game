@@ -138,6 +138,19 @@ MonoBehaviour:
   roomObject: {fileID: 0}
   tasksList:
   - {fileID: 11400000, guid: e48ed5edfd923a6439244102fda155c9, type: 2}
+  - {fileID: 11400000, guid: 91423ba30efe5f94a9df71d35d5d9354, type: 2}
+  - {fileID: 11400000, guid: 8a0bdfa0307400240a8d763f95155b1f, type: 2}
+  - {fileID: 11400000, guid: a81f6d557e442664b8d070317bf35412, type: 2}
+  - {fileID: 11400000, guid: 42c7bd27467b288409780534c167ef01, type: 2}
+  - {fileID: 11400000, guid: caf7b39f0a44d034da75697d836fe52c, type: 2}
+  - {fileID: 11400000, guid: 96d65d7ff53605540a92340994c7ccee, type: 2}
+  - {fileID: 11400000, guid: d52d33d2cc3021d409e7b23ec477a91e, type: 2}
+  - {fileID: 11400000, guid: 920e74493272673458bb1e46cda48138, type: 2}
+  - {fileID: 11400000, guid: 80e5c634cbd5c044aba571d16cfdeb79, type: 2}
+  - {fileID: 11400000, guid: 39718d22e7c04e14da4d144c6e975d52, type: 2}
+  - {fileID: 11400000, guid: 8b8209d40743c534e8f0c93fb3ab61ad, type: 2}
+  - {fileID: 11400000, guid: fa74d149182aa454baf4a6cb92b1ab87, type: 2}
+  - {fileID: 11400000, guid: e66f23f634def2c43bec50b6f7fcf2d9, type: 2}
   currentTaskNumOnList: 0
 --- !u!4 &75799783
 Transform:
@@ -1243,6 +1256,13 @@ MonoBehaviour:
   thoughtsList_:
   - {fileID: 11400000, guid: 972daf24822badf41b4f7f4bf0d42f2f, type: 2}
   - {fileID: 11400000, guid: 87dad16a91810804ba6d465eea374795, type: 2}
+  - {fileID: 11400000, guid: 1159837408de2f041a95e9177795c445, type: 2}
+  - {fileID: 11400000, guid: aae7877192c761f46b63fc67947dadd4, type: 2}
+  - {fileID: 11400000, guid: 0a3edab5e58d4744c85e221b813f152b, type: 2}
+  - {fileID: 11400000, guid: 9e7659a947571864c80797320c6bc1b6, type: 2}
+  - {fileID: 11400000, guid: 298facc884eaa6545bfdb89146d2a634, type: 2}
+  - {fileID: 11400000, guid: 301d91504db74de439a19de04bafa1a8, type: 2}
+  - {fileID: 11400000, guid: 301d91504db74de439a19de04bafa1a8, type: 2}
   thought_Transforms: []
   thought_Transform_Prefab: {fileID: 1535456658511296721, guid: 5b183ac716390e04db11c2bb9f0df218, type: 3}
   currentThoughtNum: 0
