@@ -27,6 +27,10 @@ public class PhoneController : MonoBehaviour
     [SerializeField]
     private GameObject todoApp;
 
+    [Header("MiniPhone")]
+    [SerializeField]
+    private GameObject miniPhone;
+
     void Start()
     {
         FormatTime();
@@ -87,5 +91,19 @@ public class PhoneController : MonoBehaviour
         todoApp.SetActive(false);
 
         //set all apps to false active
+    }
+
+    public void TogglePhone()
+    {
+        if (gameObject.activeSelf)
+        {
+            gameObject.SetActive(false);
+            miniPhone.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+            miniPhone.SetActive(false);
+        }
     }
 }
