@@ -67,8 +67,7 @@ public class TaskOnApp_Manager : MonoBehaviour
 
         searchForTransformOnLIst(newAppTransform.transform.name);
 
-        locationTaskOnAPP (currentAppTransformNum, newAppTransform);
-
+        // locationTaskOnAPP (currentAppTransformNum, newAppTransform);
         ChangeTaskOnAppStatus(TextOnApp_Enum.Appeared, currentAppTransformNum);
         newAppTransform.transform.SetParent (taskOnAppParent);
     }
