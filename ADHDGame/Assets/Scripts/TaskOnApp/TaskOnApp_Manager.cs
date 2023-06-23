@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskOnApp_Manager : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     public List<AppTransform> deletedFromAppTasks;
 
     [SerializeField]
-    AppTransform appTransform_Prefab;
+    GameObject appTransform_Prefab;
 
     [SerializeField]
     int currentAppTransformNum;
@@ -46,7 +48,8 @@ public class TaskOnApp_Manager : MonoBehaviour
     public void createTaskOnAppTransform(Task_Enum taskType)
     {
         //create new appTransform
-        AppTransform newAppTransform = Instantiate(appTransform_Prefab);
+        GameObject newAppTask = Instantiate(appTransform_Prefab);
+        AppTransform newAppTransform = newAppTask.GetComponent<AppTransform>();
         serialNum++;
 
         //insert AppTransform info
@@ -57,6 +60,9 @@ public class TaskOnApp_Manager : MonoBehaviour
 
         //changeText:
         newAppTransform.appTransformText = currentTask.textInApp;
+        TMP_Text appTaskTxt =
+            newAppTask.transform.GetChild(1).GetComponent<TMP_Text>();
+        appTaskTxt.SetText(currentTask.textInApp);
         newAppTransform.changeText();
 
         //change name:

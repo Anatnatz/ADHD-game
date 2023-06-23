@@ -79,8 +79,8 @@ public class RoomObject : MonoBehaviour
 
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
         buttonObject.name = name;
-        taskButtons.Add(buttonObject.GetComponent<Button>());
         curBtn = buttonObject.GetComponent<Button>();
+        taskButtons.Add(curBtn);
 
         if (buttonsSpace == null)
             buttonObject.transform.SetParent(canvas.transform);

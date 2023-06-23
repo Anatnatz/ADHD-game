@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8754532081928412264}
   - component: {fileID: 4185133197722052563}
   m_Layer: 5
-  m_Name: TaskText
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265778187026018460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -526,7 +526,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2558739629929159127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2151239472077259417}
+        m_TargetAssemblyTypeName: buttonsApp, Assembly-CSharp
+        m_MethodName: MarkAsDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8247103531103558137
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,4 +769,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112192443738163431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2151239472077259417}
+        m_TargetAssemblyTypeName: buttonsApp, Assembly-CSharp
+        m_MethodName: deleteFromApp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
