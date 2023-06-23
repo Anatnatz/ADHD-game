@@ -128,8 +128,11 @@ public class RoomObject : MonoBehaviour
 
     public void objectTrigger()
     {
-        Thoughts_Manager
-            .ThoughtsInstance
-            .triggerThought(relatedThoughts[currentThought]);
+        if (relatedThoughts != null && relatedThoughts.Count > 0)
+        {
+            Thoughts_Manager
+                .ThoughtsInstance
+                .triggerThought(relatedThoughts[currentThought]);
+        }
     }
 }
