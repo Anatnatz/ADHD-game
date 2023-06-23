@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class PhoneController : MonoBehaviour
 {
+    [Header("Game minute duration in seconds")]
+    [SerializeField]
+    private float gameMinute;
+
+    [Header("Start Time")]
     [SerializeField]
     private int hours;
 
@@ -23,7 +28,7 @@ public class PhoneController : MonoBehaviour
 
     IEnumerator ChangeTime()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(gameMinute);
         if (minutes < 59)
         {
             minutes++;
