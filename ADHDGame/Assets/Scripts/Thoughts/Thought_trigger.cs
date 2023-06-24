@@ -15,8 +15,9 @@ public class Thought_trigger : MonoBehaviour
         instance = this;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void TriggerThought(Collider2D other)
     {
+        Debug.Log("trigger");
         if (other.tag == "taskApp")
         {
             Debug.Log("push to taskApp ");
