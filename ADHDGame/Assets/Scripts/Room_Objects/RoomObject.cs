@@ -65,11 +65,10 @@ public class RoomObject : MonoBehaviour
         foreach (Task relatedTask in relatedTasks)
         {
             CreateTaskButton(relatedTask.taskName);
-
-            PositionTaskButton();
             NameTaskButton(relatedTask.taskName);
         }
         CreateTaskListeners();
+        TaskButtonController.instance.ButtonsChanged();
     }
 
     void CreateTaskButton(string name)
@@ -80,7 +79,7 @@ public class RoomObject : MonoBehaviour
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
         buttonObject.name = name;
         curBtn = buttonObject.GetComponent<Button>();
-        taskButtons.Add(curBtn);
+        taskButtons.Add (curBtn);
 
         if (buttonsSpace == null)
             buttonObject.transform.SetParent(canvas.transform);
@@ -88,17 +87,10 @@ public class RoomObject : MonoBehaviour
             buttonObject.transform.SetParent(buttonsSpace.transform);
     }
 
-    void PositionTaskButton()
-    {
-        RectTransform btnPosition = buttonObject.GetComponent<RectTransform>();
-        btnPosition.anchoredPosition =
-            new Vector2(transform.position.x, transform.position.y);
-    }
-
     void NameTaskButton(string name)
     {
         TextMeshProUGUI btnText =
-            curBtn.GetComponentInChildren<TextMeshProUGUI>();
+            curBtn.GetComponentsInChildren<TextMeshProUGUI>()[1];
         btnText.text = name;
     }
 
@@ -110,7 +102,7 @@ public class RoomObject : MonoBehaviour
         }
     }
 
-    void StartTask(Button taskBtn)
+    public void StartTask(Button taskBtn)
     {
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);

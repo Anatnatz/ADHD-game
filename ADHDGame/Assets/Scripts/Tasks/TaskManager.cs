@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
@@ -43,5 +44,13 @@ public class TaskManager : MonoBehaviour
     {
         searchTaskOnList (taskType);
         tasksList[currentTaskNumOnList].status = status;
+    }
+
+    public void StartTask(Button taskBtn)
+    {
+        string taskName = taskBtn.name;
+        Task curTask = tasksList.Find(t => t.taskName == taskName);
+        curTask.StartTask();
+        Destroy(taskBtn.gameObject);
     }
 }
