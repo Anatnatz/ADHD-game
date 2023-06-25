@@ -6,11 +6,7 @@ using UnityEngine;
 
 public class Room_Object : ScriptableObject
 {
-    public bool though;
-
-    public bool game_object;
-
-    public bool task;
+   
 
 
     [Header("Game_Object")]
