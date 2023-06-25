@@ -1,10 +1,10 @@
-
-public enum Task_Enum 
+public enum Task_Enum
 {
     None = 0,
     wash_dishes,
     eat_breakfast,
     Drink_water,
+    use_general_object,
     Go_to_the_loo,
     Do_laundry,
     Get_dressed,
@@ -17,6 +17,7 @@ public enum Task_Enum
     Take_The_bag,
     Wash_hands,
     Take_a_keys
+
 
 
 }

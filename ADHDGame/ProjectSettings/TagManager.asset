@@ -12,6 +12,7 @@ TagManager:
   - '   Room_Object '
   - ObjectText
   - Mouse
+  - TaskAppUI
   layers:
   - Default
   - TransparentFX

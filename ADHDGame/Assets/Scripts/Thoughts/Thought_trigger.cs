@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class Thought_trigger : MonoBehaviour
-
 {
     [SerializeField]
     thought_Transform thought_Transform;
 
-    private void OnTriggerEnter2D (Collider2D other)
+    public static Thought_trigger instance;
+
+    void Awake()
     {
+        instance = this;
+    }
 
-
+    public void TriggerThought(Collider2D other)
+    {
+        Debug.Log("trigger");
         if (other.tag == "taskApp")
         {
             Debug.Log("push to taskApp ");
@@ -22,13 +27,10 @@ public class Thought_trigger : MonoBehaviour
             thought_Transform.updateNumOfAppearanceOnApp();
             Destroy(thought_Transform.gameObject);
             Destroy(this);
-           
         }
 
         if (other.tag == "border")
         {
-           
-
             Debug.Log("ignore task ");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
@@ -36,18 +38,4 @@ public class Thought_trigger : MonoBehaviour
             Destroy(this);
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-        
 }
-

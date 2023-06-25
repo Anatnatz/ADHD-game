@@ -1,12 +1,12 @@
-
-public enum Tags_Enum 
+public enum Tags_Enum
 {
-   None,
-   phone,
-   border,
-   taskApp,
-   Thought,
-   Room_Object,
-   Mouse,
-   DeleteTaskApp
+    None,
+    phone,
+    border,
+    taskApp,
+    Thought,
+    Room_Object,
+    Mouse,
+    DeleteTaskApp,
+    TaskAppUI
 }

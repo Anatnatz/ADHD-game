@@ -38,10 +38,9 @@ public class RoomObject : MonoBehaviour
 
     void SetObjectText()
     {
-        objectText = GameObject.FindWithTag("ObjectText");
-        TextMesh objTxtComponent =
-            gameObject.GetComponentInChildren<TextMesh>();
-        Debug.Log(objTxtComponent);
+        TextMesh objTxtComponent = transform.GetComponentInChildren<TextMesh>();
+        objectText = objTxtComponent.gameObject;
+        Debug.Log (objTxtComponent);
         objTxtComponent.text = objectName;
         objectText.SetActive(false);
     }
@@ -66,11 +65,10 @@ public class RoomObject : MonoBehaviour
         foreach (Task relatedTask in relatedTasks)
         {
             CreateTaskButton(relatedTask.taskName);
-
-            PositionTaskButton();
             NameTaskButton(relatedTask.taskName);
         }
         CreateTaskListeners();
+        TaskButtonController.instance.ButtonsChanged();
     }
 
     void CreateTaskButton(string name)
@@ -80,23 +78,19 @@ public class RoomObject : MonoBehaviour
 
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
         buttonObject.name = name;
-        taskButtons.Add(buttonObject.GetComponent<Button>());
         curBtn = buttonObject.GetComponent<Button>();
+        taskButtons.Add (curBtn);
 
-        buttonObject.transform.SetParent(buttonsSpace.transform);
-    }
-
-    void PositionTaskButton()
-    {
-        RectTransform btnPosition = buttonObject.GetComponent<RectTransform>();
-        btnPosition.anchoredPosition =
-            new Vector2(transform.position.x, transform.position.y);
+        if (buttonsSpace == null)
+            buttonObject.transform.SetParent(canvas.transform);
+        else
+            buttonObject.transform.SetParent(buttonsSpace.transform);
     }
 
     void NameTaskButton(string name)
     {
         TextMeshProUGUI btnText =
-            curBtn.GetComponentInChildren<TextMeshProUGUI>();
+            curBtn.GetComponentsInChildren<TextMeshProUGUI>()[1];
         btnText.text = name;
     }
 
@@ -108,7 +102,7 @@ public class RoomObject : MonoBehaviour
         }
     }
 
-    void StartTask(Button taskBtn)
+    public void StartTask(Button taskBtn)
     {
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);
@@ -126,9 +120,11 @@ public class RoomObject : MonoBehaviour
 
     public void objectTrigger()
     {
-        
-       
-        Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
-        
+        if (relatedThoughts != null && relatedThoughts.Count > 0)
+        {
+            Thoughts_Manager
+                .ThoughtsInstance
+                .triggerThought(relatedThoughts[currentThought]);
+        }
     }
 }
