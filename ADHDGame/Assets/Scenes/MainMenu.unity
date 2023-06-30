@@ -4116,11 +4116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 636615048367854061, guid: edab6b8c1b1bbbd4081a885d0d19886f, type: 3}
       propertyPath: m_ChildScaleWidth
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 636615048367854061, guid: edab6b8c1b1bbbd4081a885d0d19886f, type: 3}
       propertyPath: m_ChildScaleHeight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 636615048367854061, guid: edab6b8c1b1bbbd4081a885d0d19886f, type: 3}
       propertyPath: m_ChildForceExpandWidth
@@ -4196,7 +4196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2759797917408620489, guid: edab6b8c1b1bbbd4081a885d0d19886f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2759797917408620489, guid: edab6b8c1b1bbbd4081a885d0d19886f, type: 3}
       propertyPath: m_SizeDelta.y

@@ -84,7 +84,6 @@ public class RoomObject : MonoBehaviour
         // if (buttonsSpace == null)
         // buttonObject.transform.SetParent(canvas.transform);
         Vector3 mousePos = Input.mousePosition;
-        Vector3 offSetVector = new Vector3(200f, -100f, 0f);
         buttonsSpace.transform.position = mousePos;
         buttonObject.transform.SetParent(buttonsSpace.transform);
         // buttonObject.transform.position = mousePos + offSetVector;
