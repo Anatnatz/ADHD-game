@@ -37,6 +37,12 @@ public class PhoneController : MonoBehaviour
         StartCoroutine(MoveTime(0));
     }
 
+    public float GetCurrentTime()
+    {
+        float time = hours + (minutes / 100);
+        return time;
+    }
+
     public void ChangeTime(int minInterval)
     {
         if (minutes + minInterval < 60)
