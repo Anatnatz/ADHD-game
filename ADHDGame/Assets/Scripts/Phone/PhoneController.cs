@@ -34,29 +34,34 @@ public class PhoneController : MonoBehaviour
     void Start()
     {
         FormatTime();
-        StartCoroutine(ChangeTime());
+        StartCoroutine(MoveTime(0));
     }
 
-    IEnumerator ChangeTime()
+    public void ChangeTime(int minInterval)
     {
-        yield return new WaitForSeconds(gameMinute);
-        if (minutes < 59)
+        if (minutes + minInterval < 60)
         {
-            minutes++;
+            minutes += minInterval;
         }
         else if (hours < 23)
         {
             hours++;
-            minutes = 0;
+            minutes = (minutes + minInterval) % 60;
         }
         else
         {
             hours = 0;
-            minutes = 0;
+            minutes = (minutes + minInterval) % 60;
         }
 
         FormatTime();
-        StartCoroutine(ChangeTime());
+    }
+
+    IEnumerator MoveTime(int minInterval)
+    {
+        yield return new WaitForSeconds(gameMinute);
+        ChangeTime (minInterval);
+        StartCoroutine(MoveTime(minInterval));
     }
 
     void FormatTime()
@@ -105,5 +110,15 @@ public class PhoneController : MonoBehaviour
             gameObject.SetActive(true);
             miniPhone.SetActive(false);
         }
+    }
+
+    public void MoveTimeXTimes(float x)
+    {
+        gameMinute /= x;
+    }
+
+    public void AddToTime(int addMinutes)
+    {
+        ChangeTime (addMinutes);
     }
 }
