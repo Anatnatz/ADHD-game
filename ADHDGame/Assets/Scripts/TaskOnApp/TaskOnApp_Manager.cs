@@ -28,9 +28,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     [SerializeField]
     int serialNum = 0;
 
-    [SerializeField]
-    int numOfPositions = 4;
-
+ 
     [SerializeField]
     Transform taskOnAppParent;
 
