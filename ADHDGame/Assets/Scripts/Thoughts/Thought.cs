@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class Thought : ScriptableObject
 {
-    public bool though;
-
-    public bool game_object;
-
-    public bool task;
-
+    
 
     [Header("Game_Object")]
 

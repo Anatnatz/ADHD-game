@@ -22,11 +22,11 @@ public class buttonsApp : MonoBehaviour
 
     public void MarkAsDone()
     {
-        TaskOnApp_Manager.TaskOnAppInstance.markAsDoneTaskOnApp(appTransform.gameObject.name);
+        TaskOnApp_Manager.TaskOnAppInstance.changeStatus(appTransform.gameObject.name, TextOnApp_Enum.Marked_As_Done);
     }
 
     public void deleteFromApp()
     {
-        TaskOnApp_Manager.TaskOnAppInstance.DeleteTaskFromApp(appTransform.gameObject.name);
+        TaskOnApp_Manager.TaskOnAppInstance.changeStatus(appTransform.gameObject.name, TextOnApp_Enum.Deleted);
     }
 }

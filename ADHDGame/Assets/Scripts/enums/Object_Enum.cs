@@ -11,5 +11,22 @@ public enum Object_Enum
     DirtyTowel,
     Toothbrush,
     Deordorant,
-    Perfume
+    Perfume,
+    Soap,
+    Bed,
+    Dresser,
+    chair,
+    clothes,
+    Closet,
+    Shoes,
+    Wallet,
+    Table,
+    Keys,
+    Washing_Machine,
+    Coffee_Machine,
+    Pot,
+    Lunch_Box,
+    Bag,
+    Fish
+
 }

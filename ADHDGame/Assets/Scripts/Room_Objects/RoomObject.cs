@@ -68,7 +68,7 @@ public class RoomObject : MonoBehaviour
             NameTaskButton(relatedTask.taskName);
         }
         CreateTaskListeners();
-        TaskButtonController.instance.ButtonsChanged();
+        // TaskButtonController.instance.ButtonsChanged();
     }
 
     void CreateTaskButton(string name)
@@ -124,11 +124,32 @@ public class RoomObject : MonoBehaviour
 
     public void objectTrigger()
     {
+        int numOfTasksDone = 0;
         if (relatedThoughts != null && relatedThoughts.Count > 0)
         {
-            Thoughts_Manager
-                .ThoughtsInstance
-                .triggerThought(relatedThoughts[currentThought]);
-        }
+            if (relatedTasks.Count > 0)
+            {
+
+
+                for (int i = 0; i < relatedTasks.Count; i++)
+                {
+                    if (relatedTasks[i].status != TaskStatus_Enum.Done)
+                    {
+                        numOfTasksDone++;
+                    }
+                }
+
+                if (numOfTasksDone != relatedTasks.Count)
+                {
+                    Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+                }
+            }
+            else
+                {
+                Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+                }
+                   
+                    
+         }
     }
 }

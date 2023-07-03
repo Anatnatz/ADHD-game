@@ -60,8 +60,8 @@ public class Mouse_Controller : MonoBehaviour
                     Debug.Log(hit.transform.name);
 
                     TaskOnApp_Manager
-                        .TaskOnAppInstance
-                        .markAsDoneTaskOnApp(hit.transform.name);
+                        .TaskOnAppInstance.changeStatus(hit.transform.name, TextOnApp_Enum.Marked_As_Done);
+                        
                 }
             }
         }
