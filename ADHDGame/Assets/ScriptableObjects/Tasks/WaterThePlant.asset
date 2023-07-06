@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: StartLaundry
+  m_Name: WaterThePlant
   m_EditorClassIdentifier: 
-  taskName: Start laundry
-  taskType: 6
-  textInApp: Wash Towels
+  taskName: Water
+  taskType: 21
+  textInApp: Water Maya's plant
   duration: 3
-  waitingTime: 5
+  waitingTime: 0
   score: 20
   status: 0
   taskOnAppStatus: 0

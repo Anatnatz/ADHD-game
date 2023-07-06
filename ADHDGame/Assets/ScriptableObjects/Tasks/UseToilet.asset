@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UseToilet
   m_EditorClassIdentifier: 
   taskName: Use
-  taskType: 4
+  taskType: 5
   textInApp: Pee
   duration: 3
   waitingTime: 0

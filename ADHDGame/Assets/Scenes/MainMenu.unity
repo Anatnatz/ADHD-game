@@ -1620,9 +1620,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughtsList_:
-  - {fileID: 11400000, guid: 972daf24822badf41b4f7f4bf0d42f2f, type: 2}
-  - {fileID: 11400000, guid: 87dad16a91810804ba6d465eea374795, type: 2}
   - {fileID: 11400000, guid: fac2d8b61c100a84388a9a5d1422b80a, type: 2}
+  - {fileID: 11400000, guid: 6d5498f2bb58c9c47a9a5e532974786f, type: 2}
+  - {fileID: 11400000, guid: 4dd09bdac258d704aa1546b6c0477ea9, type: 2}
+  - {fileID: 11400000, guid: 294226f3b9eb6c94da696ecfe264fe28, type: 2}
+  - {fileID: 11400000, guid: d7b8e3fc6a03d8d479dc33eeabff6510, type: 2}
+  - {fileID: 11400000, guid: 020c607dc122f5d49b056f5de683c226, type: 2}
+  - {fileID: 11400000, guid: 3bfbb5ec4b03c5c4f9075086b3f79c46, type: 2}
+  - {fileID: 11400000, guid: 927e997c010aa44409c21ebd08a8fb24, type: 2}
+  - {fileID: 11400000, guid: 8eefc47b845e6ce42abc7f113df49b0a, type: 2}
+  - {fileID: 11400000, guid: be1179bfbf799d146932f20c4b498c15, type: 2}
+  - {fileID: 11400000, guid: 84ac75b69215f1c4595a8c3ce979d64f, type: 2}
+  - {fileID: 11400000, guid: dac03f9f42632ee4fb494463181c4dce, type: 2}
   thought_Transforms: []
   thought_Transform_Prefab: {fileID: 971806841306678585, guid: 583d859bf6a80964cabea2868a78ebdb, type: 3}
   currentThoughtNum: 0
@@ -5104,13 +5113,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomObject: {fileID: 0}
   tasksList:
-  - {fileID: 11400000, guid: e48ed5edfd923a6439244102fda155c9, type: 2}
-  - {fileID: 11400000, guid: 49a567f877057134c82956c43d6d5fea, type: 2}
-  - {fileID: 11400000, guid: 87510f452bcb5e9458255563ccd53111, type: 2}
   - {fileID: 11400000, guid: 0f403fa2f2fd83a45b5dd99fb8183390, type: 2}
-  - {fileID: 11400000, guid: 39718d22e7c04e14da4d144c6e975d52, type: 2}
-  - {fileID: 11400000, guid: 42c7bd27467b288409780534c167ef01, type: 2}
+  - {fileID: 11400000, guid: d52d33d2cc3021d409e7b23ec477a91e, type: 2}
   - {fileID: 11400000, guid: 33efdb72783aa0f44938cc393658b89b, type: 2}
+  - {fileID: 11400000, guid: d331020d743ef0440b24b34148372881, type: 2}
+  - {fileID: 11400000, guid: 87510f452bcb5e9458255563ccd53111, type: 2}
+  - {fileID: 11400000, guid: 42c7bd27467b288409780534c167ef01, type: 2}
+  - {fileID: 11400000, guid: 8a7ac9567ad09174eb70cf07bf06e444, type: 2}
+  - {fileID: 11400000, guid: ce8b1b7b01511684ebd60bfeff8ab19d, type: 2}
+  - {fileID: 11400000, guid: db6809d05c8c73b49bd426ae15726c82, type: 2}
+  - {fileID: 11400000, guid: 96d65d7ff53605540a92340994c7ccee, type: 2}
+  - {fileID: 11400000, guid: e66f23f634def2c43bec50b6f7fcf2d9, type: 2}
+  - {fileID: 11400000, guid: aefb03664469ec041b163390413be672, type: 2}
+  - {fileID: 11400000, guid: fa122947d45272b408812f0aa392430e, type: 2}
+  - {fileID: 11400000, guid: 58582f74c47ab4941a76e9f94346061a, type: 2}
+  - {fileID: 11400000, guid: 920e74493272673458bb1e46cda48138, type: 2}
   currentTaskNumOnList: 0
 --- !u!4 &2000705549
 Transform:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Make coffee
   m_EditorClassIdentifier: 
   taskName: Make coffee
-  taskType: 9
+  taskType: 10
   textInApp: Make some coffee
   duration: 3
   waitingTime: 0

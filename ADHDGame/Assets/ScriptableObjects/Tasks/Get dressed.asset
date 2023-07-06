@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Get dressed
   m_EditorClassIdentifier: 
   taskName: Dress up
-  taskType: 6
-  textInApp: 
-  duration: 3
+  taskType: 7
+  textInApp: Get dressed
+  duration: 10
   waitingTime: 0
   score: 20
   status: 0

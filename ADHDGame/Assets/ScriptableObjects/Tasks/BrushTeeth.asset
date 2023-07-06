@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BrushTeeth
   m_EditorClassIdentifier: 
   taskName: Brush teeth
-  taskType: 6
+  taskType: 17
   textInApp: Brush Teeth
   duration: 3
-  waitingTime: 10
+  waitingTime: 0
   score: 20
   status: 0
   taskOnAppStatus: 0

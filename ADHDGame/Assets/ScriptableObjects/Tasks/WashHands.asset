@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WashHands
   m_EditorClassIdentifier: 
   taskName: Wash hands
-  taskType: 5
+  taskType: 15
   textInApp: 
   duration: 3
   waitingTime: 0
