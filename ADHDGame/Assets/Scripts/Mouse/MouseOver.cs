@@ -1,20 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MouseOver : MonoBehaviour
 {
     [SerializeField]
-    Room_Object roomObject;
-    [SerializeField]
-    Thoughts_Manager Thoughts_Manager;
+    public TMP_Text info;
 
 
-    private void OnTriggerEnter2D(Collider2D other)
 
+    public void OnMouseEnter()
     {
-        Debug.Log(roomObject.thoughtType);
-        Thoughts_Manager.triggerThought(roomObject.thoughtType);
+        Debug.Log("trigger");
+
+        if (this.transform.tag == Tags_Enum.Message.ToString())
+        {
+            Debug.Log("trigger");
+            info.gameObject.SetActive(true);
+            info.text = "Read more";
+        }
+
+        if (this.transform.tag == Tags_Enum.Xmessage.ToString())
+        {
+            info.gameObject.SetActive(true);
+            info.text = "Read Later";
+        }
+
     }
 
+    public void OnMouseExit()
+    {
+        if (this.transform.tag == Tags_Enum.Message.ToString())
+        {
+            info.gameObject.SetActive(false);
+            info.text = "";
+        }
+
+        if (this.transform.tag == Tags_Enum.Xmessage.ToString())
+        {
+            info.gameObject.SetActive(false);
+            info.text = "";
+        }
+
+    }
 }

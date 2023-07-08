@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PhoneController : MonoBehaviour
 {
+    public PhoneStatus_Enum phoneStatus;
+
     [Header("Game minute duration in seconds")]
     [SerializeField]
     private float gameMinute;
@@ -26,6 +29,12 @@ public class PhoneController : MonoBehaviour
 
     [SerializeField]
     private GameObject todoApp;
+
+    [SerializeField]
+    private GameObject messagesApp;
+
+    [SerializeField]
+    private GameObject messageOnApp;
 
     [Header("MiniPhone")]
     [SerializeField]
@@ -93,16 +102,39 @@ public class PhoneController : MonoBehaviour
     public void OpenTaskApp()
     {
         allApps.SetActive(false);
+        messagesApp.SetActive(false);
+        messageOnApp.SetActive(false);
         todoApp.SetActive(true);
+        
+
     }
 
+    public void OpenmessagesApp()
+    {
+        allApps.SetActive(false);
+        todoApp.SetActive(false);
+        messageOnApp.SetActive(false);
+        messagesApp.SetActive(true);
+    }
+    public void OpenMessagePanel()
+    {
+        allApps.SetActive(false);
+        todoApp.SetActive(false);
+        messagesApp.SetActive(false);
+        messageOnApp.SetActive(true);
+
+    }
     public void BackToAllApps()
     {
         allApps.SetActive(true);
         todoApp.SetActive(false);
+        messagesApp.SetActive(false);
+        messageOnApp.SetActive(false);
 
         //set all apps to false active
     }
+   
+   
 
     public void TogglePhone()
     {
@@ -110,11 +142,13 @@ public class PhoneController : MonoBehaviour
         {
             gameObject.SetActive(false);
             miniPhone.SetActive(true);
+            phoneStatus= PhoneStatus_Enum.ClosePhone;
         }
         else
         {
             gameObject.SetActive(true);
             miniPhone.SetActive(false);
+            phoneStatus= PhoneStatus_Enum.OpenPhone;
         }
     }
 
