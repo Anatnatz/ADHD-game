@@ -8,5 +8,7 @@ public enum Tags_Enum
     Room_Object,
     Mouse,
     DeleteTaskApp,
-    TaskAppUI
+    TaskAppUI,
+    Message,
+    Xmessage
 }

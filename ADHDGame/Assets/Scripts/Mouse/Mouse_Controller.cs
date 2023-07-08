@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
@@ -20,6 +21,11 @@ public class Mouse_Controller : MonoBehaviour
 
     [SerializeField]
     Transform mouseTransform;
+    
+    [SerializeField]
+    MessageController messageController;
+    [SerializeField]
+    public TMP_Text transformText;
 
     void Start()
     {
@@ -28,11 +34,13 @@ public class Mouse_Controller : MonoBehaviour
 
     void Update()
     {
-        float mousePositionx =
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 0.1f;
-        float mousePositiony =
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+        float mousePositionx =  Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 0.1f;
+        float mousePositiony =  Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
         mouseTransform.position = new Vector2(mousePositionx, mousePositiony);
+       
+      //  float transformTextPositionX = mouseTransform.position.x + 1f;
+        //float transformTextPositionY = mouseTransform.position.y;
+        //transformText.transform.position = new Vector2(transformTextPositionX, transformTextPositionY);
 
         //GetMouseButtonDown:
         if (Input.GetMouseButtonDown(0))
@@ -63,6 +71,8 @@ public class Mouse_Controller : MonoBehaviour
                         .TaskOnAppInstance.changeStatus(hit.transform.name, TextOnApp_Enum.Marked_As_Done);
                         
                 }
+
+               
             }
         }
         else if (Input.GetMouseButtonUp(0))
