@@ -16,7 +16,11 @@ public enum Thought_Enum
     Water_the_plant,
     Gotta_GO_poop,
     Chilly_out,
-    Cant_wash_towel
+    Cant_wash_towel,
+    Almost_late,
+    cold_water,
+    Hope_the_water_hot,
+    
 
 
 }
