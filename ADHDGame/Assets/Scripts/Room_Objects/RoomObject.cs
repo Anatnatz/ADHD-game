@@ -68,7 +68,7 @@ public class RoomObject : MonoBehaviour
             NameTaskButton(relatedTask.taskName);
         }
         CreateTaskListeners();
-        TaskButtonController.instance.ButtonsChanged();
+        // TaskButtonController.instance.ButtonsChanged();
     }
 
     void CreateTaskButton(string name)
@@ -81,10 +81,14 @@ public class RoomObject : MonoBehaviour
         curBtn = buttonObject.GetComponent<Button>();
         taskButtons.Add (curBtn);
 
-        if (buttonsSpace == null)
-            buttonObject.transform.SetParent(canvas.transform);
-        else
-            buttonObject.transform.SetParent(buttonsSpace.transform);
+        // if (buttonsSpace == null)
+        // buttonObject.transform.SetParent(canvas.transform);
+        Vector3 mousePos = Input.mousePosition;
+        buttonsSpace.transform.position = mousePos;
+        buttonObject.transform.SetParent(buttonsSpace.transform);
+        // buttonObject.transform.position = mousePos + offSetVector;
+        // else
+        //     buttonObject.transform.SetParent(buttonsSpace.transform);
     }
 
     void NameTaskButton(string name)

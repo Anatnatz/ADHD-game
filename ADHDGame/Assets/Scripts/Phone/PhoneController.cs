@@ -43,30 +43,40 @@ public class PhoneController : MonoBehaviour
     void Start()
     {
         FormatTime();
-        StartCoroutine(ChangeTime());
-       // BackToAllApps();
+        StartCoroutine(MoveTime(0));
     }
 
-    IEnumerator ChangeTime()
+    public float GetCurrentTime()
     {
-        yield return new WaitForSeconds(gameMinute);
-        if (minutes < 59)
+        float time = hours + (minutes / 100);
+        return time;
+    }
+
+    public void ChangeTime(int minInterval)
+    {
+        if (minutes + minInterval < 60)
         {
-            minutes++;
+            minutes += minInterval;
         }
         else if (hours < 23)
         {
             hours++;
-            minutes = 0;
+            minutes = (minutes + minInterval) % 60;
         }
         else
         {
             hours = 0;
-            minutes = 0;
+            minutes = (minutes + minInterval) % 60;
         }
 
         FormatTime();
-        StartCoroutine(ChangeTime());
+    }
+
+    IEnumerator MoveTime(int minInterval)
+    {
+        yield return new WaitForSeconds(gameMinute);
+        ChangeTime (minInterval);
+        StartCoroutine(MoveTime(minInterval));
     }
 
     void FormatTime()
@@ -142,5 +152,13 @@ public class PhoneController : MonoBehaviour
         }
     }
 
-  
+    public void MoveTimeXTimes(float x)
+    {
+        gameMinute /= x;
+    }
+
+    public void AddToTime(int addMinutes)
+    {
+        ChangeTime (addMinutes);
+    }
 }

@@ -49,7 +49,6 @@ public class TaskButtonController : MonoBehaviour
         else
         {
             taskButtons = null;
-            Debug.Log("huu");
 
             taskInfoPanel.SetActive(false);
         }
@@ -60,13 +59,13 @@ public class TaskButtonController : MonoBehaviour
         if (taskButtons != null && taskButtons.Count > 0)
         {
             ShowParent(durationObject.transform.parent.gameObject);
-            if (Input.GetKeyDown("right"))
+            if (Input.GetKeyDown("up"))
             {
                 selection = (selection + 1) % taskButtons.Count;
                 ReactivateButtons();
             }
 
-            if (Input.GetKeyDown("left"))
+            if (Input.GetKeyDown("down"))
             {
                 selection--;
                 if (selection < 0)

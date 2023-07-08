@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: HaveToPee
   m_EditorClassIdentifier: 
-  though: 1
-  game_object: 0
-  task: 0
   objectType: 6
   thoughtText: I have to PEE!
-  thoughtType: 3
+  thoughtType: 5
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 3
+  thoughtStatus: 0
   RelevantThought: 0
   nagge: 0
   taskType: 4
