@@ -11,7 +11,14 @@ DraggableItem
     [HideInInspector]
     public Transform parentAfterDrag;
 
+    public Thought_trigger thoughtTrigger;
+
     bool isDragging = false;
+
+    void Start()
+    {
+        thoughtTrigger = transform.GetComponent<Thought_trigger>();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -29,7 +36,6 @@ DraggableItem
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        InfoManager.instance.SendInfoMessage("Thought added to the todo list");
         transform.SetParent(parentAfterDrag);
         isDragging = false;
     }
@@ -39,7 +45,8 @@ DraggableItem
         Debug.Log("trigger");
         if (isDragging)
         {
-            Thought_trigger.instance.TriggerThought(other);
+            InfoManager.instance.SendInfoMessage("Thought added to the todo list");
+            thoughtTrigger.TriggerThought(other);
         }
     }
 }

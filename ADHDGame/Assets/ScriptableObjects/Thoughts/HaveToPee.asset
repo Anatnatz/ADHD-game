@@ -16,7 +16,7 @@ MonoBehaviour:
   thoughtText: I have to PEE!
   thoughtType: 5
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 0
+  thoughtStatus: 3
   RelevantThought: 0
   nagge: 0
-  taskType: 4
+  taskType: 5

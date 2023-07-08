@@ -43,7 +43,7 @@ public class Thoughts_Manager : MonoBehaviour
             thoughtGameObject.GetComponent<thought_Transform>();
         newThought.thoughtType = thoughtType;
 
-        searchForThoughtType (thoughtType);
+        searchForThoughtType(thoughtType);
 
         newThought.thoughtText = thoughtsList_[currentThoughtNum].thoughtText;
         TMP_Text thoughtTxt =
@@ -52,9 +52,9 @@ public class Thoughts_Manager : MonoBehaviour
         newThought.changeText();
         newThought.name = thoughtsList_[currentThoughtNum].thoughtText;
 
-        newThought.transform.SetParent (thoughtsParent);
+        newThought.transform.SetParent(thoughtsParent);
         changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);
-        thought_Transforms.Add (newThought);
+        thought_Transforms.Add(newThought);
     }
 
     public void searchForThoughtType(Thought_Enum lookForThoughtType)
@@ -70,12 +70,12 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
-        searchForThoughtType (thoughtType);
+        searchForThoughtType(thoughtType);
 
         if (thoughtsList_[currentThoughtNum].thoughtStatus == ThoughtStatus.None
         )
         {
-            createThought (thoughtType);
+            createThought(thoughtType);
         }
     }
 
@@ -84,12 +84,12 @@ public class Thoughts_Manager : MonoBehaviour
         ThoughtStatus thoughtStatus
     )
     {
-        searchForThoughtType (thoughtType);
+        searchForThoughtType(thoughtType);
         thoughtsList_[currentThoughtNum].thoughtStatus = thoughtStatus;
     }
 
     internal void updateNumOfAppearanceOnApp(Thought_Enum thoughtType)
     {
-        searchForThoughtType (thoughtType);
+        searchForThoughtType(thoughtType);
     }
 }

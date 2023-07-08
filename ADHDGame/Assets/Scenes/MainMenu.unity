@@ -2975,10 +2975,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thoughtsList_:
-  - {fileID: 11400000, guid: fac2d8b61c100a84388a9a5d1422b80a, type: 2}
   - {fileID: 11400000, guid: 6d5498f2bb58c9c47a9a5e532974786f, type: 2}
   - {fileID: 11400000, guid: 4dd09bdac258d704aa1546b6c0477ea9, type: 2}
+  - {fileID: 11400000, guid: fac2d8b61c100a84388a9a5d1422b80a, type: 2}
   - {fileID: 11400000, guid: 294226f3b9eb6c94da696ecfe264fe28, type: 2}
+  - {fileID: 11400000, guid: b27483cf4ac771e498a928cf5298faa2, type: 2}
+  - {fileID: 11400000, guid: 7b6e6031cd57a6b40adb8fd70fca9ecb, type: 2}
   - {fileID: 11400000, guid: d7b8e3fc6a03d8d479dc33eeabff6510, type: 2}
   - {fileID: 11400000, guid: 020c607dc122f5d49b056f5de683c226, type: 2}
   - {fileID: 11400000, guid: 3bfbb5ec4b03c5c4f9075086b3f79c46, type: 2}
@@ -2987,6 +2989,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: be1179bfbf799d146932f20c4b498c15, type: 2}
   - {fileID: 11400000, guid: 84ac75b69215f1c4595a8c3ce979d64f, type: 2}
   - {fileID: 11400000, guid: dac03f9f42632ee4fb494463181c4dce, type: 2}
+  - {fileID: 11400000, guid: 9aee7f33d65cccf45876337b41ddab46, type: 2}
   thought_Transforms: []
   thought_Transform_Prefab: {fileID: 971806841306678585, guid: 583d859bf6a80964cabea2868a78ebdb, type: 3}
   currentThoughtNum: 0
@@ -7635,6 +7638,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fa122947d45272b408812f0aa392430e, type: 2}
   - {fileID: 11400000, guid: 58582f74c47ab4941a76e9f94346061a, type: 2}
   - {fileID: 11400000, guid: 920e74493272673458bb1e46cda48138, type: 2}
+  - {fileID: 11400000, guid: 9a92e034a0f8d274184895341822f847, type: 2}
+  - {fileID: 11400000, guid: a81f6d557e442664b8d070317bf35412, type: 2}
+  - {fileID: 11400000, guid: 8a0bdfa0307400240a8d763f95155b1f, type: 2}
   currentTaskNumOnList: 0
 --- !u!4 &2000705549
 Transform:

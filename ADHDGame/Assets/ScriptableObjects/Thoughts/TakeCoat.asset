@@ -19,4 +19,4 @@ MonoBehaviour:
   thoughtStatus: 0
   RelevantThought: 0
   nagge: 0
-  taskType: 0
+  taskType: 23

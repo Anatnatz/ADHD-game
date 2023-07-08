@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcefcf71e37f90c46a23fece5e499466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thoughtType: 3
+  thoughtType: 0
   taskType: 0
   thoughtPosition: {x: 300, y: 300}
   thoughtText: I have to PEE!
