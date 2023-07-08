@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: This_towel_smells
   m_EditorClassIdentifier: 
-  though: 0
-  game_object: 0
-  task: 0
   objectType: 0
   thoughtText: ' Thought''This towel smells like a wet dog, I have to do a washing
     Text'
@@ -24,3 +21,9 @@ MonoBehaviour:
   RelevantThought: 0
   nagge: 0
   taskType: 6
+  followingMessagesWhenAppeared: 
+  followingThoughtsWhenAppeared: 
+  followingMessagesWhenDeleted: 
+  followingThoughtsWhenDeleted: 
+  followingMessagesWhenPushToApp: 
+  followingThoughtsWhenPushToApp: 
