@@ -80,7 +80,6 @@ public class TaskButtonController : MonoBehaviour
                 taskInfoPanel.SetActive(false);
                 TaskManager.instance.StartTask(taskButtons[selection]);
                 DestroyButtons();
-                Debug.Log("huu");
             }
         }
         else
@@ -117,11 +116,11 @@ public class TaskButtonController : MonoBehaviour
 
         if (waitingTime == 0)
         {
-            HideParent (waitingObject);
+            HideParent(waitingObject);
         }
         else
         {
-            ShowParent (waitingObject);
+            ShowParent(waitingObject);
         }
     }
 

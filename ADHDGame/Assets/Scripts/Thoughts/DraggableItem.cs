@@ -29,8 +29,8 @@ DraggableItem
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End drag");
-        transform.SetParent (parentAfterDrag);
+        InfoManager.instance.SendInfoMessage("Thought added to the todo list");
+        transform.SetParent(parentAfterDrag);
         isDragging = false;
     }
 
@@ -39,7 +39,7 @@ DraggableItem
         Debug.Log("trigger");
         if (isDragging)
         {
-            Thought_trigger.instance.TriggerThought (other);
+            Thought_trigger.instance.TriggerThought(other);
         }
     }
 }
