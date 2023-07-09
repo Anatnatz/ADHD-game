@@ -5,7 +5,7 @@ public enum Task_Enum
     eat_breakfast,
     Drink_water,
     use_general_object,
-    Go_to_the_loo,
+    Pee,
     Do_laundry,
     Get_dressed,
     Put_away_clean_cloths,
@@ -16,8 +16,15 @@ public enum Task_Enum
     Take_the_wallet,
     Take_The_bag,
     Wash_hands,
-    Take_a_keys
-
+    Take_a_keys,
+    Brush_teeth,
+    Dry_hands,
+    Unload_dishes,
+    Use_lunchbox,
+    Water_plant,
+    Poop,
+    Take_coat,
+    Turn_on_Coffemaker
 
 
 }

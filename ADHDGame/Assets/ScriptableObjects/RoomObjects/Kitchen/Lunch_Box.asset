@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d546722e77077c94d9f636afb282ed47, type: 3}
   m_Name: Lunch_Box
   m_EditorClassIdentifier: 
-  though: 0
-  game_object: 0
-  task: 0
   objectName: Lunch Box
   objectType: 25
   timeToAppeare: 0
   thoughtType: 0
   thoughtPosition: {x: 0, y: 0}
-  taskType: 0
+  taskType: 11

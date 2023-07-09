@@ -25,7 +25,7 @@ public class Task : ScriptableObject
     public TaskStatus_Enum status;
 
     public TextOnApp_Enum taskOnAppStatus;
-    
+
 
     // public Status_Enum smtatus;
     public Animation animation;
@@ -61,22 +61,25 @@ public class Task : ScriptableObject
             waitingOnTask.status == TaskStatus_Enum.Done
         )
         {
-            Debug.Log("starting task" + taskName);
+            InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
 
             //play animation
             TaskManager.instance.StartCoroutine(WaitForDuration());
         }
         else
         {
-            Debug.Log("task failed to start" + taskName);
+            InfoManager.instance.SendInfoMessage("Can't start " + taskName + " until " + waitingOnTask.taskName + " is done");
         }
     }
 
     public IEnumerator WaitForTask()
     {
-        Debug.Log("waiting on task to finish" + taskName);
+
+        InfoManager.instance.SendInfoMessage(taskName + "will be done in " + waitingTime + " minutes");
         yield return new WaitForSeconds(waitingTime);
-        Debug.Log("task is ready" + taskName);
+
+        InfoManager.instance.SendInfoMessage(taskName + " is ready!");
+
         status = TaskStatus_Enum.Done;
     }
 
@@ -86,7 +89,10 @@ public class Task : ScriptableObject
         yield return new WaitForSeconds(duration);
 
         //end animation
-        TaskManager.instance.StartCoroutine(WaitForTask());
+        if (waitingTime > 0)
+        {
+            TaskManager.instance.StartCoroutine(WaitForTask());
+        }
     }
 
 

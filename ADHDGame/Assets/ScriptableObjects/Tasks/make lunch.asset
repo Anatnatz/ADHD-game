@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: make lunch
   m_EditorClassIdentifier: 
   taskName: Make lunch
-  taskType: 10
+  taskType: 11
   textInApp: Prepare lunch for later
   duration: 3
   waitingTime: 0

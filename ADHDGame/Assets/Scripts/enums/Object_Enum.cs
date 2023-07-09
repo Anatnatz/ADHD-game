@@ -27,6 +27,9 @@ public enum Object_Enum
     Pot,
     Lunch_Box,
     Bag,
-    Fish
+    Fish,
+    DishWasher,
+    Plants,
+    Coat
 
 }

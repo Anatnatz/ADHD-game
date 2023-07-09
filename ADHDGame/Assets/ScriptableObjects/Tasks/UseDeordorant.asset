@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: Wash hands
+  m_Name: UseDeordorant
   m_EditorClassIdentifier: 
-  taskName: Wash hands
-  taskType: 14
-  textInApp: Wash hands
+  taskName: Spray
+  taskType: 4
+  textInApp: Put some deordorant
   duration: 3
   waitingTime: 0
   score: 20

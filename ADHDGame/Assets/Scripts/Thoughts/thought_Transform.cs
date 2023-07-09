@@ -13,26 +13,27 @@ public class thought_Transform : MonoBehaviour
     public bool setText;
     public ThoughtStatus thoughtTransformStatus;
     public int positionOnApp;
-    
+
 
 
     internal void changeStatuse(ThoughtStatus thoughtStatus)
     {
-       
+
         Thoughts_Manager.ThoughtsInstance.changeThoughtStatus(thoughtType, thoughtStatus);
     }
 
     internal void changeText()
     {
 
-        setText = true; 
-       
+        setText = true;
+
     }
 
     internal void pushToApp()
     {
         Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
-        taskType =  Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].taskType;
+        taskType = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].taskType;
+        Debug.Log(thoughtType + "aaaaaaaaaaaaaaaaa");
         TaskOnApp_Manager.TaskOnAppInstance.createTaskOnAppTransform(taskType);
 
     }

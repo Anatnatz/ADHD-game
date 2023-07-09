@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: StartLaundry
   m_EditorClassIdentifier: 
   taskName: Start laundry
+  taskType: 6
+  textInApp: Wash Towels
   duration: 3
   waitingTime: 5
   score: 20
-  isDone: 0
+  status: 0
+  taskOnAppStatus: 0
   animation: {fileID: 0}
   waitingOnTask: {fileID: 0}
+  blockingThought: 0

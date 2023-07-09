@@ -14,7 +14,7 @@ public class Game_Manager : MonoBehaviour
         switch (level)
         {
             case 1:
-                Debug.Log("level 1");
+                InfoManager.instance.SendInfoMessage("Tutorial");
                 ScenesManager.SwitchToScene("Bedroom");
                 break;
         }

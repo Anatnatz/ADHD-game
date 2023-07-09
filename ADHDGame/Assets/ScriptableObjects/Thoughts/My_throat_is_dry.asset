@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: My_throat_is_dry
   m_EditorClassIdentifier: 
-  though: 0
-  game_object: 0
-  task: 0
   objectType: 0
   thoughtText: My  throat is dry
   thoughtType: 4
-  thoughtPosition: {x: 0, y: 0}
+  thoughtPosition: {x: 7.55, y: 9.63}
   thoughtStatus: 0
   RelevantThought: 0
   nagge: 0

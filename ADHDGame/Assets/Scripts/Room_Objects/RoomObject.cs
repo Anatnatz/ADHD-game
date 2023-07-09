@@ -40,7 +40,7 @@ public class RoomObject : MonoBehaviour
     {
         TextMesh objTxtComponent = transform.GetComponentInChildren<TextMesh>();
         objectText = objTxtComponent.gameObject;
-        Debug.Log (objTxtComponent);
+        Debug.Log(objTxtComponent);
         objTxtComponent.text = objectName;
         objectText.SetActive(false);
     }
@@ -79,7 +79,7 @@ public class RoomObject : MonoBehaviour
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
         buttonObject.name = name;
         curBtn = buttonObject.GetComponent<Button>();
-        taskButtons.Add (curBtn);
+        taskButtons.Add(curBtn);
 
         // if (buttonsSpace == null)
         // buttonObject.transform.SetParent(canvas.transform);
@@ -127,29 +127,30 @@ public class RoomObject : MonoBehaviour
         int numOfTasksDone = 0;
         if (relatedThoughts != null && relatedThoughts.Count > 0)
         {
-            if (relatedTasks.Count > 0)
-            {
+            Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+            // if (relatedTasks.Count > 0)
+            // {
 
 
-                for (int i = 0; i < relatedTasks.Count; i++)
-                {
-                    if (relatedTasks[i].status != TaskStatus_Enum.Done)
-                    {
-                        numOfTasksDone++;
-                    }
-                }
+            //     for (int i = 0; i < relatedTasks.Count; i++)
+            //     {
+            //         if (relatedTasks[i].status != TaskStatus_Enum.Done)
+            //         {
+            //             numOfTasksDone++;
+            //         }
+            //     }
 
-                if (numOfTasksDone != relatedTasks.Count)
-                {
-                    Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
-                }
-            }
-            else
-                {
-                Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
-                }
-                   
-                    
-         }
+            //     if (numOfTasksDone != relatedTasks.Count)
+            //     {
+            //         Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+            //     }
+            // }
+            // else
+            // {
+            //     Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+            // }
+
+
+        }
     }
 }

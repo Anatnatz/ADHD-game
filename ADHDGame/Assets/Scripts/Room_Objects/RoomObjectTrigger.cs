@@ -9,7 +9,7 @@ public class RoomObjectTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == Tags_Enum.Mouse.ToString())
+        if (collision.tag == Tags_Enum.Mouse.ToString() && roomObject.relatedThoughts != null)
         {
             roomObject.objectTrigger();
         }

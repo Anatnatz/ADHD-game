@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine;
 
 public class Thought_trigger : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class Thought_trigger : MonoBehaviour
 
         if (other.tag == "border")
         {
-            Debug.Log("ignore task ");
+            InfoManager.instance.SendInfoMessage("Thought ignored");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
             Destroy(thought_Transform.gameObject);
