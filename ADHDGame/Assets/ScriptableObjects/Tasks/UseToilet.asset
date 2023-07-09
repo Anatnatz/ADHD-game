@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Use
   taskType: 4
-  textInApp: Go to the loo
+  textInApp: Pee
   duration: 3
   waitingTime: 0
   score: 20
   status: 0
-  taskOnAppStatus: 0
+  taskOnAppStatus: 1
   animation: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0

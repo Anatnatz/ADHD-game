@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     int zoomSpeed;
-    [SerializeField]
-    Transform border_ref;
+    // [SerializeField]
+    // Transform border_ref;
     [SerializeField]
     float borderGap;
     
@@ -21,6 +21,6 @@ public class CameraController : MonoBehaviour
     {
         Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
         Vector2 cameraPos = Camera.main.transform.position;
-        border_ref.position = new Vector2 (cameraPos.x - borderGap, cameraPos.y);
+        // border_ref.position = new Vector2 (cameraPos.x - borderGap, cameraPos.y);
     }
 }
