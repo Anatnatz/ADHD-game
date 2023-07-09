@@ -14,7 +14,7 @@ public class MessageController : MonoBehaviour
 
     [SerializeField]
     bool test;
-    
+
     [SerializeField]
     MessageName_Enum messageNameTest;
 
@@ -61,20 +61,20 @@ public class MessageController : MonoBehaviour
         {
             openPhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, openPhoneMessage);
-            
+
         }
 
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
         {
             closePhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, closePhoneMessage);
-            
+
         }
     }
 
     public void createMessageOnApp(MessageName_Enum messageName)
     {
-        
+
         Message newMessage = Instantiate(messagePrefab);
         newMessage.transform.SetParent(content.transform);
         newMessage.messageStatus = MessageStatus_Enum.OnApp;
@@ -105,18 +105,19 @@ public class MessageController : MonoBehaviour
 
     public void ViewMessage(MessageName_Enum messageNameToShow)
     {
-        MessageScriptble messageToShow =  SearchMessageOnList(messageNameToShow);
+        MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
         messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
+        messageToShow.CheckFollowingAction();
         setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
         {
             phoneController.TogglePhone();
         }
         phoneController.OpenMessagePanel();
-        
+
     }
 
-      
+
 
     public MessageScriptble SearchMessageOnList(MessageName_Enum messageName)
 
@@ -130,7 +131,7 @@ public class MessageController : MonoBehaviour
         { return messages[currentMessage]; }
     }
 
-    
+
 
     void Update()
     {
@@ -138,10 +139,10 @@ public class MessageController : MonoBehaviour
         {
 
             test = false;
-             SendMessage(messageNameTest);
+            SendMessage(messageNameTest);
             //ViewMessage(openPhoneMessage);
-           // MessageScriptble testre = SearchMessageOnList(messageNameTest);
-           // Debug.Log (testre);
+            // MessageScriptble testre = SearchMessageOnList(messageNameTest);
+            // Debug.Log (testre);
         }
     }
 }

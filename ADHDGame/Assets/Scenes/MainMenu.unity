@@ -2990,6 +2990,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84ac75b69215f1c4595a8c3ce979d64f, type: 2}
   - {fileID: 11400000, guid: dac03f9f42632ee4fb494463181c4dce, type: 2}
   - {fileID: 11400000, guid: 9aee7f33d65cccf45876337b41ddab46, type: 2}
+  - {fileID: 11400000, guid: 12a8aa962356ccf45a823f5f53abff3e, type: 2}
   thought_Transforms: []
   thought_Transform_Prefab: {fileID: 971806841306678585, guid: 583d859bf6a80964cabea2868a78ebdb, type: 3}
   currentThoughtNum: 0
@@ -4791,7 +4792,12 @@ MonoBehaviour:
   messagePrefab: {fileID: 2399359946984909073, guid: 85d853dbb5d6da1499f87185d123807c, type: 3}
   content: {fileID: 67591137}
   messages:
-  - {fileID: 11400000, guid: c83f1925d8d781b49bd2c34de515a880, type: 2}
+  - {fileID: 11400000, guid: 2ce28a68cbe862742bbd92568b1eebc0, type: 2}
+  - {fileID: 11400000, guid: 948f9d3b7eebe064bab10b781c4c0427, type: 2}
+  - {fileID: 11400000, guid: 63cfd605cc212184b9e00a1ac34f39f3, type: 2}
+  - {fileID: 11400000, guid: 373dbdb4a3a1ff74e99db4d6c2b18e33, type: 2}
+  - {fileID: 11400000, guid: ac766358b70366f419f0414fab98aced, type: 2}
+  - {fileID: 11400000, guid: ddb60b3e4c6b8604695837e32cdc21bd, type: 2}
   currentMessage: 0
   setmessageview: {fileID: 1366699647}
 --- !u!222 &1230291497
