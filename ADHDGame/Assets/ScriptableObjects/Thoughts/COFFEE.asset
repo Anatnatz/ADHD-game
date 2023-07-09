@@ -20,3 +20,9 @@ MonoBehaviour:
   RelevantThought: 0
   nagge: 0
   taskType: 10
+  followingMessagesWhenAppeared: 
+  followingThoughtsWhenAppeared: 
+  followingMessagesWhenDeleted: 
+  followingThoughtsWhenDeleted: 
+  followingMessagesWhenPushToApp: 08000000
+  followingThoughtsWhenPushToApp: 

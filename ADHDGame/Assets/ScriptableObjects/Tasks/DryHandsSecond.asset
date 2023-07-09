@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: DryHands
+  m_Name: DryHandsSecond
   m_EditorClassIdentifier: 
   taskName: Dry Hands
   taskType: 18
@@ -21,9 +21,9 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   animation: {fileID: 0}
-  waitingOnTask: {fileID: 0}
+  waitingOnTask: {fileID: 11400000, guid: fa122947d45272b408812f0aa392430e, type: 2}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 08000000
+  followingThoughtsWhenDone: 10000000

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
-  m_Name: HopeTheWaterHot
+  m_Name: RememberHigene
   m_EditorClassIdentifier: 
   objectType: 0
-  thoughtText: I hope the water's hot, I hate washing my hands in cold water
-  thoughtType: 19
+  thoughtText: Don't forget about hiegine
+  thoughtType: 20
   thoughtPosition: {x: 0, y: 0}
   thoughtStatus: 0
   RelevantThought: 0
   nagge: 0
   taskType: 15
-  followingMessagesWhenAppeared: 02000000
+  followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 
   followingThoughtsWhenDeleted: 

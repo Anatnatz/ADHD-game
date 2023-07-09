@@ -2991,6 +2991,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dac03f9f42632ee4fb494463181c4dce, type: 2}
   - {fileID: 11400000, guid: 9aee7f33d65cccf45876337b41ddab46, type: 2}
   - {fileID: 11400000, guid: 12a8aa962356ccf45a823f5f53abff3e, type: 2}
+  - {fileID: 11400000, guid: 235fa53a78eff764db6ba4fa52f965d0, type: 2}
   thought_Transforms: []
   thought_Transform_Prefab: {fileID: 971806841306678585, guid: 583d859bf6a80964cabea2868a78ebdb, type: 3}
   currentThoughtNum: 0
@@ -4721,7 +4722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -85.00012, y: -3}
+  m_AnchoredPosition: {x: -85, y: -3}
   m_SizeDelta: {x: -208.13037, y: -30.624023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1230291493
@@ -4798,6 +4799,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 373dbdb4a3a1ff74e99db4d6c2b18e33, type: 2}
   - {fileID: 11400000, guid: ac766358b70366f419f0414fab98aced, type: 2}
   - {fileID: 11400000, guid: ddb60b3e4c6b8604695837e32cdc21bd, type: 2}
+  - {fileID: 11400000, guid: a0701d1f5e526774a9189b4cfa656ae2, type: 2}
   currentMessage: 0
   setmessageview: {fileID: 1366699647}
 --- !u!222 &1230291497
@@ -7647,6 +7649,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a92e034a0f8d274184895341822f847, type: 2}
   - {fileID: 11400000, guid: a81f6d557e442664b8d070317bf35412, type: 2}
   - {fileID: 11400000, guid: 8a0bdfa0307400240a8d763f95155b1f, type: 2}
+  - {fileID: 11400000, guid: 3fb5cc6a02bec4d4c9ad72d8fa9fcf49, type: 2}
   currentTaskNumOnList: 0
 --- !u!4 &2000705549
 Transform:

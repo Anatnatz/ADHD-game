@@ -17,13 +17,13 @@ MonoBehaviour:
     get ready for that meeting
   thoughtType: 7
   thoughtPosition: {x: 30, y: 0}
-  thoughtStatus: 1
+  thoughtStatus: 0
   RelevantThought: 0
   nagge: 0
-  taskType: 0
+  taskType: 25
   followingMessagesWhenAppeared: 
-  followingThoughtsWhenAppeared: 
+  followingThoughtsWhenAppeared: 04000000
   followingMessagesWhenDeleted: 
-  followingThoughtsWhenDeleted: 04000000
+  followingThoughtsWhenDeleted: 
   followingMessagesWhenPushToApp: 
   followingThoughtsWhenPushToApp: 

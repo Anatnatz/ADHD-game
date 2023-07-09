@@ -24,7 +24,8 @@ public enum Task_Enum
     Water_plant,
     Poop,
     Take_coat,
-    Turn_on_Coffemaker
+    Turn_on_Coffemaker,
+    GoOut
 
 
 }

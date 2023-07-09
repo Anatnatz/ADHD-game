@@ -23,3 +23,7 @@ MonoBehaviour:
   animation: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
+  followingMessagesWhenWaiting: 
+  followingThoughtsWhenWaiting: 
+  followingMessagesWhenDone: 
+  followingThoughtsWhenDone: 12000000
