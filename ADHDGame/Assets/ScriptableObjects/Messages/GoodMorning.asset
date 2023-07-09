@@ -17,4 +17,10 @@ MonoBehaviour:
   textMessage: Good morning ha...
   fullText: Good morning handsome! Don't forget about our meeting board this morning.
   messageType: 0
-  messageOnAppStatus: 0
+  messageOnAppStatus: 1
+  followingMessages: 
+  followingThoughts: 
+  followingMessagesWhenRead: 
+  followingThoughtsWhenRead: 07000000
+  followingMessagesWhenUnRead: 
+  followingThoughtsWhenUnRead: 

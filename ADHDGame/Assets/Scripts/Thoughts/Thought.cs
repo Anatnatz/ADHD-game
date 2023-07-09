@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Thought : ScriptableObject
 {
-    
+
 
     [Header("Game_Object")]
 
@@ -28,13 +28,13 @@ public class Thought : ScriptableObject
 
     public int nagge;
 
-    
+
 
     [Header("Tasks")]
 
     public Task_Enum taskType;
 
-    
+
     [Header("Following When Appeared")]
 
     [SerializeField]
@@ -59,30 +59,30 @@ public class Thought : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenPushToApp;
 
-    
 
-    public void update()
+
+    public void CheckFollowingAction()
     {
-        switch (thoughtStatus) 
+        switch (thoughtStatus)
         {
-        
-        case ThoughtStatus.None:
+
+            case ThoughtStatus.None:
                 { break; }
 
-        case ThoughtStatus.Appeared:
+            case ThoughtStatus.Appeared:
                 {
                     checkFolowingMessages(ThoughtStatus.Appeared);
                     checkFollowingThoughts(ThoughtStatus.Appeared);
                     break;
                 }
-        case ThoughtStatus.Deleted:
+            case ThoughtStatus.Deleted:
                 {
                     checkFolowingMessages(ThoughtStatus.Deleted);
                     checkFollowingThoughts(ThoughtStatus.Deleted);
                     break;
                 }
 
-        case ThoughtStatus.PushToApp:
+            case ThoughtStatus.PushToApp:
                 {
                     checkFolowingMessages(ThoughtStatus.PushToApp);
                     checkFollowingThoughts(ThoughtStatus.PushToApp);
@@ -90,19 +90,18 @@ public class Thought : ScriptableObject
                 }
 
 
-        }  
+        }
     }
 
     private void checkFollowingThoughts(ThoughtStatus thoughtStatus)
     {
-        if (thoughtStatus== ThoughtStatus.Appeared)
+        if (thoughtStatus == ThoughtStatus.Appeared)
         {
             for (int i = 0; i < followingThoughtsWhenAppeared.Count; i++)
             {
-                if (followingThoughtsWhenAppeared[i] != null)
-                {
-                    TriggerThought(followingThoughtsWhenAppeared[i]);
-                }
+
+                TriggerThought(followingThoughtsWhenAppeared[i]);
+
             }
         }
 
@@ -110,10 +109,9 @@ public class Thought : ScriptableObject
         {
             for (int i = 0; i < followingThoughtsWhenDeleted.Count; i++)
             {
-                if (followingThoughtsWhenDeleted[i] != null)
-                {
-                    TriggerThought(followingThoughtsWhenDeleted[i]);
-                }
+
+                TriggerThought(followingThoughtsWhenDeleted[i]);
+
             }
         }
 
@@ -121,17 +119,16 @@ public class Thought : ScriptableObject
         {
             for (int i = 0; i < followingThoughtsWhenPushToApp.Count; i++)
             {
-                if (followingThoughtsWhenPushToApp[i] != null)
-                {
-                    TriggerThought(followingThoughtsWhenPushToApp[i]);
-                }
+
+                TriggerThought(followingThoughtsWhenPushToApp[i]);
+
             }
         }
 
 
     }
 
-    
+
 
     private void checkFolowingMessages(ThoughtStatus thoughtStatus)
     {
@@ -139,10 +136,9 @@ public class Thought : ScriptableObject
         {
             for (int i = 0; i < followingMessagesWhenAppeared.Count; i++)
             {
-                if (followingMessagesWhenAppeared[i] != null)
-                {
-                    TriggerMessage(followingMessagesWhenDeleted[i]);
-                }
+
+                TriggerMessage(followingMessagesWhenDeleted[i]);
+
             }
         }
 
@@ -150,10 +146,9 @@ public class Thought : ScriptableObject
         {
             for (int i = 0; i < followingMessagesWhenDeleted.Count; i++)
             {
-                if (followingMessagesWhenDeleted[i] != null)
-                {
-                    TriggerMessage(followingMessagesWhenDeleted[i]);
-                }
+
+                TriggerMessage(followingMessagesWhenDeleted[i]);
+
             }
         }
 
@@ -161,10 +156,9 @@ public class Thought : ScriptableObject
         {
             for (int i = 0; i < followingMessagesWhenPushToApp.Count; i++)
             {
-                if (followingMessagesWhenPushToApp[i] != null)
-                {
-                    TriggerMessage(followingMessagesWhenPushToApp[i]);
-                }
+
+                TriggerMessage(followingMessagesWhenPushToApp[i]);
+
             }
         }
 
@@ -176,7 +170,7 @@ public class Thought : ScriptableObject
         MessageController.messageControlInstance.SendMessage(messageName);
     }
 
-    private void TriggerThought(Thought_Enum thoughtType) 
+    private void TriggerThought(Thought_Enum thoughtType)
     {
         Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
     }

@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: roomObject
       value: 
       objectReference: {fileID: 592139338}
+    - target: {fileID: 2991512952329804848, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: hoveredText
+      value: Toilet
+      objectReference: {fileID: 0}
     - target: {fileID: 4432992792606156775, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_Size.x
       value: 2.5600479

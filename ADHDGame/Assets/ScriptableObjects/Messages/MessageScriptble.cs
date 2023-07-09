@@ -42,7 +42,7 @@ public class MessageScriptble : ScriptableObject
     List<Thought_Enum> followingThoughtsWhenUnRead;
 
 
-    public void update()
+    public void CheckFollowingAction()
     {
         switch (messageOnAppStatus)
         {
@@ -62,12 +62,10 @@ public class MessageScriptble : ScriptableObject
     private void checkFollowingThoughts()
     {
 
+        InfoManager.instance.SendInfoMessage(followingThoughtsWhenRead.Count.ToString());
         for (int i = 0; i < followingThoughtsWhenRead.Count; i++)
         {
-            if (followingThoughtsWhenRead[i] != null)
-            {
-                TriggerThought(followingThoughtsWhenRead[i]);
-            }
+            TriggerThought(followingThoughtsWhenRead[i]);
         }
     }
 
@@ -76,10 +74,8 @@ public class MessageScriptble : ScriptableObject
 
         for (int i = 0; i < followingMessagesWhenRead.Count; i++)
         {
-            if (followingMessagesWhenRead[i] != null)
-            {
-                TriggerMessage(followingMessagesWhenRead[i]);
-            }
+
+            TriggerMessage(followingMessagesWhenRead[i]);
         }
     }
 
