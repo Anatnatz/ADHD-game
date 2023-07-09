@@ -18,3 +18,9 @@ MonoBehaviour:
   fullText: It's Working!
   messageType: 0
   messageOnAppStatus: 0
+  followingMessages: 
+  followingThoughts: 00000000
+  followingMessagesWhenRead: 
+  followingThoughtsWhenRead: 
+  followingMessagesWhenUnRead: 
+  followingThoughtsWhenUnRead: 

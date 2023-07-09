@@ -106,12 +106,14 @@ public class MessageController : MonoBehaviour
     public void ViewMessage(MessageName_Enum messageNameToShow)
     {
         MessageScriptble messageToShow =  SearchMessageOnList(messageNameToShow);
+        messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
         setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
         {
             phoneController.TogglePhone();
         }
         phoneController.OpenMessagePanel();
+        
     }
 
       

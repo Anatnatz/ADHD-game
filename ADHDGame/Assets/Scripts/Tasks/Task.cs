@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [
@@ -32,6 +33,25 @@ public class Task : ScriptableObject
     public Task waitingOnTask;
 
     public Thought_Enum blockingThought;
+
+    [Header("Following When Waiting")]
+
+    [SerializeField]
+    List<MessageName_Enum> followingMessagesWhenWaiting;
+
+    [SerializeField]
+    List<Thought_Enum> followingThoughtsWhenWaiting;
+
+    [Header("Following When Done")]
+
+    [SerializeField]
+    List<MessageName_Enum> followingMessagesWhenDone;
+
+    [SerializeField]
+    List<Thought_Enum> followingThoughtsWhenDone;
+
+
+
 
     public void StartTask()
     {
@@ -73,5 +93,89 @@ public class Task : ScriptableObject
         {
             TaskManager.instance.StartCoroutine(WaitForTask());
         }
+    }
+
+
+    public void update()
+    {
+        switch (status)
+        {
+
+            case TaskStatus_Enum.none:
+                { break; }
+
+            case TaskStatus_Enum.Waiting:
+                {
+                    checkFollowingMessage(TaskStatus_Enum.Waiting);
+                    checkFollowingThoughts(TaskStatus_Enum.Waiting);
+                    break;
+                }
+            case TaskStatus_Enum.Done:
+                {
+                    checkFollowingMessage(TaskStatus_Enum.Done);
+                    checkFollowingThoughts(TaskStatus_Enum.Done);
+                    break;
+                }
+        }
+    }
+
+    private void checkFollowingThoughts(TaskStatus_Enum status)
+    {
+        if (status == TaskStatus_Enum.Waiting)
+        {
+            for (int i = 0; i < followingThoughtsWhenWaiting.Count; i++)
+            {
+                if (followingThoughtsWhenWaiting[i] != null)
+                {
+                    TriggerThought(followingThoughtsWhenWaiting[i]);
+                }
+            }
+        }
+
+        if (status == TaskStatus_Enum.Done)
+        {
+            for (int i = 0; i < followingThoughtsWhenDone.Count; i++)
+            {
+                if (followingThoughtsWhenDone[i] != null)
+                {
+                    TriggerThought(followingThoughtsWhenDone[i]);
+                }
+            }
+        }
+    }
+
+    private void checkFollowingMessage(TaskStatus_Enum status)
+    {
+        if (status == TaskStatus_Enum.Waiting)
+        {
+            for (int i = 0; i < followingMessagesWhenWaiting.Count; i++)
+            {
+                if (followingMessagesWhenWaiting[i] != null)
+                {
+                    TriggerMessage(followingMessagesWhenWaiting[i]);
+                }
+            }
+        }
+
+        if (status == TaskStatus_Enum.Done)
+        {
+            for (int i = 0; i < followingMessagesWhenDone.Count; i++)
+            {
+                if (followingMessagesWhenDone[i] != null)
+                {
+                    TriggerMessage(followingMessagesWhenDone[i]);
+                }
+            }
+        }
+    }
+
+    private void TriggerMessage(MessageName_Enum messageName)
+    {
+        MessageController.messageControlInstance.SendMessage(messageName);
+    }
+
+    private void TriggerThought(Thought_Enum thoughtType)
+    {
+        Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
     }
 }

@@ -31,16 +31,11 @@ public class Thoughts_Manager : MonoBehaviour
         }
     }
 
-    void createThought(Thought_Enum thoughtType)
+    public void createThought(Thought_Enum thoughtType)
     {
-        thought_Transform thoughtPrefab =
-            thought_Transform_Prefab.GetComponent<thought_Transform>();
-        GameObject thoughtGameObject =
-            Instantiate(thought_Transform_Prefab,
-            thoughtPrefab.thoughtPosition,
-            Quaternion.identity);
-        thought_Transform newThought =
-            thoughtGameObject.GetComponent<thought_Transform>();
+        thought_Transform thoughtPrefab =  thought_Transform_Prefab.GetComponent<thought_Transform>();
+        GameObject thoughtGameObject =  Instantiate(thought_Transform_Prefab,thoughtPrefab.thoughtPosition, Quaternion.identity);
+        thought_Transform newThought = thoughtGameObject.GetComponent<thought_Transform>();
         newThought.thoughtType = thoughtType;
 
         searchForThoughtType(thoughtType);
