@@ -39,13 +39,30 @@ public class Thoughts_Manager : MonoBehaviour
         newThought.thoughtType = thoughtType;
 
         searchForThoughtType(thoughtType);
+        thoughtsList_[currentThoughtNum].numOfAppearance++;
+
+        //choose text from list
+
+        // if (thoughtsList_[currentThoughtNum].thoughtTexts.Count >= thoughtsList_[currentThoughtNum].numOfAppearance)
+        //{
+        //  if (thoughtsList_[currentThoughtNum].thoughtTexts[thoughtsList_[currentThoughtNum].numOfAppearance - 1] != null)
+        //{
+        //  newThought.thoughtText = thoughtsList_[currentThoughtNum].thoughtTexts[thoughtsList_[currentThoughtNum].numOfAppearance - 1];
+        //}
+        //}
+        //else
+        //{
+        //  if (thoughtsList_[currentThoughtNum].thoughtTexts[thoughtsList_[currentThoughtNum].numOfAppearance - 1] != null)
+        //{ newThought.thoughtText = thoughtsList_[currentThoughtNum].thoughtTexts[thoughtsList_[currentThoughtNum].thoughtTexts.Count - 1]; }
+        //}
+
+        //  newThought.thoughtText = thoughtsList_[currentThoughtNum].thoughtTexts[0];
 
         newThought.thoughtText = thoughtsList_[currentThoughtNum].thoughtText;
-        TMP_Text thoughtTxt =
-            newThought.transform.GetChild(0).GetComponent<TMP_Text>();
+        TMP_Text thoughtTxt = newThought.transform.GetChild(0).GetComponent<TMP_Text>();
         thoughtTxt.SetText(newThought.thoughtText);
         newThought.changeText();
-        newThought.name = thoughtsList_[currentThoughtNum].thoughtText;
+        newThought.name = newThought.thoughtText;
 
         newThought.transform.SetParent(thoughtsParent);
         changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);

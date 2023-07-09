@@ -4720,7 +4720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -85.00012, y: -3}
+  m_AnchoredPosition: {x: -85, y: -3}
   m_SizeDelta: {x: -208.13037, y: -30.624023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1230291493
@@ -4794,6 +4794,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c83f1925d8d781b49bd2c34de515a880, type: 2}
   currentMessage: 0
   setmessageview: {fileID: 1366699647}
+  timeToClose: 0
+  time: 0
 --- !u!222 &1230291497
 CanvasRenderer:
   m_ObjectHideFlags: 0
