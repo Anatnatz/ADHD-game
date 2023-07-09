@@ -18,6 +18,8 @@ public class Thought_trigger : MonoBehaviour
     public void TriggerThought(Collider2D other)
     {
         Debug.Log("trigger");
+
+        bool checkFollowing = true;
         if (other.tag == "taskApp")
         {
             Debug.Log("push to taskApp ");
@@ -29,13 +31,23 @@ public class Thought_trigger : MonoBehaviour
             Destroy(this);
         }
 
-        if (other.tag == "border")
+        else if (other.tag == "border")
         {
             InfoManager.instance.SendInfoMessage("Thought ignored");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
             Destroy(thought_Transform.gameObject);
             Destroy(this);
+        }
+        else
+        {
+            checkFollowing = false;
+        }
+
+        if (checkFollowing)
+        {
+            Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].CheckFollowingAction();
         }
     }
 }

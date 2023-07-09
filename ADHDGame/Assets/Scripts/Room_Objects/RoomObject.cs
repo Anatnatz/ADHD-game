@@ -30,30 +30,32 @@ public class RoomObject : MonoBehaviour
 
     private int currentThought = 0;
 
-    void Start()
+    void Awake()
     {
-        SetObjectText();
+        TextOnHover textOnHover = transform.GetComponent<TextOnHover>();
+        textOnHover.hoveredText = objectName;
+        // SetObjectText();
         taskButtons = new List<Button>();
     }
 
-    void SetObjectText()
-    {
-        TextMesh objTxtComponent = transform.GetComponentInChildren<TextMesh>();
-        objectText = objTxtComponent.gameObject;
-        Debug.Log(objTxtComponent);
-        objTxtComponent.text = objectName;
-        objectText.SetActive(false);
-    }
+    // void SetObjectText()
+    // {
+    //     TextMesh objTxtComponent = transform.GetComponentInChildren<TextMesh>();
+    //     objectText = objTxtComponent.gameObject;
+    //     Debug.Log(objTxtComponent);
+    //     objTxtComponent.text = objectName;
+    //     objectText.SetActive(false);
+    // }
 
-    void OnMouseEnter()
-    {
-        objectText.SetActive(true);
-    }
+    // void OnMouseEnter()
+    // {
+    //     objectText.SetActive(true);
+    // }
 
-    void OnMouseExit()
-    {
-        objectText.SetActive(false);
-    }
+    // void OnMouseExit()
+    // {
+    //     objectText.SetActive(false);
+    // }
 
     void OnMouseDown()
     {

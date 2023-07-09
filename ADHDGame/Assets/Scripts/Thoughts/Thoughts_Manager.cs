@@ -33,8 +33,8 @@ public class Thoughts_Manager : MonoBehaviour
 
     public void createThought(Thought_Enum thoughtType)
     {
-        thought_Transform thoughtPrefab =  thought_Transform_Prefab.GetComponent<thought_Transform>();
-        GameObject thoughtGameObject =  Instantiate(thought_Transform_Prefab,thoughtPrefab.thoughtPosition, Quaternion.identity);
+        thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
+        GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, thoughtPrefab.thoughtPosition, Quaternion.identity);
         thought_Transform newThought = thoughtGameObject.GetComponent<thought_Transform>();
         newThought.thoughtType = thoughtType;
 
@@ -66,6 +66,7 @@ public class Thoughts_Manager : MonoBehaviour
 
         newThought.transform.SetParent(thoughtsParent);
         changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);
+        thoughtsList_[currentThoughtNum].CheckFollowingAction();
         thought_Transforms.Add(newThought);
     }
 

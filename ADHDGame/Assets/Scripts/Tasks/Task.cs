@@ -81,6 +81,7 @@ public class Task : ScriptableObject
         InfoManager.instance.SendInfoMessage(taskName + " is ready!");
 
         status = TaskStatus_Enum.Done;
+        CheckFollowingAction();
     }
 
     public IEnumerator WaitForDuration()
@@ -91,12 +92,19 @@ public class Task : ScriptableObject
         //end animation
         if (waitingTime > 0)
         {
+            status = TaskStatus_Enum.Waiting;
+            CheckFollowingAction();
             TaskManager.instance.StartCoroutine(WaitForTask());
+        }
+        else
+        {
+            status = TaskStatus_Enum.Done;
+            CheckFollowingAction();
         }
     }
 
 
-    public void update()
+    public void CheckFollowingAction()
     {
         switch (status)
         {
@@ -125,10 +133,9 @@ public class Task : ScriptableObject
         {
             for (int i = 0; i < followingThoughtsWhenWaiting.Count; i++)
             {
-                if (followingThoughtsWhenWaiting[i] != null)
-                {
-                    TriggerThought(followingThoughtsWhenWaiting[i]);
-                }
+
+                TriggerThought(followingThoughtsWhenWaiting[i]);
+
             }
         }
 
@@ -136,10 +143,9 @@ public class Task : ScriptableObject
         {
             for (int i = 0; i < followingThoughtsWhenDone.Count; i++)
             {
-                if (followingThoughtsWhenDone[i] != null)
-                {
-                    TriggerThought(followingThoughtsWhenDone[i]);
-                }
+
+                TriggerThought(followingThoughtsWhenDone[i]);
+
             }
         }
     }
@@ -150,10 +156,9 @@ public class Task : ScriptableObject
         {
             for (int i = 0; i < followingMessagesWhenWaiting.Count; i++)
             {
-                if (followingMessagesWhenWaiting[i] != null)
-                {
-                    TriggerMessage(followingMessagesWhenWaiting[i]);
-                }
+
+                TriggerMessage(followingMessagesWhenWaiting[i]);
+
             }
         }
 
@@ -161,10 +166,9 @@ public class Task : ScriptableObject
         {
             for (int i = 0; i < followingMessagesWhenDone.Count; i++)
             {
-                if (followingMessagesWhenDone[i] != null)
-                {
-                    TriggerMessage(followingMessagesWhenDone[i]);
-                }
+
+                TriggerMessage(followingMessagesWhenDone[i]);
+
             }
         }
     }

@@ -16,7 +16,13 @@ public class Game_Manager : MonoBehaviour
             case 1:
                 InfoManager.instance.SendInfoMessage("Tutorial");
                 ScenesManager.SwitchToScene("Bedroom");
+                StartLevel1();
                 break;
         }
+    }
+
+    void StartLevel1()
+    {
+        MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
     }
 }
