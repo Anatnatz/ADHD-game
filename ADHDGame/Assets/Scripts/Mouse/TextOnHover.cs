@@ -6,8 +6,9 @@ public class TextOnHover : MonoBehaviour
 {
     [SerializeField]
     public string hoveredText;
-
+    [SerializeField]
     GameObject textObject;
+  
     void Start()
     {
         SetObjectText();
@@ -20,6 +21,7 @@ public class TextOnHover : MonoBehaviour
         Debug.Log(objTxtComponent);
         objTxtComponent.text = hoveredText;
         textObject.SetActive(false);
+        
     }
 
     void OnMouseEnter()

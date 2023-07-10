@@ -53,6 +53,8 @@ public class MessageController : MonoBehaviour
     public void Start()
     {
         messageControlInstance = this;
+
+       
     }
     public void SendMessage(MessageName_Enum messageName)
     {
@@ -147,7 +149,7 @@ public class MessageController : MonoBehaviour
 
     internal IEnumerator waitToClose()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         setOffPhoneMessage();
     }
 

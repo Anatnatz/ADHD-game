@@ -64,6 +64,10 @@ public class Thought : ScriptableObject
 
 
 
+   public void start()
+    {
+        numOfAppearance= 0;
+    }
     public void CheckFollowingAction()
     {
         switch (thoughtStatus)

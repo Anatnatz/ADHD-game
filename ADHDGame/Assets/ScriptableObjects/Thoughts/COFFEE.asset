@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   thoughtText: I need COFFEE to start this day
+  thoughtTexts: []
   thoughtType: 6
   thoughtPosition: {x: 0, y: 0}
   thoughtStatus: 0
-  RelevantThought: 0
-  nagge: 0
+  numOfAppearance: 0
   taskType: 10
+  followingMessagesWhenAppeared: 
+  followingThoughtsWhenAppeared: 
+  followingMessagesWhenDeleted: 
+  followingThoughtsWhenDeleted: 
+  followingMessagesWhenPushToApp: 
+  followingThoughtsWhenPushToApp: 
