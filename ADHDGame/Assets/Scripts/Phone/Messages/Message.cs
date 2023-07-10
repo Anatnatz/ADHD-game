@@ -57,7 +57,10 @@ public class Message : MonoBehaviour
         
     }
 
-    
+    public void setThisOff()
+    {
+        MessageController.messageControlInstance.setOffPhoneMessage();
+    }
 
 
 }

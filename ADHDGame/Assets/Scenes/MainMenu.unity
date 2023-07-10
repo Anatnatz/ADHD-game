@@ -1901,7 +1901,7 @@ GameObject:
   - component: {fileID: 466769411}
   m_Layer: 5
   m_Name: PhoneToggle
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4721,7 +4721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -85.00012, y: -3}
+  m_AnchoredPosition: {x: -85, y: -3}
   m_SizeDelta: {x: -208.13037, y: -30.624023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1230291493
@@ -4800,6 +4800,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddb60b3e4c6b8604695837e32cdc21bd, type: 2}
   currentMessage: 0
   setmessageview: {fileID: 1366699647}
+  timeToClose: 0
+  time: 0
 --- !u!222 &1230291497
 CanvasRenderer:
   m_ObjectHideFlags: 0
