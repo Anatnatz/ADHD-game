@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class TaskManager : MonoBehaviour
     public List<Task> tasksList;
 
     Task task;
+    public int totalScore = 0;
 
     public int currentTaskNumOnList;
 
@@ -19,13 +21,22 @@ public class TaskManager : MonoBehaviour
 
     RectTransform rectTransform;
 
+    [SerializeField]
+    List<Task> mustTasks;
+
+    [SerializeField]
+    List<Task> NotComplitedMustTaskList;
+
     void Start()
     {
         instance = this;
         roomObject = GetComponent<RoomObject>();
         buttonsSpace = GameObject.Find("ButtonsSpace");
         rectTransform = buttonsSpace.GetComponent<RectTransform>();
+        creatMustTasksList();
     }
+
+   
 
     void Update()
     {
@@ -58,6 +69,19 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+    private void creatMustTasksList()
+    {
+        for (int i = 0; i < mustTasks.Count; i++)
+        {
+            mustTasks.Remove(mustTasks[i]);
+        }
+
+        for (int i = 0; i < tasksList.Count; i++)
+        {
+            if (tasksList[i].must == true)
+            { mustTasks.Add(tasksList[i]); }
+        }
+    }
     void OnMouseDown()
     {
         Debug.Log("clicked on" + roomObject.objectName);
@@ -81,6 +105,18 @@ public class TaskManager : MonoBehaviour
     {
         searchTaskOnList (taskType);
         tasksList[currentTaskNumOnList].status = status;
+        
+        if (status == TaskStatus_Enum.Done) 
+        {
+            UpdateTotalScore(tasksList[currentTaskNumOnList]);
+            
+        }
+    }
+
+    public void UpdateTotalScore(Task taskForScore)
+    {
+        totalScore += taskForScore.score;
+        InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
     }
 
     public void StartTask(Button taskBtn)
@@ -89,5 +125,37 @@ public class TaskManager : MonoBehaviour
         Task curTask = tasksList.Find(t => t.taskName == taskName);
         curTask.StartTask();
         Destroy(taskBtn.gameObject);
+    }
+
+    internal bool checkMustTasksList()
+    {
+        //Reset lists:
+
+        for (int i = 0; i < NotComplitedMustTaskList.Count; i++)
+        {
+            NotComplitedMustTaskList.Remove(NotComplitedMustTaskList[i]);
+        }
+
+        
+
+        //Check must list:
+
+        for (int i = 0; i < mustTasks.Count; i++)
+        {
+            if (mustTasks[i].status != TaskStatus_Enum.Done)
+            {
+                NotComplitedMustTaskList.Add(mustTasks[i]);
+            }
+
+        }
+
+        if(NotComplitedMustTaskList.Count > 0) 
+        {
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
     }
 }

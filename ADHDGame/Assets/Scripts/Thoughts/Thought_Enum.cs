@@ -20,6 +20,7 @@ public enum Thought_Enum
     Almost_late,
     cold_water,
     Hope_the_water_hot,
+    Cant_leave_the_house
     
 
 
