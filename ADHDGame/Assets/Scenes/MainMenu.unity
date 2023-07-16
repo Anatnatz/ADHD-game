@@ -8447,11 +8447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4536007136057323568, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 4
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4536007136057323568, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4536007136057323568, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
       propertyPath: m_LocalPosition.x
