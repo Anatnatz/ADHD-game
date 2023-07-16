@@ -16,7 +16,11 @@ public class Thought : ScriptableObject
 
     [Header("Thought")]
 
-    public string thoughtText = " Thought's Text";
+    //public string thoughtText = " Thought's Text";
+
+    public string thoughtText;
+
+    public List<string> thoughtTexts;
 
     public Thought_Enum thoughtType;
 
@@ -24,9 +28,8 @@ public class Thought : ScriptableObject
 
     public ThoughtStatus thoughtStatus = ThoughtStatus.None;
 
-    public bool RelevantThought;
+    public int numOfAppearance=0;
 
-    public int nagge;
 
 
 
@@ -61,6 +64,10 @@ public class Thought : ScriptableObject
 
 
 
+   public void start()
+    {
+        numOfAppearance= 0;
+    }
     public void CheckFollowingAction()
     {
         switch (thoughtStatus)

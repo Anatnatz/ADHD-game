@@ -1899,9 +1899,11 @@ GameObject:
   - component: {fileID: 466769413}
   - component: {fileID: 466769412}
   - component: {fileID: 466769411}
+  - component: {fileID: 466769414}
+  - component: {fileID: 466769415}
   m_Layer: 5
   m_Name: PhoneToggle
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2020,6 +2022,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466769409}
   m_CullTransparentMesh: 1
+--- !u!61 &466769414
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466769409}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &466769415
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466769409}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &474453178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,7 +3040,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dac03f9f42632ee4fb494463181c4dce, type: 2}
   - {fileID: 11400000, guid: 9aee7f33d65cccf45876337b41ddab46, type: 2}
   - {fileID: 11400000, guid: 12a8aa962356ccf45a823f5f53abff3e, type: 2}
-  - {fileID: 11400000, guid: 235fa53a78eff764db6ba4fa52f965d0, type: 2}
+  - {fileID: 11400000, guid: d36c031f73cd1d9449e8e19982cf8414, type: 2}
   thought_Transforms: []
   thought_Transform_Prefab: {fileID: 971806841306678585, guid: 583d859bf6a80964cabea2868a78ebdb, type: 3}
   currentThoughtNum: 0
@@ -3090,7 +3139,7 @@ GameObject:
   - component: {fileID: 796741539}
   m_Layer: 5
   m_Name: Apps
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3904,7 +3953,7 @@ GameObject:
   - component: {fileID: 1002032631}
   m_Layer: 5
   m_Name: AllMessages
-  m_TagString: taskApp
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4414,6 +4463,7 @@ GameObject:
   - component: {fileID: 1230291497}
   - component: {fileID: 1230291498}
   - component: {fileID: 1230291496}
+  - component: {fileID: 1230291499}
   m_Layer: 5
   m_Name: ConstantCanvas
   m_TagString: Untagged
@@ -4802,6 +4852,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0701d1f5e526774a9189b4cfa656ae2, type: 2}
   currentMessage: 0
   setmessageview: {fileID: 1366699647}
+  timeToClose: 0
+  time: 0
 --- !u!222 &1230291497
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4825,6 +4877,19 @@ MonoBehaviour:
   infoPanel: {fileID: 1219453752}
   infoTextCode: {fileID: 1219453749}
   test: 0
+--- !u!114 &1230291499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201574419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3308626420a4df04383596d9ef0f3ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winCondition: 0
 --- !u!1 &1235646760
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,7 +5345,7 @@ GameObject:
   - component: {fileID: 1291020256}
   m_Layer: 5
   m_Name: ToDoApp
-  m_TagString: taskApp
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5810,7 +5875,7 @@ GameObject:
   - component: {fileID: 1366699647}
   m_Layer: 5
   m_Name: MessageView
-  m_TagString: taskApp
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6212,7 +6277,7 @@ GameObject:
   - component: {fileID: 1408357355}
   m_Layer: 5
   m_Name: BottomBar
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6328,7 +6393,7 @@ GameObject:
   - component: {fileID: 1490854101}
   m_Layer: 5
   m_Name: PhonePanel
-  m_TagString: Untagged
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6689,7 +6754,7 @@ GameObject:
   - component: {fileID: 1633980801}
   m_Layer: 5
   m_Name: Phone
-  m_TagString: taskApp
+  m_TagString: phone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7649,8 +7714,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a92e034a0f8d274184895341822f847, type: 2}
   - {fileID: 11400000, guid: a81f6d557e442664b8d070317bf35412, type: 2}
   - {fileID: 11400000, guid: 8a0bdfa0307400240a8d763f95155b1f, type: 2}
-  - {fileID: 11400000, guid: 3fb5cc6a02bec4d4c9ad72d8fa9fcf49, type: 2}
+  totalScore: 0
   currentTaskNumOnList: 0
+  mustTasks: []
+  NotComplitedMustTaskList: []
 --- !u!4 &2000705549
 Transform:
   m_ObjectHideFlags: 0

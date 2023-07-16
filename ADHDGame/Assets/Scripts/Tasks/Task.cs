@@ -26,6 +26,7 @@ public class Task : ScriptableObject
 
     public TextOnApp_Enum taskOnAppStatus;
 
+    public bool must;
 
     // public Status_Enum smtatus;
     public Animation animation;
@@ -99,6 +100,7 @@ public class Task : ScriptableObject
         else
         {
             status = TaskStatus_Enum.Done;
+            TaskManager.instance.UpdateTotalScore(this);
             CheckFollowingAction();
         }
     }
@@ -122,7 +124,9 @@ public class Task : ScriptableObject
                 {
                     checkFollowingMessage(TaskStatus_Enum.Done);
                     checkFollowingThoughts(TaskStatus_Enum.Done);
+                    
                     break;
+
                 }
         }
     }

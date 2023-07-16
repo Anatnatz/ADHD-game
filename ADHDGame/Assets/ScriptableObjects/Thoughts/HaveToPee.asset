@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 6
   thoughtText: I have to PEE!
+  thoughtTexts:
+  - PEEEEEE!!!!
+  - Take me to PPPPPEEEEEE!
   thoughtType: 5
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 3
-  RelevantThought: 0
-  nagge: 0
+  thoughtStatus: 2
+  numOfAppearance: 3
   taskType: 5
+  followingMessagesWhenAppeared: 
+  followingThoughtsWhenAppeared: 
+  followingMessagesWhenDeleted: 
+  followingThoughtsWhenDeleted: 
+  followingMessagesWhenPushToApp: 
+  followingThoughtsWhenPushToApp: 

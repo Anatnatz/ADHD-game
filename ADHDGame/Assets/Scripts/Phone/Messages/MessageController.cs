@@ -39,6 +39,11 @@ public class MessageController : MonoBehaviour
     [SerializeField]
     setmessageview setmessageview;
 
+    [SerializeField]
+    float timeToClose;
+    [SerializeField]
+    float time;
+
     public static MessageController messageControlInstance;
 
 
@@ -48,6 +53,8 @@ public class MessageController : MonoBehaviour
     public void Start()
     {
         messageControlInstance = this;
+
+       
     }
     public void SendMessage(MessageName_Enum messageName)
     {
@@ -62,12 +69,20 @@ public class MessageController : MonoBehaviour
             openPhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, openPhoneMessage);
 
+            StartCoroutine(waitToClose());
+
+
+
+
         }
 
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
         {
             closePhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, closePhoneMessage);
+
+           StartCoroutine(waitToClose());
+          
 
         }
     }
@@ -129,6 +144,13 @@ public class MessageController : MonoBehaviour
             { currentMessage = i; }
         }
         { return messages[currentMessage]; }
+    }
+
+
+    internal IEnumerator waitToClose()
+    {
+        yield return new WaitForSeconds(10);
+        setOffPhoneMessage();
     }
 
 

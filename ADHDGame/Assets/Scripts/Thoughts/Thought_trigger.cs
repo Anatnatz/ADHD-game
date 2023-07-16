@@ -20,7 +20,7 @@ public class Thought_trigger : MonoBehaviour
         Debug.Log("trigger");
 
         bool checkFollowing = true;
-        if (other.tag == "taskApp")
+        if (other.tag == "phone")
         {
             Debug.Log("push to taskApp ");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
