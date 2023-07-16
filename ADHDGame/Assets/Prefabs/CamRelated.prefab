@@ -186,7 +186,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.397049
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -223,7 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 10
-  border_ref: {fileID: 0}
   borderGap: 14.8
 --- !u!114 &4437800645602457241
 MonoBehaviour:
@@ -243,6 +242,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   dragging: {fileID: 0}
   mouseTransform: {fileID: 4437800644658111794}
+  messageController: {fileID: 0}
+  transformText: {fileID: 0}
 --- !u!114 &4155895767839684565
 MonoBehaviour:
   m_ObjectHideFlags: 0
