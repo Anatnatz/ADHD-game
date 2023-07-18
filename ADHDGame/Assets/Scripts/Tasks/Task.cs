@@ -52,8 +52,6 @@ public class Task : ScriptableObject
     List<Thought_Enum> followingThoughtsWhenDone;
 
 
-
-
     public void StartTask()
     {
         Debug.Log("trying to start task" + taskName);
@@ -65,7 +63,9 @@ public class Task : ScriptableObject
             InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
 
             //play animation
+
             TaskManager.instance.StartCoroutine(WaitForDuration());
+
         }
         else
         {
@@ -88,8 +88,9 @@ public class Task : ScriptableObject
     public IEnumerator WaitForDuration()
     {
         //start animation
+        Cursor.lockState = CursorLockMode.Locked;
         yield return new WaitForSeconds(duration);
-
+        Cursor.lockState = CursorLockMode.None;
         //end animation
         if (waitingTime > 0)
         {
@@ -100,8 +101,9 @@ public class Task : ScriptableObject
         else
         {
             status = TaskStatus_Enum.Done;
-            TaskManager.instance.UpdateTotalScore(this);
+            Debug.Log(status.ToString());
             CheckFollowingAction();
+            TaskManager.instance.UpdateTotalScore(this);
         }
     }
 
@@ -124,7 +126,7 @@ public class Task : ScriptableObject
                 {
                     checkFollowingMessage(TaskStatus_Enum.Done);
                     checkFollowingThoughts(TaskStatus_Enum.Done);
-                    
+
                     break;
 
                 }

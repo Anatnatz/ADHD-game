@@ -17,12 +17,12 @@ MonoBehaviour:
   thoughtTexts: []
   thoughtType: 6
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 0
-  numOfAppearance: 0
+  thoughtStatus: 3
+  numOfAppearance: 1
   taskType: 10
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 
   followingThoughtsWhenDeleted: 
-  followingMessagesWhenPushToApp: 
+  followingMessagesWhenPushToApp: 08000000
   followingThoughtsWhenPushToApp: 

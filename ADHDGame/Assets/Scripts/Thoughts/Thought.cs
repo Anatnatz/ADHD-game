@@ -28,7 +28,7 @@ public class Thought : ScriptableObject
 
     public ThoughtStatus thoughtStatus = ThoughtStatus.None;
 
-    public int numOfAppearance=0;
+    public int numOfAppearance = 0;
 
 
 
@@ -64,9 +64,9 @@ public class Thought : ScriptableObject
 
 
 
-   public void start()
+    public void start()
     {
-        numOfAppearance= 0;
+        numOfAppearance = 0;
     }
     public void CheckFollowingAction()
     {
@@ -144,7 +144,7 @@ public class Thought : ScriptableObject
             for (int i = 0; i < followingMessagesWhenAppeared.Count; i++)
             {
 
-                TriggerMessage(followingMessagesWhenDeleted[i]);
+                TriggerMessage(followingMessagesWhenAppeared[i]);
 
             }
         }
