@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   thoughtText: My  throat is dry
+  thoughtTexts: []
   thoughtType: 4
-  thoughtPosition: {x: 7.55, y: 9.63}
-  thoughtStatus: 2
-  RelevantThought: 0
-  nagge: 0
+  thoughtPosition: {x: 400, y: 500}
+  thoughtStatus: 1
+  numOfAppearance: 2
   taskType: 3
   followingMessagesWhenAppeared: 03000000
   followingThoughtsWhenAppeared: 

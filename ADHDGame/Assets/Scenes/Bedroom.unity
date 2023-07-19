@@ -984,7 +984,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0f403fa2f2fd83a45b5dd99fb8183390, type: 2}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: relatedThoughts.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: relatedThoughts.Array.data[0]

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 0
   thoughtText: I HATE stepping on his Legos
+  thoughtTexts: []
   thoughtType: 9
-  thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 0
-  RelevantThought: 0
-  nagge: 0
+  thoughtPosition: {x: 1000, y: 500}
+  thoughtStatus: 2
+  numOfAppearance: 1
   taskType: 0
   followingMessagesWhenAppeared: 05000000
   followingThoughtsWhenAppeared: 

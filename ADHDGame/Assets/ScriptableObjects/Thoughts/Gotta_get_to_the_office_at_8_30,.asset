@@ -15,11 +15,11 @@ MonoBehaviour:
   objectType: 0
   thoughtText: I don't believe it's sunday already... Gotta get out by 8:10  and
     get ready for that meeting
+  thoughtTexts: []
   thoughtType: 7
-  thoughtPosition: {x: 30, y: 0}
-  thoughtStatus: 0
-  RelevantThought: 0
-  nagge: 0
+  thoughtPosition: {x: 1000, y: 200}
+  thoughtStatus: 1
+  numOfAppearance: 0
   taskType: 25
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 04000000

@@ -13,6 +13,7 @@ public class RoomObject : MonoBehaviour
     public string objectName;
 
     public Object_Enum objectType;
+    public Animator animator;
 
     public List<Task> relatedTasks;
 
@@ -113,7 +114,7 @@ public class RoomObject : MonoBehaviour
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
-        curTask.StartTask();
+        curTask.StartTask(animator);
     }
 
     public void OnApplicationQuit()

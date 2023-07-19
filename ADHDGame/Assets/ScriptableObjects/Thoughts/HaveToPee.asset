@@ -18,9 +18,9 @@ MonoBehaviour:
   - PEEEEEE!!!!
   - Take me to PPPPPEEEEEE!
   thoughtType: 5
-  thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 2
-  numOfAppearance: 3
+  thoughtPosition: {x: 700, y: 900}
+  thoughtStatus: 1
+  numOfAppearance: 1
   taskType: 5
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 

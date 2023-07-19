@@ -29,7 +29,7 @@ public class Task : ScriptableObject
     public bool must;
 
     // public Status_Enum smtatus;
-    public Animation animation;
+    public Animator animator;
 
     public Task waitingOnTask;
 
@@ -51,6 +51,11 @@ public class Task : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenDone;
 
+    public void StartTask(Animator taskAnimator)
+    {
+        animator = taskAnimator;
+        StartTask();
+    }
 
     public void StartTask()
     {
@@ -88,10 +93,19 @@ public class Task : ScriptableObject
     public IEnumerator WaitForDuration()
     {
         //start animation
+        Debug.Log(animator);
+        if (animator != null)
+        {
+            animator.SetBool("isActive", true);
+        }
         Cursor.lockState = CursorLockMode.Locked;
         yield return new WaitForSeconds(duration);
         Cursor.lockState = CursorLockMode.None;
         //end animation
+        if (animator != null)
+        {
+            animator.SetBool("isActive", false);
+        }
         if (waitingTime > 0)
         {
             status = TaskStatus_Enum.Waiting;
