@@ -47,42 +47,55 @@ public class Thoughts_Manager : MonoBehaviour
     public void createThought(Thought_Enum thoughtType)
     {
         thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
-        
-       // var positionx = UnityEngine.Random.Range(-1.0f, 1.0f);
+
+        // var positionx = UnityEngine.Random.Range(-1.0f, 1.0f);
         //var positiony = UnityEngine.Random.Range(-1.0f, 1.0f);
         //Vector2 position = new Vector2(positionx, positiony);
         //Debug.Log(position);
         //Debug.Log(thoughtPrefab.thoughtPosition);
-        GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, thoughtPrefab.thoughtPosition, Quaternion.identity);
-        
-       // GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, position, Quaternion.identity);
-        thought_Transform newThought = thoughtGameObject.GetComponent<thought_Transform>();
-        newThought.thoughtType = thoughtType;
-
         searchForThoughtType(thoughtType);
-       
-        //choose text from list
+        Vector2 thoughtPosition;
+        if (thoughtsList_[currentThoughtNum].thoughtPosition.x != 0)
+        {
+            thoughtPosition = thoughtsList_[currentThoughtNum].thoughtPosition;
+        }
+        else
+        {
+            thoughtPosition = new Vector2(300, 300);
+        }
 
-        string currentText =  ChooseTextFromList(thoughtsList_[currentThoughtNum]);
-        
-        newThought.thoughtText = currentText;
+        string currentText = ChooseTextFromList(thoughtsList_[currentThoughtNum]);
+        if (GameObject.Find(currentText) == null)
+        {
 
-        TMP_Text thoughtTxt = newThought.transform.GetChild(0).GetComponent<TMP_Text>();
-        thoughtTxt.SetText(newThought.thoughtText);
-        newThought.changeText();
-        newThought.name = newThought.thoughtText;
+            GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, thoughtPosition, Quaternion.identity);
 
-        newThought.transform.SetParent(thoughtsParent);
-        changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);
-        thoughtsList_[currentThoughtNum].CheckFollowingAction();
-        thought_Transforms.Add(newThought);
-        thoughtsList_[currentThoughtNum].numOfAppearance++;
-        Debug.Log(thoughtGameObject.transform.position);
+            // GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, position, Quaternion.identity);
+            thought_Transform newThought = thoughtGameObject.GetComponent<thought_Transform>();
+            newThought.thoughtType = thoughtType;
+
+            //choose text from list
+
+
+            newThought.thoughtText = currentText;
+
+            TMP_Text thoughtTxt = newThought.transform.GetChild(0).GetComponent<TMP_Text>();
+            thoughtTxt.SetText(newThought.thoughtText);
+            newThought.changeText();
+            newThought.name = newThought.thoughtText;
+
+            newThought.transform.SetParent(thoughtsParent);
+            changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);
+            thoughtsList_[currentThoughtNum].CheckFollowingAction();
+            thought_Transforms.Add(newThought);
+            thoughtsList_[currentThoughtNum].numOfAppearance++;
+            Debug.Log(thoughtGameObject.transform.position);
+        }
     }
 
     public string ChooseTextFromList(Thought thought)
     {
-       Thought currentThought = thoughtsList_[currentThoughtNum];
+        Thought currentThought = thoughtsList_[currentThoughtNum];
 
         if (currentThought.numOfAppearance >= 1)
         {

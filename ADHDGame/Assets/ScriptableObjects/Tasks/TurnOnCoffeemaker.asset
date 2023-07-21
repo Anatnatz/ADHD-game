@@ -16,10 +16,15 @@ MonoBehaviour:
   taskType: 24
   textInApp: Need  COFFEE
   duration: 3
-  waitingTime: 0
+  waitingTime: 5
   score: 20
   status: 0
   taskOnAppStatus: 0
+  must: 0
   animation: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
+  followingMessagesWhenWaiting: 06000000
+  followingThoughtsWhenWaiting: 
+  followingMessagesWhenDone: 
+  followingThoughtsWhenDone: 

@@ -4849,6 +4849,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 373dbdb4a3a1ff74e99db4d6c2b18e33, type: 2}
   - {fileID: 11400000, guid: ac766358b70366f419f0414fab98aced, type: 2}
   - {fileID: 11400000, guid: ddb60b3e4c6b8604695837e32cdc21bd, type: 2}
+  - {fileID: 11400000, guid: a0701d1f5e526774a9189b4cfa656ae2, type: 2}
   currentMessage: 0
   setmessageview: {fileID: 1366699647}
   timeToClose: 0
@@ -8446,11 +8447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4536007136057323568, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 4
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4536007136057323568, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4536007136057323568, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,21 +13,18 @@ public class FadeInAnimation : MonoBehaviour
         if (Game_Manager.wakeUp)
         {
             fadeinGroup.alpha = 1;
+            StartCoroutine(WakeUpAnimation());
         }
     }
 
-    void Update()
+    IEnumerator WakeUpAnimation()
     {
-        if (Game_Manager.wakeUp)
+        while (fadeinGroup.alpha > 0)
         {
-            if (fadeinGroup.alpha > 0)
-            {
-                fadeinGroup.alpha -= Time.deltaTime * 0.3f;
-            }
-            else
-            {
-                Game_Manager.wakeUp = false;
-            }
+            fadeinGroup.alpha -= 0.005f;
+            yield return null;
         }
+
+        Game_Manager.wakeUp = false;
     }
 }

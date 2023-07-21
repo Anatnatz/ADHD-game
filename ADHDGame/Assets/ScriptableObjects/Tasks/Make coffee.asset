@@ -21,5 +21,9 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   animation: {fileID: 0}
-  waitingOnTask: {fileID: 0}
+  waitingOnTask: {fileID: 11400000, guid: ce8b1b7b01511684ebd60bfeff8ab19d, type: 2}
   blockingThought: 0
+  followingMessagesWhenWaiting: 
+  followingThoughtsWhenWaiting: 
+  followingMessagesWhenDone: 
+  followingThoughtsWhenDone: 0c000000
