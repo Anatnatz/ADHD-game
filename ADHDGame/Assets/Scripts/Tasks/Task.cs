@@ -98,9 +98,13 @@ public class Task : ScriptableObject
         {
             animator.SetBool("isActive", true);
         }
+
         Cursor.lockState = CursorLockMode.Locked;
+        Game_Manager.gameInstance.doingTask = true;
         yield return new WaitForSeconds(duration);
         Cursor.lockState = CursorLockMode.None;
+        Game_Manager.gameInstance.doingTask = false;
+
         //end animation
         if (animator != null)
         {

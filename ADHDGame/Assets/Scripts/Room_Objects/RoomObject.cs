@@ -62,7 +62,7 @@ public class RoomObject : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject() && !Game_Manager.gameInstance.doingTask)
         {
             ShowTasks();
         }

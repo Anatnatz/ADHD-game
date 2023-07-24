@@ -8,6 +8,13 @@ public class Game_Manager : MonoBehaviour
 
     public static bool wakeUp;
 
+    public bool doingTask = false;
+
+    void Awake()
+    {
+        gameInstance = this;
+    }
+
     public void StartGame(int level)
     {
         wakeUp = true;
