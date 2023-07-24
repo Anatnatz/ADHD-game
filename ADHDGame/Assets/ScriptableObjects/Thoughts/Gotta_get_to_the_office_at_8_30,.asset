@@ -20,6 +20,7 @@ MonoBehaviour:
   thoughtPosition: {x: 1000, y: 200}
   thoughtStatus: 1
   numOfAppearance: 0
+  waitingGap: 5
   taskType: 25
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 04000000

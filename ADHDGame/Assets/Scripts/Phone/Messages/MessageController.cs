@@ -68,8 +68,11 @@ public class MessageController : MonoBehaviour
         {
             openPhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, openPhoneMessage);
+           if (messageName != MessageName_Enum.Good_morning)
+            {
+                StartCoroutine(waitToClose());
 
-            StartCoroutine(waitToClose());
+            }
 
 
 
@@ -81,8 +84,12 @@ public class MessageController : MonoBehaviour
             closePhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, closePhoneMessage);
 
-           StartCoroutine(waitToClose());
-          
+            if (messageName != MessageName_Enum.Good_morning)
+            {
+                StartCoroutine(waitToClose());
+
+            }
+
 
         }
     }
@@ -166,5 +173,17 @@ public class MessageController : MonoBehaviour
             // MessageScriptble testre = SearchMessageOnList(messageNameTest);
             // Debug.Log (testre);
         }
+    }
+
+    internal void startWaitGapMessage(MessageName_Enum messageName)
+    {
+        StartCoroutine(waitGapMessage(messageName));
+    }
+
+    internal IEnumerator waitGapMessage(MessageName_Enum messageName)
+    {
+        MessageScriptble message = MessageController.messageControlInstance.SearchMessageOnList(messageName);
+        yield return new WaitForSeconds(message.waitingGap);
+        MessageController.messageControlInstance.SendMessage(messageName);
     }
 }

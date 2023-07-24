@@ -19,8 +19,8 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
-        Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
-        Vector2 cameraPos = Camera.main.transform.position;
+       // Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+      //  Vector2 cameraPos = Camera.main.transform.position;
         // border_ref.position = new Vector2 (cameraPos.x - borderGap, cameraPos.y);
     }
 }

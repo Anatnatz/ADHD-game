@@ -31,7 +31,7 @@ public class Message : MonoBehaviour
         if (messageStatus == MessageStatus_Enum.OnApp)
         {
             textSender.text = theTextSender;
-            textMessage.text = theFullTextMessage;
+            textMessage.text = theTextMessage;
         }
     }
 
@@ -44,7 +44,7 @@ public class Message : MonoBehaviour
 
         if (messageStatus == MessageStatus_Enum.OutsideAppClosePhone)
         {
-            Debug.Log("ckll");
+            
             this.gameObject.SetActive(false);
         }
 

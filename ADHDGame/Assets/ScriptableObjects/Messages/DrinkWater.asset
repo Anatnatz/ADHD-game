@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageName: 3
   textSender: Ronny
-  textMessage: Thirsty?
+  textMessage: Thirsty?...
   fullText: Theres a cup of water right here, go ahead and click it!
   messageType: 0
-  messageOnAppStatus: 0
+  messageOnAppStatus: 1
+  waitingGap: 1
+  followingMessages: 
+  followingThoughts: 
+  followingMessagesWhenRead: 
+  followingThoughtsWhenRead: 
+  followingMessagesWhenUnRead: 
+  followingThoughtsWhenUnRead: 
