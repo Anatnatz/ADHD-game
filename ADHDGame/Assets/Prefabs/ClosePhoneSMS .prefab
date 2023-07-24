@@ -543,9 +543,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4536007136057323572}
+      - m_Target: {fileID: 4536007136057323569}
         m_TargetAssemblyTypeName: Message, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: setThisOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoveredText: Read later
-  textObject: {fileID: 0}
+  textObject: {fileID: 7432504538720053872}
 --- !u!61 &7730225004861181704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoveredText: Read now
-  textObject: {fileID: 0}
+  textObject: {fileID: 6668587722171375634}
 --- !u!61 &4539662553367435804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1122,6 +1122,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ac1eff12c225b48b54e10e11198264, type: 3}
+--- !u!1 &7432504538720053872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4461176928574622260, guid: d8ac1eff12c225b48b54e10e11198264, type: 3}
+  m_PrefabInstance: {fileID: 6542823951989006404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7432504538720053877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4461176928574622257, guid: d8ac1eff12c225b48b54e10e11198264, type: 3}
@@ -1204,6 +1209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ac1eff12c225b48b54e10e11198264, type: 3}
+--- !u!1 &6668587722171375634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4461176928574622260, guid: d8ac1eff12c225b48b54e10e11198264, type: 3}
+  m_PrefabInstance: {fileID: 7017415210081561126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6668587722171375639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4461176928574622257, guid: d8ac1eff12c225b48b54e10e11198264, type: 3}

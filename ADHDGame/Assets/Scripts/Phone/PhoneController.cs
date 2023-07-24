@@ -23,6 +23,12 @@ public class PhoneController : MonoBehaviour
     [SerializeField]
     private TMP_Text timeText;
 
+    [Header("End Level Time")]
+    [SerializeField]
+    private int endHours;
+    [SerializeField]
+    private int endMinutes;
+
     [Header("Apps")]
     [SerializeField]
     private GameObject allApps;
@@ -40,10 +46,13 @@ public class PhoneController : MonoBehaviour
     [SerializeField]
     private GameObject miniPhone;
 
+    [SerializeField]
+    private GameObject fullPhone;
+
     void Start()
     {
         FormatTime();
-        StartCoroutine(MoveTime(0));
+        StartCoroutine(MoveTime(1));
     }
 
     public float GetCurrentTime()
@@ -75,8 +84,22 @@ public class PhoneController : MonoBehaviour
     IEnumerator MoveTime(int minInterval)
     {
         yield return new WaitForSeconds(gameMinute);
-        ChangeTime (minInterval);
-        StartCoroutine(MoveTime(minInterval));
+        ChangeTime(minInterval);
+        if (LevelHasMoreTime())
+        {
+            StartCoroutine(MoveTime(minInterval));
+        }
+    }
+
+    bool LevelHasMoreTime()
+    {
+        if (hours >= endHours && minutes >= endMinutes)
+        {
+            Debug.Log("end of level!");
+            return false;
+        }
+
+        return true;
     }
 
     void FormatTime()
@@ -105,7 +128,7 @@ public class PhoneController : MonoBehaviour
         messagesApp.SetActive(false);
         messageOnApp.SetActive(false);
         todoApp.SetActive(true);
-        
+
 
     }
 
@@ -133,22 +156,22 @@ public class PhoneController : MonoBehaviour
 
         //set all apps to false active
     }
-   
-   
+
+
 
     public void TogglePhone()
     {
-        if (gameObject.activeSelf)
+        if (fullPhone.activeSelf)
         {
-            gameObject.SetActive(false);
+            fullPhone.SetActive(false);
             miniPhone.SetActive(true);
-            phoneStatus= PhoneStatus_Enum.ClosePhone;
+            phoneStatus = PhoneStatus_Enum.ClosePhone;
         }
         else
         {
-            gameObject.SetActive(true);
+            fullPhone.SetActive(true);
             miniPhone.SetActive(false);
-            phoneStatus= PhoneStatus_Enum.OpenPhone;
+            phoneStatus = PhoneStatus_Enum.OpenPhone;
         }
     }
 
@@ -159,6 +182,6 @@ public class PhoneController : MonoBehaviour
 
     public void AddToTime(int addMinutes)
     {
-        ChangeTime (addMinutes);
+        ChangeTime(addMinutes);
     }
 }
