@@ -5571,7 +5571,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1230291500}
         m_TargetAssemblyTypeName: PhoneController, Assembly-CSharp
         m_MethodName: AddToTime
         m_Mode: 3
@@ -5870,6 +5870,7 @@ MonoBehaviour:
   endHours: 8
   endMinutes: 10
   allApps: {fileID: 687964903}
+  mainScreenContent: {fileID: 472710192}
   todoApp: {fileID: 1291020252}
   tiktokApp: {fileID: 228706651}
   tiktokPlayer: {fileID: 1238246989}

@@ -35,6 +35,9 @@ public class PhoneController : MonoBehaviour
     private GameObject allApps;
 
     [SerializeField]
+    private Transform mainScreenContent;
+
+    [SerializeField]
     private GameObject todoApp;
 
     [SerializeField]
@@ -213,6 +216,7 @@ public class PhoneController : MonoBehaviour
         todoApp.SetActive(false);
         messagesApp.SetActive(false);
         messageOnApp.SetActive(false);
+        mainScreenContent.position = new Vector2(mainScreenContent.position.x, 0);
 
         //set all apps to false active
     }
