@@ -23,6 +23,7 @@ public class Game_Manager : MonoBehaviour
 
     void StartLevel1()
     {
+        Debug.Log("hello?");
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
     }
 }

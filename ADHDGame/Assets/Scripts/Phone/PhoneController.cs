@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class PhoneController : MonoBehaviour
 {
@@ -37,7 +38,14 @@ public class PhoneController : MonoBehaviour
     private GameObject todoApp;
 
     [SerializeField]
+    private GameObject tiktokApp;
+
+    [SerializeField]
+    private VideoPlayer tiktokPlayer;
+
+    [SerializeField]
     private GameObject messagesApp;
+
 
     [SerializeField]
     private GameObject messageOnApp;
@@ -49,10 +57,40 @@ public class PhoneController : MonoBehaviour
     [SerializeField]
     private GameObject fullPhone;
 
+    [Header("Tiktok Doom Counter")]
+    [SerializeField]
+    private float timeUntilScroll;
+
+    public static float noTouchTime = 0;
+
+
     void Start()
     {
         FormatTime();
         StartCoroutine(MoveTime(1));
+    }
+
+    void Update()
+    {
+        if (fullPhone.activeSelf)
+        {
+            if (noTouchTime >= timeUntilScroll && !tiktokApp.activeSelf)
+            {
+                OpenTiktokApp();
+            }
+            noTouchTime += Time.deltaTime;
+        }
+        else
+        {
+            noTouchTime = 0;
+            BackToAllApps();
+        }
+    }
+
+    public void ResetTouchTime()
+    {
+        Debug.Log("asdfasdlkf");
+        noTouchTime = 0;
     }
 
     public float GetCurrentTime()
@@ -96,6 +134,7 @@ public class PhoneController : MonoBehaviour
         if (hours >= endHours && minutes >= endMinutes)
         {
             Debug.Log("end of level!");
+            ScenesManager.SwitchToScene("Kitchen");
             return false;
         }
 
@@ -124,31 +163,52 @@ public class PhoneController : MonoBehaviour
 
     public void OpenTaskApp()
     {
+        tiktokPlayer.Pause();
         allApps.SetActive(false);
         messagesApp.SetActive(false);
         messageOnApp.SetActive(false);
         todoApp.SetActive(true);
+    }
+    public void OpenTiktokApp()
+    {
+        allApps.SetActive(false);
+        todoApp.SetActive(false);
+        tiktokApp.SetActive(true);
+        messagesApp.SetActive(false);
+        messageOnApp.SetActive(false);
 
-
+        tiktokPlayer.Play();
+        MoveTimeXTimes(5f);
     }
 
     public void OpenmessagesApp()
     {
+        tiktokPlayer.Pause();
         allApps.SetActive(false);
         todoApp.SetActive(false);
+        tiktokApp.SetActive(false);
         messageOnApp.SetActive(false);
         messagesApp.SetActive(true);
     }
     public void OpenMessagePanel()
     {
+        tiktokPlayer.Pause();
         allApps.SetActive(false);
         todoApp.SetActive(false);
+        tiktokApp.SetActive(false);
         messagesApp.SetActive(false);
         messageOnApp.SetActive(true);
-
     }
+
     public void BackToAllApps()
     {
+        if (tiktokApp.activeSelf)
+        {
+            noTouchTime = 0;
+            tiktokPlayer.Pause();
+            MoveTimeXTimes(0.2f);
+        }
+        tiktokApp.SetActive(false);
         allApps.SetActive(true);
         todoApp.SetActive(false);
         messagesApp.SetActive(false);
@@ -163,6 +223,7 @@ public class PhoneController : MonoBehaviour
     {
         if (fullPhone.activeSelf)
         {
+            BackToAllApps();
             fullPhone.SetActive(false);
             miniPhone.SetActive(true);
             phoneStatus = PhoneStatus_Enum.ClosePhone;
