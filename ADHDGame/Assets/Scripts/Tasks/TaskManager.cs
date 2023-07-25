@@ -36,7 +36,7 @@ public class TaskManager : MonoBehaviour
         creatMustTasksList();
     }
 
-   
+
 
     void Update()
     {
@@ -103,13 +103,13 @@ public class TaskManager : MonoBehaviour
 
     public void UpdateTaskStatus(Task_Enum taskType, TaskStatus_Enum status)
     {
-        searchTaskOnList (taskType);
+        searchTaskOnList(taskType);
         tasksList[currentTaskNumOnList].status = status;
-        
-        if (status == TaskStatus_Enum.Done) 
+
+        if (status == TaskStatus_Enum.Done)
         {
             UpdateTotalScore(tasksList[currentTaskNumOnList]);
-            
+
         }
     }
 
@@ -136,7 +136,7 @@ public class TaskManager : MonoBehaviour
             NotComplitedMustTaskList.Remove(NotComplitedMustTaskList[i]);
         }
 
-        
+
 
         //Check must list:
 
@@ -149,11 +149,11 @@ public class TaskManager : MonoBehaviour
 
         }
 
-        if(NotComplitedMustTaskList.Count > 0) 
+        if (NotComplitedMustTaskList.Count > 0)
         {
             return false;
         }
-        else 
+        else
         {
             return true;
         }
@@ -165,7 +165,7 @@ public class TaskManager : MonoBehaviour
 
         for (int i = 0; i < tasksList.Count; i++)
         {
-            if (tasksList[i].taskType == taskType) 
+            if (tasksList[i].taskType == taskType)
             {
                 if (tasksList[i].status == TaskStatus_Enum.Done)
                 { isDone = true; }
@@ -173,8 +173,16 @@ public class TaskManager : MonoBehaviour
             }
 
         }
-       
-        if(isDone) { return true; }
+
+        if (isDone) { return true; }
         else { return false; }
+    }
+
+    void OnApplicationQuit()
+    {
+        foreach (Task task in tasksList)
+        {
+            task.status = TaskStatus_Enum.none;
+        }
     }
 }

@@ -77,8 +77,11 @@ public class RoomObject : MonoBehaviour
     {
         foreach (Task relatedTask in relatedTasks)
         {
-            CreateTaskButton(relatedTask.taskName, relatedTask);
-            NameTaskButton(relatedTask.taskName);
+            if ((relatedTask.waitingOnTask == null || relatedTask.waitingOnTask.status == TaskStatus_Enum.Done) && relatedTask.status == TaskStatus_Enum.none)
+            {
+                CreateTaskButton(relatedTask.taskName, relatedTask);
+                NameTaskButton(relatedTask.taskName);
+            }
         }
         CreateTaskListeners();
         // TaskButtonController.instance.ButtonsChanged();
