@@ -31,6 +31,9 @@ public class RoomObject : MonoBehaviour
 
     private int currentThought = 0;
 
+    public Task_Enum previousTask;
+    public Thought_Enum previousThought;
+
     void Awake()
     {
         TextOnHover textOnHover = transform.GetComponent<TextOnHover>();
@@ -75,6 +78,36 @@ public class RoomObject : MonoBehaviour
     }
 
     void CreateTaskButton(string name)
+    {
+        if (previousTask != Task_Enum.None)
+        {
+            Task preTask = TaskManager.instance.searchTaskOnList(previousTask);
+            if (preTask.status == TaskStatus_Enum.Done)
+            {
+                StartCreatingButton(name);
+                
+            }
+        }
+        if (previousTask == Task_Enum.None)
+        
+        {
+           if(previousThought != Thought_Enum.None) 
+            {
+                Thoughts_Manager.ThoughtsInstance.searchForThoughtType(previousThought);
+                if (Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].thoughtStatus == ThoughtStatus.Appeared )
+                {
+                    StartCreatingButton(name);
+                }
+            }
+           else
+            {
+                StartCreatingButton(name);
+            }
+           
+        }
+    }
+
+    private void StartCreatingButton(string name)
     {
         GameObject canvas = GameObject.Find("Canvas");
         GameObject buttonsSpace = GameObject.Find("ButtonsSpace");
@@ -129,8 +162,24 @@ public class RoomObject : MonoBehaviour
     {
         int numOfTasksDone = 0;
         if (relatedThoughts != null && relatedThoughts.Count > 0)
-        {
-            Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+        {   if(previousTask != Task_Enum.None)
+            {
+                Task preTask = TaskManager.instance.searchTaskOnList(previousTask);
+                if (preTask.status == TaskStatus_Enum.Done)
+                {
+                    Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+                }
+            }
+
+            
+                else
+                {
+                    Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+                }
+
+            }
+            
+            
             // if (relatedTasks.Count > 0)
             // {
 
@@ -156,4 +205,4 @@ public class RoomObject : MonoBehaviour
 
         }
     }
-}
+

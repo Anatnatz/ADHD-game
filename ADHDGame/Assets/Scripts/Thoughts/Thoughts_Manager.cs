@@ -51,10 +51,10 @@ public class Thoughts_Manager : MonoBehaviour
 
        
         searchForThoughtType(thoughtType);
+
         if (thoughtsList_[currentThoughtNum].loop == true) 
         {
             thoughtsList_[currentThoughtNum].isOnLoop = true;
-           
         }
         Vector2 thoughtPosition;
         if (thoughtsList_[currentThoughtNum].thoughtPosition.x != 0)

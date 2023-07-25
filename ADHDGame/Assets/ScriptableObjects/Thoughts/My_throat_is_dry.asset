@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: My_throat_is_dry
   m_EditorClassIdentifier: 
-  objectType: 0
   thoughtText: My  throat is dry
   thoughtTexts: []
   thoughtType: 4
-  thoughtPosition: {x: 400, y: 500}
+  thoughtPosition: {x: 650, y: 700}
   thoughtStatus: 1
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
+  currentThoughtText: 0
   numOfAppearance: 2
-  waitingGap: 10
+  waitingGap: 5
+  previousAction: 
   taskType: 3
   followingMessagesWhenAppeared: 03000000
   followingThoughtsWhenAppeared: 

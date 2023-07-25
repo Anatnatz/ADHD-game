@@ -859,7 +859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: relatedThoughts.Array.data[0]
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
@@ -1368,6 +1368,10 @@ PrefabInstance:
       value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: previousThought
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: relatedTasks.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1375,6 +1379,14 @@ PrefabInstance:
       propertyPath: relatedTasks.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: db6809d05c8c73b49bd426ae15726c82, type: 2}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: relatedThoughts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: relatedThoughts.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
 --- !u!114 &1791752685 stripped
@@ -1527,6 +1539,14 @@ PrefabInstance:
       propertyPath: relatedTasks.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: aefb03664469ec041b163390413be672, type: 2}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: relatedThoughts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: relatedThoughts.Array.data[0]
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
 --- !u!114 &1836085344 stripped
@@ -1770,9 +1790,12 @@ MonoBehaviour:
   taskBtn: {fileID: 4010039980955059271, guid: b798d90c3f0f56f4bb3b8c77ba389732, type: 3}
   objectName: Door
   objectType: 2
+  animator: {fileID: 0}
   relatedTasks:
   - {fileID: 11400000, guid: 3fde5b3175e39aa49835c0adcb83e347, type: 2}
   relatedThoughts: 
+  previousTask: 0
+  previousThought: 0
 --- !u!1 &2059228036
 GameObject:
   m_ObjectHideFlags: 0

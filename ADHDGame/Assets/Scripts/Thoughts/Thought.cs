@@ -33,6 +33,7 @@ public class Thought : ScriptableObject
 
     public int numOfAppearance = 0;
     public int waitingGap = 0;
+    public string previousAction;
 
 
 
@@ -77,8 +78,59 @@ public class Thought : ScriptableObject
     public void start()
     {
         numOfAppearance = 0;
+        UpdateFollowing();
 
     }
+
+    private void UpdateFollowing()
+    {
+       
+            for (int i = 0; i < followingThoughtsWhenAppeared.Count; i++)
+            {
+            UpdateFollowingThought(followingThoughtsWhenAppeared[i]);
+            }
+        
+            for (int i = 0; i < followingThoughtsWhenDeleted.Count; i++)
+            {
+            UpdateFollowingThought(followingThoughtsWhenDeleted[i]);
+            
+            }
+
+            for (int i = 0; i < followingThoughtsWhenPushToApp.Count; i++)
+            {
+            UpdateFollowingThought(followingThoughtsWhenPushToApp[i]);
+            }
+
+            for (int i = 0; i < followingMessagesWhenAppeared.Count; i++)
+            {
+            UpdateFollowingMessage(followingMessagesWhenAppeared[i]);
+           
+            }
+        
+            for (int i = 0; i < followingMessagesWhenDeleted.Count; i++)
+            {
+            UpdateFollowingMessage(followingMessagesWhenDeleted[i]);
+        }
+        
+            for (int i = 0; i < followingMessagesWhenPushToApp.Count; i++)
+            {
+            UpdateFollowingMessage(followingMessagesWhenPushToApp[i]);
+        }
+        
+    }
+
+    private void UpdateFollowingMessage(MessageName_Enum messageName_Enum)
+    {
+        MessageScriptble message = MessageController.messageControlInstance.SearchMessageOnList(messageName_Enum);
+        message.previousAction = this.thoughtText;
+    }
+
+    private void UpdateFollowingThought(Thought_Enum thought_)
+    {
+        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_);
+        Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].previousAction = this.thoughtText;
+    }
+
     public void CheckFollowingAction()
     {
         switch (thoughtStatus)
@@ -195,7 +247,7 @@ public class Thought : ScriptableObject
         Thoughts_Manager.ThoughtsInstance.startWaitGapThought(thoughtType);
     }
 
-    internal void StartLoop()
+    public void Update()
     {
        
             Task connectedTask = TaskManager.instance.searchTaskOnList(taskType);

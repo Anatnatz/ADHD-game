@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: Gotta_get_to_the_office_at_8_30,
   m_EditorClassIdentifier: 
-  objectType: 0
   thoughtText: I don't believe it's sunday already... Gotta get out by 8:10  and
     get ready for that meeting
   thoughtTexts: []
   thoughtType: 7
-  thoughtPosition: {x: 1000, y: 200}
+  thoughtPosition: {x: 1200, y: 600}
   thoughtStatus: 1
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
+  currentThoughtText: 0
   numOfAppearance: 0
   waitingGap: 5
+  previousAction: 
   taskType: 25
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 04000000
