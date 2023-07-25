@@ -8,7 +8,7 @@ public class TextOnHover : MonoBehaviour
     public string hoveredText;
     [SerializeField]
     GameObject textObject;
-  
+
     void Start()
     {
         SetObjectText();
@@ -21,7 +21,7 @@ public class TextOnHover : MonoBehaviour
         Debug.Log(objTxtComponent);
         objTxtComponent.text = hoveredText;
         textObject.SetActive(false);
-        
+
     }
 
     void OnMouseEnter()
@@ -33,4 +33,15 @@ public class TextOnHover : MonoBehaviour
     {
         textObject.SetActive(false);
     }
+    public void Hover()
+    {
+        textObject.SetActive(true);
+        Debug.Log("wahaat");
+    }
+
+    public void StopHover()
+    {
+        textObject.SetActive(false);
+    }
+
 }
