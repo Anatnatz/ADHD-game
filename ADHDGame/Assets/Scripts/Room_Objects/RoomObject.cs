@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class RoomObject : MonoBehaviour
 {
     public GameObject taskBtn;
+    public GameObject taskInfo;
 
     public string objectName;
 
@@ -25,11 +26,14 @@ public class RoomObject : MonoBehaviour
 
     private List<Button> taskButtons;
 
+    private List<TextMeshProUGUI> taskInfoTexts;
+
     private Button curBtn;
 
     private GameObject objectText;
 
     private GameObject buttonObject;
+    private GameObject taskInfoObject;
 
     private int currentThought = 0;
 
@@ -39,6 +43,7 @@ public class RoomObject : MonoBehaviour
         textOnHover.hoveredText = objectName;
         // SetObjectText();
         taskButtons = new List<Button>();
+        taskInfoTexts = new List<TextMeshProUGUI>();
     }
 
     // void SetObjectText()
@@ -72,28 +77,32 @@ public class RoomObject : MonoBehaviour
     {
         foreach (Task relatedTask in relatedTasks)
         {
-            CreateTaskButton(relatedTask.taskName);
+            CreateTaskButton(relatedTask.taskName, relatedTask);
             NameTaskButton(relatedTask.taskName);
         }
         CreateTaskListeners();
         // TaskButtonController.instance.ButtonsChanged();
     }
 
-    void CreateTaskButton(string name)
+    void CreateTaskButton(string name, Task relatedTask)
     {
         GameObject canvas = GameObject.Find("Canvas");
         GameObject buttonsSpace = GameObject.Find("ButtonsSpace");
 
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
+        taskInfoObject = Instantiate(taskInfo, Vector3.zero, Quaternion.identity);
         buttonObject.name = name;
         curBtn = buttonObject.GetComponent<Button>();
         taskButtons.Add(curBtn);
+        TextMeshProUGUI taskInfoText = taskInfoObject.GetComponentsInChildren<TextMeshProUGUI>()[0];
+        taskInfoText.text = "takes " + relatedTask.duration.ToString() + " min";
 
         // if (buttonsSpace == null)
         // buttonObject.transform.SetParent(canvas.transform);
         Vector3 mousePos = Input.mousePosition;
         buttonsSpace.transform.position = mousePos;
         buttonObject.transform.SetParent(buttonsSpace.transform);
+        taskInfoObject.transform.SetParent(buttonsSpace.transform);
         // buttonObject.transform.position = mousePos + offSetVector;
         // else
         //     buttonObject.transform.SetParent(buttonsSpace.transform);
@@ -118,6 +127,7 @@ public class RoomObject : MonoBehaviour
     {
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);
+        Destroy(taskInfoObject.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
         curTask.StartTask(animator);
     }
