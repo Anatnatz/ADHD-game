@@ -158,4 +158,23 @@ public class TaskManager : MonoBehaviour
             return true;
         }
     }
+
+    internal bool IsTaskDone(Task_Enum taskType)
+    {
+        bool isDone = false;
+
+        for (int i = 0; i < tasksList.Count; i++)
+        {
+            if (tasksList[i].taskType == taskType) 
+            {
+                if (tasksList[i].status == TaskStatus_Enum.Done)
+                { isDone = true; }
+                else { isDone = false; }
+            }
+
+        }
+       
+        if(isDone) { return true; }
+        else { return false; }
+    }
 }

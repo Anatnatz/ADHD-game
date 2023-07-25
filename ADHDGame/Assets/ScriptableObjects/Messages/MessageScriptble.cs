@@ -17,6 +17,8 @@ public class MessageScriptble : ScriptableObject
 
     public MessageOnAppStatus_Enum messageOnAppStatus;
 
+    public int waitingGap = 0;
+
     [Header("Following")]
 
     [SerializeField]
@@ -81,12 +83,13 @@ public class MessageScriptble : ScriptableObject
 
     private void TriggerMessage(MessageName_Enum messageName)
     {
-        MessageController.messageControlInstance.SendMessage(messageName);
+        MessageController.messageControlInstance.startWaitGapMessage(messageName);
+       
     }
 
     private void TriggerThought(Thought_Enum thoughtType)
     {
-        Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
+        Thoughts_Manager.ThoughtsInstance.startWaitGapThought(thoughtType);
     }
 }
 

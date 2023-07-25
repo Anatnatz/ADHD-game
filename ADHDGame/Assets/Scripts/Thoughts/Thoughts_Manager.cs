@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 
@@ -48,12 +49,13 @@ public class Thoughts_Manager : MonoBehaviour
     {
         thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
 
-        // var positionx = UnityEngine.Random.Range(-1.0f, 1.0f);
-        //var positiony = UnityEngine.Random.Range(-1.0f, 1.0f);
-        //Vector2 position = new Vector2(positionx, positiony);
-        //Debug.Log(position);
-        //Debug.Log(thoughtPrefab.thoughtPosition);
+       
         searchForThoughtType(thoughtType);
+        if (thoughtsList_[currentThoughtNum].loop == true) 
+        {
+            thoughtsList_[currentThoughtNum].isOnLoop = true;
+           
+        }
         Vector2 thoughtPosition;
         if (thoughtsList_[currentThoughtNum].thoughtPosition.x != 0)
         {
@@ -65,18 +67,15 @@ public class Thoughts_Manager : MonoBehaviour
         }
 
         string currentText = ChooseTextFromList(thoughtsList_[currentThoughtNum]);
+
         if (GameObject.Find(currentText) == null)
         {
 
             GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, thoughtPosition, Quaternion.identity);
-
-            // GameObject thoughtGameObject = Instantiate(thought_Transform_Prefab, position, Quaternion.identity);
             thought_Transform newThought = thoughtGameObject.GetComponent<thought_Transform>();
             newThought.thoughtType = thoughtType;
 
             //choose text from list
-
-
             newThought.thoughtText = currentText;
 
             TMP_Text thoughtTxt = newThought.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -140,16 +139,20 @@ public class Thoughts_Manager : MonoBehaviour
     {
         searchForThoughtType(thoughtType);
 
-        if (thoughtsList_[currentThoughtNum].thoughtStatus != ThoughtStatus.Appeared)
+        bool isTaskDone = TaskManager.instance.IsTaskDone(thoughtsList_[currentThoughtNum].taskType);
+
+        if (isTaskDone == false)
         {
-            createThought(thoughtType);
+
+            if (thoughtsList_[currentThoughtNum].thoughtStatus != ThoughtStatus.Appeared)
+            {
+                createThought(thoughtType);
+            }
+
         }
     }
 
-    internal void changeThoughtStatus(
-        Thought_Enum thoughtType,
-        ThoughtStatus thoughtStatus
-    )
+    internal void changeThoughtStatus( Thought_Enum thoughtType, ThoughtStatus thoughtStatus )
     {
         searchForThoughtType(thoughtType);
         thoughtsList_[currentThoughtNum].thoughtStatus = thoughtStatus;
@@ -158,5 +161,31 @@ public class Thoughts_Manager : MonoBehaviour
     internal void updateNumOfAppearanceOnApp(Thought_Enum thoughtType)
     {
         searchForThoughtType(thoughtType);
+    }
+
+    
+    public void startWaitGapThought(Thought_Enum thoughtType)
+    {
+        StartCoroutine(waitGapThought(thoughtType));
+    }
+
+    internal IEnumerator waitGapThought(Thought_Enum thoughtType)
+    {
+        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
+        Thought currentThought = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum];
+
+        yield return new WaitForSeconds(currentThought.waitingGap);
+        Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
+    }
+
+    internal void StartCoroutineLoop(Thought_Enum thoughtType, Thought thought)
+    {
+        StartCoroutine(StartThoughtLoop(thoughtType, thought));
+    }
+
+    internal IEnumerator StartThoughtLoop(Thought_Enum thoughtType, Thought thought)
+    {
+        yield return new WaitForSeconds(thought.loopInterval);
+        createThought(thoughtType);
     }
 }

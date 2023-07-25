@@ -119,6 +119,7 @@ public class Task : ScriptableObject
         else
         {
             status = TaskStatus_Enum.Done;
+            TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
             Debug.Log(status.ToString());
             CheckFollowingAction();
             TaskManager.instance.UpdateTotalScore(this);
@@ -199,11 +200,11 @@ public class Task : ScriptableObject
 
     private void TriggerMessage(MessageName_Enum messageName)
     {
-        MessageController.messageControlInstance.SendMessage(messageName);
+        MessageController.messageControlInstance.startWaitGapMessage(messageName);
     }
 
     private void TriggerThought(Thought_Enum thoughtType)
     {
-        Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
+        Thoughts_Manager.ThoughtsInstance.startWaitGapThought(thoughtType);
     }
 }

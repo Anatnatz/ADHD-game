@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InfoManager : MonoBehaviour
 {
     public static InfoManager instance;
-    public Image infoPanel;
+   public Image infoPanel;
     public textInfo infoTextCode;
     [SerializeField]
     bool test;
@@ -23,7 +23,7 @@ public class InfoManager : MonoBehaviour
     public void OpenPanel()
     { infoPanel.gameObject.SetActive(true); }
 
-    public void ClosePanel()
+   public void ClosePanel()
     { infoPanel.gameObject.SetActive(false); }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class InfoManager : MonoBehaviour
 
     IEnumerator CloseMessage()
     {
-        yield return new WaitForSeconds(2f);
-        ClosePanel();
+        yield return new WaitForSeconds(6f);
+       ClosePanel();
     }
 }
