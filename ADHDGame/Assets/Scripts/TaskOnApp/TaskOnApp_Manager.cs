@@ -97,26 +97,35 @@ public class TaskOnApp_Manager : MonoBehaviour
     {
         searchForTransformOnLIst (name);
         ChangeTaskOnAppStatus(status,currentAppTransformNum);
-        AddToList (currentAppTransformNum, markedAsDoneOnAppTasks);
+        AddToList (currentAppTransformNum, status);
         appTransforms[currentAppTransformNum].gameObject.SetActive(false);
-        RemoveFromList (currentAppTransformNum, appTransforms);
+        RemoveFromList (currentAppTransformNum, status);
     }
 
     
 
-    private void AddToList( int currentAppTransformNum, List<AppTransform> newList)
+    private void AddToList( int currentAppTransformNum, TextOnApp_Enum status)
     {
-        newList.Add(appTransforms[currentAppTransformNum]);
+        if (status == TextOnApp_Enum.Deleted)
+        {
+            deletedFromAppTasks.Add(appTransforms[currentAppTransformNum]);
+        }
+       
+        if (status == TextOnApp_Enum.Marked_As_Done) 
+        {
+            markedAsDoneOnAppTasks.Add(appTransforms[currentAppTransformNum]);
+        }
     }
 
-    private void RemoveFromList( int currentAppTransformNum, List<AppTransform> list)
+    private void RemoveFromList( int currentAppTransformNum, TextOnApp_Enum status)
     {
-        if (list == appTransforms)
+       if (status == TextOnApp_Enum.Appeared)  
+        
         {
             repositionAppTransforms (currentAppTransformNum);
         }
 
-        list.Remove(list[currentAppTransformNum]);
+        appTransforms.Remove(appTransforms[currentAppTransformNum]);
     }
 
     private void repositionAppTransforms(int currentAppTransformNum)
@@ -160,5 +169,14 @@ public class TaskOnApp_Manager : MonoBehaviour
         Task_Enum taskType = appTransforms[numOnList].taskType;
         TaskManager.instance.searchTaskOnList (taskType);
         TaskManager .instance .tasksList[TaskManager.instance.currentTaskNumOnList].taskOnAppStatus = taskOnAppStatus;
+    }
+
+    internal void UpdateTaskAsDone(Task_Enum taskType)
+    {
+        for (int i = 0; i < appTransforms.Count; i++)
+        {
+            if (appTransforms[i].taskType == taskType)
+            { changeStatus(appTransforms[i].name, TextOnApp_Enum.Marked_As_Done); break; }
+        }
     }
 }
