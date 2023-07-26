@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -51,6 +52,12 @@ public class Task : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenDone;
 
+    [SerializeField]
+    Object_Enum connectedRoomObject;
+
+    public float zoomNeeded;
+    public Vector2 zoomLocation;
+
     public void StartTask(Animator taskAnimator)
     {
         animator = taskAnimator;
@@ -65,6 +72,11 @@ public class Task : ScriptableObject
             waitingOnTask.status == TaskStatus_Enum.Done
         )
         {
+            if (connectedRoomObject !=Object_Enum.None)
+            {
+                ZoomOnObject();
+            }
+            
             InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
 
             //play animation
@@ -76,6 +88,12 @@ public class Task : ScriptableObject
         {
             InfoManager.instance.SendInfoMessage("Can't start " + taskName + " until " + waitingOnTask.taskName + " is done");
         }
+    }
+
+    private void ZoomOnObject()
+    {
+        Room_Object objectToZoom =  ObjectsManager.Instance.searchInList(connectedRoomObject);
+        CameraController.cameraControllerInstance.ZoomOnObject(this);
     }
 
     public IEnumerator WaitForTask()

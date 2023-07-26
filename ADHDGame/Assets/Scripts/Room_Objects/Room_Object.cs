@@ -16,6 +16,9 @@ public class Room_Object : ScriptableObject
     public Object_Enum objectType;
 
     public float timeToAppeare;
+    public float zoomNeeded;
+    public RoomObject roomObject;
+
 
 
 

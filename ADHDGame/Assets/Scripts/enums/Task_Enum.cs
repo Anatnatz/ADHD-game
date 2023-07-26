@@ -25,7 +25,8 @@ public enum Task_Enum
     Poop,
     Take_coat,
     Turn_on_Coffemaker,
-    GoOut
+    GoOut,
+    Wear_shoes
 
 
 }

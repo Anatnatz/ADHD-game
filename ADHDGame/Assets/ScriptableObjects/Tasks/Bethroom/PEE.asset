@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: DrinkWater
+  m_Name: PEE
   m_EditorClassIdentifier: 
-  taskName: Drink
-  taskType: 3
-  textInApp: Drink Water
-  duration: 1
+  taskName: Pee
+  taskType: 5
+  textInApp: Use the toilet
+  duration: 3
   waitingTime: 0
-  score: 15
-  status: 2
-  taskOnAppStatus: 1
+  score: 20
+  status: 0
+  taskOnAppStatus: 0
   must: 0
-  animation: {fileID: 0}
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
-  followingMessagesWhenDone: 07000000
-  followingThoughtsWhenDone: 0600000005000000
+  followingMessagesWhenDone: 
+  followingThoughtsWhenDone: 13000000

@@ -10,16 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: StartLaundry
+  m_Name: DrinkWater
   m_EditorClassIdentifier: 
-  taskName: Start laundry
-  taskType: 6
-  textInApp: Wash Towels
-  duration: 3
-  waitingTime: 5
-  score: 20
+  taskName: Drink
+  taskType: 3
+  textInApp: Drink Water
+  duration: 1
+  waitingTime: 0
+  score: 15
   status: 0
-  taskOnAppStatus: 0
-  animation: {fileID: 0}
+  taskOnAppStatus: 1
+  must: 0
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
+  followingMessagesWhenWaiting: 
+  followingThoughtsWhenWaiting: 
+  followingMessagesWhenDone: 07000000
+  followingThoughtsWhenDone: 0600000005000000
+  connectedRoomObject: 5
+  zoomNeeded: 2
+  zoomLocation: {x: -2.52, y: -0.44}

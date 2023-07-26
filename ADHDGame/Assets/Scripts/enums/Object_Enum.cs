@@ -30,6 +30,8 @@ public enum Object_Enum
     Fish,
     DishWasher,
     Plants,
-    Coat
+    Coat,
+    Window,
+
 
 }

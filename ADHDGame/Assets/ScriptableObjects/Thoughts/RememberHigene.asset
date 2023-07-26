@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: RememberHigene
   m_EditorClassIdentifier: 
-  objectType: 0
   thoughtText: Don't forget about hiegine
+  thoughtTexts: []
   thoughtType: 20
-  thoughtPosition: {x: 0, y: 0}
+  thoughtPosition: {x: 500, y: 500}
   thoughtStatus: 0
-  RelevantThought: 0
-  nagge: 0
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
+  currentThoughtText: 0
+  numOfAppearance: 0
+  waitingGap: 0
+  previousAction: 
+  showOnlyOnc: 0
   taskType: 15
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 

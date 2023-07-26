@@ -34,6 +34,7 @@ public class Thought : ScriptableObject
     public int numOfAppearance = 0;
     public int waitingGap = 0;
     public string previousAction;
+    public bool showOnlyOnc = false;
 
 
 

@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: CantLeaveTheHouse
   m_EditorClassIdentifier: 
-  objectType: 0
   thoughtText: I can't leave the house yet,
   thoughtTexts:
   - There are things I need to do first
   - I feel like I've forgotten something
-  thoughtType: 20
+  thoughtType: 21
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 1
-  numOfAppearance: 1
+  thoughtStatus: 0
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
+  currentThoughtText: 0
+  numOfAppearance: 0
+  waitingGap: 0
+  previousAction: 
   taskType: 0
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 

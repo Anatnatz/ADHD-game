@@ -146,7 +146,15 @@ public class Thoughts_Manager : MonoBehaviour
 
             if (thoughtsList_[currentThoughtNum].thoughtStatus != ThoughtStatus.Appeared)
             {
-                createThought(thoughtType);
+                if (thoughtsList_[currentThoughtNum].showOnlyOnc == true)
+                {
+                    if(thoughtsList_[currentThoughtNum].numOfAppearance < 1)
+                    {
+                        createThought(thoughtType);
+                    }
+                }
+                else { createThought(thoughtType); }
+              
             }
 
         }

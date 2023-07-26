@@ -18,12 +18,13 @@ MonoBehaviour:
   duration: 3
   waitingTime: 0
   score: 20
-  status: 0
+  status: 2
   taskOnAppStatus: 0
-  animation: {fileID: 0}
+  must: 0
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: ce8b1b7b01511684ebd60bfeff8ab19d, type: 2}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 0c000000
+  followingThoughtsWhenDone: 0e000000

@@ -10,20 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: PEE
+  m_Name: StartLaundry
   m_EditorClassIdentifier: 
-  taskName: use
-  taskType: 5
-  textInApp: Use the toilet
+  taskName: Start laundry
+  taskType: 6
+  textInApp: Wash Towels
   duration: 3
-  waitingTime: 0
+  waitingTime: 5
   score: 20
   status: 0
   taskOnAppStatus: 0
-  animation: {fileID: 0}
+  must: 0
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 13000000
+  followingThoughtsWhenDone: 
+  connectedRoomObject: 22
+  zoomNeeded: 2
+  zoomLocation: {x: 2.03, y: -2.19}

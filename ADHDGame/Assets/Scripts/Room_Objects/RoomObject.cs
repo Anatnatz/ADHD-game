@@ -33,9 +33,19 @@ public class RoomObject : MonoBehaviour
 
     public Task_Enum previousTask;
     public Thought_Enum previousThought;
+    public float zoomNeeded;
+    public GameObject objectSprite;
+
+    
+
 
     void Awake()
     {
+        for (int i = 0; i < relatedTasks.Count; i++)
+        {
+            relatedTasks[i].zoomLocation = this.transform.position;
+            relatedTasks[i].zoomNeeded = zoomNeeded;
+        }
         TextOnHover textOnHover = transform.GetComponent<TextOnHover>();
         textOnHover.hoveredText = objectName;
         // SetObjectText();
