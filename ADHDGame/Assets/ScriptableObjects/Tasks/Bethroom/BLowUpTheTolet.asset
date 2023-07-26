@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: Poop! Blow it up!
   taskType: 22
   textInApp: I have to GO...
-  duration: 3
+  duration: 10
   waitingTime: 0
   score: 20
   status: 0

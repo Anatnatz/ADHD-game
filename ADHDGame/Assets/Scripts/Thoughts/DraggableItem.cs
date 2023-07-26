@@ -45,7 +45,6 @@ DraggableItem
         Debug.Log("trigger");
         if (isDragging)
         {
-            InfoManager.instance.SendInfoMessage("Thought added to the todo list");
             thoughtTrigger.TriggerThought(other);
         }
     }

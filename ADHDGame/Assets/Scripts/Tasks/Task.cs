@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [
@@ -116,9 +117,13 @@ public class Task : ScriptableObject
         {
             animator.SetBool("isActive", true);
         }
+
         Cursor.lockState = CursorLockMode.Locked;
+        Game_Manager.gameInstance.doingTask = true;
         yield return new WaitForSeconds(duration);
         Cursor.lockState = CursorLockMode.None;
+        Game_Manager.gameInstance.doingTask = false;
+
         //end animation
         if (animator != null)
         {
@@ -134,12 +139,21 @@ public class Task : ScriptableObject
         {
             status = TaskStatus_Enum.Done;
             TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
+            checkTasksThought();
             Debug.Log(status.ToString());
             CheckFollowingAction();
             TaskManager.instance.UpdateTotalScore(this);
         }
     }
 
+    private void checkTasksThought()
+    {
+       thought_Transform currentThoughtTransform = Thoughts_Manager.ThoughtsInstance.searchForThoughtTransformTypeByTask(taskType);
+        if(currentThoughtTransform.thoughtTransformStatus == ThoughtStatus.Appeared)
+        {
+         currentThoughtTransform.gameObject.SetActive(false);
+        }
+    }
 
     public void CheckFollowingAction()
     {

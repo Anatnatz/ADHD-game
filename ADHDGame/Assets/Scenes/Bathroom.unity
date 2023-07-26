@@ -1692,6 +1692,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1727432685391450816, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1964347470217378855, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.73
@@ -1726,11 +1730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5939757721670868523, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.237
       objectReference: {fileID: 0}
     - target: {fileID: 5939757721670868523, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.455
       objectReference: {fileID: 0}
     - target: {fileID: 5939757721670868523, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1793,6 +1797,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1479021829}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: objectName
       value: Toothbrush
       objectReference: {fileID: 0}
@@ -1821,6 +1829,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6c0a04e2ad7b945b1b27568aa7769e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1479021828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7192558714798218889, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+  m_PrefabInstance: {fileID: 1479021826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1479021829
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479021828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27833f498a81ab24fa24af081899c6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1536146171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2363,6 +2397,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1759086781}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: objectName
       value: Sink
       objectReference: {fileID: 0}
@@ -2407,6 +2445,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6c0a04e2ad7b945b1b27568aa7769e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1759086780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7192558714798218889, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+  m_PrefabInstance: {fileID: 1759086778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1759086781
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759086780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f31a6f174dec0cb468c895039d65ae22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1882904039
 GameObject:
   m_ObjectHideFlags: 0

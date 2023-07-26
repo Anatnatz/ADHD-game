@@ -8,6 +8,13 @@ public class Game_Manager : MonoBehaviour
 
     public static bool wakeUp;
 
+    public bool doingTask = false;
+
+    void Awake()
+    {
+        gameInstance = this;
+    }
+
     public void StartGame(int level)
     {
         wakeUp = true;
@@ -23,6 +30,7 @@ public class Game_Manager : MonoBehaviour
 
     void StartLevel1()
     {
+        Debug.Log("hello?");
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
     }
 }

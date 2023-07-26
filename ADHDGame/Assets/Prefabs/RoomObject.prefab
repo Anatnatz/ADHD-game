@@ -172,10 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6c0a04e2ad7b945b1b27568aa7769e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: 0967564f94952ca4f9b21e6dc7480dd7, type: 3}
   taskBtn: {fileID: 4010039980955059271, guid: b798d90c3f0f56f4bb3b8c77ba389732, type: 3}
+  taskInfo: {fileID: 7689175037687977257, guid: 4ce058abf78658640aad26b81b984ed7, type: 3}
   objectName: Name
   objectType: 0
+  animator: {fileID: 0}
   relatedTasks: []
   relatedThoughts: 
 --- !u!114 &2233845825248185901
