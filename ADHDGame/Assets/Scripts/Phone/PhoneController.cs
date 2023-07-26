@@ -8,6 +8,7 @@ using UnityEngine.Video;
 
 public class PhoneController : MonoBehaviour
 {
+    public static PhoneController instance;
     public PhoneStatus_Enum phoneStatus;
 
     [Header("Game minute duration in seconds")]
@@ -66,6 +67,10 @@ public class PhoneController : MonoBehaviour
 
     public static float noTouchTime = 0;
 
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

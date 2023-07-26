@@ -1196,6 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskBtn: {fileID: 0}
+  taskInfo: {fileID: 0}
   objectName: window
   objectType: 0
   animator: {fileID: 0}
@@ -1374,6 +1375,10 @@ PrefabInstance:
       propertyPath: zoomNeeded
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
+      propertyPath: objectSprite
+      value: 
+      objectReference: {fileID: 1137567218}
     - target: {fileID: 9000285345102378254, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: previousTask
       value: 18

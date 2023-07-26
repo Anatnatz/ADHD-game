@@ -73,11 +73,11 @@ public class Task : ScriptableObject
             waitingOnTask.status == TaskStatus_Enum.Done
         )
         {
-            if (connectedRoomObject !=Object_Enum.None)
+            if (connectedRoomObject != Object_Enum.None)
             {
                 ZoomOnObject();
             }
-            
+
             InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
 
             //play animation
@@ -93,7 +93,7 @@ public class Task : ScriptableObject
 
     private void ZoomOnObject()
     {
-        Room_Object objectToZoom =  ObjectsManager.Instance.searchInList(connectedRoomObject);
+        Room_Object objectToZoom = ObjectsManager.Instance.searchInList(connectedRoomObject);
         CameraController.cameraControllerInstance.ZoomOnObject(this);
     }
 
@@ -101,7 +101,12 @@ public class Task : ScriptableObject
     {
 
         InfoManager.instance.SendInfoMessage(taskName + "will be done in " + waitingTime + " minutes");
-        yield return new WaitForSeconds(waitingTime);
+        float startAt = PhoneController.instance.GetCurrentTime();
+        float endAt = startAt + (waitingTime / 100);
+        while (PhoneController.instance.GetCurrentTime() < endAt)
+        {
+            yield return null;
+        }
 
         InfoManager.instance.SendInfoMessage(taskName + " is ready!");
 
@@ -120,7 +125,8 @@ public class Task : ScriptableObject
 
         Cursor.lockState = CursorLockMode.Locked;
         Game_Manager.gameInstance.doingTask = true;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(3f);
+        PhoneController.instance.AddToTime((int)duration);
         Cursor.lockState = CursorLockMode.None;
         Game_Manager.gameInstance.doingTask = false;
 
@@ -148,10 +154,10 @@ public class Task : ScriptableObject
 
     private void checkTasksThought()
     {
-       thought_Transform currentThoughtTransform = Thoughts_Manager.ThoughtsInstance.searchForThoughtTransformTypeByTask(taskType);
-        if(currentThoughtTransform.thoughtTransformStatus == ThoughtStatus.Appeared)
+        thought_Transform currentThoughtTransform = Thoughts_Manager.ThoughtsInstance.searchForThoughtTransformTypeByTask(taskType);
+        if (currentThoughtTransform != null && currentThoughtTransform.thoughtTransformStatus == ThoughtStatus.Appeared)
         {
-         currentThoughtTransform.gameObject.SetActive(false);
+            currentThoughtTransform.gameObject.SetActive(false);
         }
     }
 
