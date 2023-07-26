@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b5965efb197651947949d4e0d4a5725c, type: 3}
     - target: {fileID: 1727432685391450816, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1964347470217378855, guid: acdb152474ee8984ab09dd9fd897d18b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1887,6 +1887,8 @@ MonoBehaviour:
   relatedThoughts: 
   previousTask: 0
   previousThought: 0
+  zoomNeeded: 0
+  objectSprite: {fileID: 0}
 --- !u!1 &2059228036
 GameObject:
   m_ObjectHideFlags: 0

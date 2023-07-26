@@ -28,3 +28,6 @@ MonoBehaviour:
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
+  connectedRoomObject: 0
+  zoomNeeded: 5
+  zoomLocation: {x: -7.97, y: -2.98}
