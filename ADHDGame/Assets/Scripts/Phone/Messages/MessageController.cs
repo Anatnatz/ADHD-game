@@ -151,7 +151,24 @@ public class MessageController : MonoBehaviour
     {
         MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
         messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
-        readIcon.SetActive(true);
+        if (readIcon != null)
+        {
+            readIcon.SetActive(true);
+        }
+        setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);
+        if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
+        {
+            phoneController.TogglePhone();
+        }
+        phoneController.OpenMessagePanel();
+        messageToShow.CheckFollowingAction();
+
+    }
+
+    public void ViewMessage(MessageName_Enum messageNameToShow)
+    {
+        MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
+        messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
         setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
         {
