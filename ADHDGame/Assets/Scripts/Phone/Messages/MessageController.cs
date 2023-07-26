@@ -57,8 +57,31 @@ public class MessageController : MonoBehaviour
     }
     public void SendMessage(MessageName_Enum messageName)
     {
-        createMessageOnApp(messageName);
-        CreatOutOfPhoneMessage(messageName);
+
+        MessageScriptble message = SearchMessageOnList(messageName);
+        if (message.relatedTask != Task_Enum.None)
+        {
+            bool TaskIsDone = CheckMessagesTask(messageName);
+            if (TaskIsDone == false)
+            {
+                createMessageOnApp(messageName);
+                CreatOutOfPhoneMessage(messageName);
+            }
+        }
+        else
+        {
+            createMessageOnApp(messageName);
+            CreatOutOfPhoneMessage(messageName);
+        }
+    }
+
+    private bool CheckMessagesTask(MessageName_Enum messageName)
+    {
+       MessageScriptble currentMessage =  SearchMessageOnList(messageName);
+       Task currentTask =  TaskManager.instance.searchTaskOnList(currentMessage.relatedTask);
+        if(currentTask.status == TaskStatus_Enum.Done)
+        { return (true); }
+        else { return false; }
     }
 
     public void CreatOutOfPhoneMessage(MessageName_Enum messageName)
@@ -121,7 +144,7 @@ public class MessageController : MonoBehaviour
         { openPhoneMessage.gameObject.SetActive(false); }
 
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
-        { closePhoneMessage.gameObject.SetActive(false); }
+        {  closePhoneMessage.gameObject.SetActive(false); }
     }
 
     public void ViewMessage(MessageName_Enum messageNameToShow, GameObject readIcon)

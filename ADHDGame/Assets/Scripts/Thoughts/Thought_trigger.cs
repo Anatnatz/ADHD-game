@@ -23,12 +23,19 @@ public class Thought_trigger : MonoBehaviour
         if (other.tag == "phone")
         {
             Debug.Log("push to taskApp ");
-            thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
-            thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
-            thought_Transform.pushToApp();
-            thought_Transform.updateNumOfAppearanceOnApp();
-            Destroy(thought_Transform.gameObject);
-            Destroy(this);
+            if (thought_Transform.IsItATask == true)
+            {
+                thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
+                thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
+                thought_Transform.pushToApp();
+                thought_Transform.updateNumOfAppearanceOnApp();
+                Destroy(thought_Transform.gameObject);
+                Destroy(this);
+            }
+            else 
+            {
+                Debug.Log("there is nothing to do about it, try to ignor it");
+            }
         }
 
         else if (other.tag == "border")

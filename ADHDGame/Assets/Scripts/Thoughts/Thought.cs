@@ -35,6 +35,7 @@ public class Thought : ScriptableObject
     public int waitingGap = 0;
     public string previousAction;
     public bool showOnlyOnc = false;
+    public bool isItATask;
 
 
 
