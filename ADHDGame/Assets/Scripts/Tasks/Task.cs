@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [
@@ -51,6 +53,12 @@ public class Task : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenDone;
 
+    [SerializeField]
+    Object_Enum connectedRoomObject;
+
+    public float zoomNeeded;
+    public Vector2 zoomLocation;
+
     public void StartTask(Animator taskAnimator)
     {
         animator = taskAnimator;
@@ -65,6 +73,11 @@ public class Task : ScriptableObject
             waitingOnTask.status == TaskStatus_Enum.Done
         )
         {
+            if (connectedRoomObject !=Object_Enum.None)
+            {
+                ZoomOnObject();
+            }
+            
             InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
 
             //play animation
@@ -76,6 +89,12 @@ public class Task : ScriptableObject
         {
             InfoManager.instance.SendInfoMessage("Can't start " + taskName + " until " + waitingOnTask.taskName + " is done");
         }
+    }
+
+    private void ZoomOnObject()
+    {
+        Room_Object objectToZoom =  ObjectsManager.Instance.searchInList(connectedRoomObject);
+        CameraController.cameraControllerInstance.ZoomOnObject(this);
     }
 
     public IEnumerator WaitForTask()
@@ -120,12 +139,21 @@ public class Task : ScriptableObject
         {
             status = TaskStatus_Enum.Done;
             TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
+            checkTasksThought();
             Debug.Log(status.ToString());
             CheckFollowingAction();
             TaskManager.instance.UpdateTotalScore(this);
         }
     }
 
+    private void checkTasksThought()
+    {
+       thought_Transform currentThoughtTransform = Thoughts_Manager.ThoughtsInstance.searchForThoughtTransformTypeByTask(taskType);
+        if(currentThoughtTransform.thoughtTransformStatus == ThoughtStatus.Appeared)
+        {
+         currentThoughtTransform.gameObject.SetActive(false);
+        }
+    }
 
     public void CheckFollowingAction()
     {

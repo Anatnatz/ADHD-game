@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: BLowUpTheTolet
+  m_Name: Make coffee
   m_EditorClassIdentifier: 
-  taskName: Blow it up!
-  taskType: 22
-  textInApp: I have to GO...
-  duration: 10
+  taskName: Make coffee
+  taskType: 10
+  textInApp: Make some coffee
+  duration: 3
   waitingTime: 0
   score: 20
-  status: 0
+  status: 2
   taskOnAppStatus: 0
   must: 0
   animator: {fileID: 0}
-  waitingOnTask: {fileID: 11400000, guid: 96d65d7ff53605540a92340994c7ccee, type: 2}
+  waitingOnTask: {fileID: 11400000, guid: ce8b1b7b01511684ebd60bfeff8ab19d, type: 2}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 0f00000014000000
+  followingThoughtsWhenDone: 0e000000

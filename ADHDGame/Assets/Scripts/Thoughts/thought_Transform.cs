@@ -33,7 +33,6 @@ public class thought_Transform : MonoBehaviour
     {
         Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
         taskType = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].taskType;
-        Debug.Log(thoughtType + "aaaaaaaaaaaaaaaaa");
         TaskOnApp_Manager.TaskOnAppInstance.createTaskOnAppTransform(taskType);
 
     }

@@ -24,6 +24,9 @@ public class Thoughts_Manager : MonoBehaviour
     [SerializeField]
     Transform thoughtsParent;
 
+    [SerializeField]
+    thought_Transform currentThoughTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,10 +54,10 @@ public class Thoughts_Manager : MonoBehaviour
 
        
         searchForThoughtType(thoughtType);
+
         if (thoughtsList_[currentThoughtNum].loop == true) 
         {
             thoughtsList_[currentThoughtNum].isOnLoop = true;
-           
         }
         Vector2 thoughtPosition;
         if (thoughtsList_[currentThoughtNum].thoughtPosition.x != 0)
@@ -146,7 +149,15 @@ public class Thoughts_Manager : MonoBehaviour
 
             if (thoughtsList_[currentThoughtNum].thoughtStatus != ThoughtStatus.Appeared)
             {
-                createThought(thoughtType);
+                if (thoughtsList_[currentThoughtNum].showOnlyOnc == true)
+                {
+                    if(thoughtsList_[currentThoughtNum].numOfAppearance < 1)
+                    {
+                        createThought(thoughtType);
+                    }
+                }
+                else { createThought(thoughtType); }
+              
             }
 
         }
@@ -187,5 +198,18 @@ public class Thoughts_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(thought.loopInterval);
         createThought(thoughtType);
+    }
+
+    internal thought_Transform searchForThoughtTransformTypeByTask(Task_Enum taskType)
+    {
+        
+        for (int i = 0; i < thought_Transforms.Count; i++)
+        {
+            if (thought_Transforms[i].taskType == taskType)
+            {
+                currentThoughTransform = thought_Transforms[i];
+            }
+        }
+        return currentThoughTransform;
     }
 }

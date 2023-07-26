@@ -186,4 +186,6 @@ public class MessageController : MonoBehaviour
         yield return new WaitForSeconds(message.waitingGap);
         MessageController.messageControlInstance.SendMessage(messageName);
     }
+
+
 }

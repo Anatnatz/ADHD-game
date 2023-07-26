@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [CreateAssetMenu]
 
@@ -18,6 +20,8 @@ public class MessageScriptble : ScriptableObject
     public MessageOnAppStatus_Enum messageOnAppStatus;
 
     public int waitingGap = 0;
+
+    public string previousAction;
 
     [Header("Following")]
 
@@ -43,6 +47,46 @@ public class MessageScriptble : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenUnRead;
 
+
+    public void Start()
+    {
+        UpdateFollowing();
+    }
+
+    private void UpdateFollowing()
+    {
+        for (int i = 0; i < followingMessagesWhenRead.Count; i++)
+        {
+            UpdatefollowingMessage(followingMessagesWhenRead[i]);
+        }
+
+        for (int i = 0; i < followingMessagesWhenUnRead.Count; i++)
+        {
+            UpdatefollowingMessage(followingMessagesWhenUnRead[i]);
+        }
+
+        for (int i = 0; i < followingThoughtsWhenRead.Count; i++)
+        {
+            UpdateFollowingThought(followingThoughtsWhenRead[i]);
+        }
+
+        for (int i = 0; i < followingThoughtsWhenUnRead.Count; i++)
+        {
+            UpdateFollowingThought(followingThoughtsWhenUnRead[i]);
+        }
+    }
+
+    private void UpdateFollowingThought(Thought_Enum thought_Enum)
+    {
+        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Enum);
+        Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].previousAction = this.textMessage;
+    }
+
+    private void UpdatefollowingMessage(MessageName_Enum messageName_Enum)
+    {
+        MessageScriptble message = MessageController.messageControlInstance.SearchMessageOnList(messageName_Enum);
+        message.previousAction = this.textMessage;
+    }
 
     public void CheckFollowingAction()
     {

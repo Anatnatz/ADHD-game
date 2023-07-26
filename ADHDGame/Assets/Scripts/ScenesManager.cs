@@ -22,7 +22,7 @@ public class ScenesManager : MonoBehaviour
         switch (scene.name)
         {
             case "Bathroom":
-                StepOnLegos();
+              //  StepOnLegos();
                 break;
             case
                 "Kitchen":
@@ -51,8 +51,8 @@ public class ScenesManager : MonoBehaviour
         if (kitchenFirstAppearance)
         {
             kitchenFirstAppearance = false;
-            Thoughts_Manager.ThoughtsInstance.createThought(Thought_Enum.Unload_dishes);
-            Thoughts_Manager.ThoughtsInstance.createThought(Thought_Enum.Take_lunch);
+           // Thoughts_Manager.ThoughtsInstance.startWaitGapThought(Thought_Enum.Unload_dishes);
+           // Thoughts_Manager.ThoughtsInstance.startWaitGapThought(Thought_Enum.Take_lunch);
 
         }
     }
