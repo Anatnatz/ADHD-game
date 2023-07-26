@@ -11,8 +11,7 @@ public class Message : MonoBehaviour
     public MessageType_Enum messageType;
     public MessageStatus_Enum messageStatus;
     public MessageName_Enum currentMessageName;
-
-
+    public GameObject readIcon;
 
     public void SetText(string theTextSender, string theTextMessage, string theFullTextMessage)
     {
@@ -44,7 +43,7 @@ public class Message : MonoBehaviour
 
         if (messageStatus == MessageStatus_Enum.OutsideAppClosePhone)
         {
-            
+
             this.gameObject.SetActive(false);
         }
 
@@ -54,7 +53,8 @@ public class Message : MonoBehaviour
         }
 
 
-        MessageController.messageControlInstance.ViewMessage(currentMessageName);
+        MessageController.messageControlInstance.ViewMessage(currentMessageName, readIcon);
+
     }
 
     public void setThisOff()

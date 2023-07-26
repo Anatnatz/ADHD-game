@@ -128,7 +128,7 @@ public class MessageScriptble : ScriptableObject
     private void TriggerMessage(MessageName_Enum messageName)
     {
         MessageController.messageControlInstance.startWaitGapMessage(messageName);
-       
+
     }
 
     private void TriggerThought(Thought_Enum thoughtType)

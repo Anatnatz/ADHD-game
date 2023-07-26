@@ -48,6 +48,12 @@ public class TaskManager : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             Vector3 offSetVector = new Vector3(100f, 300f, 0f);
 
+
+            if (mousePos.x + 600f > 1920f)
+            {
+                offSetVector = new Vector3(500f, 300f, 0f);
+            }
+
             bool mouseBefore =
                 mousePos.x < rectPosition.x - offSetVector.x ||
                 mousePos.y < rectPosition.y - offSetVector.y;

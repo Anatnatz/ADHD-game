@@ -42,7 +42,7 @@ public class RoomObject : MonoBehaviour
     public float zoomNeeded;
     public GameObject objectSprite;
 
-    
+
 
 
     void Awake()
@@ -108,25 +108,25 @@ public class RoomObject : MonoBehaviour
             if (preTask.status == TaskStatus_Enum.Done)
             {
                 StartCreatingButton(name, relatedTask);
-                
+
             }
         }
         if (previousTask == Task_Enum.None)
-        
+
         {
-           if(previousThought != Thought_Enum.None) 
+            if (previousThought != Thought_Enum.None)
             {
                 Thoughts_Manager.ThoughtsInstance.searchForThoughtType(previousThought);
-                if (Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].thoughtStatus == ThoughtStatus.Appeared )
+                if (Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].thoughtStatus == ThoughtStatus.Appeared)
                 {
-                    StartCreatingButton(name,relatedTask);
+                    StartCreatingButton(name, relatedTask);
                 }
             }
-           else
+            else
             {
                 StartCreatingButton(name, relatedTask);
             }
-           
+
         }
     }
 
@@ -147,6 +147,12 @@ public class RoomObject : MonoBehaviour
         // buttonObject.transform.SetParent(canvas.transform);
         Vector3 mousePos = Input.mousePosition;
         buttonsSpace.transform.position = mousePos;
+        VerticalLayoutGroup vlgButtons = buttonsSpace.GetComponent<VerticalLayoutGroup>();
+        if (mousePos.x + 400f > 1920f)
+        {
+            vlgButtons.padding.left = -400;
+        }
+        else { vlgButtons.padding.left = 400; }
         buttonObject.transform.SetParent(buttonsSpace.transform);
         taskInfoObject.transform.SetParent(buttonsSpace.transform);
         // buttonObject.transform.position = mousePos + offSetVector;
@@ -190,7 +196,8 @@ public class RoomObject : MonoBehaviour
     {
         int numOfTasksDone = 0;
         if (relatedThoughts != null && relatedThoughts.Count > 0)
-        {   if(previousTask != Task_Enum.None)
+        {
+            if (previousTask != Task_Enum.None)
             {
                 Task preTask = TaskManager.instance.searchTaskOnList(previousTask);
                 if (preTask.status == TaskStatus_Enum.Done)
@@ -199,38 +206,38 @@ public class RoomObject : MonoBehaviour
                 }
             }
 
-            
-                else
-                {
-                    Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
-                }
 
+            else
+            {
+                Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
             }
-            
-            
-            // if (relatedTasks.Count > 0)
-            // {
-
-
-            //     for (int i = 0; i < relatedTasks.Count; i++)
-            //     {
-            //         if (relatedTasks[i].status != TaskStatus_Enum.Done)
-            //         {
-            //             numOfTasksDone++;
-            //         }
-            //     }
-
-            //     if (numOfTasksDone != relatedTasks.Count)
-            //     {
-            //         Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
-            //     }
-            // }
-            // else
-            // {
-            //     Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
-            // }
-
 
         }
+
+
+        // if (relatedTasks.Count > 0)
+        // {
+
+
+        //     for (int i = 0; i < relatedTasks.Count; i++)
+        //     {
+        //         if (relatedTasks[i].status != TaskStatus_Enum.Done)
+        //         {
+        //             numOfTasksDone++;
+        //         }
+        //     }
+
+        //     if (numOfTasksDone != relatedTasks.Count)
+        //     {
+        //         Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+        //     }
+        // }
+        // else
+        // {
+        //     Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
+        // }
+
+
     }
+}
 

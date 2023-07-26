@@ -26,7 +26,6 @@ public class MessageController : MonoBehaviour
 
     [SerializeField]
     Message messagePrefab;
-
     [SerializeField]
     Transform content;
 
@@ -54,7 +53,7 @@ public class MessageController : MonoBehaviour
     {
         messageControlInstance = this;
 
-       
+
     }
     public void SendMessage(MessageName_Enum messageName)
     {
@@ -68,7 +67,7 @@ public class MessageController : MonoBehaviour
         {
             openPhoneMessage.gameObject.SetActive(true);
             setMessageTextAndInfo(messageName, openPhoneMessage);
-           if (messageName != MessageName_Enum.Good_morning)
+            if (messageName != MessageName_Enum.Good_morning)
             {
                 StartCoroutine(waitToClose());
 
@@ -125,10 +124,11 @@ public class MessageController : MonoBehaviour
         { closePhoneMessage.gameObject.SetActive(false); }
     }
 
-    public void ViewMessage(MessageName_Enum messageNameToShow)
+    public void ViewMessage(MessageName_Enum messageNameToShow, GameObject readIcon)
     {
         MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
         messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
+        readIcon.SetActive(true);
         setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
         {
