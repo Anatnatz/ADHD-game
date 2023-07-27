@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -13,7 +12,8 @@ public class PhoneController : MonoBehaviour
 
     [Header("Game minute duration in seconds")]
     [SerializeField]
-    private float gameMinute;
+    public float gameMinute;
+    public float originalGameMinute;
 
     [Header("Start Time")]
     [SerializeField]
@@ -248,6 +248,19 @@ public class PhoneController : MonoBehaviour
     public void MoveTimeXTimes(float x)
     {
         gameMinute /= x;
+    }
+
+    public void StopTime()
+    {
+        // originalGameMinute = gameMinute;
+        // gameMinute = 0;
+        StopCoroutine(MoveTime(1));
+    }
+
+    public void ResumeTime()
+    {
+        // gameMinute = originalGameMinute;
+        StartCoroutine(MoveTime(1));
     }
 
     public void AddToTime(int addMinutes)

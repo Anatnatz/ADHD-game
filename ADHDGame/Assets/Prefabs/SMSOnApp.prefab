@@ -604,7 +604,7 @@ MonoBehaviour:
   messageType: 0
   messageStatus: 0
   currentMessageName: 0
-  readIcon: {fileID: 8457221831245675802}
+  readIcon: {fileID: 863456145538786348}
 --- !u!222 &5593284646247326616
 CanvasRenderer:
   m_ObjectHideFlags: 0

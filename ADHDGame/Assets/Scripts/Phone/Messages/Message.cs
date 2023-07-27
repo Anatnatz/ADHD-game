@@ -11,7 +11,6 @@ public class Message : MonoBehaviour
     public MessageType_Enum messageType;
     public MessageStatus_Enum messageStatus;
     public MessageName_Enum currentMessageName;
-    public GameObject readIcon;
 
     public void SetText(string theTextSender, string theTextMessage, string theFullTextMessage)
     {
@@ -52,8 +51,7 @@ public class Message : MonoBehaviour
             this.gameObject.SetActive(false);
         }
 
-
-        MessageController.messageControlInstance.ViewMessage(currentMessageName, readIcon);
+        MessageController.messageControlInstance.ViewMessage(currentMessageName);
 
     }
 
