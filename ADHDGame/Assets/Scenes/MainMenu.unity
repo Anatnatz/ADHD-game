@@ -1112,7 +1112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376377297
 GameObject:
@@ -3566,6 +3566,7 @@ MonoBehaviour:
   thought_Transform_Prefab: {fileID: 971806841306678585, guid: 583d859bf6a80964cabea2868a78ebdb, type: 3}
   currentThoughtNum: 0
   thoughtsParent: {fileID: 1201574424}
+  currentThoughTransform: {fileID: 0}
 --- !u!4 &720982114
 Transform:
   m_ObjectHideFlags: 0
@@ -3957,7 +3958,7 @@ RectTransform:
   - {fileID: 923092365}
   - {fileID: 1230291494}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5540,7 +5541,7 @@ RectTransform:
   - {fileID: 1633980797}
   - {fileID: 101266341}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5820,7 +5821,7 @@ MonoBehaviour:
   messageNameTest: 1
   openPhoneMessage: {fileID: 1074629186}
   closePhoneMessage: {fileID: 1837694820}
-  messagePrefab: {fileID: 2399359946984909073, guid: 85d853dbb5d6da1499f87185d123807c, type: 3}
+  messagePrefab: {fileID: 5942649500815217772, guid: 85d853dbb5d6da1499f87185d123807c, type: 3}
   content: {fileID: 67591137}
   messages:
   - {fileID: 11400000, guid: 2ce28a68cbe862742bbd92568b1eebc0, type: 2}
@@ -8997,7 +8998,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897995214
 GameObject:
@@ -9946,7 +9947,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035472700
 GameObject:

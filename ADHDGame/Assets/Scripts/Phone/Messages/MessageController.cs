@@ -25,7 +25,7 @@ public class MessageController : MonoBehaviour
     Message closePhoneMessage;
 
     [SerializeField]
-    Message messagePrefab;
+    GameObject messagePrefab;
     [SerializeField]
     Transform content;
 
@@ -42,6 +42,8 @@ public class MessageController : MonoBehaviour
     float timeToClose;
     [SerializeField]
     float time;
+
+    public Transform readIcon;
 
     public static MessageController messageControlInstance;
 
@@ -95,8 +97,11 @@ public class MessageController : MonoBehaviour
 
     public void createMessageOnApp(MessageName_Enum messageName)
     {
+        GameObject messageObject = Instantiate(messagePrefab);
 
-        Message newMessage = Instantiate(messagePrefab);
+        Message newMessage = messageObject.GetComponent<Message>();
+        readIcon = messageObject.transform.Find("ReadIcon");
+
         newMessage.transform.SetParent(content.transform);
         newMessage.messageStatus = MessageStatus_Enum.OnApp;
         setMessageTextAndInfo(messageName, newMessage);
@@ -124,24 +129,6 @@ public class MessageController : MonoBehaviour
         { closePhoneMessage.gameObject.SetActive(false); }
     }
 
-    public void ViewMessage(MessageName_Enum messageNameToShow, GameObject readIcon)
-    {
-        MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
-        messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
-        if (readIcon != null)
-        {
-            readIcon.SetActive(true);
-        }
-        setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);
-        if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
-        {
-            phoneController.TogglePhone();
-        }
-        phoneController.OpenMessagePanel();
-        messageToShow.CheckFollowingAction();
-
-    }
-
     public void ViewMessage(MessageName_Enum messageNameToShow)
     {
         MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
@@ -152,6 +139,12 @@ public class MessageController : MonoBehaviour
             phoneController.TogglePhone();
         }
         phoneController.OpenMessagePanel();
+        if (messageToShow.messageOnAppStatus == MessageOnAppStatus_Enum.Read)
+        {
+            Debug.Log("read");
+            readIcon.gameObject.SetActive(true);
+
+        }
         messageToShow.CheckFollowingAction();
 
     }
@@ -204,5 +197,11 @@ public class MessageController : MonoBehaviour
         MessageController.messageControlInstance.SendMessage(messageName);
     }
 
-
+    void OnApplicationQuit()
+    {
+        foreach (MessageScriptble msgScriptable in messages)
+        {
+            msgScriptable.messageOnAppStatus = MessageOnAppStatus_Enum.Unread;
+        }
+    }
 }
