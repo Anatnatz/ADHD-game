@@ -13,6 +13,7 @@ public class thought_Transform : MonoBehaviour
     public bool setText;
     public ThoughtStatus thoughtTransformStatus;
     public int positionOnApp;
+    public bool IsItATask;
 
 
 

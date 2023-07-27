@@ -23,6 +23,8 @@ public class MessageScriptble : ScriptableObject
 
     public string previousAction;
 
+    public Task_Enum relatedTask;
+
     [Header("Following")]
 
     [SerializeField]

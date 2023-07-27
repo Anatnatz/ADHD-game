@@ -84,6 +84,10 @@ public class Thoughts_Manager : MonoBehaviour
             thoughtTxt.SetText(newThought.thoughtText);
             newThought.changeText();
             newThought.name = newThought.thoughtText;
+            newThought.thoughtType = thoughtsList_[currentThoughtNum].thoughtType;
+            newThought.taskType = thoughtsList_[currentThoughtNum].taskType;
+            newThought.thoughtTransformStatus = ThoughtStatus.Appeared;
+            newThought.IsItATask = thoughtsList_[currentThoughtNum].isItATask;
 
             newThought.transform.SetParent(thoughtsParent);
             changeThoughtStatus(thoughtType, ThoughtStatus.Appeared);

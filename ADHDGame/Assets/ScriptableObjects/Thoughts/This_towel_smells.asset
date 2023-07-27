@@ -16,15 +16,16 @@ MonoBehaviour:
   thoughtTexts: []
   thoughtType: 8
   thoughtPosition: {x: 1400, y: 500}
-  thoughtStatus: 1
+  thoughtStatus: 0
   loop: 0
   loopInterval: 0
   isOnLoop: 0
   currentThoughtText: 0
-  numOfAppearance: 1
+  numOfAppearance: 0
   waitingGap: 0
   previousAction: 
   showOnlyOnc: 1
+  isItATask: 1
   taskType: 6
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 

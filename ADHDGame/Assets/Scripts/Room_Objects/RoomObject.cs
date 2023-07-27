@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,6 +42,8 @@ public class RoomObject : MonoBehaviour
     public Thought_Enum previousThought;
     public float zoomNeeded;
     public GameObject objectSprite;
+    public TMP_Text textInfo;
+    public bool textInfoTest;
 
 
 
@@ -192,6 +195,16 @@ public class RoomObject : MonoBehaviour
         }
     }
 
+    public void changeTextInfo(string text)
+    {
+        if(textInfo != null)
+        { 
+            textInfo.gameObject.SetActive (true);
+            textInfo.text = text; 
+        }
+        
+    }
+
     public void objectTrigger()
     {
         int numOfTasksDone = 0;
@@ -214,6 +227,7 @@ public class RoomObject : MonoBehaviour
 
         }
 
+       
 
         // if (relatedTasks.Count > 0)
         // {
@@ -238,6 +252,14 @@ public class RoomObject : MonoBehaviour
         // }
 
 
+    }
+
+    private void Update()
+    {
+        if (textInfoTest)
+        {
+            changeTextInfo("this is the place to write comments and talk to the player");
+        }
     }
 }
 
