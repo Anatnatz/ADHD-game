@@ -135,6 +135,10 @@ public class PhoneController : MonoBehaviour
         {
             StartCoroutine(MoveTime(minInterval));
         }
+        else
+        {
+            StopCoroutine(MoveTime(minInterval));
+        }
     }
 
     bool LevelHasMoreTime()
@@ -143,6 +147,7 @@ public class PhoneController : MonoBehaviour
         {
             Debug.Log("end of level!");
             ScenesManager.SwitchToScene("Kitchen");
+            Game_Manager.gameInstance.PauseGame();
             return false;
         }
 

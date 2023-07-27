@@ -1018,7 +1018,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -7127,7 +7127,6 @@ MonoBehaviour:
   messageType: 0
   messageStatus: 2
   currentMessageName: 0
-  readIcon: {fileID: 0}
 --- !u!224 &1315046783
 RectTransform:
   m_ObjectHideFlags: 0
