@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    int zoomSpeed;
+    
     // [SerializeField]
     // Transform border_ref;
     [SerializeField]
@@ -17,25 +17,56 @@ public class CameraController : MonoBehaviour
     public float neededZoom;
     [SerializeField]
     Vector2 zoomFocus;
+    [SerializeField]
+    float zoomMovement = 0.005f;
+    [SerializeField]
+    float currentzoom;
+    [SerializeField]
+    int zoomSpeed;
     public static CameraController cameraControllerInstance;
     
     
     void Start()
     {
+       
         cameraControllerInstance = this;
         cam = Camera.main;
+        currentzoom = cam.orthographicSize;
     }
 
     public void ZoomOnObject(Task target)
     {
         
         neededZoom = target.zoomNeeded;
-        cam.orthographicSize = neededZoom;
-        cam.transform.position= new Vector3(target.zoomLocation.x, target.zoomLocation.y,cam.transform.position.z);
-       StartCoroutine (zoomTimming(target));
+        cam.transform.position = new Vector3(target.zoomLocation.x, target.zoomLocation.y, cam.transform.position.z);
+        StartCoroutine(zooming(target));
+        StartCoroutine (zoomOutTimming(target));
     }
 
-    internal IEnumerator zoomTimming(Task target)
+    internal IEnumerator zooming(Task target)
+    {
+        while (neededZoom < currentzoom)
+        {
+         theZoomMovement(target);
+         yield return null;
+        }
+        
+    }
+
+    private void theZoomMovement(Task target)
+    {
+       // StartCoroutine(zoomSteps(target));
+        cam.orthographicSize = currentzoom - zoomMovement*zoomSpeed*Time.deltaTime;
+        currentzoom= cam.orthographicSize;
+    }
+
+    internal IEnumerator zoomSteps(Task target)
+    {
+        yield return new WaitForSeconds(2);
+        cam.orthographicSize = currentzoom - zoomMovement;
+        currentzoom= cam.orthographicSize;
+    }
+    internal IEnumerator zoomOutTimming(Task target)
     {
         yield return new WaitForSeconds(2);
         cam.orthographicSize = 5.397049f;

@@ -18,14 +18,16 @@ MonoBehaviour:
   - COFFEEEEEEEEE
   thoughtType: 6
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 0
+  thoughtStatus: 1
   loop: 1
   loopInterval: 5
-  isOnLoop: 0
+  isOnLoop: 1
   currentThoughtText: 0
-  numOfAppearance: 0
+  numOfAppearance: 1
   waitingGap: 3
   previousAction: 
+  showOnlyOnc: 0
+  isItATask: 1
   taskType: 10
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
