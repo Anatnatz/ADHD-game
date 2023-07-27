@@ -101,12 +101,10 @@ public class Task : ScriptableObject
     {
 
         InfoManager.instance.SendInfoMessage(taskName + "will be done in " + waitingTime + " minutes");
-        float startAt = PhoneController.instance.GetCurrentTime();
-        float endAt = startAt + (waitingTime / 100);
-        while (PhoneController.instance.GetCurrentTime() < endAt)
-        {
-            yield return null;
-        }
+
+        yield return new WaitForSeconds(waitingTime / PhoneController.instance.gameMinute);
+
+        Debug.Log(PhoneController.instance.GetCurrentTime());
 
         InfoManager.instance.SendInfoMessage(taskName + " is ready!");
 

@@ -13,7 +13,7 @@ public class PhoneController : MonoBehaviour
 
     [Header("Game minute duration in seconds")]
     [SerializeField]
-    private float gameMinute;
+    public float gameMinute;
 
     [Header("Start Time")]
     [SerializeField]
