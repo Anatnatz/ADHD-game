@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 
@@ -52,10 +51,10 @@ public class Thoughts_Manager : MonoBehaviour
     {
         thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
 
-       
+
         searchForThoughtType(thoughtType);
 
-        if (thoughtsList_[currentThoughtNum].loop == true) 
+        if (thoughtsList_[currentThoughtNum].loop == true)
         {
             thoughtsList_[currentThoughtNum].isOnLoop = true;
         }
@@ -151,19 +150,19 @@ public class Thoughts_Manager : MonoBehaviour
             {
                 if (thoughtsList_[currentThoughtNum].showOnlyOnc == true)
                 {
-                    if(thoughtsList_[currentThoughtNum].numOfAppearance < 1)
+                    if (thoughtsList_[currentThoughtNum].numOfAppearance < 1)
                     {
                         createThought(thoughtType);
                     }
                 }
                 else { createThought(thoughtType); }
-              
+
             }
 
         }
     }
 
-    internal void changeThoughtStatus( Thought_Enum thoughtType, ThoughtStatus thoughtStatus )
+    internal void changeThoughtStatus(Thought_Enum thoughtType, ThoughtStatus thoughtStatus)
     {
         searchForThoughtType(thoughtType);
         thoughtsList_[currentThoughtNum].thoughtStatus = thoughtStatus;
@@ -174,7 +173,7 @@ public class Thoughts_Manager : MonoBehaviour
         searchForThoughtType(thoughtType);
     }
 
-    
+
     public void startWaitGapThought(Thought_Enum thoughtType)
     {
         StartCoroutine(waitGapThought(thoughtType));
@@ -202,7 +201,7 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal thought_Transform searchForThoughtTransformTypeByTask(Task_Enum taskType)
     {
-        
+
         for (int i = 0; i < thought_Transforms.Count; i++)
         {
             if (thought_Transforms[i].taskType == taskType)

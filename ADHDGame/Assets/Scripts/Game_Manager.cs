@@ -10,6 +10,9 @@ public class Game_Manager : MonoBehaviour
 
     public bool doingTask = false;
 
+    public GameObject pausePanel;
+    public GameObject pauseButton;
+
     void Awake()
     {
         gameInstance = this;
@@ -31,6 +34,33 @@ public class Game_Manager : MonoBehaviour
     void StartLevel1()
     {
         Debug.Log("hello?");
+        PauseGame();
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
+    }
+
+    public static void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ToMainMenu()
+    {
+        ScenesManager.SwitchToScene("MainMenu");
+    }
+
+    public void PauseGame()
+    {
+        if (pausePanel.activeSelf)
+        {
+            PhoneController.instance.ResumeTime();
+        }
+        else
+        {
+            PhoneController.instance.StopTime();
+        }
+
+        pausePanel.transform.SetAsLastSibling();
+        pauseButton.transform.SetAsLastSibling();
+        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 }

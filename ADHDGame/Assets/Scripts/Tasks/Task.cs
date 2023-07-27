@@ -101,7 +101,7 @@ public class Task : ScriptableObject
     {
 
         InfoManager.instance.SendInfoMessage(taskName + "will be done in " + waitingTime + " minutes");
-
+        Debug.Log(waitingTime / PhoneController.instance.gameMinute);
         yield return new WaitForSeconds(waitingTime / PhoneController.instance.gameMinute);
 
         Debug.Log(PhoneController.instance.GetCurrentTime());
