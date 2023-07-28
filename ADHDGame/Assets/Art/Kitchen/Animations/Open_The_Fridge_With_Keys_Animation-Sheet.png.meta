@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76a9c6134d69bbc44bd93fef050832b6
+guid: 64bae7b45203b7d4793ed4436025bc5b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_0
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c716b5593a33294db1f59550ffb2cc5
-      internalID: -1466635567
+      spriteID: 62c6d49ca1e29294c8f421fefb65487f
+      internalID: 159848055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_1
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_1
       rect:
         serializedVersion: 2
         x: 718
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47c5992288270bf40a060c3bd977c943
-      internalID: 1248875185
+      spriteID: 7f29358e3ebdefc4c95f2fbac14e1000
+      internalID: -363376040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_2
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_2
       rect:
         serializedVersion: 2
         x: 1436
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40958141f929a6a4c9492cdb217b73ef
-      internalID: -348090235
+      spriteID: 335425e12d714f64587027cf06214bc0
+      internalID: 402540372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_3
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_3
       rect:
         serializedVersion: 2
         x: 2154
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0827d2db3bcc6cc42be1e777af4834cf
-      internalID: 1681630235
+      spriteID: 448f5d9e76489594b82bca569ac9fe89
+      internalID: -2017255835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_4
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_4
       rect:
         serializedVersion: 2
         x: 2872
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b95bb0f3c3d05045971aa20c8ab6ba9
-      internalID: -2032156005
+      spriteID: 9c47389e7ab79be4a8d7636df59a116a
+      internalID: -2140746817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_5
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_5
       rect:
         serializedVersion: 2
         x: 3590
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eec383bc238e334990829860c0ea598
-      internalID: -183198015
+      spriteID: c6b3961380b370a4eb0bb17ba5172986
+      internalID: 1724483272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_6
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_6
       rect:
         serializedVersion: 2
         x: 4308
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b64f143a3b832c4abf318f24d8afd33
-      internalID: 750481935
+      spriteID: ba9fb4922f589d64dac975ebdd58fa9a
+      internalID: 548626905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_7
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_7
       rect:
         serializedVersion: 2
         x: 5026
@@ -266,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdd5a714bd25c234f975a3ad975e4c34
-      internalID: 975852797
+      spriteID: b24575cb91a16fa4084bd1561da25fbb
+      internalID: -915596681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_8
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_8
       rect:
         serializedVersion: 2
         x: 5744
@@ -287,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc9529151ad47c8408f1e72cad46745c
-      internalID: 697885650
+      spriteID: 12c9727b5cf1a194b9e1d8fead7ff898
+      internalID: -305737107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_9
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_9
       rect:
         serializedVersion: 2
         x: 6462
@@ -308,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b78f227ef191534da92991b767aad43
-      internalID: -1877222555
+      spriteID: cca446d0309a30045a578ccb8563ad4d
+      internalID: -986465754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_10
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_10
       rect:
         serializedVersion: 2
         x: 7180
@@ -329,14 +329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35763a50cacab5a4d82cc8d656731681
-      internalID: 1652173391
+      spriteID: 79f52b20a2852814dbcdf1d8dc36b00d
+      internalID: 778425277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Open_The_Fridge_Animation_11
+      name: Open_The_Fridge_With_Keys_Animation-Sheet_11
       rect:
         serializedVersion: 2
         x: 7898
@@ -350,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f88441665563024783c5a95039a7e58
-      internalID: -1442092040
+      spriteID: 4094df0bb6e464140b17088a428c21e8
+      internalID: -1812850397
       vertices: []
       indices: 
       edges: []
@@ -367,18 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Open_The_Fridge_Animation_0: -1466635567
-      Open_The_Fridge_Animation_1: 1248875185
-      Open_The_Fridge_Animation_10: 1652173391
-      Open_The_Fridge_Animation_11: -1442092040
-      Open_The_Fridge_Animation_2: -348090235
-      Open_The_Fridge_Animation_3: 1681630235
-      Open_The_Fridge_Animation_4: -2032156005
-      Open_The_Fridge_Animation_5: -183198015
-      Open_The_Fridge_Animation_6: 750481935
-      Open_The_Fridge_Animation_7: 975852797
-      Open_The_Fridge_Animation_8: 697885650
-      Open_The_Fridge_Animation_9: -1877222555
+      Open_The_Fridge_With_Keys_Animation-Sheet_0: 159848055
+      Open_The_Fridge_With_Keys_Animation-Sheet_1: -363376040
+      Open_The_Fridge_With_Keys_Animation-Sheet_10: 778425277
+      Open_The_Fridge_With_Keys_Animation-Sheet_11: -1812850397
+      Open_The_Fridge_With_Keys_Animation-Sheet_2: 402540372
+      Open_The_Fridge_With_Keys_Animation-Sheet_3: -2017255835
+      Open_The_Fridge_With_Keys_Animation-Sheet_4: -2140746817
+      Open_The_Fridge_With_Keys_Animation-Sheet_5: 1724483272
+      Open_The_Fridge_With_Keys_Animation-Sheet_6: 548626905
+      Open_The_Fridge_With_Keys_Animation-Sheet_7: -915596681
+      Open_The_Fridge_With_Keys_Animation-Sheet_8: -305737107
+      Open_The_Fridge_With_Keys_Animation-Sheet_9: -986465754
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

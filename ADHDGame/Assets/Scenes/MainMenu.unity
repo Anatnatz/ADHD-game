@@ -11041,6 +11041,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a92e034a0f8d274184895341822f847, type: 2}
   - {fileID: 11400000, guid: a81f6d557e442664b8d070317bf35412, type: 2}
   - {fileID: 11400000, guid: 8a0bdfa0307400240a8d763f95155b1f, type: 2}
+  - {fileID: 11400000, guid: 5456c154394bb634d906d4a4a9faeecd, type: 2}
   totalScore: 0
   currentTaskNumOnList: 0
   mustTasks:

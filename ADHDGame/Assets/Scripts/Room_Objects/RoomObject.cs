@@ -44,6 +44,7 @@ public class RoomObject : MonoBehaviour
     public GameObject objectSprite;
     public TMP_Text textInfo;
     public bool textInfoTest;
+    private static bool allowTakeKeys;
 
 
 
@@ -174,6 +175,9 @@ public class RoomObject : MonoBehaviour
         // buttonObject.transform.position = mousePos + offSetVector;
         // else
         //     buttonObject.transform.SetParent(buttonsSpace.transform);
+
+        CheckForSpecifics(relatedTask);
+
     }
 
     void NameTaskButton(string name)
@@ -200,7 +204,37 @@ public class RoomObject : MonoBehaviour
         curTask = relatedTasks.Find(t => t.taskName == taskName);
         curTask.StartTask(animator);
         animator.SetBool("isClicked", false);
+        CheckForSpecifics(curTask);
     }
+
+    void CheckForSpecifics(Task curTask)
+    {
+        Debug.Log(curTask.name);
+        switch (curTask.name)
+        {
+            case "StartLaundry":
+                Animator towelAnimator = curTask.waitingOnTask.animator;
+                towelAnimator.SetBool("take", true);
+                break;
+            case "wearShoes":
+                allowTakeKeys = true;
+                Debug.Log(allowTakeKeys);
+                break;
+            case "Take a keys":
+                Debug.Log(allowTakeKeys);
+                if (allowTakeKeys)
+                {
+                    animator.SetBool("take", true);
+                    allowTakeKeys = false;
+                }
+                else
+                {
+                    animator.SetBool("take", false);
+                }
+                break;
+        }
+    }
+
 
     public void OnApplicationQuit()
     {
