@@ -1,8 +1,8 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -91,6 +91,13 @@ public class RoomObject : MonoBehaviour
 
     void ShowTasks()
     {
+        bool isClickable = true;
+
+        if (taskBtn.name == "UnclickableTaskButton")
+        {
+            isClickable = false;
+        }
+
         foreach (Task relatedTask in relatedTasks)
         {
             if ((relatedTask.waitingOnTask == null || relatedTask.waitingOnTask.status == TaskStatus_Enum.Done) && relatedTask.status == TaskStatus_Enum.none)
@@ -99,7 +106,12 @@ public class RoomObject : MonoBehaviour
                 NameTaskButton(relatedTask.taskName);
             }
         }
-        CreateTaskListeners();
+
+        if (isClickable)
+        {
+            animator.SetBool("isClicked", true);
+            CreateTaskListeners();
+        }
         // TaskButtonController.instance.ButtonsChanged();
     }
 
@@ -140,6 +152,7 @@ public class RoomObject : MonoBehaviour
 
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
         taskInfoObject = Instantiate(taskInfo, Vector3.zero, Quaternion.identity);
+
         buttonObject.name = name;
         curBtn = buttonObject.GetComponent<Button>();
         taskButtons.Add(curBtn);
@@ -180,11 +193,13 @@ public class RoomObject : MonoBehaviour
 
     public void StartTask(Button taskBtn)
     {
+        SoundManager.instance.PlayClick();
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);
         Destroy(taskInfoObject.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
         curTask.StartTask(animator);
+        animator.SetBool("isClicked", false);
     }
 
     public void OnApplicationQuit()
@@ -197,12 +212,12 @@ public class RoomObject : MonoBehaviour
 
     public void changeTextInfo(string text)
     {
-        if(textInfo != null)
-        { 
-            textInfo.gameObject.SetActive (true);
-            textInfo.text = text; 
+        if (textInfo != null)
+        {
+            textInfo.gameObject.SetActive(true);
+            textInfo.text = text;
         }
-        
+
     }
 
     public void objectTrigger()
@@ -227,7 +242,7 @@ public class RoomObject : MonoBehaviour
 
         }
 
-       
+
 
         // if (relatedTasks.Count > 0)
         // {
