@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
   m_Name: Make coffee
   m_EditorClassIdentifier: 
-  taskName: Make coffee
+  taskName: Take coffee
   taskType: 10
   textInApp: Make some coffee
   duration: 3
@@ -29,5 +29,5 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 0e000000
   connectedRoomObject: 23
-  zoomNeeded: 2
+  zoomNeeded: 0
   zoomLocation: {x: 3.55, y: 0.45}

@@ -222,8 +222,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c62be7332c363419e166d6edb75338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 10
   borderGap: 14.8
+  test: 0
+  cam: {fileID: 0}
+  neededZoom: 0
+  zoomFocus: {x: 0, y: 0}
+  zoomMovement: 0.5
+  currentzoom: 0
+  zoomSpeed: 10
 --- !u!114 &4437800645602457241
 MonoBehaviour:
   m_ObjectHideFlags: 0

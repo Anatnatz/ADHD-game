@@ -21,7 +21,7 @@ public class Mouse_Controller : MonoBehaviour
 
     [SerializeField]
     Transform mouseTransform;
-    
+
     [SerializeField]
     MessageController messageController;
     [SerializeField]
@@ -34,11 +34,11 @@ public class Mouse_Controller : MonoBehaviour
 
     void Update()
     {
-        float mousePositionx =  Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 0.1f;
-        float mousePositiony =  Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+        float mousePositionx = Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 0.1f;
+        float mousePositiony = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
         mouseTransform.position = new Vector2(mousePositionx, mousePositiony);
-       
-      //  float transformTextPositionX = mouseTransform.position.x + 1f;
+
+        //  float transformTextPositionX = mouseTransform.position.x + 1f;
         //float transformTextPositionY = mouseTransform.position.y;
         //transformText.transform.position = new Vector2(transformTextPositionX, transformTextPositionY);
 
@@ -53,6 +53,7 @@ public class Mouse_Controller : MonoBehaviour
                     Vector2.zero);
             if (hit)
             {
+                SoundManager.instance.PlayClick();
                 //Thought:
                 if (hit.transform.tag == Tags_Enum.Thought.ToString())
                 {
@@ -69,10 +70,10 @@ public class Mouse_Controller : MonoBehaviour
 
                     TaskOnApp_Manager
                         .TaskOnAppInstance.changeStatus(hit.transform.name, TextOnApp_Enum.Marked_As_Done);
-                        
+
                 }
 
-               
+
             }
         }
         else if (Input.GetMouseButtonUp(0))

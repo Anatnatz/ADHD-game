@@ -1,8 +1,8 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -42,7 +42,10 @@ public class RoomObject : MonoBehaviour
     public Thought_Enum previousThought;
     public float zoomNeeded;
     public GameObject objectSprite;
-    
+
+    public TMP_Text textInfo;
+    public bool textInfoTest;
+    private static bool allowTakeKeys;
 
 
 
@@ -90,6 +93,13 @@ public class RoomObject : MonoBehaviour
 
     void ShowTasks()
     {
+        bool isClickable = true;
+
+        if (taskBtn.name == "UnclickableTaskButton")
+        {
+            isClickable = false;
+        }
+
         foreach (Task relatedTask in relatedTasks)
         {
             if ((relatedTask.waitingOnTask == null || relatedTask.waitingOnTask.status == TaskStatus_Enum.Done) && relatedTask.status == TaskStatus_Enum.none)
@@ -98,7 +108,12 @@ public class RoomObject : MonoBehaviour
                 NameTaskButton(relatedTask.taskName);
             }
         }
-        CreateTaskListeners();
+
+        if (isClickable)
+        {
+            animator.SetBool("isClicked", true);
+            CreateTaskListeners();
+        }
         // TaskButtonController.instance.ButtonsChanged();
     }
 
@@ -139,6 +154,7 @@ public class RoomObject : MonoBehaviour
 
         buttonObject = Instantiate(taskBtn, Vector3.zero, Quaternion.identity);
         taskInfoObject = Instantiate(taskInfo, Vector3.zero, Quaternion.identity);
+
         buttonObject.name = name;
         curBtn = buttonObject.GetComponent<Button>();
         taskButtons.Add(curBtn);
@@ -160,6 +176,9 @@ public class RoomObject : MonoBehaviour
         // buttonObject.transform.position = mousePos + offSetVector;
         // else
         //     buttonObject.transform.SetParent(buttonsSpace.transform);
+
+        CheckForSpecifics(relatedTask);
+
     }
 
     void NameTaskButton(string name)
@@ -179,12 +198,44 @@ public class RoomObject : MonoBehaviour
 
     public void StartTask(Button taskBtn)
     {
+        SoundManager.instance.PlayClick();
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);
         Destroy(taskInfoObject.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
         curTask.StartTask(animator);
+        animator.SetBool("isClicked", false);
+        CheckForSpecifics(curTask);
     }
+
+    void CheckForSpecifics(Task curTask)
+    {
+        Debug.Log(curTask.name);
+        switch (curTask.name)
+        {
+            case "StartLaundry":
+                Animator towelAnimator = curTask.waitingOnTask.animator;
+                towelAnimator.SetBool("take", true);
+                break;
+            case "wearShoes":
+                allowTakeKeys = true;
+                Debug.Log(allowTakeKeys);
+                break;
+            case "Take a keys":
+                Debug.Log(allowTakeKeys);
+                if (allowTakeKeys)
+                {
+                    animator.SetBool("take", true);
+                    allowTakeKeys = false;
+                }
+                else
+                {
+                    animator.SetBool("take", false);
+                }
+                break;
+        }
+    }
+
 
     public void OnApplicationQuit()
     {
@@ -195,6 +246,15 @@ public class RoomObject : MonoBehaviour
     }
 
 
+    public void changeTextInfo(string text)
+    {
+        if (textInfo != null)
+        {
+            textInfo.gameObject.SetActive(true);
+            textInfo.text = text;
+        }
+
+    }
 
     public void objectTrigger()
     {

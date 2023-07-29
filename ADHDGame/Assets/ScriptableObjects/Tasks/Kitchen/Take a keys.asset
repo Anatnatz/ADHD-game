@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
   m_Name: Take a keys
   m_EditorClassIdentifier: 
-  taskName: Take
+  taskName: Take the keys
   taskType: 15
-  textInApp: Take a keys
+  textInApp: Find the keys
   duration: 3
   waitingTime: 0
   taskScore: 15
@@ -22,7 +22,7 @@ MonoBehaviour:
   taskOnAppStatus: 0
   must: 1
   animator: {fileID: 0}
-  waitingOnTask: {fileID: 0}
+  waitingOnTask: {fileID: 11400000, guid: 5456c154394bb634d906d4a4a9faeecd, type: 2}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
