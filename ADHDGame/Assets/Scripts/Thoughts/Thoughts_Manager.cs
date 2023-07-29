@@ -50,7 +50,7 @@ public class Thoughts_Manager : MonoBehaviour
     public void createThought(Thought_Enum thoughtType)
     {
         thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
-
+        SoundManager.RegisterAction(SoundManager.SoundAction.thought);
 
         searchForThoughtType(thoughtType);
 
