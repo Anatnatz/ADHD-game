@@ -214,11 +214,7 @@ public class Thoughts_Manager : MonoBehaviour
         Thought currentThought = thoughtsList_[currentThoughtNum];
 
         yield return new WaitForSeconds(currentThought.waitingGap);
-<<<<<<< HEAD
         triggerThought(thoughtType);
-=======
-        createThought(thoughtType);
->>>>>>> 1cf6597fb837543adff44da336bf4159426fc1e0
     }
 
     internal void StartCoroutineLoop(Thought_Enum thoughtType, Thought thought)

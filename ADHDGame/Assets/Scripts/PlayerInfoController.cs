@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerInfoController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerInfoController : MonoBehaviour
     public static PlayerInfoController instance;
     public bool testPhoneInfo;
     public bool testThoutghtInfo;
+    public bool testObjectInfo;
    
    
 
@@ -53,6 +55,14 @@ public class PlayerInfoController : MonoBehaviour
         StartCoroutine(waitToClosePlayerInfo(textAbovePhone));
     }
 
+    public void changePlayerInfoAboveObject(string playerMessage, Task_Enum task)
+    {
+       Task cTask =  TaskManager.instance.searchTaskOnList(task);
+        textInfo.gameObject.SetActive(true);
+        textInfo.text = playerMessage;
+        textInfo.transform.position = new Vector3 (cTask.zoomLocation.x, cTask.zoomLocation.y+50,textInfo.transform.position.z);
+    }
+
     internal IEnumerator waitToClosePlayerInfo(TMP_Text text)
     {
         yield return new WaitForSeconds(3);
@@ -75,6 +85,11 @@ public class PlayerInfoController : MonoBehaviour
         {
             changePlayerInfoAboveThought("ble bal", Thought_Enum.My_throat_is_dry);
 
+        }
+
+        if(testObjectInfo)
+        {
+            changePlayerInfoAboveObject("bleble", Task_Enum.Pee);
         }
     }
 }

@@ -30,6 +30,8 @@ public class Task : ScriptableObject
 
     public bool must;
 
+    public string textIfNotDone;
+
     // public Status_Enum smtatus;
     public Animator animator;
 
@@ -173,15 +175,14 @@ public class Task : ScriptableObject
 
     public void CheckFollowingAction()
     {
-        checkFollowingMessage(status);
-        checkFollowingThoughts(status);
-        // switch (status)
-        // {
 
-        //     case TaskStatus_Enum.none:
-        //         { break; }
+        switch (status)
+        {
 
-<<<<<<< HEAD
+            case TaskStatus_Enum.none:
+                { break; }
+
+
             case TaskStatus_Enum.Waiting:
                 {
                     checkFollowingMessage(TaskStatus_Enum.Waiting);
@@ -192,26 +193,11 @@ public class Task : ScriptableObject
                 {
                     checkFollowingMessage(TaskStatus_Enum.Done);
                     checkFollowingThoughts(TaskStatus_Enum.Done);
-                    
-=======
-        //     case TaskStatus_Enum.Waiting:
-        //         {
-        //             checkFollowingMessage(TaskStatus_Enum.Waiting);
-        //             checkFollowingThoughts(TaskStatus_Enum.Waiting);
-        //             break;
-        //         }
-        //     case TaskStatus_Enum.Done:
-        //         {
-        //             checkFollowingMessage(TaskStatus_Enum.Done);
-        //             checkFollowingThoughts(TaskStatus_Enum.Done);
->>>>>>> 1cf6597fb837543adff44da336bf4159426fc1e0
+                    break;
 
-        //             break;
-
-        //         }
-        // }
+                }
+        }
     }
-
     
 
     private void checkFollowingThoughts(TaskStatus_Enum status)
