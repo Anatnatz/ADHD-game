@@ -166,27 +166,29 @@ public class Task : ScriptableObject
 
     public void CheckFollowingAction()
     {
-        switch (status)
-        {
+        checkFollowingMessage(status);
+        checkFollowingThoughts(status);
+        // switch (status)
+        // {
 
-            case TaskStatus_Enum.none:
-                { break; }
+        //     case TaskStatus_Enum.none:
+        //         { break; }
 
-            case TaskStatus_Enum.Waiting:
-                {
-                    checkFollowingMessage(TaskStatus_Enum.Waiting);
-                    checkFollowingThoughts(TaskStatus_Enum.Waiting);
-                    break;
-                }
-            case TaskStatus_Enum.Done:
-                {
-                    checkFollowingMessage(TaskStatus_Enum.Done);
-                    checkFollowingThoughts(TaskStatus_Enum.Done);
+        //     case TaskStatus_Enum.Waiting:
+        //         {
+        //             checkFollowingMessage(TaskStatus_Enum.Waiting);
+        //             checkFollowingThoughts(TaskStatus_Enum.Waiting);
+        //             break;
+        //         }
+        //     case TaskStatus_Enum.Done:
+        //         {
+        //             checkFollowingMessage(TaskStatus_Enum.Done);
+        //             checkFollowingThoughts(TaskStatus_Enum.Done);
 
-                    break;
+        //             break;
 
-                }
-        }
+        //         }
+        // }
     }
 
     private void checkFollowingThoughts(TaskStatus_Enum status)
