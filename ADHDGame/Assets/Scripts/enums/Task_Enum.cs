@@ -26,7 +26,7 @@ public enum Task_Enum
     Take_coat,
     Turn_on_Coffemaker,
     GoOut,
-    Wear_shoes
-
+    Wear_shoes,
+    workOnGame
 
 }

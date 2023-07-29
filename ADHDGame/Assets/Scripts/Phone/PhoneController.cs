@@ -135,6 +135,10 @@ public class PhoneController : MonoBehaviour
         {
             StartCoroutine(MoveTime(minInterval));
         }
+        else
+        {
+            StopCoroutine(MoveTime(minInterval));
+        }
     }
 
     bool LevelHasMoreTime()
@@ -143,6 +147,7 @@ public class PhoneController : MonoBehaviour
         {
             Debug.Log("end of level!");
             ScenesManager.SwitchToScene("Kitchen");
+            Game_Manager.gameInstance.PauseGame();
             return false;
         }
 
@@ -169,21 +174,25 @@ public class PhoneController : MonoBehaviour
         }
     }
 
-    public void OpenTaskApp()
+    public void HideAllApps()
     {
         tiktokPlayer.Pause();
         allApps.SetActive(false);
         messagesApp.SetActive(false);
         messageOnApp.SetActive(false);
+        tiktokApp.SetActive(false);
+        todoApp.SetActive(false);
+    }
+
+    public void OpenTaskApp()
+    {
+        HideAllApps();
         todoApp.SetActive(true);
     }
     public void OpenTiktokApp()
     {
-        allApps.SetActive(false);
-        todoApp.SetActive(false);
+        HideAllApps();
         tiktokApp.SetActive(true);
-        messagesApp.SetActive(false);
-        messageOnApp.SetActive(false);
 
         tiktokPlayer.Play();
         MoveTimeXTimes(5f);
@@ -191,36 +200,27 @@ public class PhoneController : MonoBehaviour
 
     public void OpenmessagesApp()
     {
-        tiktokPlayer.Pause();
-        allApps.SetActive(false);
-        todoApp.SetActive(false);
-        tiktokApp.SetActive(false);
-        messageOnApp.SetActive(false);
+        HideAllApps();
         messagesApp.SetActive(true);
     }
     public void OpenMessagePanel()
     {
-        tiktokPlayer.Pause();
-        allApps.SetActive(false);
-        todoApp.SetActive(false);
-        tiktokApp.SetActive(false);
-        messagesApp.SetActive(false);
+        HideAllApps();
         messageOnApp.SetActive(true);
     }
 
     public void BackToAllApps()
     {
+        SoundManager.instance.PlayClick();
         if (tiktokApp.activeSelf)
         {
             noTouchTime = 0;
             tiktokPlayer.Pause();
             MoveTimeXTimes(0.2f);
         }
-        tiktokApp.SetActive(false);
+        HideAllApps();
         allApps.SetActive(true);
-        todoApp.SetActive(false);
-        messagesApp.SetActive(false);
-        messageOnApp.SetActive(false);
+
         mainScreenContent.position = new Vector2(mainScreenContent.position.x, 0);
 
         //set all apps to false active
@@ -243,6 +243,7 @@ public class PhoneController : MonoBehaviour
             miniPhone.SetActive(false);
             phoneStatus = PhoneStatus_Enum.OpenPhone;
         }
+        SoundManager.instance.PlayClick();
     }
 
     public void MoveTimeXTimes(float x)

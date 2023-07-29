@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.087, y: 95.29}
-  m_SizeDelta: {x: 218.33, y: 98.276}
+  m_AnchoredPosition: {x: -16.115992, y: 45.196}
+  m_SizeDelta: {x: 213.2, y: 89.884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &716824173366771555
 CanvasRenderer:
@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Text Sender
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8bb2d82c0807567438d6900159edb2d4, type: 2}
+  m_sharedMaterial: {fileID: 6177450681511603522, guid: 8bb2d82c0807567438d6900159edb2d4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,12 +93,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 46.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 24
-  m_fontSizeMax: 36
+  m_fontSizeMax: 48
   m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -305,8 +305,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.72463, y: -51.923}
-  m_SizeDelta: {x: 251.95, y: 196.15}
+  m_AnchoredPosition: {x: 3.26, y: -49.79}
+  m_SizeDelta: {x: 251.95, y: 100.0872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5519880818034530514
 CanvasRenderer:
@@ -338,8 +338,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: text message
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8bb2d82c0807567438d6900159edb2d4, type: 2}
+  m_sharedMaterial: {fileID: 6177450681511603522, guid: 8bb2d82c0807567438d6900159edb2d4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -363,12 +363,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
+  m_fontSize: 36
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 22
-  m_fontSizeMax: 32
+  m_fontSizeMax: 36
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -582,10 +582,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 275, y: 300}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960, y: -489.83386}
+  m_SizeDelta: {x: 275, y: 199.6677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2399359946984909073
 MonoBehaviour:
@@ -604,7 +604,6 @@ MonoBehaviour:
   messageType: 0
   messageStatus: 0
   currentMessageName: 0
-  readIcon: {fileID: 863456145538786348}
 --- !u!222 &5593284646247326616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -888,8 +887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0010257, y: 0.0010185}
-  m_SizeDelta: {x: 275, y: 300}
+  m_AnchoredPosition: {x: -0.00047638, y: -0.00027466}
+  m_SizeDelta: {x: 275, y: 199.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2995617164654566392
 CanvasRenderer:
@@ -1009,7 +1008,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 275.9945, y: 299.85007}
+  m_Size: {x: 275.9945, y: 198.63937}
   m_EdgeRadius: 0
 --- !u!1 &8457221831245675802
 GameObject:
@@ -1046,7 +1045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114.81, y: 123.51}
+  m_AnchoredPosition: {x: 108.59, y: 72.029}
   m_SizeDelta: {x: 36.218, y: 36.218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2639052096565364994

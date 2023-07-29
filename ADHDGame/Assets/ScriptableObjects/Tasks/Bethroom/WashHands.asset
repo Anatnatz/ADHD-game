@@ -29,5 +29,5 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 12000000
   connectedRoomObject: 7
-  zoomNeeded: 2
+  zoomNeeded: 1
   zoomLocation: {x: 7.65, y: -1.37}
