@@ -53,7 +53,6 @@ public class Mouse_Controller : MonoBehaviour
                     Vector2.zero);
             if (hit)
             {
-                SoundManager.instance.PlayClick();
                 //Thought:
                 if (hit.transform.tag == Tags_Enum.Thought.ToString())
                 {

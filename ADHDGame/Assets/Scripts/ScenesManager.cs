@@ -9,6 +9,7 @@ public class ScenesManager : MonoBehaviour
     bool kitchenFirstAppearance = true;
     public static void SwitchToScene(string name)
     {
+        SoundManager.RegisterAction(SoundManager.SoundAction.click);
         SceneManager.LoadScene(name);
     }
 

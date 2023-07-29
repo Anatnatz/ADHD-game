@@ -79,9 +79,9 @@ public class MessageController : MonoBehaviour
 
     private bool CheckMessagesTask(MessageName_Enum messageName)
     {
-       MessageScriptble currentMessage =  SearchMessageOnList(messageName);
-       Task currentTask =  TaskManager.instance.searchTaskOnList(currentMessage.relatedTask);
-        if(currentTask.status == TaskStatus_Enum.Done)
+        MessageScriptble currentMessage = SearchMessageOnList(messageName);
+        Task currentTask = TaskManager.instance.searchTaskOnList(currentMessage.relatedTask);
+        if (currentTask.status == TaskStatus_Enum.Done)
         { return (true); }
         else { return false; }
     }
@@ -121,6 +121,7 @@ public class MessageController : MonoBehaviour
     public void createMessageOnApp(MessageName_Enum messageName)
     {
         GameObject messageObject = Instantiate(messagePrefab);
+        SoundManager.RegisterAction(SoundManager.SoundAction.message);
 
         Message newMessage = messageObject.GetComponent<Message>();
         readIcon = messageObject.transform.Find("ReadIcon");
@@ -149,11 +150,20 @@ public class MessageController : MonoBehaviour
         { openPhoneMessage.gameObject.SetActive(false); }
 
         if (phoneController.phoneStatus == PhoneStatus_Enum.ClosePhone)
-        {  closePhoneMessage.gameObject.SetActive(false); }
+        { closePhoneMessage.gameObject.SetActive(false); }
     }
 
     public void ViewMessage(MessageName_Enum messageNameToShow)
     {
+        if (messageNameToShow == MessageName_Enum.Good_morning)
+        {
+            SoundManager.RegisterAction(SoundManager.SoundAction.openFirstMessage);
+        }
+        else if (messageNameToShow == MessageName_Enum.Drink_water)
+        {
+            SoundManager.RegisterAction(SoundManager.SoundAction.drinkWaterMessage);
+        }
+
         MessageScriptble messageToShow = SearchMessageOnList(messageNameToShow);
         messageToShow.messageOnAppStatus = MessageOnAppStatus_Enum.Read;
         setmessageview.SetMessageText(messageToShow.textSender, messageToShow.fullText);

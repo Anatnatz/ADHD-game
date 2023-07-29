@@ -91,7 +91,6 @@ public class PhoneController : MonoBehaviour
         else
         {
             noTouchTime = 0;
-            BackToAllApps();
         }
     }
 
@@ -176,6 +175,7 @@ public class PhoneController : MonoBehaviour
 
     public void HideAllApps()
     {
+        SoundManager.RegisterAction(SoundManager.SoundAction.click);
         tiktokPlayer.Pause();
         allApps.SetActive(false);
         messagesApp.SetActive(false);
@@ -211,7 +211,6 @@ public class PhoneController : MonoBehaviour
 
     public void BackToAllApps()
     {
-        SoundManager.instance.PlayClick();
         if (tiktokApp.activeSelf)
         {
             noTouchTime = 0;
@@ -239,11 +238,11 @@ public class PhoneController : MonoBehaviour
         }
         else
         {
+            SoundManager.RegisterAction(SoundManager.SoundAction.click);
             fullPhone.SetActive(true);
             miniPhone.SetActive(false);
             phoneStatus = PhoneStatus_Enum.OpenPhone;
         }
-        SoundManager.instance.PlayClick();
     }
 
     public void MoveTimeXTimes(float x)
