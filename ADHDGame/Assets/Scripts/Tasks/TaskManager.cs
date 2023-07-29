@@ -27,6 +27,8 @@ public class TaskManager : MonoBehaviour
     [SerializeField]
     List<Task> NotComplitedMustTaskList;
 
+    public int numberOfTaskDone = 0;
+
     void Start()
     {
         instance = this;
@@ -73,6 +75,9 @@ public class TaskManager : MonoBehaviour
                 // TaskButtonController.instance.ButtonsChanged();
             }
         }
+
+        if ( numberOfTaskDone>1)
+        { Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Almost_late); }
     }
 
     private void creatMustTasksList()
@@ -121,8 +126,8 @@ public class TaskManager : MonoBehaviour
 
     public void UpdateTotalScore(Task taskForScore)
     {
-        totalScore += taskForScore.score;
-        InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
+       // totalScore += taskForScore.score;
+        //InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
     }
 
     public void StartTask(Button taskBtn)

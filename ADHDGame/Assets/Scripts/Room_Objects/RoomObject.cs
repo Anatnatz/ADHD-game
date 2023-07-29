@@ -42,6 +42,7 @@ public class RoomObject : MonoBehaviour
     public Thought_Enum previousThought;
     public float zoomNeeded;
     public GameObject objectSprite;
+
     public TMP_Text textInfo;
     public bool textInfoTest;
     private static bool allowTakeKeys;
@@ -245,6 +246,7 @@ public class RoomObject : MonoBehaviour
         }
     }
 
+
     public void changeTextInfo(string text)
     {
         if (textInfo != null)
@@ -304,12 +306,5 @@ public class RoomObject : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (textInfoTest)
-        {
-            changeTextInfo("this is the place to write comments and talk to the player");
-        }
-    }
 }
 

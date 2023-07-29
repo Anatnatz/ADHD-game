@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: Use the toilet
   duration: 3
   waitingTime: 0
-  score: 20
+  taskScore: 20
   status: 0
   taskOnAppStatus: 0
   must: 0
@@ -27,4 +27,7 @@ MonoBehaviour:
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 13000000
+  followingThoughtsWhenDone: 1300000017000000
+  connectedRoomObject: 0
+  zoomNeeded: 0
+  zoomLocation: {x: -7.66, y: -1.72}

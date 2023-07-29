@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: Dishwasher
   m_EditorClassIdentifier: 
-  thoughtText: There are dishes in the washer... I should get them out before they
-    start smelling
+  thoughtText: There are dishes in the dishwasher... I should get them out before
+    they start smelling
   thoughtTexts: []
   thoughtType: 10
   thoughtPosition: {x: 1600, y: 400}
@@ -27,7 +27,7 @@ MonoBehaviour:
   previousAction: 
   showOnlyOnc: 1
   isItATask: 1
-  taskType: 1
+  taskType: 19
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 

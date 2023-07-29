@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: Gotta_get_to_the_office_at_8_30,
   m_EditorClassIdentifier: 
-  thoughtText: I don't believe it's sunday already... Gotta get out by 8:10  and
-    get ready for that meeting
+  thoughtText: I can't believe it's already Monday... Gotta go out by 8:10 and get
+    read for that meeting
   thoughtTexts: []
   thoughtType: 7
   thoughtPosition: {x: 1200, y: 600}
-  thoughtStatus: 2
+  thoughtStatus: 0
   loop: 0
   loopInterval: 0
   isOnLoop: 0

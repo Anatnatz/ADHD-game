@@ -8,10 +8,6 @@ public class Thought : ScriptableObject
 {
 
 
-   
-
-
-
     [Header("Thought")]
 
     //public string thoughtText = " Thought's Text";
@@ -28,6 +24,7 @@ public class Thought : ScriptableObject
 
     public bool loop;
     public int loopInterval;
+    
     public bool isOnLoop = false;
     public bool currentThoughtText;
 
@@ -55,6 +52,8 @@ public class Thought : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenAppeared;
 
+    
+
     [Header("Following When Deleted")]
 
     
@@ -74,6 +73,9 @@ public class Thought : ScriptableObject
 
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenPushToApp;
+
+    
+    
 
 
 

@@ -193,7 +193,10 @@ public class MessageController : MonoBehaviour
             if (messages[i].messageName == messageName)
             { currentMessage = i; }
         }
-        { return messages[currentMessage]; }
+        {
+            return messages[currentMessage];
+          
+                                                         }
     }
 
 
@@ -226,6 +229,7 @@ public class MessageController : MonoBehaviour
     internal IEnumerator waitGapMessage(MessageName_Enum messageName)
     {
         MessageScriptble message = MessageController.messageControlInstance.SearchMessageOnList(messageName);
+       Debug.Log("wait for" + messageName);
         yield return new WaitForSeconds(message.waitingGap);
         MessageController.messageControlInstance.SendMessage(messageName);
     }

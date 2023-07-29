@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: GoodMorning
   m_EditorClassIdentifier: 
   messageName: 4
-  textSender: Ben From Work
+  textSender: 'Ben From Work:'
   textMessage: Good morning ha...
-  fullText: Good morning handsome! Don't forget about our meeting board this morning.
+  fullText: Good morning handsome! Don't forget about our  board meeting this morning.
   messageType: 0
-  messageOnAppStatus: 1
+  messageOnAppStatus: 0
+  waitingGap: 0
+  previousAction: 
+  relatedTask: 0
   followingMessages: 
   followingThoughts: 
   followingMessagesWhenRead: 
