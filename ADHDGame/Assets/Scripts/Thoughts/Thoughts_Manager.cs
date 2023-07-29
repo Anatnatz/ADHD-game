@@ -50,7 +50,7 @@ public class Thoughts_Manager : MonoBehaviour
     public void createThought(Thought_Enum thoughtType)
     {
         thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
-
+        SoundManager.RegisterAction(SoundManager.SoundAction.thought);
 
         searchForThoughtType(thoughtType);
 
@@ -185,11 +185,11 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal IEnumerator waitGapThought(Thought_Enum thoughtType)
     {
-        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
-        Thought currentThought = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum];
+        searchForThoughtType(thoughtType);
+        Thought currentThought = thoughtsList_[currentThoughtNum];
 
         yield return new WaitForSeconds(currentThought.waitingGap);
-        Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
+        createThought(thoughtType);
     }
 
     internal void StartCoroutineLoop(Thought_Enum thoughtType, Thought thought)

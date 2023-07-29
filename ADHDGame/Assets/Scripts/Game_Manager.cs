@@ -33,13 +33,14 @@ public class Game_Manager : MonoBehaviour
 
     void StartLevel1()
     {
-        Debug.Log("hello?");
         PauseGame();
+        SoundManager.instance.PlayMusic();
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
     }
 
     public static void QuitGame()
     {
+        SoundManager.RegisterAction(SoundManager.SoundAction.click);
         Application.Quit();
     }
 
@@ -50,6 +51,7 @@ public class Game_Manager : MonoBehaviour
 
     public void PauseGame()
     {
+        SoundManager.RegisterAction(SoundManager.SoundAction.click);
         if (pausePanel.activeSelf)
         {
             PhoneController.instance.ResumeTime();

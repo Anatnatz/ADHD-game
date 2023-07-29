@@ -92,6 +92,7 @@ public class RoomObject : MonoBehaviour
 
     void ShowTasks()
     {
+        SoundManager.RegisterAction(SoundManager.SoundAction.click);
         bool isClickable = true;
 
         if (taskBtn.name == "UnclickableTaskButton")
@@ -197,7 +198,7 @@ public class RoomObject : MonoBehaviour
 
     public void StartTask(Button taskBtn)
     {
-        SoundManager.instance.PlayClick();
+        SoundManager.RegisterAction(SoundManager.SoundAction.click);
         string taskName = taskBtn.name;
         Destroy(taskBtn.gameObject);
         Destroy(taskInfoObject.gameObject);

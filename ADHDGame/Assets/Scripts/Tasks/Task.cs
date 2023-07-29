@@ -81,7 +81,10 @@ public class Task : ScriptableObject
             InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
 
             //play animation
-
+            if (taskName == "Drink")
+            {
+                SoundManager.RegisterAction(SoundManager.SoundAction.drinkWater);
+            }
             TaskManager.instance.StartCoroutine(WaitForDuration());
 
         }
@@ -109,6 +112,7 @@ public class Task : ScriptableObject
         InfoManager.instance.SendInfoMessage(taskName + " is ready!");
 
         status = TaskStatus_Enum.Done;
+        SoundManager.RegisterAction(SoundManager.SoundAction.score);
         CheckFollowingAction();
     }
 
@@ -142,6 +146,7 @@ public class Task : ScriptableObject
         else
         {
             status = TaskStatus_Enum.Done;
+            SoundManager.RegisterAction(SoundManager.SoundAction.score);
             TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
             checkTasksThought();
             Debug.Log(status.ToString());
@@ -161,27 +166,29 @@ public class Task : ScriptableObject
 
     public void CheckFollowingAction()
     {
-        switch (status)
-        {
+        checkFollowingMessage(status);
+        checkFollowingThoughts(status);
+        // switch (status)
+        // {
 
-            case TaskStatus_Enum.none:
-                { break; }
+        //     case TaskStatus_Enum.none:
+        //         { break; }
 
-            case TaskStatus_Enum.Waiting:
-                {
-                    checkFollowingMessage(TaskStatus_Enum.Waiting);
-                    checkFollowingThoughts(TaskStatus_Enum.Waiting);
-                    break;
-                }
-            case TaskStatus_Enum.Done:
-                {
-                    checkFollowingMessage(TaskStatus_Enum.Done);
-                    checkFollowingThoughts(TaskStatus_Enum.Done);
+        //     case TaskStatus_Enum.Waiting:
+        //         {
+        //             checkFollowingMessage(TaskStatus_Enum.Waiting);
+        //             checkFollowingThoughts(TaskStatus_Enum.Waiting);
+        //             break;
+        //         }
+        //     case TaskStatus_Enum.Done:
+        //         {
+        //             checkFollowingMessage(TaskStatus_Enum.Done);
+        //             checkFollowingThoughts(TaskStatus_Enum.Done);
 
-                    break;
+        //             break;
 
-                }
-        }
+        //         }
+        // }
     }
 
     private void checkFollowingThoughts(TaskStatus_Enum status)
