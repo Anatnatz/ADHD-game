@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: ManyThoughts
   m_EditorClassIdentifier: 
   messageName: 7
-  textSender: Ronny
+  textSender: 'Ronny:'
   textMessage: Having too many thoughts?
   fullText: I can sense that your head is full of thoughts, you can drag them into
     the todo app to store them for later
   messageType: 0
   messageOnAppStatus: 0
+  waitingGap: 0
+  previousAction: 
+  relatedTask: 0
+  followingMessages: 
+  followingThoughts: 
+  followingMessagesWhenRead: 
+  followingThoughtsWhenRead: 
+  followingMessagesWhenUnRead: 
+  followingThoughtsWhenUnRead: 

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 public class Thoughts_Manager : MonoBehaviour
@@ -54,10 +55,7 @@ public class Thoughts_Manager : MonoBehaviour
 
         searchForThoughtType(thoughtType);
 
-        if (thoughtsList_[currentThoughtNum].loop == true)
-        {
-            thoughtsList_[currentThoughtNum].isOnLoop = true;
-        }
+       
         Vector2 thoughtPosition;
         if (thoughtsList_[currentThoughtNum].thoughtPosition.x != 0)
         {
@@ -94,7 +92,9 @@ public class Thoughts_Manager : MonoBehaviour
             thoughtsList_[currentThoughtNum].CheckFollowingAction();
             thought_Transforms.Add(newThought);
             thoughtsList_[currentThoughtNum].numOfAppearance++;
-            Debug.Log(thoughtGameObject.transform.position);
+
+            
+
         }
     }
 
@@ -143,6 +143,7 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
+       Debug.Log("creating"+ thoughtType);
         searchForThoughtType(thoughtType);
 
         bool isTaskDone = TaskManager.instance.IsTaskDone(thoughtsList_[currentThoughtNum].taskType);
@@ -159,11 +160,35 @@ public class Thoughts_Manager : MonoBehaviour
                         createThought(thoughtType);
                     }
                 }
-                else { createThought(thoughtType); }
+                else 
+                {
+                    if (thoughtsList_[currentThoughtNum].loop == true)
+                    {
+                        // thoughtsList_[currentThoughtNum].isOnLoop = true;
+                        
+                        StartCoroutineLoop(thoughtType, thoughtsList_[currentThoughtNum]);
+                    }
+                    else 
+                    {
+                        createThought(thoughtType);
+                        
+                    }
+                     
+                }
 
+            }
+            else
+            {
+              if(thoughtsList_[currentThoughtNum].isOnLoop == true)
+                {
+                    createThought(thoughtType);
+                    startWaitGapThought(thoughtType);
+                }
             }
 
         }
+        else
+        { thoughtsList_[currentThoughtNum].isOnLoop = false; }
     }
 
     internal void changeThoughtStatus(Thought_Enum thoughtType, ThoughtStatus thoughtStatus)
@@ -189,19 +214,27 @@ public class Thoughts_Manager : MonoBehaviour
         Thought currentThought = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum];
 
         yield return new WaitForSeconds(currentThought.waitingGap);
-        Thoughts_Manager.ThoughtsInstance.createThought(thoughtType);
+        triggerThought(thoughtType);
     }
 
     internal void StartCoroutineLoop(Thought_Enum thoughtType, Thought thought)
     {
+        
         StartCoroutine(StartThoughtLoop(thoughtType, thought));
     }
 
     internal IEnumerator StartThoughtLoop(Thought_Enum thoughtType, Thought thought)
-    {
-        yield return new WaitForSeconds(thought.loopInterval);
-        createThought(thoughtType);
-    }
+    
+       
+        {
+                yield return new WaitForSeconds(thought.loopInterval);
+                thought.isOnLoop = true;
+                createThought(thoughtType);
+                triggerThought(thoughtType);
+                          
+        }
+       
+    
 
     internal thought_Transform searchForThoughtTransformTypeByTask(Task_Enum taskType)
     {
@@ -215,4 +248,17 @@ public class Thoughts_Manager : MonoBehaviour
         }
         return currentThoughTransform;
     }
+
+    internal thought_Transform searchForTransformByThoughtType(Thought_Enum thoughtType) 
+    {
+        for (int i = 0; i < thought_Transforms.Count; i++)
+        {
+            if (thought_Transforms[i].thoughtType == thoughtType)
+            {
+                currentThoughTransform = thought_Transforms[i];
+            }
+        }
+        return currentThoughTransform;
+    }
+
 }

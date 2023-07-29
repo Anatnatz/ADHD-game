@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: LookAtTheTime
   m_EditorClassIdentifier: 
   messageName: 8
-  textSender: Anat
-  textMessage: You don't have any clocks
-  fullText: You should check the time from time to time. The only place to do that
-    is on the phone
+  textSender: 'Anat:'
+  textMessage: Notice you don't have...
+  fullText: You don't have a watch! Don't forget to check the time on your phone
+    clock
   messageType: 0
   messageOnAppStatus: 0
+  waitingGap: 0
+  previousAction: 
+  relatedTask: 0
   followingMessages: 
   followingThoughts: 
   followingMessagesWhenRead: 

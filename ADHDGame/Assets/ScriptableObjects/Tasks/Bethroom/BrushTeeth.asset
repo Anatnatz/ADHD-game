@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: Brush Teeth
   duration: 3
   waitingTime: 0
-  score: 20
+  taskScore: 15
   status: 0
   taskOnAppStatus: 0
   must: 1

@@ -10,25 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
-  m_Name: HaveToPee
+  m_Name: LookingGood
   m_EditorClassIdentifier: 
-  thoughtText: I have to PEE!
-  thoughtTexts:
-  - PEEEEEE!!!!
-  - Take me to PPPPPEEEEEE!
-  thoughtType: 5
-  thoughtPosition: {x: 700, y: 900}
+  thoughtText: Looking good!
+  thoughtTexts: []
+  thoughtType: 24
+  thoughtPosition: {x: 1400, y: 800}
   thoughtStatus: 0
-  loop: 1
-  loopInterval: 5
-  isOnLoop: 1
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
   currentThoughtText: 0
   numOfAppearance: 0
-  waitingGap: 4
+  waitingGap: 0
   previousAction: 
-  showOnlyOnc: 0
-  isItATask: 1
-  taskType: 5
+  showOnlyOnc: 1
+  isItATask: 0
+  taskType: 0
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 

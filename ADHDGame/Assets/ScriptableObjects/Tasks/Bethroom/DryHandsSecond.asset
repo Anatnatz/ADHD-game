@@ -17,13 +17,17 @@ MonoBehaviour:
   textInApp: 
   duration: 3
   waitingTime: 0
-  score: 20
+  taskScore: 5
   status: 0
   taskOnAppStatus: 0
-  animation: {fileID: 0}
+  must: 0
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: fa122947d45272b408812f0aa392430e, type: 2}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 10000000
+  connectedRoomObject: 0
+  zoomNeeded: 0
+  zoomLocation: {x: 0, y: 0}

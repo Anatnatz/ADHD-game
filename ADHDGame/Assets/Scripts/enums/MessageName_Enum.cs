@@ -10,5 +10,7 @@ public enum MessageName_Enum
     Lego_thought,
     Long_tasks,
     Many_thoughts,
-    CheckTheTime
+    CheckTheTime,
+    Hi_Partner
+
 }

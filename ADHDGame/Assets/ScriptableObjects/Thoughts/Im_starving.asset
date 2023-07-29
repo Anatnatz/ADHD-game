@@ -12,14 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
   m_Name: Im_starving
   m_EditorClassIdentifier: 
-  though: 0
-  game_object: 0
-  task: 0
-  objectType: 0
   thoughtText: Im starving
+  thoughtTexts:
+  - I could eat a dinosaur. Got to find  breakfast.
   thoughtType: 1
   thoughtPosition: {x: 0, y: 0}
   thoughtStatus: 0
-  RelevantThought: 0
-  nagge: 0
+  loop: 1
+  loopInterval: 6
+  isOnLoop: 1
+  currentThoughtText: 0
+  numOfAppearance: 0
+  waitingGap: 0
+  previousAction: 
+  showOnlyOnc: 0
+  isItATask: 1
   taskType: 2
+  followingMessagesWhenAppeared: 
+  followingThoughtsWhenAppeared: 
+  followingMessagesWhenDeleted: 
+  followingThoughtsWhenDeleted: 
+  followingMessagesWhenPushToApp: 
+  followingThoughtsWhenPushToApp: 

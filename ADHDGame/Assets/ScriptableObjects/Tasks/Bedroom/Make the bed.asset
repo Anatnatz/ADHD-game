@@ -17,14 +17,17 @@ MonoBehaviour:
   textInApp: Make  thre bed
   duration: 3
   waitingTime: 0
-  score: 20
+  taskScore: 10
   status: 0
   taskOnAppStatus: 0
   must: 1
-  animation: {fileID: 0}
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
+  connectedRoomObject: 0
+  zoomNeeded: 0
+  zoomLocation: {x: 0, y: 0}

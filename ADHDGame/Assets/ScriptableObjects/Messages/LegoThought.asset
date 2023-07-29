@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: LegoThought
   m_EditorClassIdentifier: 
   messageName: 5
-  textSender: ' Ronny'
+  textSender: ' Ronny:'
   textMessage: No time for cleaning the legos!
   fullText: YouYou don't have time to do this now, drag this thought to the left
     in order to discard it.
   messageType: 0
   messageOnAppStatus: 0
+  waitingGap: 0
+  previousAction: 
+  relatedTask: 0
+  followingMessages: 
+  followingThoughts: 
+  followingMessagesWhenRead: 
+  followingThoughtsWhenRead: 
+  followingMessagesWhenUnRead: 
+  followingThoughtsWhenUnRead: 
