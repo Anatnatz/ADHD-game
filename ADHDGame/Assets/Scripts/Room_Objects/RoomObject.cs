@@ -61,26 +61,32 @@ public class RoomObject : MonoBehaviour
         // SetObjectText();
         taskButtons = new List<Button>();
         taskInfoTexts = new List<TextMeshProUGUI>();
+
     }
 
-    // void SetObjectText()
-    // {
-    //     TextMesh objTxtComponent = transform.GetComponentInChildren<TextMesh>();
-    //     objectText = objTxtComponent.gameObject;
-    //     Debug.Log(objTxtComponent);
-    //     objTxtComponent.text = objectName;
-    //     objectText.SetActive(false);
-    // }
+    void Start()
+    {
+        RecoverAnimations();
+    }
 
-    // void OnMouseEnter()
-    // {
-    //     objectText.SetActive(true);
-    // }
-
-    // void OnMouseExit()
-    // {
-    //     objectText.SetActive(false);
-    // }
+    void RecoverAnimations()
+    {
+        foreach (Task task in relatedTasks)
+        {
+            if ((task.taskType == Task_Enum.Wear_shoes || task.taskType == Task_Enum.Take_the_wallet) && task.status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
+            if (task.taskType == Task_Enum.Dry_hands && TaskManager.instance.searchTaskOnList(Task_Enum.Do_laundry).status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
+            if (task.taskType == Task_Enum.Take_a_keys && TaskManager.instance.searchTaskOnList(Task_Enum.Wear_shoes).status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
+        }
+    }
 
     void OnMouseDown()
     {
@@ -183,6 +189,7 @@ public class RoomObject : MonoBehaviour
 
     void NameTaskButton(string name)
     {
+        Debug.Log(name);
         TextMeshProUGUI btnText =
             curBtn.GetComponentsInChildren<TextMeshProUGUI>()[1];
         btnText.text = name;
