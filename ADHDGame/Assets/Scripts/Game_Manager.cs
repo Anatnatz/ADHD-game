@@ -33,7 +33,6 @@ public class Game_Manager : MonoBehaviour
 
     void StartLevel1()
     {
-        PauseGame();
         SoundManager.instance.PlayMusic();
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
     }

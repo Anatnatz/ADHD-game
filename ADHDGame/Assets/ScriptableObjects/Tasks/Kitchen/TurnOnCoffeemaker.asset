@@ -15,8 +15,8 @@ MonoBehaviour:
   taskName: Make Coffee
   taskType: 24
   textInApp: Need  COFFEE
-  duration: 3
-  waitingTime: 5
+  duration: 1
+  waitingTime: 10
   score: 20
   status: 0
   taskOnAppStatus: 0

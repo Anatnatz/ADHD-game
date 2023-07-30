@@ -15,15 +15,19 @@ MonoBehaviour:
   taskName: Dry Hands
   taskType: 18
   textInApp: 
-  duration: 3
+  duration: 0.1
   waitingTime: 0
   score: 20
   status: 0
   taskOnAppStatus: 0
-  animation: {fileID: 0}
+  must: 0
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 08000000
+  connectedRoomObject: 0
+  zoomNeeded: 0
+  zoomLocation: {x: 5.09, y: -1.71}

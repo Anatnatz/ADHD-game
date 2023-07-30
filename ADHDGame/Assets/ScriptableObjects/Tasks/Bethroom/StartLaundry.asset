@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: Start laundry
   taskType: 6
   textInApp: Wash Towels
-  duration: 3
+  duration: 4
   waitingTime: 5
   score: 20
   status: 0

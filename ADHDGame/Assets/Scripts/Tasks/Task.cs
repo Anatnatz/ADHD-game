@@ -104,8 +104,12 @@ public class Task : ScriptableObject
     {
 
         InfoManager.instance.SendInfoMessage(taskName + "will be done in " + waitingTime + " minutes");
-        Debug.Log(waitingTime / PhoneController.instance.gameMinute);
-        yield return new WaitForSeconds(waitingTime / PhoneController.instance.gameMinute);
+        float waitUntil = PhoneController.instance.GetCurrentTime() + (waitingTime / 100f);
+        while (PhoneController.instance.GetCurrentTime() < waitUntil)
+        {
+            Debug.Log(PhoneController.instance.GetCurrentTime() + " > " + (waitUntil) + " ... " + PhoneController.instance.gameMinute);
+            yield return new WaitForSeconds(PhoneController.instance.gameMinute);
+        }
 
         Debug.Log(PhoneController.instance.GetCurrentTime());
 
@@ -127,8 +131,8 @@ public class Task : ScriptableObject
 
         Cursor.lockState = CursorLockMode.Locked;
         Game_Manager.gameInstance.doingTask = true;
-        yield return new WaitForSeconds(3f);
-        PhoneController.instance.AddToTime((int)duration);
+        yield return new WaitForSeconds(duration);
+        PhoneController.instance.AddToTime((int)(duration - (duration / PhoneController.instance.gameMinute)));
         Cursor.lockState = CursorLockMode.None;
         Game_Manager.gameInstance.doingTask = false;
 

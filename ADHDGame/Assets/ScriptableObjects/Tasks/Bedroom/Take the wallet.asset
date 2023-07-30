@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: Take
   taskType: 13
   textInApp: Take the wallet
-  duration: 3
+  duration: 0.1
   waitingTime: 0
   score: 20
   status: 0

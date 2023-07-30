@@ -24,6 +24,8 @@ public class PhoneController : MonoBehaviour
 
     [SerializeField]
     private TMP_Text timeText;
+    [SerializeField]
+    private TMP_Text smallTimeText;
 
     [Header("End Level Time")]
     [SerializeField]
@@ -96,13 +98,12 @@ public class PhoneController : MonoBehaviour
 
     public void ResetTouchTime()
     {
-        Debug.Log("asdfasdlkf");
         noTouchTime = 0;
     }
 
     public float GetCurrentTime()
     {
-        float time = hours + (minutes / 100);
+        float time = (float)hours + ((float)minutes / 100f);
         return time;
     }
 
@@ -171,6 +172,8 @@ public class PhoneController : MonoBehaviour
         {
             timeText.SetText(hours + ":" + minutes);
         }
+
+        smallTimeText.SetText(timeText.text);
     }
 
     public void HideAllApps()
@@ -247,7 +250,9 @@ public class PhoneController : MonoBehaviour
 
     public void MoveTimeXTimes(float x)
     {
+        StopTime();
         gameMinute /= x;
+        ResumeTime();
     }
 
     public void StopTime()
