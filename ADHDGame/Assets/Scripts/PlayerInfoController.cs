@@ -28,6 +28,7 @@ public class PlayerInfoController : MonoBehaviour
 
     public void changePlayerInfoAboveThought(string playerMessage, Thought_Enum thought) 
     {
+        testThoutghtInfo = false;
         Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought);
 
         thought_Transform currentTransform = Thoughts_Manager.ThoughtsInstance.searchForTransformByThoughtType(thought);
@@ -36,7 +37,7 @@ public class PlayerInfoController : MonoBehaviour
             textInfo.gameObject.SetActive(true);
 
             float y = currentTransform.transform.position.y;
-                y = y + 100;
+            y = y + 200;
             textInfo.transform.position = new Vector3(currentTransform.transform.position.x, y, textInfo.transform.position.z);
             textInfo.text = playerMessage;
             Debug.Log (textInfo.transform.position);
@@ -50,6 +51,7 @@ public class PlayerInfoController : MonoBehaviour
 
     public void changePlayerInfoAbovePone(string playerMessage)
     {
+        testPhoneInfo = false;
         textAbovePhone.gameObject.SetActive(true);
         textAbovePhone.text = playerMessage;
         StartCoroutine(waitToClosePlayerInfo(textAbovePhone));
@@ -57,10 +59,12 @@ public class PlayerInfoController : MonoBehaviour
 
     public void changePlayerInfoAboveObject(string playerMessage, Task_Enum task)
     {
-       Task cTask =  TaskManager.instance.searchTaskOnList(task);
+       testObjectInfo= false;
+        Task cTask =  TaskManager.instance.searchTaskOnList(task);
+        Debug.Log(cTask.zoomLocation);
         textInfo.gameObject.SetActive(true);
         textInfo.text = playerMessage;
-        textInfo.transform.position = new Vector3 (cTask.zoomLocation.x, cTask.zoomLocation.y+50,textInfo.transform.position.z);
+        textInfo.transform.position = new Vector2 (cTask.zoomLocation.x, cTask.zoomLocation.y+1);
     }
 
     internal IEnumerator waitToClosePlayerInfo(TMP_Text text)
@@ -79,17 +83,17 @@ public class PlayerInfoController : MonoBehaviour
         if (testPhoneInfo)
         {
             
-            changePlayerInfoAbovePone("bleble");
+            changePlayerInfoAbovePone("if you leave your phone on, your ADHD will haunt you. Close TikTok!");
         }
         if( testThoutghtInfo)
         {
-            changePlayerInfoAboveThought("ble bal", Thought_Enum.My_throat_is_dry);
+            changePlayerInfoAboveThought("Swipe to the left of the screen to ignor this thougt", Thought_Enum.My_throat_is_dry);
 
         }
 
         if(testObjectInfo)
         {
-            changePlayerInfoAboveObject("bleble", Task_Enum.Pee);
+            changePlayerInfoAboveObject("bleble", Task_Enum.Drink_water);
         }
     }
 }
