@@ -20,8 +20,7 @@ MonoBehaviour:
   taskScore: 50
   status: 0
   taskOnAppStatus: 0
-  must: 0
-  textIfNotDone: 
+  must: 1
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
