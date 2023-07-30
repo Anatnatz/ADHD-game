@@ -23,7 +23,7 @@ public class TaskManager : MonoBehaviour
 
     [SerializeField]
     List<Task> mustTasks;
-
+    
     [SerializeField]
     List<Task> NotComplitedMustTaskList;
 
@@ -138,16 +138,8 @@ public class TaskManager : MonoBehaviour
         Destroy(taskBtn.gameObject);
     }
 
-    internal bool checkMustTasksList()
+    internal void checkMustTasksList()
     {
-        //Reset lists:
-
-        for (int i = 0; i < NotComplitedMustTaskList.Count; i++)
-        {
-            NotComplitedMustTaskList.Remove(NotComplitedMustTaskList[i]);
-        }
-
-
 
         //Check must list:
 
@@ -155,19 +147,12 @@ public class TaskManager : MonoBehaviour
         {
             if (mustTasks[i].status != TaskStatus_Enum.Done)
             {
-                NotComplitedMustTaskList.Add(mustTasks[i]);
+               win.instance.unDoneMustLIst.Add(mustTasks[i]);
             }
 
         }
 
-        if (NotComplitedMustTaskList.Count > 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+       
     }
 
     internal bool IsTaskDone(Task_Enum taskType)
