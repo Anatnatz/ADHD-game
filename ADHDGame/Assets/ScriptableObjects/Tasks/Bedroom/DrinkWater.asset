@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: Drink Water
   duration: 1
   waitingTime: 0
-  score: 15
+  taskScore: 10
   status: 0
   taskOnAppStatus: 1
   must: 0

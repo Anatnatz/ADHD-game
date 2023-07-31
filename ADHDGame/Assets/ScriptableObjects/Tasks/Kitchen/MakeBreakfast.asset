@@ -17,14 +17,17 @@ MonoBehaviour:
   textInApp: Make Breakfast
   duration: 5
   waitingTime: 0
-  score: 20
+  taskScore: 15
   status: 0
   taskOnAppStatus: 0
   must: 1
-  animation: {fileID: 0}
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 1
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
+  connectedRoomObject: 0
+  zoomNeeded: 0
+  zoomLocation: {x: -1.39, y: 0.11}

@@ -23,9 +23,11 @@ public class TaskManager : MonoBehaviour
 
     [SerializeField]
     List<Task> mustTasks;
-
+    
     [SerializeField]
     List<Task> NotComplitedMustTaskList;
+
+    public int numberOfTaskDone = 0;
 
     void Start()
     {
@@ -73,6 +75,9 @@ public class TaskManager : MonoBehaviour
                 // TaskButtonController.instance.ButtonsChanged();
             }
         }
+
+        if ( numberOfTaskDone>1)
+        { Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Almost_late); }
     }
 
     private void creatMustTasksList()
@@ -121,8 +126,8 @@ public class TaskManager : MonoBehaviour
 
     public void UpdateTotalScore(Task taskForScore)
     {
-        totalScore += taskForScore.score;
-        InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
+       // totalScore += taskForScore.score;
+        //InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
     }
 
     public void StartTask(Button taskBtn)
@@ -133,16 +138,8 @@ public class TaskManager : MonoBehaviour
         Destroy(taskBtn.gameObject);
     }
 
-    internal bool checkMustTasksList()
+    internal void checkMustTasksList()
     {
-        //Reset lists:
-
-        for (int i = 0; i < NotComplitedMustTaskList.Count; i++)
-        {
-            NotComplitedMustTaskList.Remove(NotComplitedMustTaskList[i]);
-        }
-
-
 
         //Check must list:
 
@@ -150,19 +147,12 @@ public class TaskManager : MonoBehaviour
         {
             if (mustTasks[i].status != TaskStatus_Enum.Done)
             {
-                NotComplitedMustTaskList.Add(mustTasks[i]);
+               win.instance.unDoneMustLIst.Add(mustTasks[i]);
             }
 
         }
 
-        if (NotComplitedMustTaskList.Count > 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+       
     }
 
     internal bool IsTaskDone(Task_Enum taskType)

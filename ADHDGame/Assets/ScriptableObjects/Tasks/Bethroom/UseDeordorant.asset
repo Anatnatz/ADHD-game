@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: Put some deordorant
   duration: 2
   waitingTime: 0
-  score: 20
+  taskScore: 20
   status: 0
   taskOnAppStatus: 0
   must: 1
@@ -29,5 +29,5 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
-  zoomNeeded: 5
+  zoomNeeded: 0
   zoomLocation: {x: 0, y: 0}

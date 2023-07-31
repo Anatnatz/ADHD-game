@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: Make  thre bed
   duration: 1
   waitingTime: 0
-  score: 20
+  taskScore: 10
   status: 0
   taskOnAppStatus: 0
   must: 1

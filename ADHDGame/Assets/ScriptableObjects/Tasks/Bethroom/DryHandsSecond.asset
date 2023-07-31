@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: 
   duration: 0.1
   waitingTime: 0
-  score: 20
+  taskScore: 5
   status: 0
   taskOnAppStatus: 0
   must: 0

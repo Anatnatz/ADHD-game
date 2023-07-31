@@ -22,13 +22,15 @@ public class Task : ScriptableObject
 
     public float waitingTime = 0f;
 
-    public int score = 20;
+    public int taskScore;
 
     public TaskStatus_Enum status;
 
     public TextOnApp_Enum taskOnAppStatus;
 
     public bool must;
+
+    public string textIfNotDone;
 
     // public Status_Enum smtatus;
     public Animator animator;
@@ -53,11 +55,15 @@ public class Task : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenDone;
 
+   
     [SerializeField]
     Object_Enum connectedRoomObject;
 
+    
+
     public float zoomNeeded;
     public Vector2 zoomLocation;
+    
 
     public void StartTask(Animator taskAnimator)
     {
@@ -135,6 +141,7 @@ public class Task : ScriptableObject
         PhoneController.instance.AddToTime((int)(duration - (duration / PhoneController.instance.gameMinute)));
         Cursor.lockState = CursorLockMode.None;
         Game_Manager.gameInstance.doingTask = false;
+        
 
         //end animation
         if (animator != null)
@@ -155,7 +162,9 @@ public class Task : ScriptableObject
             checkTasksThought();
             Debug.Log(status.ToString());
             CheckFollowingAction();
-            TaskManager.instance.UpdateTotalScore(this);
+            //TaskManager.instance.UpdateTotalScore(this);
+            scoreController.instance.changeScore(taskScore);
+            TaskManager.instance.numberOfTaskDone ++;
         }
     }
 
@@ -170,30 +179,30 @@ public class Task : ScriptableObject
 
     public void CheckFollowingAction()
     {
-        checkFollowingMessage(status);
-        checkFollowingThoughts(status);
-        // switch (status)
-        // {
 
-        //     case TaskStatus_Enum.none:
-        //         { break; }
+        switch (status)
+        {
 
-        //     case TaskStatus_Enum.Waiting:
-        //         {
-        //             checkFollowingMessage(TaskStatus_Enum.Waiting);
-        //             checkFollowingThoughts(TaskStatus_Enum.Waiting);
-        //             break;
-        //         }
-        //     case TaskStatus_Enum.Done:
-        //         {
-        //             checkFollowingMessage(TaskStatus_Enum.Done);
-        //             checkFollowingThoughts(TaskStatus_Enum.Done);
+            case TaskStatus_Enum.none:
+                { break; }
 
-        //             break;
 
-        //         }
-        // }
+            case TaskStatus_Enum.Waiting:
+                {
+                    checkFollowingMessage(TaskStatus_Enum.Waiting);
+                    checkFollowingThoughts(TaskStatus_Enum.Waiting);
+                    break;
+                }
+            case TaskStatus_Enum.Done:
+                {
+                    checkFollowingMessage(TaskStatus_Enum.Done);
+                    checkFollowingThoughts(TaskStatus_Enum.Done);
+                    break;
+
+                }
+        }
     }
+    
 
     private void checkFollowingThoughts(TaskStatus_Enum status)
     {
@@ -236,6 +245,7 @@ public class Task : ScriptableObject
             {
 
                 TriggerMessage(followingMessagesWhenDone[i]);
+               
 
             }
         }
@@ -243,6 +253,7 @@ public class Task : ScriptableObject
 
     private void TriggerMessage(MessageName_Enum messageName)
     {
+       
         MessageController.messageControlInstance.startWaitGapMessage(messageName);
     }
 

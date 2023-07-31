@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 736d76276c226c94b96acf9f550bb4f6, type: 3}
-  m_Name: LongTasks
+  m_Name: HiPartner
   m_EditorClassIdentifier: 
-  messageName: 6
-  textSender: 'Eran:'
-  textMessage: Listen...
-  fullText: Some of the tasks take more time to complete, check out how long each
-    task will take to plan your time corectly
+  messageName: 9
+  textSender: 'Elad:'
+  textMessage: Hi partner...
+  fullText: Hi partner, the Game Jam's deadline is tomorow, got your part ready?
   messageType: 0
   messageOnAppStatus: 0
-  waitingGap: 0
+  waitingGap: 10
   previousAction: 
   relatedTask: 0
   followingMessages: 

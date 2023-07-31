@@ -14,13 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thoughtText: Look at the time! Quick - Shoes, wallet, keys... where did I put the
     keys?
-  thoughtTexts: []
+  thoughtTexts:
+  - Where are my keys?
+  - Last time I saw them was last night when I got back from work
+  - I got back home and saw the rice curry was left out all day, so I put it in the
+    fridge. What did I do then?
   thoughtType: 17
   thoughtPosition: {x: 0, y: 0}
   thoughtStatus: 0
-  loop: 0
-  loopInterval: 0
-  isOnLoop: 0
+  loop: 1
+  loopInterval: 6
+  isOnLoop: 1
   currentThoughtText: 0
   numOfAppearance: 0
   waitingGap: 0

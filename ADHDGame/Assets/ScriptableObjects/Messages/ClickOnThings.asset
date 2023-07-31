@@ -14,8 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageName: 2
   textSender: Anat
-  textMessage: Did you notice yet?
+  textMessage: Hi you...
   fullText: I know, it's early and you're tired, but you can click on things to interact
     with them.
   messageType: 0
   messageOnAppStatus: 0
+  waitingGap: 0
+  previousAction: 
+  relatedTask: 0
+  followingMessages: 
+  followingThoughts: 
+  followingMessagesWhenRead: 
+  followingThoughtsWhenRead: 
+  followingMessagesWhenUnRead: 
+  followingThoughtsWhenUnRead: 

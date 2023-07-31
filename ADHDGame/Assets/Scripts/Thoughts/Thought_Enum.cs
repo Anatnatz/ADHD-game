@@ -23,7 +23,10 @@ public enum Thought_Enum
 
     Remember_hiegine,
 
-    Cant_leave_the_house
+    Cant_leave_the_house,
+    GetShitDone,
+    IHateMonday,
+    LookingGood
 
 
 

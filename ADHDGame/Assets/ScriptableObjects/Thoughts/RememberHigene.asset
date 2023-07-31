@@ -15,7 +15,7 @@ MonoBehaviour:
   thoughtText: Don't forget about hiegine
   thoughtTexts: []
   thoughtType: 20
-  thoughtPosition: {x: 500, y: 500}
+  thoughtPosition: {x: 500, y: 600}
   thoughtStatus: 0
   loop: 0
   loopInterval: 0

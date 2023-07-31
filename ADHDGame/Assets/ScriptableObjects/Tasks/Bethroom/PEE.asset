@@ -17,17 +17,18 @@ MonoBehaviour:
   textInApp: Use the toilet
   duration: 1
   waitingTime: 0
-  score: 20
+  taskScore: 20
   status: 0
   taskOnAppStatus: 3
   must: 0
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 13000000
-  connectedRoomObject: 0
+  followingThoughtsWhenDone: 1300000017000000
+  connectedRoomObject: 6
   zoomNeeded: 2
   zoomLocation: {x: -7.66, y: -1.72}
