@@ -139,6 +139,7 @@ public class Thoughts_Manager : MonoBehaviour
                 currentThoughtNum = i;
             }
         }
+
     }
 
     internal void triggerThought(Thought_Enum thoughtType)
