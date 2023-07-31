@@ -6592,11 +6592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915184a838c4b684fb093afd9c52f947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isZooming: 0
-  target: {x: 0, y: 0, z: 0}
-  camOrigin: {x: 0, y: 0, z: 0}
+  camOrigin: {x: 0, y: 0, z: -10}
   cam: {fileID: 1128459756}
-  speed: 0.035
+  speed: 0.05
+  isZooming: 0
 --- !u!1 &1129760249
 GameObject:
   m_ObjectHideFlags: 0

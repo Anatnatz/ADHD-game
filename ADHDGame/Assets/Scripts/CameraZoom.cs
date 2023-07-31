@@ -13,27 +13,28 @@ public class CameraZoom : MonoBehaviour
     float minY;
     float maxX;
     float maxY;
+    float vertExtent;
+    float horzExtent;
     void Start()
     {
         instance = this;
         cam = Camera.main;
+        vertExtent = cam.orthographicSize * 2f;
+
+        horzExtent = vertExtent * cam.aspect;
     }
 
     void RecalculateBounds()
     {
-        float vertExtent = cam.orthographicSize * 2f;
 
-        float horzExtent = vertExtent * cam.aspect;
-
-        float height = cam.orthographicSize;
+        float height = cam.orthographicSize * 2f;
         float width = height * cam.aspect;
 
         // Calculations assume map is position at the origin
-        minX = horzExtent - (9.62f / 2.0f);
-        maxX = (9.62f / 2.0f) - horzExtent;
-        minY = vertExtent - (5.4f / 2.0f);
-        maxY = (5.4f / 2.0f) - vertExtent;
-
+        minX = ((+width - horzExtent) / 2.0f);
+        maxX = ((-width + horzExtent) / 2.0f);
+        minY = ((+height - vertExtent) / 2.0f);
+        maxY = ((-height + vertExtent) / 2.0f);
     }
 
     public IEnumerator ZoomIn(Vector3 target, float zoomAmount = 3)
@@ -45,7 +46,7 @@ public class CameraZoom : MonoBehaviour
             RecalculateBounds();
             Vector3 targetBounds = new Vector3(Mathf.Clamp(target.x, minX, maxX), Mathf.Clamp(target.y, minY, maxY), -10);
             Vector3 camBounds = new Vector3(Mathf.Clamp(cam.transform.position.x, minX, maxX), Mathf.Clamp(cam.transform.position.y, minY, maxY), -10);
-            cam.transform.position = Vector3.Lerp(camBounds, targetBounds, speed);
+            cam.transform.position = Vector3.Lerp(camBounds, target, speed);
             // cam.transform.position = camBounds;
             yield return null;
         }
