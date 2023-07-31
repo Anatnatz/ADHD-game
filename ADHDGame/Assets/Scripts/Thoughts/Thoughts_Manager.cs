@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Device;
 using UnityEngine.Rendering;
 
 
@@ -26,6 +27,12 @@ public class Thoughts_Manager : MonoBehaviour
 
     [SerializeField]
     thought_Transform currentThoughTransform;
+
+    [SerializeField]
+    bool firstNotTaskThoughtAppered;
+
+    [SerializeField]
+    int numOfNotTaskThoughtAppered = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +61,7 @@ public class Thoughts_Manager : MonoBehaviour
 
         searchForThoughtType(thoughtType);
 
+        
 
         Vector2 thoughtPosition;
         if (thoughtsList_[currentThoughtNum].thoughtPosition.x != 0)
@@ -93,10 +101,29 @@ public class Thoughts_Manager : MonoBehaviour
             thought_Transforms.Add(newThought);
             thoughtsList_[currentThoughtNum].numOfAppearance++;
 
+            if (thoughtsList_[currentThoughtNum].isItATask == false)
+            {
+                numOfNotTaskThoughtAppered++;
+                if (numOfNotTaskThoughtAppered == 1)
+                { StartCoroutine (sendInfoMessageToPlayer(newThought)); }
 
+            }
 
         }
     }
+
+    internal IEnumerator sendInfoMessageToPlayer (thought_Transform thought_Transform) 
+    {
+        string currentThoughtText = thought_Transform.thoughtText;
+        TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
+        thoughtTxt.SetText("Swipe to the left of the screen to ignor this thougt");
+        thoughtTxt.color = Color.red;
+
+        yield return new WaitForSeconds(2);
+        thoughtTxt.SetText(thought_Transform.thoughtText);
+        thoughtTxt.color = Color.black;
+    }
+
 
     public string ChooseTextFromList(Thought thought)
     {
@@ -130,20 +157,11 @@ public class Thoughts_Manager : MonoBehaviour
 
     }
 
-    public void searchForThoughtType(Thought_Enum lookForThoughtType)
-    {
-        for (int i = 0; i < thoughtsList_.Count; i++)
-        {
-            if (thoughtsList_[i].thoughtType == lookForThoughtType)
-            {
-                currentThoughtNum = i;
-            }
-        }
-    }
+    
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
-        Debug.Log("creating" + thoughtType);
+        
         searchForThoughtType(thoughtType);
 
         bool isTaskDone = TaskManager.instance.IsTaskDone(thoughtsList_[currentThoughtNum].taskType);
@@ -190,6 +208,16 @@ public class Thoughts_Manager : MonoBehaviour
         { thoughtsList_[currentThoughtNum].isOnLoop = false; }
     }
 
+    public void searchForThoughtType(Thought_Enum lookForThoughtType)
+    {
+        for (int i = 0; i < thoughtsList_.Count; i++)
+        {
+            if (thoughtsList_[i].thoughtType == lookForThoughtType)
+            {
+                currentThoughtNum = i;
+            }
+        }
+    }
     internal void changeThoughtStatus(Thought_Enum thoughtType, ThoughtStatus thoughtStatus)
     {
         searchForThoughtType(thoughtType);
@@ -223,8 +251,6 @@ public class Thoughts_Manager : MonoBehaviour
     }
 
     internal IEnumerator StartThoughtLoop(Thought_Enum thoughtType, Thought thought)
-
-
     {
         thought.isOnLoop = true;
         createThought(thoughtType);
@@ -260,4 +286,5 @@ public class Thoughts_Manager : MonoBehaviour
         return currentThoughTransform;
     }
 
+    
 }

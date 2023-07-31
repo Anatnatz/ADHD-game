@@ -254,16 +254,7 @@ public class Thought : ScriptableObject
     public void Update()
     {
        
-            Task connectedTask = TaskManager.instance.searchTaskOnList(taskType);
-            if (connectedTask.status == TaskStatus_Enum.Done)
-            {
-            isOnLoop = false;
-            }
-           
-        if (isOnLoop) 
-        {
-            Thoughts_Manager.ThoughtsInstance.StartCoroutineLoop(thoughtType, this);
-        }
+            
         
     }
 }

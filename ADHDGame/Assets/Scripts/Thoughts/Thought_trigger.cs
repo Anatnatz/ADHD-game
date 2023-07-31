@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ public class Thought_trigger : MonoBehaviour
             }
             else 
             {
+                StartCoroutine(changeThoughtText());
                 Debug.Log("there is nothing to do about it, try to ignor it");
             }
         }
@@ -56,5 +58,22 @@ public class Thought_trigger : MonoBehaviour
             Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
             Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].CheckFollowingAction();
         }
+
+
+       
+    }
+
+    internal IEnumerator changeThoughtText()
+    {
+        TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
+        thoughtTxt.SetText("there is nothing to do about it, try to ignor it");
+        thoughtTxt.color = Color.red;
+
+        yield return new WaitForSeconds(2);
+        thoughtTxt.SetText(thought_Transform.thoughtText);
+        thoughtTxt.color = Color.black;
+
+
+
     }
 }
