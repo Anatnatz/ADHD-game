@@ -4,26 +4,40 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
+    public Vector3 camOrigin;
     public Camera cam;
-    //public float zoom;
-    //public RoomObject zoomTarget;
-    public static CameraZoom cameraZoomInstance;
-    public bool test;
-    // Start is called before the first frame update
+    public float speed;
+    public bool isZooming;
+    public static CameraZoom instance;
     void Start()
     {
-        cameraZoomInstance = this;
-        cam= Camera.main;
-        //zoom = cam.orthographicSize;
+        instance = this;
+        cam = Camera.main;
+        isZooming = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator ZoomIn(Vector3 target, float zoomAmount = 3)
     {
-       if (test)
+        while (cam.orthographicSize > zoomAmount)
         {
-            test= false;
-            cam.orthographicSize = 20;
+            Debug.Log(zoomAmount + " sss " + cam.orthographicSize);
+            target.z = -10;
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoomAmount - 0.5f, speed);
+            cam.transform.position = Vector3.Lerp(cam.transform.position, target, speed);
+            yield return null;
+        }
+    }
+    public IEnumerator ZoomOut()
+    {
+        float originZoom = 5.397049f;
+        while (cam.orthographicSize < originZoom)
+        {
+            Debug.Log(originZoom + " sss " + cam.orthographicSize);
+
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5.5f, speed);
+            cam.transform.position = Vector3.Lerp(cam.transform.position, camOrigin, speed);
+            yield return null;
+
         }
     }
 }

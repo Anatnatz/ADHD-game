@@ -204,6 +204,7 @@ public class RoomObject : MonoBehaviour
         Destroy(taskBtn.gameObject);
         Destroy(taskInfoObject.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
+        StartCoroutine(CameraZoom.instance.ZoomIn(objectSprite.transform.position, zoomNeeded));
         curTask.StartTask(animator);
         animator.SetBool("isClicked", false);
         CheckForSpecifics(curTask);

@@ -55,15 +55,15 @@ public class Task : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenDone;
 
-   
+
     [SerializeField]
     Object_Enum connectedRoomObject;
 
-    
+
 
     public float zoomNeeded;
     public Vector2 zoomLocation;
-    
+
 
     public void StartTask(Animator taskAnimator)
     {
@@ -81,7 +81,7 @@ public class Task : ScriptableObject
         {
             if (connectedRoomObject != Object_Enum.None)
             {
-                ZoomOnObject();
+                // ZoomOnObject();
             }
 
             InfoManager.instance.SendInfoMessage("Staring " + taskName + "...");
@@ -120,6 +120,8 @@ public class Task : ScriptableObject
         status = TaskStatus_Enum.Done;
         SoundManager.RegisterAction(SoundManager.SoundAction.score);
         CheckFollowingAction();
+
+        TaskManager.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
     }
 
     public IEnumerator WaitForDuration()
@@ -137,7 +139,7 @@ public class Task : ScriptableObject
         PhoneController.instance.AddToTime((int)duration);
         Cursor.lockState = CursorLockMode.None;
         Game_Manager.gameInstance.doingTask = false;
-        
+
 
         //end animation
         if (animator != null)
@@ -160,7 +162,9 @@ public class Task : ScriptableObject
             CheckFollowingAction();
             //TaskManager.instance.UpdateTotalScore(this);
             scoreController.instance.changeScore(taskScore);
-            TaskManager.instance.numberOfTaskDone ++;
+            TaskManager.instance.numberOfTaskDone++;
+
+            TaskManager.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
         }
     }
 
@@ -198,7 +202,7 @@ public class Task : ScriptableObject
                 }
         }
     }
-    
+
 
     private void checkFollowingThoughts(TaskStatus_Enum status)
     {
@@ -241,7 +245,7 @@ public class Task : ScriptableObject
             {
 
                 TriggerMessage(followingMessagesWhenDone[i]);
-               
+
 
             }
         }
@@ -249,7 +253,7 @@ public class Task : ScriptableObject
 
     private void TriggerMessage(MessageName_Enum messageName)
     {
-       
+
         MessageController.messageControlInstance.startWaitGapMessage(messageName);
     }
 

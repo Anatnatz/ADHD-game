@@ -224,8 +224,6 @@ public class Thoughts_Manager : MonoBehaviour
     }
 
     internal IEnumerator StartThoughtLoop(Thought_Enum thoughtType, Thought thought)
-
-
     {
         yield return new WaitForSeconds(thought.loopInterval);
         thought.isOnLoop = true;
