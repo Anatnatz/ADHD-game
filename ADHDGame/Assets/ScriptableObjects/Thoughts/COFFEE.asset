@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thoughtText: I need COFFEE to start this day
   thoughtTexts:
-  - I can't think without coffee...
+  - I need COFFEE to start this day
+  - I can't think without coffee
   - COFFEEEEEEEEE
   thoughtType: 6
   thoughtPosition: {x: 0, y: 0}
-  thoughtStatus: 1
+  thoughtStatus: 0
   loop: 1
-  loopInterval: 5
+  loopInterval: 3
   isOnLoop: 1
   currentThoughtText: 0
-  numOfAppearance: 1
+  numOfAppearance: 0
   waitingGap: 3
   previousAction: 
   showOnlyOnc: 0

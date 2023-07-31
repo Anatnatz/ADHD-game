@@ -20,8 +20,8 @@ MonoBehaviour:
   thoughtPosition: {x: 700, y: 900}
   thoughtStatus: 0
   loop: 1
-  loopInterval: 5
-  isOnLoop: 1
+  loopInterval: 3
+  isOnLoop: 0
   currentThoughtText: 0
   numOfAppearance: 0
   waitingGap: 4

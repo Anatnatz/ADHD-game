@@ -23,7 +23,7 @@ MonoBehaviour:
   thoughtPosition: {x: 0, y: 0}
   thoughtStatus: 0
   loop: 1
-  loopInterval: 6
+  loopInterval: 10
   isOnLoop: 1
   currentThoughtText: 0
   numOfAppearance: 0

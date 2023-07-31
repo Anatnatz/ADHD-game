@@ -50,10 +50,13 @@ public class CameraController : MonoBehaviour
     public void zoom(Task target)
     {
         isZoom= true;
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 3, zoomSpeed);
-       Vector2 zoomLocation = new Vector2(target.zoomLocation.x, target.zoomLocation.y);
+
+        Vector3 zoomLocation = new Vector3(target.zoomLocation.x, target.zoomLocation.y, cam.transform.position.z);
         Debug.Log(zoomLocation);
         cam.transform.position = Vector2.Lerp(cam.transform.position, zoomLocation, zoomSpeed);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5, zoomSpeed);
+        
+       
         StartCoroutine(zoomOutTimming(target));
     }
 
@@ -85,7 +88,7 @@ public class CameraController : MonoBehaviour
     internal IEnumerator zoomOutTimming(Task target)
     {
         isZoom= false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(10);
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5.397049f, zoomSpeed);
         //cam.transform.position = Vector2.Lerp(cam.transform.position, camPoisition, zoomSpeed);
         //cam.orthographicSize = 5.397049f;

@@ -12262,7 +12262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4437800645602456933, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
       propertyPath: zoomSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4437800645602456933, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
       propertyPath: neededZoom

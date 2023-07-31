@@ -164,9 +164,8 @@ public class Thoughts_Manager : MonoBehaviour
                 {
                     if (thoughtsList_[currentThoughtNum].loop == true)
                     {
-                        // thoughtsList_[currentThoughtNum].isOnLoop = true;
-
-                        StartCoroutineLoop(thoughtType, thoughtsList_[currentThoughtNum]);
+                         
+                         StartCoroutineLoop(thoughtType, thoughtsList_[currentThoughtNum]);
                     }
                     else
                     {
@@ -181,8 +180,8 @@ public class Thoughts_Manager : MonoBehaviour
             {
                 if (thoughtsList_[currentThoughtNum].isOnLoop == true)
                 {
-                    createThought(thoughtType);
-                    startWaitGapThought(thoughtType);
+                    
+                    StartCoroutineLoop(thoughtType, thoughtsList_[currentThoughtNum]);
                 }
             }
 
@@ -227,9 +226,9 @@ public class Thoughts_Manager : MonoBehaviour
 
 
     {
-        yield return new WaitForSeconds(thought.loopInterval);
         thought.isOnLoop = true;
         createThought(thoughtType);
+        yield return new WaitForSeconds(10); //thought.loopInterval);
         triggerThought(thoughtType);
 
     }
