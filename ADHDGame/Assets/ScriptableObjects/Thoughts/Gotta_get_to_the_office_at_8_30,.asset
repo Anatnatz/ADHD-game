@@ -17,7 +17,7 @@ MonoBehaviour:
   thoughtTexts: []
   thoughtType: 7
   thoughtPosition: {x: 1200, y: 600}
-  thoughtStatus: 0
+  thoughtStatus: 3
   loop: 0
   loopInterval: 0
   isOnLoop: 0

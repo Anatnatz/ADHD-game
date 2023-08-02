@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: GetShitDone
   m_EditorClassIdentifier: 
   thoughtText: I can't wait to get all this s**t done and start working on my game
-  thoughtTexts: []
+  thoughtTexts:
+  - I can't work on my game before I finish all my tasks
   thoughtType: 22
-  thoughtPosition: {x: 0, y: 0}
+  thoughtPosition: {x: 1150, y: 700}
   thoughtStatus: 0
   loop: 0
   loopInterval: 0
@@ -24,7 +25,7 @@ MonoBehaviour:
   numOfAppearance: 0
   waitingGap: 0
   previousAction: 
-  showOnlyOnc: 1
+  showOnlyOnc: 0
   isItATask: 0
   taskType: 0
   followingMessagesWhenAppeared: 

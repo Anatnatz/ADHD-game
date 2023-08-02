@@ -88,6 +88,14 @@ public class RoomObject : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && !Game_Manager.gameInstance.doingTask)
         {
             ShowTasks();
+            for (int i = 0; i < relatedTasks.Count; i++)
+            {
+                if (relatedTasks[i].taskType == Task_Enum.workOnGame) 
+                {
+                    Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.GetShitDone);
+                }
+            }
+            
         }
     }
 
@@ -134,8 +142,9 @@ public class RoomObject : MonoBehaviour
         {
             if (previousThought != Thought_Enum.None)
             {
-                Thoughts_Manager.ThoughtsInstance.searchForThoughtType(previousThought);
-                if (Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].thoughtStatus == ThoughtStatus.Appeared)
+                
+                Thought currentThought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(previousThought);
+                if (currentThought.thoughtStatus == ThoughtStatus.Appeared)
                 {
                     StartCreatingButton(name, relatedTask);
                 }
@@ -260,7 +269,7 @@ public class RoomObject : MonoBehaviour
 
     public void objectTrigger()
     {
-        int numOfTasksDone = 0;
+        
         if (relatedThoughts != null && relatedThoughts.Count > 0)
         {
             if (previousTask != Task_Enum.None)

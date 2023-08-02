@@ -18,12 +18,12 @@ MonoBehaviour:
   - Take me to PPPPPEEEEEE!
   thoughtType: 5
   thoughtPosition: {x: 700, y: 900}
-  thoughtStatus: 0
+  thoughtStatus: 1
   loop: 1
-  loopInterval: 3
-  isOnLoop: 0
+  loopInterval: 20
+  isOnLoop: 1
   currentThoughtText: 0
-  numOfAppearance: 0
+  numOfAppearance: 3
   waitingGap: 4
   previousAction: 
   showOnlyOnc: 0

@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
-  m_Name: GottaPoop
+  m_Name: DontForgetCoffe
   m_EditorClassIdentifier: 
-  thoughtText: I have to GO, NOW!!! This coffee really want yesterdays pizza out!
-  thoughtTexts:
-  - tAKE ME TO THE TOILET!
-  thoughtType: 14
-  thoughtPosition: {x: 0, y: 0}
+  thoughtText: Don't forget to take the coffee when it's ready
+  thoughtTexts: []
+  thoughtType: 25
+  thoughtPosition: {x: 1350, y: 750}
   thoughtStatus: 0
-  loop: 1
-  loopInterval: 10
-  isOnLoop: 1
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
   currentThoughtText: 0
   numOfAppearance: 0
-  waitingGap: 5
+  waitingGap: 1
   previousAction: 
   showOnlyOnc: 0
   isItATask: 1
-  taskType: 22
+  taskType: 10
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 

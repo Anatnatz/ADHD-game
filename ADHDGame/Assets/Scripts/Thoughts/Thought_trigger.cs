@@ -18,7 +18,7 @@ public class Thought_trigger : MonoBehaviour
 
     public void TriggerThought(Collider2D other)
     {
-        Debug.Log("trigger");
+        
 
         bool checkFollowing = true;
         if (other.tag == "phone")
@@ -55,8 +55,8 @@ public class Thought_trigger : MonoBehaviour
 
         if (checkFollowing)
         {
-            Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-            Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].CheckFollowingAction();
+            Thought currentThought =  Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            currentThought.CheckFollowingAction();
         }
 
 
@@ -66,8 +66,8 @@ public class Thought_trigger : MonoBehaviour
     internal IEnumerator changeThoughtText()
     {
         TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
-        thoughtTxt.SetText("there is nothing to do about it, try to ignor it");
-        thoughtTxt.color = Color.red;
+        thoughtTxt.SetText("there is nothing to do about it, swipe to the left and try to ignor it ");
+        thoughtTxt.color = Color.blue;
 
         yield return new WaitForSeconds(2);
         thoughtTxt.SetText(thought_Transform.thoughtText);
