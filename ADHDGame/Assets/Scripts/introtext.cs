@@ -25,9 +25,10 @@ public class introtext : MonoBehaviour
         yield return new WaitForSeconds(10);
         changeIntroText(" Dude, you're late!");
         Debug.Log(PhoneController.instance.gameMinute * 60 - 5);
-        yield return new WaitForSeconds (2);
-        //PhoneController.instance.gameMinute * 60- 10
-        changeIntroText(" Time is up. Run out!");
+        //float seconds = PhoneController.instance.gameMinute * 60- 10;
+        //yield return new WaitForSeconds(seconds);
+
+        //changeIntroText(" Time is up. Run out!");
     }
 
     private void Update()
