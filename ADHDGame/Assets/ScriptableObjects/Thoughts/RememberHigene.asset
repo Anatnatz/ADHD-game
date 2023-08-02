@@ -24,7 +24,7 @@ MonoBehaviour:
   numOfAppearance: 0
   waitingGap: 0
   previousAction: 
-  showOnlyOnc: 0
+  showOnlyOnc: 1
   isItATask: 1
   taskType: 15
   followingMessagesWhenAppeared: 

@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     // [SerializeField]
     // Transform border_ref;
-    
+
     [SerializeField]
     float borderGap;
     [SerializeField]
@@ -49,15 +49,19 @@ public class CameraController : MonoBehaviour
 
     public void zoom(Task target)
     {
-        isZoom= true;
+        
+        isZoom = true;
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 3, zoomSpeed);
-       Vector2 zoomLocation = new Vector2(target.zoomLocation.x, target.zoomLocation.y);
+        Vector2 zoomLocation = new Vector2(target.zoomLocation.x, target.zoomLocation.y);
         Debug.Log(zoomLocation);
         cam.transform.position = Vector2.Lerp(cam.transform.position, zoomLocation, zoomSpeed);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5, zoomSpeed);
+        
+       
         StartCoroutine(zoomOutTimming(target));
     }
 
-    
+
     internal IEnumerator zooming(Task target)
     {
         while (neededZoom < currentzoom)
@@ -78,13 +82,14 @@ public class CameraController : MonoBehaviour
     internal IEnumerator zoomSteps(Task target)
     {
         yield return new WaitForSeconds(2);
-        
-         cam.orthographicSize = currentzoom - zoomMovement;
+
+        cam.orthographicSize = currentzoom - zoomMovement;
         currentzoom = cam.orthographicSize;
     }
     internal IEnumerator zoomOutTimming(Task target)
     {
-        isZoom= false;
+
+        isZoom = false;
         yield return new WaitForSeconds(2);
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5.397049f, zoomSpeed);
         //cam.transform.position = Vector2.Lerp(cam.transform.position, camPoisition, zoomSpeed);
@@ -94,7 +99,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-       if(isZoom)
+        if (isZoom)
         {
             Task target = TaskManager.instance.searchTaskOnList(Task_Enum.Drink_water);
             zoom(target);

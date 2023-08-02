@@ -26,7 +26,8 @@ public enum Thought_Enum
     Cant_leave_the_house,
     GetShitDone,
     IHateMonday,
-    LookingGood
+    LookingGood,
+    Dont_Froget_Coffee
 
 
 

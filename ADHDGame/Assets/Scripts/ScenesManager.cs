@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,11 @@ public class ScenesManager : MonoBehaviour
 {
     bool bathFirstAppearance = true;
     bool kitchenFirstAppearance = true;
+    bool bedroomFirstAppearance = true;
+    [SerializeField]
+    introtext introText;
+    [SerializeField]
+    scoreController score;
     public static void SwitchToScene(string name)
     {
         SoundManager.RegisterAction(SoundManager.SoundAction.click);
@@ -22,6 +29,10 @@ public class ScenesManager : MonoBehaviour
     {
         switch (scene.name)
         {
+            case "Bedroom":
+               StartCoroutine( loadIntroText());
+                break;
+
             case "Bathroom":
                 //  StepOnLegos();
                 break;
@@ -30,6 +41,17 @@ public class ScenesManager : MonoBehaviour
                 KitchenThoughts();
                 break;
         }
+    }
+
+    private IEnumerator loadIntroText()
+    {
+        
+            
+        score.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        introText.gameObject.SetActive(true);
+
+
     }
 
     void OnDisable()
@@ -44,6 +66,7 @@ public class ScenesManager : MonoBehaviour
         {
             bathFirstAppearance = false;
             Thoughts_Manager.ThoughtsInstance.createThought(Thought_Enum.Stepping_on_legos);
+            Debug.Log("beth");
         }
     }
 

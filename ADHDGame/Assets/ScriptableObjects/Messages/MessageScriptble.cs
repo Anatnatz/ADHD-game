@@ -80,8 +80,8 @@ public class MessageScriptble : ScriptableObject
 
     private void UpdateFollowingThought(Thought_Enum thought_Enum)
     {
-        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Enum);
-        Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].previousAction = this.textMessage;
+       Thought currentThought =  Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Enum);
+        currentThought.previousAction = this.textMessage;
     }
 
     private void UpdatefollowingMessage(MessageName_Enum messageName_Enum)

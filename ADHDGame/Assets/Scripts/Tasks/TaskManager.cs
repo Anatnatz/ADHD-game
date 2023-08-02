@@ -76,7 +76,7 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        if ( numberOfTaskDone>1)
+        if ( numberOfTaskDone>5)
         { Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Almost_late); }
     }
 

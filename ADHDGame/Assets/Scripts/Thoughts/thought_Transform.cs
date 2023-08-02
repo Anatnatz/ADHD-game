@@ -32,8 +32,8 @@ public class thought_Transform : MonoBehaviour
 
     internal void pushToApp()
     {
-        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
-        taskType = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].taskType;
+       Thought currentThought =  Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
+        taskType = currentThought.taskType;
         TaskOnApp_Manager.TaskOnAppInstance.createTaskOnAppTransform(taskType);
 
     }

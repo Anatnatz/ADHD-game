@@ -34,7 +34,8 @@ public class textInfo : MonoBehaviour
     }
 
     public void setActiveXButtonON()
-    { x.gameObject.SetActive(true); }
+    { //x.gameObject.SetActive(true);
+      }
 
     public void setActiveXButtonOFF()
     { x.gameObject.SetActive(false); }
