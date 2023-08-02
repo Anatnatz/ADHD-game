@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class Thought_trigger : MonoBehaviour
 {
@@ -22,8 +24,11 @@ public class Thought_trigger : MonoBehaviour
         bool checkFollowing = true;
         if (other.tag == "phone")
         {
-            Debug.Log("push to taskApp ");
-            if (thought_Transform.IsItATask == true)
+            Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            Task_Enum taskType = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].taskType;
+            Task task = TaskManager.instance.searchTaskOnList(taskType);
+            Debug.Log("push to taskApp " + task.textInApp);
+            if (thought_Transform.IsItATask == true || task.textInApp != null)
             {
                 thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
                 thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
@@ -32,8 +37,10 @@ public class Thought_trigger : MonoBehaviour
                 Destroy(thought_Transform.gameObject);
                 Destroy(this);
             }
-            else 
+            else
             {
+                TMP_Text textComponent = transform.GetChild(0).GetComponent<TMP_Text>();
+                textComponent.SetText("I don't need this in my todo list...");
                 Debug.Log("there is nothing to do about it, try to ignor it");
             }
         }

@@ -28,7 +28,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     [SerializeField]
     int serialNum = 0;
 
- 
+
     [SerializeField]
     Transform taskOnAppParent;
 
@@ -67,13 +67,13 @@ public class TaskOnApp_Manager : MonoBehaviour
         newAppTransform.gameObject.name =
             newAppTransform.appTransformText + serialNum;
 
-        appTransforms.Add (newAppTransform);
+        appTransforms.Add(newAppTransform);
 
         searchForTransformOnLIst(newAppTransform.transform.name);
 
         // locationTaskOnAPP (currentAppTransformNum, newAppTransform);
         ChangeTaskOnAppStatus(TextOnApp_Enum.Appeared, currentAppTransformNum);
-        newAppTransform.transform.SetParent (taskOnAppParent);
+        newAppTransform.transform.SetParent(taskOnAppParent);
     }
 
     private void locationTaskOnAPP(
@@ -95,34 +95,34 @@ public class TaskOnApp_Manager : MonoBehaviour
 
     public void changeStatus(string name, TextOnApp_Enum status)
     {
-        searchForTransformOnLIst (name);
-        ChangeTaskOnAppStatus(status,currentAppTransformNum);
-        AddToList (currentAppTransformNum, status);
+        searchForTransformOnLIst(name);
+        ChangeTaskOnAppStatus(status, currentAppTransformNum);
+        AddToList(currentAppTransformNum, status);
         appTransforms[currentAppTransformNum].gameObject.SetActive(false);
-        RemoveFromList (currentAppTransformNum, status);
+        RemoveFromList(currentAppTransformNum, status);
     }
 
-    
 
-    private void AddToList( int currentAppTransformNum, TextOnApp_Enum status)
+
+    private void AddToList(int currentAppTransformNum, TextOnApp_Enum status)
     {
         if (status == TextOnApp_Enum.Deleted)
         {
             deletedFromAppTasks.Add(appTransforms[currentAppTransformNum]);
         }
-       
-        if (status == TextOnApp_Enum.Marked_As_Done) 
+
+        if (status == TextOnApp_Enum.Marked_As_Done)
         {
             markedAsDoneOnAppTasks.Add(appTransforms[currentAppTransformNum]);
         }
     }
 
-    private void RemoveFromList( int currentAppTransformNum, TextOnApp_Enum status)
+    private void RemoveFromList(int currentAppTransformNum, TextOnApp_Enum status)
     {
-       if (status == TextOnApp_Enum.Appeared)  
-        
+        if (status == TextOnApp_Enum.Appeared)
+
         {
-            repositionAppTransforms (currentAppTransformNum);
+            repositionAppTransforms(currentAppTransformNum);
         }
 
         appTransforms.Remove(appTransforms[currentAppTransformNum]);
@@ -158,17 +158,17 @@ public class TaskOnApp_Manager : MonoBehaviour
         }
     }
 
-    public void ChangeTaskOnAppStatus( TextOnApp_Enum taskOnAppStatus, int numOnList )
+    public void ChangeTaskOnAppStatus(TextOnApp_Enum taskOnAppStatus, int numOnList)
     {
         appTransforms[numOnList].taskOnAppStatus = taskOnAppStatus;
-        ChangeTask_TaskOnAppStatus (taskOnAppStatus, numOnList);
+        ChangeTask_TaskOnAppStatus(taskOnAppStatus, numOnList);
     }
 
-    private void ChangeTask_TaskOnAppStatus(TextOnApp_Enum taskOnAppStatus,  int numOnList)
+    private void ChangeTask_TaskOnAppStatus(TextOnApp_Enum taskOnAppStatus, int numOnList)
     {
         Task_Enum taskType = appTransforms[numOnList].taskType;
-        TaskManager.instance.searchTaskOnList (taskType);
-        TaskManager .instance .tasksList[TaskManager.instance.currentTaskNumOnList].taskOnAppStatus = taskOnAppStatus;
+        TaskManager.instance.searchTaskOnList(taskType);
+        TaskManager.instance.tasksList[TaskManager.instance.currentTaskNumOnList].taskOnAppStatus = taskOnAppStatus;
     }
 
     internal void UpdateTaskAsDone(Task_Enum taskType)
