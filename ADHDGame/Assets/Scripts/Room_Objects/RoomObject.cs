@@ -184,7 +184,7 @@ public class RoomObject : MonoBehaviour
         // else
         //     buttonObject.transform.SetParent(buttonsSpace.transform);
 
-        CheckForSpecifics(relatedTask);
+        CheckForKeys(relatedTask);
 
     }
 
@@ -211,20 +211,15 @@ public class RoomObject : MonoBehaviour
         Destroy(taskBtn.gameObject);
         Destroy(taskInfoObject.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
+        CheckForLaundry(curTask);
         curTask.StartTask(animator);
         animator.SetBool("isClicked", false);
-        CheckForSpecifics(curTask);
     }
 
-    void CheckForSpecifics(Task curTask)
+    void CheckForKeys(Task curTask)
     {
-        Debug.Log(curTask.name);
         switch (curTask.name)
         {
-            case "StartLaundry":
-                Animator towelAnimator = curTask.waitingOnTask.animator;
-                towelAnimator.SetBool("take", true);
-                break;
             case "wearShoes":
                 allowTakeKeys = true;
                 Debug.Log(allowTakeKeys);
@@ -240,6 +235,18 @@ public class RoomObject : MonoBehaviour
                 {
                     animator.SetBool("take", false);
                 }
+                break;
+        }
+    }
+
+    void CheckForLaundry(Task curTask)
+    {
+        Debug.Log(curTask.name);
+        switch (curTask.name)
+        {
+            case "StartLaundry":
+                Animator towelAnimator = curTask.waitingOnTask.animator;
+                towelAnimator.SetBool("take", true);
                 break;
         }
     }

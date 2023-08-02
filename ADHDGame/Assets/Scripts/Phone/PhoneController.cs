@@ -68,6 +68,7 @@ public class PhoneController : MonoBehaviour
     private float timeUntilScroll;
 
     public static float noTouchTime = 0;
+    bool firstTimeTiktok = true;
 
     void Awake()
     {
@@ -86,6 +87,11 @@ public class PhoneController : MonoBehaviour
         {
             if (noTouchTime >= timeUntilScroll && !tiktokApp.activeSelf)
             {
+                if (firstTimeTiktok)
+                {
+                    timeUntilScroll = 25f;
+                }
+
                 OpenTiktokApp();
             }
             noTouchTime += Time.deltaTime;
