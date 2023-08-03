@@ -38,7 +38,7 @@ public class Thought_trigger : MonoBehaviour
                
                 if (currentThough.loop == true)
 
-                { startThoughtLoop(currentThough.thoughtType, 5 ); }
+                { startThoughtLoop(currentThough.thoughtType ); }
                 
                 else
                 {
@@ -64,7 +64,7 @@ public class Thought_trigger : MonoBehaviour
             Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
             if (currentThough.loop == true)
            
-            { startThoughtLoop(currentThough.thoughtType, 5); }
+            { startThoughtLoop(currentThough.thoughtType); }
             
             else
             {
@@ -100,7 +100,7 @@ public class Thought_trigger : MonoBehaviour
         thoughtTxt.color = Color.black;
     }
 
-    internal void startThoughtLoop(Thought_Enum thoughtType, float seconds)
+    internal void startThoughtLoop(Thought_Enum thoughtType)
     {
         Debug.Log("starting loop");
         Thoughts_Manager.ThoughtsInstance.startWaitGapThought(thoughtType);
