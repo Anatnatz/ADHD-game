@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: Dry Hands
   taskType: 18
   textInApp: 
-  duration: 3
+  duration: 0.1
   waitingTime: 0
   taskScore: 5
   status: 0

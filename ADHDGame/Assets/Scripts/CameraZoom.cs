@@ -8,6 +8,8 @@ public class CameraZoom : MonoBehaviour
     public Camera cam;
     public float speed;
     public static CameraZoom instance;
+    public Animator doorAnimator;
+
 
     float minX;
     float minY;
@@ -15,6 +17,7 @@ public class CameraZoom : MonoBehaviour
     float maxY;
     float vertExtent;
     float horzExtent;
+    bool isZooming;
     void Start()
     {
         instance = this;
@@ -39,7 +42,8 @@ public class CameraZoom : MonoBehaviour
 
     public IEnumerator ZoomIn(Vector3 target, float zoomAmount = 3)
     {
-        while (cam.orthographicSize > zoomAmount)
+        isZooming = true;
+        while (cam.orthographicSize > zoomAmount && isZooming)
         {
             target.z = -10;
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoomAmount - 0.5f, speed);
@@ -53,13 +57,45 @@ public class CameraZoom : MonoBehaviour
     }
     public IEnumerator ZoomOut()
     {
+        isZooming = false;
         float originZoom = 5.397049f;
-        while (cam.orthographicSize < originZoom)
+        while (cam.orthographicSize < originZoom && !isZooming)
         {
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5.5f, speed);
             cam.transform.position = Vector3.Lerp(cam.transform.position, camOrigin, speed);
             yield return null;
 
         }
+
+        isZooming = true;
+    }
+
+    public IEnumerator ZoomInDoor()
+    {
+        Debug.Log("zooooom");
+        Vector3 target = GameObject.Find("Exit_Door_Open_0").transform.position;
+        while (cam.transform.position.x + 6f < target.x)
+        {
+            target.z = -10;
+            cam.transform.position = Vector3.Lerp(cam.transform.position, target, speed);
+            // cam.transform.position = camBounds;
+            yield return null;
+
+        }
+
+        doorAnimator.SetBool("open", true);
+        yield return new WaitForSeconds(2f);
+
+        target = GameObject.Find("Exit_Door_Open_0/target").transform.position;
+
+        while (cam.orthographicSize > 0.5f)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, target, speed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 0.1f, speed);
+
+            yield return null;
+        }
+
+        ScenesManager.SwitchToScene("EndLevel");
     }
 }

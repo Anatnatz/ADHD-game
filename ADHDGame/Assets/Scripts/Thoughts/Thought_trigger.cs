@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class Thought_trigger : MonoBehaviour
 {
     [SerializeField]
@@ -18,13 +19,16 @@ public class Thought_trigger : MonoBehaviour
 
     public void TriggerThought(Collider2D other)
     {
-        
+
 
         bool checkFollowing = true;
         if (other.tag == "phone")
         {
-            Debug.Log("push to taskApp ");
-            if (thought_Transform.IsItATask == true)
+            Thought thought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            Task_Enum taskType = thought.taskType;
+            Task task = TaskManager.instance.searchTaskOnList(taskType);
+            Debug.Log("push to taskApp " + task.textInApp);
+            if (thought_Transform.IsItATask == true || task.textInApp != null)
             {
                 thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
                 thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
@@ -45,7 +49,7 @@ public class Thought_trigger : MonoBehaviour
                      
                 
             }
-            else 
+            else
             {
                 StartCoroutine(changeThoughtText());
                 Debug.Log("there is nothing to do about it, try to ignor it");
@@ -77,12 +81,12 @@ public class Thought_trigger : MonoBehaviour
 
         if (checkFollowing)
         {
-            Thought currentThought =  Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            Thought currentThought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
             currentThought.CheckFollowingAction();
         }
 
 
-       
+
     }
 
     internal IEnumerator changeThoughtText()

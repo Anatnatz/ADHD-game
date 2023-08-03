@@ -25,12 +25,17 @@ public class ScenesManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    public static string GetActiveScene()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         switch (scene.name)
         {
             case "Bedroom":
-               StartCoroutine( loadIntroText());
+                StartCoroutine(loadIntroText());
                 break;
 
             case "Bathroom":
@@ -45,8 +50,8 @@ public class ScenesManager : MonoBehaviour
 
     private IEnumerator loadIntroText()
     {
-        
-            
+
+
         score.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         introText.gameObject.SetActive(true);

@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: Dry Hands
   taskType: 18
   textInApp: 
-  duration: 3
+  duration: 0.1
   waitingTime: 0
   taskScore: 10
   status: 0
@@ -30,4 +30,4 @@ MonoBehaviour:
   followingThoughtsWhenDone: 08000000
   connectedRoomObject: 0
   zoomNeeded: 0
-  zoomLocation: {x: 0, y: 0}
+  zoomLocation: {x: 5.09, y: -1.71}

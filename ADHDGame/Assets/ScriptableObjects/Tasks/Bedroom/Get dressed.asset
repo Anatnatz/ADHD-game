@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: Dress up
   taskType: 7
   textInApp: Get dressed
-  duration: 10
+  duration: 6
   waitingTime: 0
   taskScore: 20
   status: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 18000000
+  followingThoughtsWhenDone: 
   connectedRoomObject: 0
   zoomNeeded: 0
   zoomLocation: {x: 6.05, y: 0.12}

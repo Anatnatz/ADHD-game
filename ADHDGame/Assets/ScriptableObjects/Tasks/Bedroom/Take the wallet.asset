@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Take the wallet
   m_EditorClassIdentifier: 
   taskName: Take
-  taskType: 12
+  taskType: 13
   textInApp: Take the wallet
-  duration: 3
+  duration: 0.1
   waitingTime: 0
   taskScore: 5
   status: 0
@@ -29,5 +29,5 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
-  zoomNeeded: 0
-  zoomLocation: {x: 0, y: 0}
+  zoomNeeded: 5
+  zoomLocation: {x: 3.79, y: -3.14}
