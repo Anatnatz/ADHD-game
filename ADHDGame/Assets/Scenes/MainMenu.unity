@@ -7767,7 +7767,7 @@ MonoBehaviour:
   messageOnApp: {fileID: 1366699641}
   miniPhone: {fileID: 466769409}
   fullPhone: {fileID: 1633980796}
-  timeUntilScroll: 150
+  timeUntilScroll: 100
 --- !u!114 &1230291501
 MonoBehaviour:
   m_ObjectHideFlags: 0

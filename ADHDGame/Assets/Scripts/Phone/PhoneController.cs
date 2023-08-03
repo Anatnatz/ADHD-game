@@ -69,6 +69,8 @@ public class PhoneController : MonoBehaviour
 
     public static float noTouchTime = 0;
     bool firstTimeTiktok = true;
+    string lastWrittenMessage;
+    string tiktokText = "Don't have time for doomscrolling! Close Tiktok!";
 
     void Awake()
     {
@@ -89,6 +91,8 @@ public class PhoneController : MonoBehaviour
             {
                 if (firstTimeTiktok)
                 {
+                    lastWrittenMessage = introtext.instance.introText.text;
+                    introtext.instance.changeIntroText(tiktokText);
                     timeUntilScroll = 25f;
                 }
 
@@ -245,6 +249,11 @@ public class PhoneController : MonoBehaviour
             noTouchTime = 0;
             tiktokPlayer.Pause();
             MoveTimeXTimes(0.2f);
+
+            if (introtext.instance.introText.text == tiktokText)
+            {
+                introtext.instance.changeIntroText(lastWrittenMessage);
+            }
         }
         HideAllApps();
         allApps.SetActive(true);
