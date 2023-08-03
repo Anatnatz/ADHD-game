@@ -149,23 +149,35 @@ public class PhoneController : MonoBehaviour
 
     bool LevelHasMoreTime()
     {
+        bool moreTime = true;
         if (hours >= endHours && minutes >= endMinutes)
         {
+            moreTime = false;
             Debug.Log("end of level!");
-            introtext.instance.changeIntroText("Time is up. Run out!");
+            if (ScenesManager.GetActiveScene() != "MainMenu")
+            {
+                introtext.instance.changeIntroText("Time is up. Run out!");
+            }
             StartCoroutine(endLevel());
             //ScenesManager.SwitchToScene("Kitchen");
             //Game_Manager.gameInstance.PauseGame();
-            return false;
         }
 
-        return true;
+        return moreTime;
     }
     internal IEnumerator endLevel()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3f);
+        if (ScenesManager.GetActiveScene() == "Bathroom")
+        {
+            ScenesManager.SwitchToScene("Bedroom");
+            yield return new WaitForSeconds(3f);
+        }
+
         ScenesManager.SwitchToScene("Kitchen");
-        Game_Manager.gameInstance.PauseGame();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(CameraZoom.instance.ZoomInDoor());
+        // Game_Manager.gameInstance.PauseGame();
     }
 
     void FormatTime()

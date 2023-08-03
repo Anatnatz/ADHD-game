@@ -10,7 +10,6 @@ public class win : MonoBehaviour
     public bool winCondition = false;
     public List<Task> unDoneMustLIst;
 
-    public Animator doorAnimator;
 
     public void Start()
     {
@@ -31,11 +30,12 @@ public class win : MonoBehaviour
         if (unDoneMustLIst.Count > 0)
 
         {
-            InfoManager.instance.SendInfoMessage("YOU WIN!");
+            // InfoManager.instance.SendInfoMessage("YOU WIN!");
+            Debug.Log("you win?");
+            StartCoroutine(CameraZoom.instance.ZoomInDoor());
             //change maxX on camerazoom to Mathf.Infinty
             //camerazoom -> call zoom in with door location - no need to move camera
             //setText
-            doorAnimator.SetBool("open", true);
         }
 
         else

@@ -8,6 +8,8 @@ public class CameraZoom : MonoBehaviour
     public Camera cam;
     public float speed;
     public static CameraZoom instance;
+    public Animator doorAnimator;
+
 
     float minX;
     float minY;
@@ -66,5 +68,34 @@ public class CameraZoom : MonoBehaviour
         }
 
         isZooming = true;
+    }
+
+    public IEnumerator ZoomInDoor()
+    {
+        Debug.Log("zooooom");
+        Vector3 target = GameObject.Find("Exit_Door_Open_0").transform.position;
+        while (cam.transform.position.x + 6f < target.x)
+        {
+            target.z = -10;
+            cam.transform.position = Vector3.Lerp(cam.transform.position, target, speed);
+            // cam.transform.position = camBounds;
+            yield return null;
+
+        }
+
+        doorAnimator.SetBool("open", true);
+        yield return new WaitForSeconds(2f);
+
+        target = GameObject.Find("Exit_Door_Open_0/target").transform.position;
+
+        while (cam.orthographicSize > 0.5f)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, target, speed);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 0.1f, speed);
+
+            yield return null;
+        }
+
+        ScenesManager.SwitchToScene("EndLevel");
     }
 }
