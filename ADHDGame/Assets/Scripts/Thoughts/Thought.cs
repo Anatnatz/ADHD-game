@@ -24,7 +24,7 @@ public class Thought : ScriptableObject
 
     public bool loop;
     public int loopInterval;
-    
+
     public bool isOnLoop = false;
     public bool currentThoughtText;
 
@@ -35,8 +35,6 @@ public class Thought : ScriptableObject
     public bool isItATask;
 
 
-
-
     [Header("Tasks")]
 
     public Task_Enum taskType;
@@ -44,7 +42,7 @@ public class Thought : ScriptableObject
 
     [Header("Following When Appeared")]
 
-    
+
 
     [SerializeField]
     List<MessageName_Enum> followingMessagesWhenAppeared;
@@ -52,11 +50,11 @@ public class Thought : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenAppeared;
 
-    
+
 
     [Header("Following When Deleted")]
 
-    
+
 
     [SerializeField]
     List<MessageName_Enum> followingMessagesWhenDeleted;
@@ -66,7 +64,7 @@ public class Thought : ScriptableObject
 
     [Header("Following When PushToApp")]
 
-    
+
 
     [SerializeField]
     List<MessageName_Enum> followingMessagesWhenPushToApp;
@@ -74,8 +72,8 @@ public class Thought : ScriptableObject
     [SerializeField]
     List<Thought_Enum> followingThoughtsWhenPushToApp;
 
-    
-    
+
+
 
 
 
@@ -88,39 +86,39 @@ public class Thought : ScriptableObject
 
     private void UpdateFollowing()
     {
-       
-            for (int i = 0; i < followingThoughtsWhenAppeared.Count; i++)
-            {
+
+        for (int i = 0; i < followingThoughtsWhenAppeared.Count; i++)
+        {
             UpdateFollowingThought(followingThoughtsWhenAppeared[i]);
-            }
-        
-            for (int i = 0; i < followingThoughtsWhenDeleted.Count; i++)
-            {
+        }
+
+        for (int i = 0; i < followingThoughtsWhenDeleted.Count; i++)
+        {
             UpdateFollowingThought(followingThoughtsWhenDeleted[i]);
-            
-            }
 
-            for (int i = 0; i < followingThoughtsWhenPushToApp.Count; i++)
-            {
+        }
+
+        for (int i = 0; i < followingThoughtsWhenPushToApp.Count; i++)
+        {
             UpdateFollowingThought(followingThoughtsWhenPushToApp[i]);
-            }
+        }
 
-            for (int i = 0; i < followingMessagesWhenAppeared.Count; i++)
-            {
+        for (int i = 0; i < followingMessagesWhenAppeared.Count; i++)
+        {
             UpdateFollowingMessage(followingMessagesWhenAppeared[i]);
-           
-            }
-        
-            for (int i = 0; i < followingMessagesWhenDeleted.Count; i++)
-            {
+
+        }
+
+        for (int i = 0; i < followingMessagesWhenDeleted.Count; i++)
+        {
             UpdateFollowingMessage(followingMessagesWhenDeleted[i]);
         }
-        
-            for (int i = 0; i < followingMessagesWhenPushToApp.Count; i++)
-            {
+
+        for (int i = 0; i < followingMessagesWhenPushToApp.Count; i++)
+        {
             UpdateFollowingMessage(followingMessagesWhenPushToApp[i]);
         }
-        
+
     }
 
     private void UpdateFollowingMessage(MessageName_Enum messageName_Enum)
@@ -133,7 +131,7 @@ public class Thought : ScriptableObject
     {
         Thought currentThought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_);
 
-       currentThought.previousAction = this.thoughtText;
+        currentThought.previousAction = this.thoughtText;
     }
 
     public void CheckFollowingAction()
@@ -243,8 +241,8 @@ public class Thought : ScriptableObject
     private void TriggerMessage(MessageName_Enum messageName)
     {
         MessageController.messageControlInstance.startWaitGapMessage(messageName);
-       
-       
+
+
     }
 
     private void TriggerThought(Thought_Enum thoughtType)
@@ -254,9 +252,9 @@ public class Thought : ScriptableObject
 
     public void Update()
     {
-       
-            
-        
+
+
+
     }
 }
 

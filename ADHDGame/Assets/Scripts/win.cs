@@ -10,6 +10,7 @@ public class win : MonoBehaviour
     public bool winCondition = false;
     public List<Task> unDoneMustLIst;
 
+
     public void Start()
     {
         instance = this;
@@ -26,15 +27,18 @@ public class win : MonoBehaviour
 
     public void checkWinCondition()
     {
-       if(unDoneMustLIst.Count >0)
-        
-       {
-            InfoManager.instance.SendInfoMessage("YOU WIN!");
-            //camerazoom
-            //setText
-       }
+        if (unDoneMustLIst.Count > 0)
 
-       else
+        {
+            // InfoManager.instance.SendInfoMessage("YOU WIN!");
+            Debug.Log("you win?");
+            StartCoroutine(CameraZoom.instance.ZoomInDoor());
+            //change maxX on camerazoom to Mathf.Infinty
+            //camerazoom -> call zoom in with door location - no need to move camera
+            //setText
+        }
+
+        else
         {
             InfoManager.instance.SendInfoMessage("NET YET...");
             Thoughts_Manager.ThoughtsInstance.createThought(Thought_Enum.Cant_leave_the_house);

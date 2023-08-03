@@ -62,26 +62,32 @@ public class RoomObject : MonoBehaviour
         // SetObjectText();
         taskButtons = new List<Button>();
         taskInfoTexts = new List<TextMeshProUGUI>();
+
     }
 
-    // void SetObjectText()
-    // {
-    //     TextMesh objTxtComponent = transform.GetComponentInChildren<TextMesh>();
-    //     objectText = objTxtComponent.gameObject;
-    //     Debug.Log(objTxtComponent);
-    //     objTxtComponent.text = objectName;
-    //     objectText.SetActive(false);
-    // }
+    void Start()
+    {
+        RecoverAnimations();
+    }
 
-    // void OnMouseEnter()
-    // {
-    //     objectText.SetActive(true);
-    // }
-
-    // void OnMouseExit()
-    // {
-    //     objectText.SetActive(false);
-    // }
+    void RecoverAnimations()
+    {
+        foreach (Task task in relatedTasks)
+        {
+            if ((task.taskType == Task_Enum.Wear_shoes || task.taskType == Task_Enum.Take_the_wallet) && task.status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
+            if (task.taskType == Task_Enum.Dry_hands && TaskManager.instance.searchTaskOnList(Task_Enum.Do_laundry).status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
+            if (task.taskType == Task_Enum.Take_a_keys && TaskManager.instance.searchTaskOnList(Task_Enum.Wear_shoes).status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
+        }
+    }
 
     void OnMouseDown()
     {
@@ -90,12 +96,12 @@ public class RoomObject : MonoBehaviour
             ShowTasks();
             for (int i = 0; i < relatedTasks.Count; i++)
             {
-                if (relatedTasks[i].taskType == Task_Enum.workOnGame) 
+                if (relatedTasks[i].taskType == Task_Enum.workOnGame)
                 {
                     Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.GetShitDone);
                 }
             }
-            
+
         }
     }
 
@@ -142,7 +148,7 @@ public class RoomObject : MonoBehaviour
         {
             if (previousThought != Thought_Enum.None)
             {
-                
+
                 Thought currentThought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(previousThought);
                 if (currentThought.thoughtStatus == ThoughtStatus.Appeared)
                 {
@@ -187,12 +193,13 @@ public class RoomObject : MonoBehaviour
         // else
         //     buttonObject.transform.SetParent(buttonsSpace.transform);
 
-        CheckForSpecifics(relatedTask);
+        CheckForKeys(relatedTask);
 
     }
 
     void NameTaskButton(string name)
     {
+        Debug.Log(name);
         TextMeshProUGUI btnText =
             curBtn.GetComponentsInChildren<TextMeshProUGUI>()[1];
         btnText.text = name;
@@ -213,21 +220,16 @@ public class RoomObject : MonoBehaviour
         Destroy(taskBtn.gameObject);
         Destroy(taskInfoObject.gameObject);
         curTask = relatedTasks.Find(t => t.taskName == taskName);
+        CheckForLaundry(curTask);
         StartCoroutine(CameraZoom.instance.ZoomIn(objectSprite.transform.position, zoomNeeded));
         curTask.StartTask(animator);
         animator.SetBool("isClicked", false);
-        CheckForSpecifics(curTask);
     }
 
-    void CheckForSpecifics(Task curTask)
+    void CheckForKeys(Task curTask)
     {
-        Debug.Log(curTask.name);
         switch (curTask.name)
         {
-            case "StartLaundry":
-                Animator towelAnimator = curTask.waitingOnTask.animator;
-                towelAnimator.SetBool("take", true);
-                break;
             case "wearShoes":
                 allowTakeKeys = true;
                 Debug.Log(allowTakeKeys);
@@ -243,6 +245,18 @@ public class RoomObject : MonoBehaviour
                 {
                     animator.SetBool("take", false);
                 }
+                break;
+        }
+    }
+
+    void CheckForLaundry(Task curTask)
+    {
+        Debug.Log(curTask.name);
+        switch (curTask.name)
+        {
+            case "StartLaundry":
+                Animator towelAnimator = curTask.waitingOnTask.animator;
+                towelAnimator.SetBool("take", true);
                 break;
         }
     }
@@ -269,7 +283,7 @@ public class RoomObject : MonoBehaviour
 
     public void objectTrigger()
     {
-        
+
         if (relatedThoughts != null && relatedThoughts.Count > 0)
         {
             if (previousTask != Task_Enum.None)

@@ -15,7 +15,7 @@ MonoBehaviour:
   taskName: wear shoes
   taskType: 26
   textInApp: Wear shoes
-  duration: 3
+  duration: 1
   waitingTime: 0
   taskScore: 15
   status: 0
@@ -30,4 +30,4 @@ MonoBehaviour:
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
   zoomNeeded: 5
-  zoomLocation: {x: -7.97, y: -2.98}
+  zoomLocation: {x: -6.9, y: -2.98}

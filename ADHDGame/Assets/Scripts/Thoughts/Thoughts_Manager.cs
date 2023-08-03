@@ -20,14 +20,14 @@ public class Thoughts_Manager : MonoBehaviour
     [SerializeField]
     GameObject thought_Transform_Prefab;
 
-    
+
     [SerializeField]
     Transform thoughtsParent;
 
     [SerializeField]
     thought_Transform currentThoughTransform;
 
-    
+
     [SerializeField]
     int numOfNotTaskThoughtAppeared = 0;
 
@@ -56,9 +56,9 @@ public class Thoughts_Manager : MonoBehaviour
     {
         thought_Transform thoughtPrefab = thought_Transform_Prefab.GetComponent<thought_Transform>();
 
-         Thought currentThought = searchForThoughtType(thoughtType);
+        Thought currentThought = searchForThoughtType(thoughtType);
 
-        
+
 
         Vector2 thoughtPosition;
         if (currentThought.thoughtPosition.x != 0)
@@ -97,20 +97,20 @@ public class Thoughts_Manager : MonoBehaviour
             currentThought.CheckFollowingAction();
             thought_Transforms.Add(newThought);
             currentThought.numOfAppearance++;
-            
+
 
             if (currentThought.isItATask == false)
             {
                 numOfNotTaskThoughtAppeared++;
                 if (numOfNotTaskThoughtAppeared == 1)
-                { StartCoroutine (sendInfoMessageToPlayer(newThought)); }
+                { StartCoroutine(sendInfoMessageToPlayer(newThought)); }
 
             }
 
         }
     }
 
-    internal IEnumerator sendInfoMessageToPlayer (thought_Transform thought_Transform) 
+    internal IEnumerator sendInfoMessageToPlayer(thought_Transform thought_Transform)
     {
         yield return new WaitForSeconds(30);
 
@@ -118,12 +118,12 @@ public class Thoughts_Manager : MonoBehaviour
         TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
         thoughtTxt.SetText("Swipe to the left of the screen to ignor irrelevant thougt");
         thoughtTxt.color = Color.blue;
-        
+
 
         yield return new WaitForSeconds(4);
         thoughtTxt.SetText(thought_Transform.thoughtText);
         thoughtTxt.color = Color.black;
-        
+
         yield return new WaitForSeconds(1);
         string currentThoughtText2 = thought_Transform.thoughtText;
         TMP_Text thoughtTxt2 = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -168,7 +168,7 @@ public class Thoughts_Manager : MonoBehaviour
 
     }
 
-    
+
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
@@ -193,8 +193,8 @@ public class Thoughts_Manager : MonoBehaviour
                 {
                     if (currentThought.loop == true)
                     {
-                         Debug.Log("not appeared is on loop"+ currentThought.numOfAppearance + thoughtType.ToString());
-                         StartCoroutineLoop(thoughtType, currentThought);
+                        Debug.Log("not appeared is on loop" + currentThought.numOfAppearance + thoughtType.ToString());
+                        StartCoroutineLoop(thoughtType, currentThought);
                     }
                     else
                     {
@@ -209,7 +209,7 @@ public class Thoughts_Manager : MonoBehaviour
             {
                 if (currentThought.isOnLoop == true)
                 {
-                    
+
                     StartCoroutineLoop(thoughtType, currentThought);
                 }
             }
@@ -226,7 +226,7 @@ public class Thoughts_Manager : MonoBehaviour
         {
             if (thoughtsList_[i].thoughtType == lookForThoughtType)
             {
-                currentThought= thoughtsList_[i];
+                currentThought = thoughtsList_[i];
             }
         }
 
@@ -234,7 +234,7 @@ public class Thoughts_Manager : MonoBehaviour
     }
     internal void changeThoughtStatus(Thought_Enum thoughtType, ThoughtStatus thoughtStatus)
     {
-         Thought currentThought = searchForThoughtType(thoughtType);
+        Thought currentThought = searchForThoughtType(thoughtType);
         currentThought.thoughtStatus = thoughtStatus;
     }
 
@@ -252,7 +252,7 @@ public class Thoughts_Manager : MonoBehaviour
     internal IEnumerator waitGapThought(Thought_Enum thoughtType)
     {
         Thought currentThought = searchForThoughtType(thoughtType);
-       
+
         yield return new WaitForSeconds(currentThought.waitingGap);
         triggerThought(thoughtType);
     }
@@ -267,7 +267,7 @@ public class Thoughts_Manager : MonoBehaviour
     {
         thought.isOnLoop = true;
         createThought(thoughtType);
-        yield return new WaitForSeconds(10); 
+        yield return new WaitForSeconds(10);
         triggerThought(thoughtType);
 
     }
@@ -299,5 +299,5 @@ public class Thoughts_Manager : MonoBehaviour
         return currentThoughTransform;
     }
 
-    
+
 }

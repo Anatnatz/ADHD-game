@@ -24,6 +24,8 @@ public class PhoneController : MonoBehaviour
 
     [SerializeField]
     private TMP_Text timeText;
+    [SerializeField]
+    private TMP_Text smallTimeText;
 
     [Header("End Level Time")]
     [SerializeField]
@@ -66,6 +68,7 @@ public class PhoneController : MonoBehaviour
     private float timeUntilScroll;
 
     public static float noTouchTime = 0;
+    bool firstTimeTiktok = true;
 
     void Awake()
     {
@@ -84,6 +87,11 @@ public class PhoneController : MonoBehaviour
         {
             if (noTouchTime >= timeUntilScroll && !tiktokApp.activeSelf)
             {
+                if (firstTimeTiktok)
+                {
+                    timeUntilScroll = 25f;
+                }
+
                 OpenTiktokApp();
             }
             noTouchTime += Time.deltaTime;
@@ -96,13 +104,12 @@ public class PhoneController : MonoBehaviour
 
     public void ResetTouchTime()
     {
-        Debug.Log("asdfasdlkf");
         noTouchTime = 0;
     }
 
     public float GetCurrentTime()
     {
-        float time = hours + (minutes / 100);
+        float time = (float)hours + ((float)minutes / 100f);
         return time;
     }
 
@@ -142,23 +149,35 @@ public class PhoneController : MonoBehaviour
 
     bool LevelHasMoreTime()
     {
+        bool moreTime = true;
         if (hours >= endHours && minutes >= endMinutes)
         {
+            moreTime = false;
             Debug.Log("end of level!");
-            introtext.instance.changeIntroText("Time is up. Run out!");
+            if (ScenesManager.GetActiveScene() != "MainMenu")
+            {
+                introtext.instance.changeIntroText("Time is up. Run out!");
+            }
             StartCoroutine(endLevel());
             //ScenesManager.SwitchToScene("Kitchen");
             //Game_Manager.gameInstance.PauseGame();
-            return false;
         }
 
-        return true;
+        return moreTime;
     }
     internal IEnumerator endLevel()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3f);
+        if (ScenesManager.GetActiveScene() == "Bathroom")
+        {
+            ScenesManager.SwitchToScene("Bedroom");
+            yield return new WaitForSeconds(3f);
+        }
+
         ScenesManager.SwitchToScene("Kitchen");
-        Game_Manager.gameInstance.PauseGame();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(CameraZoom.instance.ZoomInDoor());
+        // Game_Manager.gameInstance.PauseGame();
     }
 
     void FormatTime()
@@ -179,6 +198,8 @@ public class PhoneController : MonoBehaviour
         {
             timeText.SetText(hours + ":" + minutes);
         }
+
+        smallTimeText.SetText(timeText.text);
     }
 
     public void HideAllApps()
@@ -255,7 +276,9 @@ public class PhoneController : MonoBehaviour
 
     public void MoveTimeXTimes(float x)
     {
+        StopTime();
         gameMinute /= x;
+        ResumeTime();
     }
 
     public void StopTime()
