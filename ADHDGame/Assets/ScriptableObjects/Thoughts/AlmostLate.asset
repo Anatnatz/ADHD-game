@@ -20,10 +20,10 @@ MonoBehaviour:
   - I got back home and saw the rice curry was left out all day, so I put it in the
     fridge. What did I do then?
   thoughtType: 17
-  thoughtPosition: {x: 0, y: 0}
+  thoughtPosition: {x: 500, y: 500}
   thoughtStatus: 0
   loop: 1
-  loopInterval: 6
+  loopInterval: 10
   isOnLoop: 1
   currentThoughtText: 0
   numOfAppearance: 0

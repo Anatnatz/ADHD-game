@@ -152,12 +152,20 @@ public class PhoneController : MonoBehaviour
         if (hours >= endHours && minutes >= endMinutes)
         {
             Debug.Log("end of level!");
-            ScenesManager.SwitchToScene("Kitchen");
-            Game_Manager.gameInstance.PauseGame();
+            introtext.instance.changeIntroText("Time is up. Run out!");
+            StartCoroutine(endLevel());
+            //ScenesManager.SwitchToScene("Kitchen");
+            //Game_Manager.gameInstance.PauseGame();
             return false;
         }
 
         return true;
+    }
+    internal IEnumerator endLevel()
+    {
+        yield return new WaitForSeconds(5);
+        ScenesManager.SwitchToScene("Kitchen");
+        Game_Manager.gameInstance.PauseGame();
     }
 
     void FormatTime()

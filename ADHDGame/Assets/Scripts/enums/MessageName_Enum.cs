@@ -11,6 +11,7 @@ public enum MessageName_Enum
     Long_tasks,
     Many_thoughts,
     CheckTheTime,
-    Hi_Partner
+    Hi_Partner,
+    TikTok
 
 }

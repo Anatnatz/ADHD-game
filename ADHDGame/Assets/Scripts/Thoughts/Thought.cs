@@ -129,8 +129,9 @@ public class Thought : ScriptableObject
 
     private void UpdateFollowingThought(Thought_Enum thought_)
     {
-        Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_);
-        Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].previousAction = this.thoughtText;
+        Thought currentThought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_);
+
+        currentThought.previousAction = this.thoughtText;
     }
 
     public void CheckFollowingAction()
@@ -252,16 +253,7 @@ public class Thought : ScriptableObject
     public void Update()
     {
 
-        Task connectedTask = TaskManager.instance.searchTaskOnList(taskType);
-        if (connectedTask.status == TaskStatus_Enum.Done)
-        {
-            isOnLoop = false;
-        }
 
-        if (isOnLoop)
-        {
-            Thoughts_Manager.ThoughtsInstance.StartCoroutineLoop(thoughtType, this);
-        }
 
     }
 }

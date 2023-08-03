@@ -21,11 +21,12 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 06000000
-  followingThoughtsWhenWaiting: 
+  followingThoughtsWhenWaiting: 19000000
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0

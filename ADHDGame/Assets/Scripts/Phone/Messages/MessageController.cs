@@ -98,6 +98,10 @@ public class MessageController : MonoBehaviour
 
             }
 
+            
+
+            
+
 
 
 
@@ -206,7 +210,7 @@ public class MessageController : MonoBehaviour
         setOffPhoneMessage();
     }
 
-
+    
 
     void Update()
     {

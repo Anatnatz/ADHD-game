@@ -19,13 +19,13 @@ public class Thought_trigger : MonoBehaviour
 
     public void TriggerThought(Collider2D other)
     {
-        Debug.Log("trigger");
+
 
         bool checkFollowing = true;
         if (other.tag == "phone")
         {
-            Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-            Task_Enum taskType = Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].taskType;
+            Thought thought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            Task_Enum taskType = thought.taskType;
             Task task = TaskManager.instance.searchTaskOnList(taskType);
             Debug.Log("push to taskApp " + task.textInApp);
             if (thought_Transform.IsItATask == true || task.textInApp != null)
@@ -39,8 +39,7 @@ public class Thought_trigger : MonoBehaviour
             }
             else
             {
-                TMP_Text textComponent = transform.GetChild(0).GetComponent<TMP_Text>();
-                textComponent.SetText("I don't need this in my todo list...");
+                StartCoroutine(changeThoughtText());
                 Debug.Log("there is nothing to do about it, try to ignor it");
             }
         }
@@ -60,8 +59,25 @@ public class Thought_trigger : MonoBehaviour
 
         if (checkFollowing)
         {
-            Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-            Thoughts_Manager.ThoughtsInstance.thoughtsList_[Thoughts_Manager.ThoughtsInstance.currentThoughtNum].CheckFollowingAction();
+            Thought currentThought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            currentThought.CheckFollowingAction();
         }
+
+
+
+    }
+
+    internal IEnumerator changeThoughtText()
+    {
+        TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
+        thoughtTxt.SetText("there is nothing to do about it, swipe to the left and try to ignor it ");
+        thoughtTxt.color = Color.blue;
+
+        yield return new WaitForSeconds(2);
+        thoughtTxt.SetText(thought_Transform.thoughtText);
+        thoughtTxt.color = Color.black;
+
+
+
     }
 }

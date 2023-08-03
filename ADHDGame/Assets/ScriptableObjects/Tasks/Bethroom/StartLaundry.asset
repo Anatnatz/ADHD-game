@@ -16,11 +16,12 @@ MonoBehaviour:
   taskType: 6
   textInApp: Wash Towels
   duration: 4
-  waitingTime: 5
+  waitingTime: 50
   taskScore: 20
   status: 0
   taskOnAppStatus: 0
   must: 0
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: d331020d743ef0440b24b34148372881, type: 2}
   blockingThought: 0
