@@ -15,12 +15,13 @@ MonoBehaviour:
   taskName: Drink
   taskType: 3
   textInApp: Drink Water
-  duration: 1
+  duration: 2
   waitingTime: 0
   taskScore: 10
   status: 0
   taskOnAppStatus: 1
   must: 0
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0

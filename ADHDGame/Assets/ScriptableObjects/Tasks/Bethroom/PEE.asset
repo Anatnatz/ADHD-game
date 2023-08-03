@@ -15,11 +15,11 @@ MonoBehaviour:
   taskName: Pee
   taskType: 5
   textInApp: Use the toilet
-  duration: 1
+  duration: 2
   waitingTime: 0
   taskScore: 20
   status: 0
-  taskOnAppStatus: 3
+  taskOnAppStatus: 1
   must: 0
   textIfNotDone: 
   animator: {fileID: 0}

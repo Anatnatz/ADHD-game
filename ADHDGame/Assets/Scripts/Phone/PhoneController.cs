@@ -210,7 +210,10 @@ public class PhoneController : MonoBehaviour
         // smallTimeText.SetText(timeText.text);
         foreach (TMP_Text timeText in timeTexts)
         {
-            timeText.SetText(timestring);
+            if (timeText != null)
+            {
+                timeText.SetText(timestring);
+            }
         }
     }
 
