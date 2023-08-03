@@ -30,8 +30,20 @@ public class Thought_trigger : MonoBehaviour
                 thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
                 thought_Transform.pushToApp();
                 thought_Transform.updateNumOfAppearanceOnApp();
-                Destroy(thought_Transform.gameObject);
-                Destroy(this);
+                Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+               
+                if (currentThough.loop == true)
+
+                { startThoughtLoop(currentThough.thoughtType, 5 ); }
+                
+                else
+                {
+                    Destroy(thought_Transform.gameObject);
+                    Destroy(this);
+
+                }
+                     
+                
             }
             else 
             {
@@ -45,8 +57,18 @@ public class Thought_trigger : MonoBehaviour
             InfoManager.instance.SendInfoMessage("Thought ignored");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
-            Destroy(thought_Transform.gameObject);
-            Destroy(this);
+            Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            if (currentThough.loop == true)
+           
+            { startThoughtLoop(currentThough.thoughtType, 5); }
+            
+            else
+            {
+                Destroy(thought_Transform.gameObject);
+                Destroy(this);
+            }
+           
+            
         }
         else
         {
@@ -72,8 +94,14 @@ public class Thought_trigger : MonoBehaviour
         yield return new WaitForSeconds(2);
         thoughtTxt.SetText(thought_Transform.thoughtText);
         thoughtTxt.color = Color.black;
+    }
 
-
+    internal void startThoughtLoop(Thought_Enum thoughtType, float seconds)
+    {
+        Debug.Log("starting loop");
+        Thoughts_Manager.ThoughtsInstance.startWaitGapThought(thoughtType);
+        Destroy(thought_Transform.gameObject);
+        Destroy(this);
 
     }
 }

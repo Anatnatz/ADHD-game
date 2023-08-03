@@ -7216,7 +7216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneStatus: 0
-  gameMinute: 1
+  gameMinute: 10
   originalGameMinute: 0
   hours: 7
   minutes: 0
