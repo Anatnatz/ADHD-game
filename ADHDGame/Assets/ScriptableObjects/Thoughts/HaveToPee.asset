@@ -21,10 +21,10 @@ MonoBehaviour:
   thoughtStatus: 1
   loop: 1
   loopInterval: 20
-  isOnLoop: 1
+  isOnLoop: 0
   currentThoughtText: 0
-  numOfAppearance: 3
-  waitingGap: 4
+  numOfAppearance: 2
+  waitingGap: 15
   previousAction: 
   showOnlyOnc: 0
   isItATask: 1

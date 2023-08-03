@@ -14,10 +14,13 @@ DraggableItem
 
     public Thought_trigger thoughtTrigger;
 
-    public string firstTextHover = "Drag left to ignore";
-    public string secondTextHover = "Drag to the phone -> add to the todo list";
+    public string normalTextHover = "Drag left to ignore";
+    public string taskTextHover = "Drag to the phone -> add to the todo list";
+    string currentTextHover;
 
     static int thoughtCnt = 0;
+    static bool firstNormalThought;
+    static bool firstTaskThought;
 
     int thoughtIndex;
 
@@ -27,12 +30,26 @@ DraggableItem
 
     Thought thought;
 
+    thought_Transform thoughtTransform;
+
     void Start()
     {
         thoughtTrigger = transform.GetComponent<Thought_trigger>();
         textComponent = transform.GetChild(0).GetComponent<TMP_Text>();
+        thoughtTransform = GetComponent<thought_Transform>();
         thoughtCnt++;
         thoughtIndex = thoughtCnt;
+
+        if (thoughtTransform.IsItATask && !firstTaskThought)
+        {
+            currentTextHover = taskTextHover;
+            firstTaskThought = true;
+        }
+        else if (!thoughtTransform.IsItATask && !firstNormalThought)
+        {
+            currentTextHover = normalTextHover;
+            firstNormalThought = true;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -57,21 +74,15 @@ DraggableItem
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (thoughtIndex == 1)
+        if (currentTextHover != null)
         {
-            textComponent.SetText(firstTextHover);
-
-        }
-        else if (thoughtIndex == 2)
-        {
-            textComponent.SetText(secondTextHover);
-
+            textComponent.SetText(currentTextHover);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        textComponent.SetText(GetComponent<thought_Transform>().thoughtText);
+        textComponent.SetText(thoughtTransform.thoughtText);
     }
 
 

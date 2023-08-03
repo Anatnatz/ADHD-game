@@ -144,7 +144,7 @@ public class Task : ScriptableObject
         Cursor.lockState = CursorLockMode.None;
         Game_Manager.gameInstance.doingTask = false;
 
-        CameraZoom.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
+        TaskManager.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
 
         //end animation
         if (animator != null)
@@ -183,34 +183,32 @@ public class Task : ScriptableObject
 
     public void CheckFollowingAction()
     {
-        checkFollowingMessage();
-        checkFollowingThoughts();
 
-        // switch (status)
-        // {
+        switch (status)
+        {
 
-        //     case TaskStatus_Enum.none:
-        //         { break; }
+            case TaskStatus_Enum.none:
+                { break; }
 
 
-        //     case TaskStatus_Enum.Waiting:
-        //         {
-        //             checkFollowingMessage(TaskStatus_Enum.Waiting);
-        //             checkFollowingThoughts(TaskStatus_Enum.Waiting);
-        //             break;
-        //         }
-        //     case TaskStatus_Enum.Done:
-        //         {
-        //             checkFollowingMessage(TaskStatus_Enum.Done);
-        //             checkFollowingThoughts(TaskStatus_Enum.Done);
-        //             break;
+            case TaskStatus_Enum.Waiting:
+                {
+                    checkFollowingMessage(TaskStatus_Enum.Waiting);
+                    checkFollowingThoughts(TaskStatus_Enum.Waiting);
+                    break;
+                }
+            case TaskStatus_Enum.Done:
+                {
+                    checkFollowingMessage(TaskStatus_Enum.Done);
+                    checkFollowingThoughts(TaskStatus_Enum.Done);
+                    break;
 
-        //         }
-        // }
+                }
+        }
     }
 
 
-    private void checkFollowingThoughts()
+    private void checkFollowingThoughts(TaskStatus_Enum status)
     {
         if (status == TaskStatus_Enum.Waiting)
         {
@@ -233,7 +231,7 @@ public class Task : ScriptableObject
         }
     }
 
-    private void checkFollowingMessage()
+    private void checkFollowingMessage(TaskStatus_Enum status)
     {
         if (status == TaskStatus_Enum.Waiting)
         {

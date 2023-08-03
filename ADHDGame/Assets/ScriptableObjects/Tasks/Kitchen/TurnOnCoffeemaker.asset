@@ -17,7 +17,7 @@ MonoBehaviour:
   textInApp: Need  COFFEE
   duration: 1
   waitingTime: 10
-  score: 20
+  taskScore: 0
   status: 0
   taskOnAppStatus: 0
   must: 0
@@ -26,9 +26,9 @@ MonoBehaviour:
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 06000000
-  followingThoughtsWhenWaiting: 19000000
+  followingThoughtsWhenWaiting: 190000000d0000000b000000
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
   zoomNeeded: 2
-  zoomLocation: {x: 3.55, y: 0.45}
+  zoomLocation: {x: 4.87, y: 0.45}
