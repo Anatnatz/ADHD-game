@@ -33,6 +33,10 @@ public class Game_Manager : MonoBehaviour
 
     void StartLevel1()
     {
+        PhoneController.instance.TogglePhone();
+        PhoneController.instance.TogglePhone();
+        StartCoroutine(ScenesManager.instance.loadIntroText());
+
         SoundManager.instance.PlayMusic();
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
         SoundManager.instance.PlayMusic();
