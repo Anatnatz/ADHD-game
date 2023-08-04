@@ -24,6 +24,7 @@ MonoBehaviour:
   currentThoughtText: 0
   numOfAppearance: 0
   waitingGap: 0
+  previousThought: {fileID: 11400000, guid: 767e4722f3ddf5d41ba6c41d51a1e78f, type: 2}
   previousAction: 
   showOnlyOnc: 0
   isItATask: 0
