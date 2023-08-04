@@ -18,14 +18,14 @@ MonoBehaviour:
   - I can't think without coffee
   - COFFEEEEEEEEE
   thoughtType: 6
-  thoughtPosition: {x: 900, y: 700}
-  thoughtStatus: 3
-  loop: 1
+  thoughtPosition: {x: 0, y: 0}
+  thoughtStatus: 0
+  loop: 0
   loopInterval: 3
   isOnLoop: 1
   currentThoughtText: 0
-  numOfAppearance: 5
-  waitingGap: 20
+  numOfAppearance: 0
+  waitingGap: 3
   previousAction: 
   showOnlyOnc: 0
   isItATask: 1

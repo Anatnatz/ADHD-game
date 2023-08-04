@@ -30,6 +30,8 @@ public class Task : ScriptableObject
 
     public bool must;
 
+    public string results;
+
     public string textIfNotDone;
 
     // public Status_Enum smtatus;

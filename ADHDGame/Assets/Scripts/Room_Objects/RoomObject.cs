@@ -298,6 +298,7 @@ public class RoomObject : MonoBehaviour
 
             else
             {
+
                 Thoughts_Manager.ThoughtsInstance.triggerThought(relatedThoughts[currentThought]);
             }
 

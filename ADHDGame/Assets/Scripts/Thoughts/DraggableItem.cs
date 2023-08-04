@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class
-DraggableItem
-: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+DraggableItem: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [HideInInspector]
     public Transform parentAfterDrag;

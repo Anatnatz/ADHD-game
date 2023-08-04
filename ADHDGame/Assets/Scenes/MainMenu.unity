@@ -5363,6 +5363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introText: {fileID: 1556155188}
   score: {fileID: 1319975084}
+  bottomBar: {fileID: 1408357353}
 --- !u!4 &789113985
 Transform:
   m_ObjectHideFlags: 0
@@ -8371,7 +8372,6 @@ GameObject:
   - component: {fileID: 1230291497}
   - component: {fileID: 1230291498}
   - component: {fileID: 1230291496}
-  - component: {fileID: 1230291499}
   - component: {fileID: 1230291500}
   - component: {fileID: 1230291501}
   - component: {fileID: 1230291502}
@@ -8792,20 +8792,6 @@ MonoBehaviour:
   infoPanel: {fileID: 1219453752}
   infoTextCode: {fileID: 1219453749}
   test: 0
---- !u!114 &1230291499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201574419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3308626420a4df04383596d9ef0f3ea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winCondition: 0
-  unDoneMustLIst: []
 --- !u!114 &1230291500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8819,7 +8805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneStatus: 0
-  gameMinute: 10
+  gameMinute: 3
   originalGameMinute: 0
   hours: 7
   minutes: 0
@@ -14304,6 +14290,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a81f6d557e442664b8d070317bf35412, type: 2}
   - {fileID: 11400000, guid: 96d65d7ff53605540a92340994c7ccee, type: 2}
   NotComplitedMustTaskList: []
+  complitedTasks: []
   numberOfTaskDone: 0
 --- !u!4 &2000705549
 Transform:
@@ -14695,9 +14682,21 @@ PrefabInstance:
       propertyPath: introText
       value: 
       objectReference: {fileID: 1556155188}
+    - target: {fileID: 4437800644658111794, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437800644658111794, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437800644658111794, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 4437800644658111806, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4437800645602456933, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
       propertyPath: zoomSpeed

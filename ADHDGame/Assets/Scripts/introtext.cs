@@ -22,13 +22,9 @@ public class introtext : MonoBehaviour
     }
      internal IEnumerator switchText()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(60);
         changeIntroText(" Dude, you're late!");
-        Debug.Log(PhoneController.instance.gameMinute * 60 - 5);
-        //float seconds = PhoneController.instance.gameMinute * 60- 10;
-        //yield return new WaitForSeconds(seconds);
-
-        //changeIntroText(" Time is up. Run out!");
+        
     }
 
     private void Update()

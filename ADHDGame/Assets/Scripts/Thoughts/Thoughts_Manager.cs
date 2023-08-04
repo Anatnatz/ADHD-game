@@ -99,20 +99,45 @@ public class Thoughts_Manager : MonoBehaviour
             currentThought.numOfAppearance++;
 
 
+            if (currentThought.loop == true)
+            {
+                StartCoroutine(changeTextInLoop(newThought, currentThought));
+            }
+
+
+
             if (currentThought.isItATask == false)
             {
                 numOfNotTaskThoughtAppeared++;
-                // if (numOfNotTaskThoughtAppeared == 1)
-                // { StartCoroutine(sendInfoMessageToPlayer(newThought)); }
+                if (numOfNotTaskThoughtAppeared == 1)
+                {
+                    // StartCoroutine(sendInfoMessageToPlayer(newThought));
+                }
 
             }
 
         }
     }
 
+    internal IEnumerator changeTextInLoop(thought_Transform thought_Transform, Thought thought)
+    {
+        for (int i = 1; i < thought.thoughtTexts.Count; i++)
+        {
+            yield return new WaitForSeconds(5);
+
+            string currentThoughtText = thought_Transform.thoughtText;
+            TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
+
+            thoughtTxt.SetText(thought.thoughtTexts[i]);
+
+        }
+
+    }
+
+
     internal IEnumerator sendInfoMessageToPlayer(thought_Transform thought_Transform)
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(5);
 
         string currentThoughtText = thought_Transform.thoughtText;
         TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -175,29 +200,27 @@ public class Thoughts_Manager : MonoBehaviour
 
         Thought currentThought = searchForThoughtType(thoughtType);
 
-        bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
+        if (currentThought.previousThought == null)
 
-        if (isTaskDone == false)
         {
 
-            if (currentThought.thoughtStatus != ThoughtStatus.Appeared)
+            bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
+
+            if (isTaskDone == false)
             {
-                if (currentThought.showOnlyOnc == true)
+
+                if (currentThought.thoughtStatus != ThoughtStatus.Appeared)
                 {
-                    if (currentThought.numOfAppearance < 1)
+                    if (currentThought.showOnlyOnc == true)
                     {
-                        createThought(thoughtType);
-                    }
-                }
-                else
-                {
-                    if (currentThought.loop == true)
-                    {
-                        Debug.Log("not appeared is on loop" + currentThought.numOfAppearance + thoughtType.ToString());
-                        StartCoroutineLoop(thoughtType, currentThought);
+                        if (currentThought.numOfAppearance < 1)
+                        {
+                            createThought(thoughtType);
+                        }
                     }
                     else
                     {
+
                         createThought(thoughtType);
 
                     }
@@ -205,19 +228,43 @@ public class Thoughts_Manager : MonoBehaviour
                 }
 
             }
-            else
-            {
-                if (currentThought.isOnLoop == true)
-                {
-
-                    StartCoroutineLoop(thoughtType, currentThought);
-                }
-            }
-
         }
         else
-        { currentThought.isOnLoop = false; }
+        {
+            if (currentThought.previousThought.thoughtStatus == ThoughtStatus.Appeared)
+            {
+                bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
+
+                if (isTaskDone == false)
+                {
+
+                    if (currentThought.thoughtStatus != ThoughtStatus.Appeared)
+                    {
+                        if (currentThought.showOnlyOnc == true)
+                        {
+                            if (currentThought.numOfAppearance < 1)
+                            {
+                                createThought(thoughtType);
+                            }
+                        }
+                        else
+                        {
+
+                            createThought(thoughtType);
+
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+
+
     }
+
+
 
     public Thought searchForThoughtType(Thought_Enum lookForThoughtType)
     {
@@ -256,17 +303,13 @@ public class Thoughts_Manager : MonoBehaviour
         triggerThought(thoughtType);
     }
 
-    internal void StartCoroutineLoop(Thought_Enum thoughtType, Thought thought)
+
+
+    internal void StartThoughtLoop(Thought_Enum thoughtType)
     {
 
-        StartCoroutine(StartThoughtLoop(thoughtType, thought));
-    }
+        startWaitGapThought(thoughtType);
 
-    internal IEnumerator StartThoughtLoop(Thought_Enum thoughtType, Thought thought)
-    {
-        thought.isOnLoop = true;
-        createThought(thoughtType);
-        yield return new WaitForSeconds(10);
         triggerThought(thoughtType);
 
     }

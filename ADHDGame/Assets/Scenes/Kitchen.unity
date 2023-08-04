@@ -585,6 +585,10 @@ PrefabInstance:
       propertyPath: doorAnimator
       value: 
       objectReference: {fileID: 1686240171}
+    - target: {fileID: 4437800644658111806, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4437800646663398432, guid: aeb6c7973b8b2bd4f9bfbd20e39ef23d, type: 3}
       propertyPath: m_Name
       value: CamRelated
@@ -1303,7 +1307,6 @@ GameObject:
   - component: {fileID: 933656633}
   - component: {fileID: 933656632}
   - component: {fileID: 933656631}
-  - component: {fileID: 933656635}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1394,20 +1397,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &933656635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933656630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3308626420a4df04383596d9ef0f3ea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winCondition: 0
-  unDoneMustLIst: []
 --- !u!1001 &951877436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2665,7 +2654,7 @@ PrefabInstance:
     - target: {fileID: 7139481324006750075, guid: 3e95a804e71518840985f12f04f3afcc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 933656635}
+      objectReference: {fileID: 1946401442}
     - target: {fileID: 7139481324006750075, guid: 3e95a804e71518840985f12f04f3afcc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: checkWinCondition
@@ -2720,6 +2709,19 @@ MonoBehaviour:
   objectSprite: {fileID: 0}
   textInfo: {fileID: 0}
   textInfoTest: 0
+--- !u!114 &1946401442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946401439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3308626420a4df04383596d9ef0f3ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winCondition: 0
 --- !u!1 &2059228036
 GameObject:
   m_ObjectHideFlags: 0
