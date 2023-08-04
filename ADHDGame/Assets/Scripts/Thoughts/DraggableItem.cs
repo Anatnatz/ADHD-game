@@ -26,16 +26,18 @@ DraggableItem
 
     bool isDragging = false;
 
-    TMP_Text textComponent;
+    TextMeshProUGUI textComponent;
 
     Thought thought;
 
     thought_Transform thoughtTransform;
 
+    Color originalColor;
+
     void Start()
     {
         thoughtTrigger = transform.GetComponent<Thought_trigger>();
-        textComponent = transform.GetChild(0).GetComponent<TMP_Text>();
+        textComponent = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         thoughtTransform = GetComponent<thought_Transform>();
         thoughtCnt++;
         thoughtIndex = thoughtCnt;
@@ -74,15 +76,21 @@ DraggableItem
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (currentTextHover != null)
+        if (currentTextHover != null && currentTextHover != "")
         {
             textComponent.SetText(currentTextHover);
+            originalColor = textComponent.color;
+            textComponent.color = new Color32(25, 25, 112, 255);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        textComponent.SetText(thoughtTransform.thoughtText);
+        if (currentTextHover != null && currentTextHover != "")
+        {
+            textComponent.SetText(thoughtTransform.thoughtText);
+            textComponent.color = originalColor;
+        }
     }
 
 

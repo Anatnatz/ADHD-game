@@ -102,8 +102,8 @@ public class Thoughts_Manager : MonoBehaviour
             if (currentThought.isItATask == false)
             {
                 numOfNotTaskThoughtAppeared++;
-                if (numOfNotTaskThoughtAppeared == 1)
-                { StartCoroutine(sendInfoMessageToPlayer(newThought)); }
+                // if (numOfNotTaskThoughtAppeared == 1)
+                // { StartCoroutine(sendInfoMessageToPlayer(newThought)); }
 
             }
 
@@ -252,7 +252,6 @@ public class Thoughts_Manager : MonoBehaviour
     internal IEnumerator waitGapThought(Thought_Enum thoughtType)
     {
         Thought currentThought = searchForThoughtType(thoughtType);
-
         yield return new WaitForSeconds(currentThought.waitingGap);
         triggerThought(thoughtType);
     }

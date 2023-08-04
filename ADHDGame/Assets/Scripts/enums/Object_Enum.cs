@@ -32,6 +32,7 @@ public enum Object_Enum
     Plants,
     Coat,
     Window,
-    laptop
+    laptop,
+    fruitBowl
 
 }

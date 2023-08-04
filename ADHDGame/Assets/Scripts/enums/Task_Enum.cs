@@ -28,6 +28,7 @@ public enum Task_Enum
     GoOut,
     Wear_shoes,
     workOnGame,
-    wash_hands_again
+    wash_hands_again,
+    make_breakfast
 
 }

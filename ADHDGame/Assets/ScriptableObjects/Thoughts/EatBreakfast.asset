@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b77ea74c24c6748843e55c7a9f2dff, type: 3}
-  m_Name: Im_starving
+  m_Name: EatBreakfast
   m_EditorClassIdentifier: 
-  thoughtText: Im starving
-  thoughtTexts:
-  - I could eat a dinosaur. Got to find  breakfast.
-  thoughtType: 1
-  thoughtPosition: {x: 0, y: 0}
+  thoughtText: I don't have time for something fancy, I better just eat a fruit or
+    something...
+  thoughtTexts: []
+  thoughtType: 26
+  thoughtPosition: {x: 400, y: 500}
   thoughtStatus: 0
-  loop: 1
-  loopInterval: 6
-  isOnLoop: 1
+  loop: 0
+  loopInterval: 0
+  isOnLoop: 0
   currentThoughtText: 0
   numOfAppearance: 0
-  waitingGap: 0
+  waitingGap: 2
   previousAction: 
   showOnlyOnc: 0
   isItATask: 1
-  taskType: 29
+  taskType: 2
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 
