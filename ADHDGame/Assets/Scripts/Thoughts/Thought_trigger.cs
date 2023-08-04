@@ -25,22 +25,39 @@ public class Thought_trigger : MonoBehaviour
         if (other.tag == "phone")
         {
             Thought thought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-            Task_Enum taskType = thought.taskType;
-            Task task = TaskManager.instance.searchTaskOnList(taskType);
-            Debug.Log("push to taskApp " + task.textInApp);
-            if (thought_Transform.IsItATask == true || task.textInApp != null)
+
+            if (thought.taskType != Task_Enum.None)
             {
-                thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
-                thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
-                thought_Transform.pushToApp();
-                thought_Transform.updateNumOfAppearanceOnApp();
-                Destroy(thought_Transform.gameObject);
-                Destroy(this);
+                Task_Enum taskType = thought.taskType;
+                Task task = TaskManager.instance.searchTaskOnList(taskType);
+
+
+                if (thought_Transform.IsItATask == true || task.textInApp != null)
+                {
+                    thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
+                    thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
+                    thought_Transform.pushToApp();
+                    thought_Transform.updateNumOfAppearanceOnApp();
+                    Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+
+                    if (currentThough.loop == true)
+
+                    { startThoughtLoop(currentThough.thoughtType); }
+
+                    else
+                    {
+                        Destroy(thought_Transform.gameObject);
+                        Destroy(this);
+
+                    }
+
+
+                }
             }
-            else
+            if(thought_Transform.IsItATask == false)
             {
                 StartCoroutine(changeThoughtText());
-                Debug.Log("there is nothing to do about it, try to ignor it");
+               
             }
         }
 
@@ -49,8 +66,18 @@ public class Thought_trigger : MonoBehaviour
             InfoManager.instance.SendInfoMessage("Thought ignored");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
-            Destroy(thought_Transform.gameObject);
-            Destroy(this);
+            Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+            if (currentThough.loop == true)
+           
+            { startThoughtLoop(currentThough.thoughtType); }
+            
+            else
+            {
+                Destroy(thought_Transform.gameObject);
+                Destroy(this);
+            }
+           
+            
         }
         else
         {
@@ -76,8 +103,14 @@ public class Thought_trigger : MonoBehaviour
         yield return new WaitForSeconds(2);
         thoughtTxt.SetText(thought_Transform.thoughtText);
         thoughtTxt.color = Color.black;
+    }
 
-
+    internal void startThoughtLoop(Thought_Enum thoughtType)
+    {
+        Debug.Log("starting loop");
+        Thoughts_Manager.ThoughtsInstance.startWaitGapThought(thoughtType);
+        Destroy(thought_Transform.gameObject);
+        Destroy(this);
 
     }
 }

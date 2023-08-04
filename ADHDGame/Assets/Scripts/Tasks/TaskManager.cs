@@ -24,8 +24,9 @@ public class TaskManager : MonoBehaviour
     [SerializeField]
     List<Task> mustTasks;
     
-    [SerializeField]
-    List<Task> NotComplitedMustTaskList;
+    public List<Task> NotComplitedMustTaskList;
+
+    public List<Task> complitedTasks;
 
     public int numberOfTaskDone = 0;
 
@@ -80,7 +81,7 @@ public class TaskManager : MonoBehaviour
         { Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Almost_late); }
     }
 
-    private void creatMustTasksList()
+    public void creatMustTasksList()
     {
         for (int i = 0; i < mustTasks.Count; i++)
         {
@@ -91,6 +92,24 @@ public class TaskManager : MonoBehaviour
         {
             if (tasksList[i].must == true)
             { mustTasks.Add(tasksList[i]); }
+        }
+    }
+
+    public void creatComplitedTaskList()
+    {
+        for (int i = 0; i < complitedTasks.Count; i++)
+        {
+            complitedTasks.Remove(complitedTasks[i]);
+
+        }
+
+        for (int i = 0; i < tasksList.Count; i++)
+        {
+            if(tasksList[i].status == TaskStatus_Enum.Done)
+            {
+                complitedTasks.Add(tasksList[i]);
+            }
+
         }
     }
     void OnMouseDown()
@@ -147,7 +166,7 @@ public class TaskManager : MonoBehaviour
         {
             if (mustTasks[i].status != TaskStatus_Enum.Done)
             {
-               win.instance.unDoneMustLIst.Add(mustTasks[i]);
+               EndLevel.instance.unDoneMustLIst.Add(mustTasks[i]);
             }
 
         }

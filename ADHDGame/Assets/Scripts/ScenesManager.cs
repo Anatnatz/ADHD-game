@@ -15,10 +15,15 @@ public class ScenesManager : MonoBehaviour
     introtext introText;
     [SerializeField]
     scoreController score;
+
+    [SerializeField]
+    GameObject bottomBar;
+
     void Awake()
     {
         instance = this;
     }
+
     public static void SwitchToScene(string name)
     {
         SoundManager.RegisterAction(SoundManager.SoundAction.click);
@@ -50,10 +55,24 @@ public class ScenesManager : MonoBehaviour
                 "Kitchen":
                 KitchenThoughts();
                 break;
+
+            case "EndLevel":
+                EndLevel();
+                break;
         }
     }
 
+
+    private void EndLevel()
+    {
+        Debug.Log("finishline");
+        bottomBar.gameObject.SetActive(false);
+        
+    }
+
+    
     public IEnumerator loadIntroText()
+
     {
 
 
