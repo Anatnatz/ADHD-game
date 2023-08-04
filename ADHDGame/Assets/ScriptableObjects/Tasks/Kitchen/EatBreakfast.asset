@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8494a22adb3d9548bf89922975297cb, type: 3}
-  m_Name: WaterThePlant
+  m_Name: EatBreakfast
   m_EditorClassIdentifier: 
-  taskName: Water
-  taskType: 21
-  textInApp: Water Maya's plant
+  taskName: eat an apple
+  taskType: 2
+  textInApp: Eat Breakfast
   duration: 3
   waitingTime: 0
-  taskScore: 50
+  taskScore: 15
   status: 0
   taskOnAppStatus: 0
   must: 1
   textIfNotDone: 
   animator: {fileID: 0}
-  waitingOnTask: {fileID: 0}
-  blockingThought: 0
+  waitingOnTask: {fileID: 11400000, guid: e48ed5edfd923a6439244102fda155c9, type: 2}
+  blockingThought: 26
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 0a000000
-  connectedRoomObject: 29
+  followingThoughtsWhenDone: 
+  connectedRoomObject: 0
   zoomNeeded: 2
-  zoomLocation: {x: 4.91, y: 0.1}
+  zoomLocation: {x: -6.16, y: -0.66}

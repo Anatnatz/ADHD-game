@@ -13,21 +13,22 @@ MonoBehaviour:
   m_Name: MakeBreakfast
   m_EditorClassIdentifier: 
   taskName: Make Breakfast
-  taskType: 2
+  taskType: 29
   textInApp: Make Breakfast
-  duration: 5
+  duration: 1
   waitingTime: 0
-  taskScore: 15
+  taskScore: 1
   status: 0
   taskOnAppStatus: 0
-  must: 1
+  must: 0
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
-  blockingThought: 1
+  blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 
-  connectedRoomObject: 0
-  zoomNeeded: 0
+  followingThoughtsWhenDone: 1a000000
+  connectedRoomObject: 4
+  zoomNeeded: 4
   zoomLocation: {x: -1.39, y: 0.11}

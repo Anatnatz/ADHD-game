@@ -13,25 +13,44 @@ DraggableItem: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, 
 
     public Thought_trigger thoughtTrigger;
 
-    public string firstTextHover = "Drag left to ignore";
-    public string secondTextHover = "Drag to the phone -> add to the todo list";
+    public string normalTextHover = "Drag left to ignore";
+    public string taskTextHover = "Drag to the phone -> add to the todo list";
+    string currentTextHover;
 
     static int thoughtCnt = 0;
+    static bool firstNormalThought;
+    static bool firstTaskThought;
 
     int thoughtIndex;
 
     bool isDragging = false;
 
-    TMP_Text textComponent;
+    TextMeshProUGUI textComponent;
 
     Thought thought;
+
+    thought_Transform thoughtTransform;
+
+    Color originalColor;
 
     void Start()
     {
         thoughtTrigger = transform.GetComponent<Thought_trigger>();
-        textComponent = transform.GetChild(0).GetComponent<TMP_Text>();
+        textComponent = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        thoughtTransform = GetComponent<thought_Transform>();
         thoughtCnt++;
         thoughtIndex = thoughtCnt;
+
+        if (thoughtTransform.IsItATask && !firstTaskThought)
+        {
+            currentTextHover = taskTextHover;
+            firstTaskThought = true;
+        }
+        else if (!thoughtTransform.IsItATask && !firstNormalThought)
+        {
+            currentTextHover = normalTextHover;
+            firstNormalThought = true;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -56,21 +75,21 @@ DraggableItem: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (thoughtIndex == 1)
+        if (currentTextHover != null && currentTextHover != "")
         {
-            textComponent.SetText(firstTextHover);
-
-        }
-        else if (thoughtIndex == 2)
-        {
-            textComponent.SetText(secondTextHover);
-
+            textComponent.SetText(currentTextHover);
+            originalColor = textComponent.color;
+            textComponent.color = new Color32(25, 25, 112, 255);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        textComponent.SetText(GetComponent<thought_Transform>().thoughtText);
+        if (currentTextHover != null && currentTextHover != "")
+        {
+            textComponent.SetText(thoughtTransform.thoughtText);
+            textComponent.color = originalColor;
+        }
     }
 
 

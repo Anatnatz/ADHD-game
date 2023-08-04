@@ -27,7 +27,7 @@ MonoBehaviour:
   previousAction: 
   showOnlyOnc: 0
   isItATask: 1
-  taskType: 2
+  taskType: 29
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 

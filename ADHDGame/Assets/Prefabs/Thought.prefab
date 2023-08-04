@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.00012207031, y: -0.7762451, z: 0.000061035156, w: 0}
+  m_margin: {x: 25.369751, y: -12.77655, z: -6.9503784, w: 18.023071}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -179,7 +179,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 404, y: 202}
+  m_SizeDelta: {x: 480, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &971806841306678589
 CanvasRenderer:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fce713d24c6569940ac9ed0cdeaecb30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2cfdb736f2eed7419feb6c33aae48c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -233,6 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   thoughtTrigger: {fileID: 0}
+  normalTextHover: Drag left to ignore
+  taskTextHover: Drag to the phone -> add to the todo list
 --- !u!50 &971806841306678591
 Rigidbody2D:
   serializedVersion: 4
@@ -267,7 +269,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35476685, y: 0.10694885}
+  m_Offset: {x: 18.126465, y: 32.616226}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -278,7 +280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 400.59808, y: 199.36972}
+  m_Size: {x: 406.6665, y: 163.82626}
   m_EdgeRadius: 0
 --- !u!114 &971806841306678561
 MonoBehaviour:
@@ -325,7 +327,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b514ab329fb55a4fac6359e8abee0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textAbovePhone: {fileID: 0}
   textInfo: {fileID: 5770169074364372426}
+  testPhoneInfo: 0
+  testThoutghtInfo: 0
+  testObjectInfo: 0
 --- !u!1 &3236267198531338574
 GameObject:
   m_ObjectHideFlags: 0
