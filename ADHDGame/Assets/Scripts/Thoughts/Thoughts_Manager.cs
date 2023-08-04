@@ -110,8 +110,8 @@ public class Thoughts_Manager : MonoBehaviour
             {
                 numOfNotTaskThoughtAppeared++;
                 if (numOfNotTaskThoughtAppeared == 1)
-                { 
-                   // StartCoroutine(sendInfoMessageToPlayer(newThought));
+                {
+                    // StartCoroutine(sendInfoMessageToPlayer(newThought));
                 }
 
             }
@@ -200,11 +200,11 @@ public class Thoughts_Manager : MonoBehaviour
 
         Thought currentThought = searchForThoughtType(thoughtType);
 
-        if(currentThought.previousThought == null) 
-        
-        { 
+        if (currentThought.previousThought == null)
 
-        bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
+        {
+
+            bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
 
             if (isTaskDone == false)
             {
@@ -227,10 +227,10 @@ public class Thoughts_Manager : MonoBehaviour
 
                 }
 
-            }   
+            }
         }
         else
-        { 
+        {
             if (currentThought.previousThought.thoughtStatus == ThoughtStatus.Appeared)
             {
                 bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
@@ -258,13 +258,13 @@ public class Thoughts_Manager : MonoBehaviour
 
                 }
 
-            } 
-         }
-        
+            }
+        }
+
 
     }
 
-       
+
 
     public Thought searchForThoughtType(Thought_Enum lookForThoughtType)
     {
@@ -299,16 +299,15 @@ public class Thoughts_Manager : MonoBehaviour
     internal IEnumerator waitGapThought(Thought_Enum thoughtType)
     {
         Thought currentThought = searchForThoughtType(thoughtType);
-
         yield return new WaitForSeconds(currentThought.waitingGap);
         triggerThought(thoughtType);
     }
 
-    
+
 
     internal void StartThoughtLoop(Thought_Enum thoughtType)
     {
-        
+
         startWaitGapThought(thoughtType);
 
         triggerThought(thoughtType);

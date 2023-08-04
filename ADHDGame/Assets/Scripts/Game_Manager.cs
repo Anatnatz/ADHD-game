@@ -56,6 +56,9 @@ public class Game_Manager : MonoBehaviour
     public void PauseGame()
     {
         SoundManager.RegisterAction(SoundManager.SoundAction.click);
+        pausePanel.transform.SetAsLastSibling();
+        pauseButton.transform.SetAsLastSibling();
+        pausePanel.SetActive(!pausePanel.activeSelf);
         if (pausePanel.activeSelf)
         {
             PhoneController.instance.ResumeTime();
@@ -65,8 +68,5 @@ public class Game_Manager : MonoBehaviour
             PhoneController.instance.StopTime();
         }
 
-        pausePanel.transform.SetAsLastSibling();
-        pauseButton.transform.SetAsLastSibling();
-        pausePanel.SetActive(!pausePanel.activeSelf);
     }
 }

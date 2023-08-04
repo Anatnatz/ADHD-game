@@ -27,7 +27,8 @@ public enum Thought_Enum
     GetShitDone,
     IHateMonday,
     LookingGood,
-    Dont_Froget_Coffee
+    Dont_Froget_Coffee,
+    Eat_Breakfast
 
 
 

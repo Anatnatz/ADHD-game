@@ -146,7 +146,7 @@ public class Task : ScriptableObject
         Cursor.lockState = CursorLockMode.None;
         Game_Manager.gameInstance.doingTask = false;
 
-        CameraZoom.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
+        TaskManager.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
 
         //end animation
         if (animator != null)
