@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
+    public static ScenesManager instance;
     bool bathFirstAppearance = true;
     bool kitchenFirstAppearance = true;
     bool bedroomFirstAppearance = true;
@@ -14,8 +15,15 @@ public class ScenesManager : MonoBehaviour
     introtext introText;
     [SerializeField]
     scoreController score;
+
     [SerializeField]
     GameObject bottomBar;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     public static void SwitchToScene(string name)
     {
         SoundManager.RegisterAction(SoundManager.SoundAction.click);
@@ -37,7 +45,7 @@ public class ScenesManager : MonoBehaviour
         switch (scene.name)
         {
             case "Bedroom":
-                StartCoroutine(loadIntroText());
+                // StartCoroutine(loadIntroText());
                 break;
 
             case "Bathroom":
@@ -54,6 +62,7 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
+
     private void EndLevel()
     {
         Debug.Log("finishline");
@@ -61,7 +70,9 @@ public class ScenesManager : MonoBehaviour
         
     }
 
-    private IEnumerator loadIntroText()
+    
+    public IEnumerator loadIntroText()
+
     {
 
 

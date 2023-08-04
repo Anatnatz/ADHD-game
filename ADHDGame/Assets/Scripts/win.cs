@@ -26,8 +26,10 @@ public class win : MonoBehaviour
 
     public void checkWinCondition()
     {
+
         Debug.Log("you win?");
         StartCoroutine(CameraZoom.instance.ZoomInDoor());
+
 
     }
 

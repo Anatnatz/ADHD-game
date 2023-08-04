@@ -21,11 +21,10 @@ public class PhoneController : MonoBehaviour
 
     [SerializeField]
     private int minutes;
+    [Header("all time texts")]
 
     [SerializeField]
-    private TMP_Text timeText;
-    [SerializeField]
-    private TMP_Text smallTimeText;
+    private List<TMP_Text> timeTexts;
 
     [Header("End Level Time")]
     [SerializeField]
@@ -69,6 +68,8 @@ public class PhoneController : MonoBehaviour
 
     public static float noTouchTime = 0;
     bool firstTimeTiktok = true;
+    string lastWrittenMessage;
+    string tiktokText = "Don't have time for doomscrolling! Close Tiktok!";
 
     void Awake()
     {
@@ -89,6 +90,8 @@ public class PhoneController : MonoBehaviour
             {
                 if (firstTimeTiktok)
                 {
+                    lastWrittenMessage = introtext.instance.introText.text;
+                    introtext.instance.changeIntroText(tiktokText);
                     timeUntilScroll = 25f;
                 }
 
@@ -182,24 +185,36 @@ public class PhoneController : MonoBehaviour
 
     void FormatTime()
     {
+        string timestring = "";
         if (hours < 10 && minutes < 10)
         {
-            timeText.SetText("0" + hours + ":0" + minutes);
+            timestring = "0" + hours + ":0" + minutes;
+            // timeText.SetText("0" + hours + ":0" + minutes);
         }
         else if (hours < 10)
         {
-            timeText.SetText("0" + hours + ":" + minutes);
+            timestring = "0" + hours + ":" + minutes;
+            // timeText.SetText("0" + hours + ":" + minutes);
         }
         else if (minutes < 10)
         {
-            timeText.SetText(hours + ":0" + minutes);
+            timestring = hours + ":0" + minutes;
+            // timeText.SetText(hours + ":0" + minutes);
         }
         else
         {
-            timeText.SetText(hours + ":" + minutes);
+            timestring = hours + ":" + minutes;
+            // timeText.SetText(hours + ":" + minutes);
         }
 
-        smallTimeText.SetText(timeText.text);
+        // smallTimeText.SetText(timeText.text);
+        foreach (TMP_Text timeText in timeTexts)
+        {
+            if (timeText != null)
+            {
+                timeText.SetText(timestring);
+            }
+        }
     }
 
     public void HideAllApps()
@@ -245,6 +260,11 @@ public class PhoneController : MonoBehaviour
             noTouchTime = 0;
             tiktokPlayer.Pause();
             MoveTimeXTimes(0.2f);
+
+            if (introtext.instance.introText.text == tiktokText)
+            {
+                introtext.instance.changeIntroText(lastWrittenMessage);
+            }
         }
         HideAllApps();
         allApps.SetActive(true);
