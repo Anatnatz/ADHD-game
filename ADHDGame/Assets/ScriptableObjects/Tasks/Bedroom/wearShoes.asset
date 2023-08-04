@@ -20,7 +20,9 @@ MonoBehaviour:
   taskScore: 15
   status: 0
   taskOnAppStatus: 0
-  must: 0
+  must: 1
+  results: Going out without shoes can be really painful
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
@@ -29,5 +31,5 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
-  zoomNeeded: 5
+  zoomNeeded: 2
   zoomLocation: {x: -6.9, y: -2.98}

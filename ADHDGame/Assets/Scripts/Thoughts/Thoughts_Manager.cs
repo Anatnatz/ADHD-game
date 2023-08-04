@@ -101,7 +101,7 @@ public class Thoughts_Manager : MonoBehaviour
 
             if (currentThought.loop == true)
             {
-            //    StartCoroutine(changeTextInLoop(newThought, currentThought));
+                StartCoroutine(changeTextInLoop(newThought, currentThought));
             }
 
 
@@ -110,7 +110,9 @@ public class Thoughts_Manager : MonoBehaviour
             {
                 numOfNotTaskThoughtAppeared++;
                 if (numOfNotTaskThoughtAppeared == 1)
-                { StartCoroutine(sendInfoMessageToPlayer(newThought)); }
+                { 
+                   // StartCoroutine(sendInfoMessageToPlayer(newThought));
+                }
 
             }
 
@@ -135,7 +137,7 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal IEnumerator sendInfoMessageToPlayer(thought_Transform thought_Transform)
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(5);
 
         string currentThoughtText = thought_Transform.thoughtText;
         TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -198,48 +200,71 @@ public class Thoughts_Manager : MonoBehaviour
 
         Thought currentThought = searchForThoughtType(thoughtType);
 
+        if(currentThought.previousThought == null) 
+        
+        { 
+
         bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
 
-        if (isTaskDone == false)
-        {
-
-            if (currentThought.thoughtStatus != ThoughtStatus.Appeared)
+            if (isTaskDone == false)
             {
-                if (currentThought.showOnlyOnc == true)
+
+                if (currentThought.thoughtStatus != ThoughtStatus.Appeared)
                 {
-                    if (currentThought.numOfAppearance < 1)
+                    if (currentThought.showOnlyOnc == true)
                     {
-                        createThought(thoughtType);
+                        if (currentThought.numOfAppearance < 1)
+                        {
+                            createThought(thoughtType);
+                        }
                     }
+                    else
+                    {
+
+                        createThought(thoughtType);
+
+                    }
+
                 }
 
-                if (currentThought.loop == true)
-
-                {
-                    StartThoughtLoop(thoughtType);
-                }
-
-                else
-                {
-                    createThought(thoughtType);
-                }
-
-            }
-
+            }   
         }
         else
-        {
-            if (currentThought.isOnLoop == true)
+        { 
+            if (currentThought.previousThought.thoughtStatus == ThoughtStatus.Appeared)
             {
+                bool isTaskDone = TaskManager.instance.IsTaskDone(currentThought.taskType);
 
-                StartThoughtLoop(thoughtType);
-            }
-        }
+                if (isTaskDone == false)
+                {
+
+                    if (currentThought.thoughtStatus != ThoughtStatus.Appeared)
+                    {
+                        if (currentThought.showOnlyOnc == true)
+                        {
+                            if (currentThought.numOfAppearance < 1)
+                            {
+                                createThought(thoughtType);
+                            }
+                        }
+                        else
+                        {
+
+                            createThought(thoughtType);
+
+                        }
+
+                    }
+
+                }
+
+            } 
+         }
+        
 
     }
 
-        
-    
+       
 
     public Thought searchForThoughtType(Thought_Enum lookForThoughtType)
     {

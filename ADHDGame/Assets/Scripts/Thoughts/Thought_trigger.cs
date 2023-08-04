@@ -25,34 +25,39 @@ public class Thought_trigger : MonoBehaviour
         if (other.tag == "phone")
         {
             Thought thought = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-            Task_Enum taskType = thought.taskType;
-            Task task = TaskManager.instance.searchTaskOnList(taskType);
-            Debug.Log("push to taskApp " + task.textInApp);
-            if (thought_Transform.IsItATask == true || task.textInApp != null)
-            {
-                thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
-                thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
-                thought_Transform.pushToApp();
-                thought_Transform.updateNumOfAppearanceOnApp();
-                Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-               
-                if (currentThough.loop == true)
 
-                { startThoughtLoop(currentThough.thoughtType ); }
-                
-                else
+            if (thought.taskType != Task_Enum.None)
+            {
+                Task_Enum taskType = thought.taskType;
+                Task task = TaskManager.instance.searchTaskOnList(taskType);
+
+
+                if (thought_Transform.IsItATask == true || task.textInApp != null)
                 {
-                    Destroy(thought_Transform.gameObject);
-                    Destroy(this);
+                    thought_Transform.thoughtTransformStatus = ThoughtStatus.PushToApp;
+                    thought_Transform.changeStatuse(ThoughtStatus.PushToApp);
+                    thought_Transform.pushToApp();
+                    thought_Transform.updateNumOfAppearanceOnApp();
+                    Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
+
+                    if (currentThough.loop == true)
+
+                    { startThoughtLoop(currentThough.thoughtType); }
+
+                    else
+                    {
+                        Destroy(thought_Transform.gameObject);
+                        Destroy(this);
+
+                    }
+
 
                 }
-                     
-                
             }
-            else
+            if(thought_Transform.IsItATask == false)
             {
                 StartCoroutine(changeThoughtText());
-                Debug.Log("there is nothing to do about it, try to ignor it");
+               
             }
         }
 
