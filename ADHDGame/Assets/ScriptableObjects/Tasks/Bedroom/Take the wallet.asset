@@ -15,12 +15,13 @@ MonoBehaviour:
   taskName: Take
   taskType: 13
   textInApp: Take the wallet
-  duration: 0.1
+  duration: 1
   waitingTime: 0
   taskScore: 5
   status: 0
-  taskOnAppStatus: 0
+  taskOnAppStatus: 3
   must: 0
+  results: 
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}

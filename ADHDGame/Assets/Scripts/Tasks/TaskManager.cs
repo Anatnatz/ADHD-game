@@ -23,12 +23,15 @@ public class TaskManager : MonoBehaviour
 
     [SerializeField]
     List<Task> mustTasks;
-    
+
     public List<Task> NotComplitedMustTaskList;
 
     public List<Task> complitedTasks;
 
     public int numberOfTaskDone = 0;
+
+    public static RoomObject clickedOn;
+
 
     void Start()
     {
@@ -68,8 +71,7 @@ public class TaskManager : MonoBehaviour
             {
                 for (int i = 0; i < buttonsSpace.transform.childCount; i++)
                 {
-                    Debug.Log(mousePos + " : " + rectPosition);
-                    Debug.Log(buttonsSpace.transform.GetChild(i).gameObject);
+                    clickedOn.animator.SetBool("isClicked", false);
                     Destroy(buttonsSpace.transform.GetChild(i).gameObject);
                 }
 
@@ -77,7 +79,7 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        if ( numberOfTaskDone>5)
+        if (numberOfTaskDone > 5)
         { Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Almost_late); }
     }
 
@@ -105,7 +107,7 @@ public class TaskManager : MonoBehaviour
 
         for (int i = 0; i < tasksList.Count; i++)
         {
-            if(tasksList[i].status == TaskStatus_Enum.Done)
+            if (tasksList[i].status == TaskStatus_Enum.Done)
             {
                 complitedTasks.Add(tasksList[i]);
             }
@@ -145,7 +147,7 @@ public class TaskManager : MonoBehaviour
 
     public void UpdateTotalScore(Task taskForScore)
     {
-       // totalScore += taskForScore.score;
+        // totalScore += taskForScore.score;
         //InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
     }
 
@@ -166,12 +168,12 @@ public class TaskManager : MonoBehaviour
         {
             if (mustTasks[i].status != TaskStatus_Enum.Done)
             {
-               EndLevel.instance.unDoneMustLIst.Add(mustTasks[i]);
+                EndLevel.instance.unDoneMustLIst.Add(mustTasks[i]);
             }
 
         }
 
-       
+
     }
 
     internal bool IsTaskDone(Task_Enum taskType)

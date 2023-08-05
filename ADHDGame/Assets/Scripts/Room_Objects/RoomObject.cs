@@ -46,7 +46,7 @@ public class RoomObject : MonoBehaviour
     public TMP_Text textInfo;
     public bool textInfoTest;
     private static bool allowTakeKeys;
-
+    public bool showingTheseTasks;
 
 
 
@@ -93,6 +93,7 @@ public class RoomObject : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject() && !Game_Manager.gameInstance.doingTask)
         {
+            TaskManager.clickedOn = this;
             ShowTasks();
             for (int i = 0; i < relatedTasks.Count; i++)
             {
@@ -115,6 +116,8 @@ public class RoomObject : MonoBehaviour
             isClickable = false;
         }
 
+        DestoryPreviousTasks();
+
         foreach (Task relatedTask in relatedTasks)
         {
             if ((relatedTask.waitingOnTask == null || relatedTask.waitingOnTask.status == TaskStatus_Enum.Done) && relatedTask.status == TaskStatus_Enum.none)
@@ -130,6 +133,16 @@ public class RoomObject : MonoBehaviour
             CreateTaskListeners();
         }
         // TaskButtonController.instance.ButtonsChanged();
+    }
+
+    void DestoryPreviousTasks()
+    {
+        GameObject buttonsSpace = GameObject.Find("ButtonsSpace");
+        for (int i = 0; i < buttonsSpace.transform.childCount; i++)
+        {
+            Destroy(buttonsSpace.transform.GetChild(i).gameObject);
+        }
+
     }
 
     void CreateTaskButton(string name, Task relatedTask)
