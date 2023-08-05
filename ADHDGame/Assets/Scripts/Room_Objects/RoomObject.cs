@@ -86,6 +86,21 @@ public class RoomObject : MonoBehaviour
             {
                 animator.SetBool("take", true);
             }
+            if (task.taskType == Task_Enum.Turn_on_Coffemaker)
+            {
+                if (task.status == TaskStatus_Enum.Waiting)
+                {
+                    animator.SetBool("making", true);
+                }
+                else if (task.status == TaskStatus_Enum.Done && TaskManager.instance.searchTaskOnList(Task_Enum.Make_coffee).status != TaskStatus_Enum.Done)
+                {
+                    animator.SetBool("ready", true);
+                }
+            }
+            if (task.taskType == Task_Enum.Make_coffee && task.status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
         }
     }
 
