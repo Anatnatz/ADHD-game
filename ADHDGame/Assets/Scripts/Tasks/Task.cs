@@ -178,9 +178,12 @@ public class Task : ScriptableObject
     private void checkTasksThought()
     {
         thought_Transform currentThoughtTransform = Thoughts_Manager.ThoughtsInstance.searchForThoughtTransformTypeByTask(taskType);
-        if (currentThoughtTransform != null && currentThoughtTransform.thoughtTransformStatus == ThoughtStatus.Appeared)
+        if (currentThoughtTransform != null)
         {
-            currentThoughtTransform.gameObject.SetActive(false);
+            if (currentThoughtTransform.thoughtTransformStatus == ThoughtStatus.Appeared)
+            {
+                currentThoughtTransform.gameObject.SetActive(false);
+            }
         }
     }
 

@@ -318,15 +318,18 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal thought_Transform searchForThoughtTransformTypeByTask(Task_Enum taskType)
     {
-
-        for (int i = 0; i < thought_Transforms.Count; i++)
+        if (thought_Transforms.Count > 0)
         {
-            if (thought_Transforms[i].taskType == taskType && thought_Transforms[i].thoughtTransformStatus != ThoughtStatus.PushToApp)
+            for (int i = 0; i < thought_Transforms.Count; i++)
             {
-                currentThoughTransform = thought_Transforms[i];
+                if (thought_Transforms[i].taskType == taskType && thought_Transforms[i].thoughtTransformStatus != ThoughtStatus.PushToApp)
+                {
+                    currentThoughTransform = thought_Transforms[i];
+                }
             }
+            return currentThoughTransform;
         }
-        return currentThoughTransform;
+        return null;
     }
 
     internal thought_Transform searchForTransformByThoughtType(Thought_Enum thoughtType)
