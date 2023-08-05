@@ -163,9 +163,10 @@ public class Task : ScriptableObject
         {
             status = TaskStatus_Enum.Done;
             SoundManager.RegisterAction(SoundManager.SoundAction.score);
-            TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
+            taskOnAppStatus = TextOnApp_Enum.Marked_As_Done;
+            TaskOnApp_Manager.TaskOnAppInstance.MarkTaskAsDone(this);
             checkTasksThought();
-            Debug.Log(status.ToString());
+
             CheckFollowingAction();
             //TaskManager.instance.UpdateTotalScore(this);
             scoreController.instance.changeScore(taskScore);
@@ -185,8 +186,8 @@ public class Task : ScriptableObject
 
     public void CheckFollowingAction()
     {
-        checkFollowingMessage();
         checkFollowingThoughts();
+        checkFollowingMessage();
 
         // switch (status)
         // {

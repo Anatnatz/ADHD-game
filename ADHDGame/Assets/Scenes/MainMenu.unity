@@ -8354,7 +8354,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9068108883903534215, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
+    - {fileID: 9206872859782456829, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76824e656e9b1a54b8b2c974c1445d47, type: 3}
 --- !u!1 &1201574419
 GameObject:
@@ -11734,6 +11736,7 @@ MonoBehaviour:
   doingTask: 0
   pausePanel: {fileID: 1129760249}
   pauseButton: {fileID: 1016629251}
+  log: {fileID: 0}
 --- !u!4 &1552217446
 Transform:
   m_ObjectHideFlags: 0

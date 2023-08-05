@@ -22,13 +22,14 @@ MonoBehaviour:
   isOnLoop: 0
   currentThoughtText: 0
   numOfAppearance: 0
-  waitingGap: 0
+  waitingGap: 1
+  previousThought: {fileID: 0}
   previousAction: 
   showOnlyOnc: 0
   isItATask: 1
   taskType: 15
   followingMessagesWhenAppeared: 
-  followingThoughtsWhenAppeared: 
+  followingThoughtsWhenAppeared: 17000000
   followingMessagesWhenDeleted: 
   followingThoughtsWhenDeleted: 
   followingMessagesWhenPushToApp: 

@@ -179,4 +179,17 @@ public class TaskOnApp_Manager : MonoBehaviour
             { changeStatus(appTransforms[i].name, TextOnApp_Enum.Marked_As_Done); break; }
         }
     }
+
+    public void MarkTaskAsDone(Task task)
+    {
+        for (int i = 0; i < appTransforms.Count; i++)
+        {
+            if (appTransforms[i].taskType == task.taskType)
+            {
+                markedAsDoneOnAppTasks.Add(appTransforms[i]);
+                Destroy(appTransforms[i].gameObject);
+                appTransforms.Remove(appTransforms[i]);
+            }
+        }
+    }
 }
