@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Dry Hands
   taskType: 18
-  textInApp: 
+  textInApp: dry hands
   duration: 0.1
   waitingTime: 0
   taskScore: 10

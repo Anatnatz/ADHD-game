@@ -100,6 +100,11 @@ public class RoomObject : MonoBehaviour
                 {
                     Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.GetShitDone);
                 }
+
+                if (relatedTasks[i].taskType == Task_Enum.Turn_on_Coffemaker && relatedTasks[i].status == TaskStatus_Enum.Waiting)
+                {
+                    Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Coffe_Not_Read);
+                }
             }
 
         }

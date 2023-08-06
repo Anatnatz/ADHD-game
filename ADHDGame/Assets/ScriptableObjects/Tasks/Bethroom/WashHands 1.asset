@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Wash hands
   taskType: 28
-  textInApp: 
+  textInApp: wash hands
   duration: 1
   waitingTime: 0
   taskScore: 15

@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Wash hands
   taskType: 15
-  textInApp: 
+  textInApp: wash hands
   duration: 1
   waitingTime: 0
   taskScore: 10
   status: 0
-  taskOnAppStatus: 3
+  taskOnAppStatus: 1
   must: 0
+  results: 
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
@@ -29,5 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 12000000
   connectedRoomObject: 7
-  zoomNeeded: 1
+  waiting: 0
+  zoomNeeded: 3
   zoomLocation: {x: 7.65, y: -1.37}

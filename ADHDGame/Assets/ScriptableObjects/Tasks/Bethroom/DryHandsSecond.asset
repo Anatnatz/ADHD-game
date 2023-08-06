@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Dry Hands
   taskType: 18
-  textInApp: 
+  textInApp: dry hands
   duration: 0.1
   waitingTime: 0
   taskScore: 5
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: 
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: fa122947d45272b408812f0aa392430e, type: 2}
   blockingThought: 0
@@ -29,5 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 10000000
   connectedRoomObject: 0
+  waiting: 0
   zoomNeeded: 0
   zoomLocation: {x: 0, y: 0}

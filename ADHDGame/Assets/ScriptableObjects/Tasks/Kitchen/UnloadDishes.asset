@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Unload Dishwasher
   taskType: 19
-  textInApp: Uload Dishwasher
+  textInApp: Unload Dishwasher
   duration: 3
   waitingTime: 15
   taskScore: 15
   status: 0
   taskOnAppStatus: 1
   must: 0
+  results: 
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
-  zoomNeeded: 0
+  waiting: 0
+  zoomNeeded: 3
   zoomLocation: {x: 6.04, y: -1.08}
