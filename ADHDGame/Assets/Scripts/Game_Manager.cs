@@ -40,6 +40,8 @@ public class Game_Manager : MonoBehaviour
         SoundManager.instance.PlayMusic();
         MessageController.messageControlInstance.SendMessage(MessageName_Enum.Good_morning);
         SoundManager.instance.PlayMusic();
+
+        TaskOnApp_Manager.TaskOnAppInstance.createTaskOnAppTransform(Task_Enum.GoOut);
     }
 
     public static void QuitGame()

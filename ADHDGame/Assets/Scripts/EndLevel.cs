@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EndLevel : MonoBehaviour
 {
@@ -14,7 +16,8 @@ public class EndLevel : MonoBehaviour
     public TMP_Text isItEnough;
     public TMP_Text byTheWay;
     public TMP_Text results;
-    
+    public List<Image> stars;
+
     public int minTasks;
     public string ByTheWayText = "By the way,";
     public string introText = "You've left the house on time!";
@@ -49,7 +52,7 @@ public class EndLevel : MonoBehaviour
         Debug.Log(" Score:" + scoreController.instance.currentScore);
 
         bool runOutOfTime = PhoneController.instance.runOutOfTime;
-        if (runOutOfTime == true) 
+        if (runOutOfTime == true)
         {
             intro.text = runOutOfTimeText;
         }
@@ -59,11 +62,29 @@ public class EndLevel : MonoBehaviour
             intro.text = wentOutText;
 
         }
-        
+
         score.text = " Score:" + scoreController.instance.currentScore;
-        
-        task.text = "Tasks:" + TaskManager.instance.complitedTasks.Count.ToString() + "/" + TaskManager.instance.tasksList.Count;
-        
+
+        int tasksDone = TaskManager.instance.complitedTasks.Count;
+        int totalTasks = TaskManager.instance.tasksList.Count;
+
+        task.text = "Tasks:" + tasksDone.ToString() + "/" + totalTasks;
+
+        if (tasksDone != 0)
+        {
+            if (tasksDone < totalTasks / stars.Count)
+            {
+                stars[0].color = new Color32(255, 255, 255, 255);
+            }
+            else if (tasksDone < (totalTasks / stars.Count) * 2)
+            {
+                stars[1].color = new Color32(255, 255, 255, 255);
+            }
+            else if (tasksDone < (totalTasks / stars.Count) * 3)
+            {
+                stars[2].color = new Color32(255, 255, 255, 255);
+            }
+        }
 
         if (TaskManager.instance.complitedTasks.Count >= minTasks)
 
@@ -75,11 +96,11 @@ public class EndLevel : MonoBehaviour
             isItEnough.text = loseText;
         }
 
-        
+
 
         checkedResults();
 
-        runOutTime= false;
+        runOutTime = false;
 
     }
 
@@ -97,7 +118,7 @@ public class EndLevel : MonoBehaviour
 
         if (unDoneMustLIst.Count > 0)
         {
-            int i = Random.Range(0, unDoneMustLIst.Count);
+            int i = Random.Range(0, unDoneMustLIst.Count - 1);
 
 
             if (unDoneMustLIst[i].results != string.Empty)
@@ -105,12 +126,17 @@ public class EndLevel : MonoBehaviour
                 byTheWay.text = ByTheWayText;
                 results.text = unDoneMustLIst[i].results;
             }
-            else { closeLastTextLines(); };
+            else { checkedResults(); };
 
+        }
+        else if (unDoneMustLIst.Count == 1)
+        {
+            byTheWay.text = ByTheWayText;
+            results.text = unDoneMustLIst[0].results;
         }
         else
         {
-            
+
             for (int i = 0; i < TaskManager.instance.tasksList.Count; i++)
             {
                 if (TaskManager.instance.tasksList[i].status == TaskStatus_Enum.none)
@@ -128,10 +154,10 @@ public class EndLevel : MonoBehaviour
             }
         }
 
-        
+
     }
 
-    
+
     internal void closeLastTextLines()
     {
         byTheWay.gameObject.SetActive(false);
