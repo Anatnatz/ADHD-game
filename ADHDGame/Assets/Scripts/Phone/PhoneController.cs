@@ -71,15 +71,24 @@ public class PhoneController : MonoBehaviour
     string lastWrittenMessage;
     string tiktokText = "Don't have time for doomscrolling! Close Tiktok!";
     public bool runOutOfTime = false;
-    
+
+    float startOrigin;
+
 
     void Awake()
     {
         instance = this;
     }
 
+    public void RestartTime()
+    {
+        hours = (int)(startOrigin % 10);
+        minutes = (int)(startOrigin / 10f);
+    }
+
     void Start()
     {
+        startOrigin = GetCurrentTime();
         FormatTime();
         StartCoroutine(MoveTime(1));
     }
@@ -152,7 +161,7 @@ public class PhoneController : MonoBehaviour
         }
     }
 
-   public bool LevelHasMoreTime()
+    public bool LevelHasMoreTime()
     {
         bool moreTime = true;
         if (hours >= endHours && minutes >= endMinutes)
@@ -178,13 +187,13 @@ public class PhoneController : MonoBehaviour
             ScenesManager.SwitchToScene("Bedroom");
             yield return new WaitForSeconds(3f);
         }
-        
+
         ScenesManager.SwitchToScene("Kitchen");
         yield return new WaitForSeconds(0.5f);
         runOutOfTime = true;
         StartCoroutine(CameraZoom.instance.ZoomInDoor());
         // Game_Manager.gameInstance.PauseGame();
-        
+
     }
 
     void FormatTime()

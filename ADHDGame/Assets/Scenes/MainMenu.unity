@@ -1718,7 +1718,7 @@ RectTransform:
   m_Children:
   - {fileID: 1942683051}
   m_Father: {fileID: 913033612}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3591,7 +3591,7 @@ RectTransform:
   m_Children:
   - {fileID: 1389109823}
   m_Father: {fileID: 913033612}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5837,7 +5837,7 @@ RectTransform:
   - {fileID: 385573290}
   - {fileID: 226541288}
   m_Father: {fileID: 913033612}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6249,10 +6249,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1500119708}
   - {fileID: 846788978}
   - {fileID: 475702193}
   - {fileID: 240893133}
-  - {fileID: 1500119708}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12062,7 +12062,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 913033612}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12393,7 +12393,6 @@ MonoBehaviour:
   doingTask: 0
   pausePanel: {fileID: 1129760249}
   pauseButton: {fileID: 1016629251}
-  log: {fileID: 0}
 --- !u!4 &1552217446
 Transform:
   m_ObjectHideFlags: 0

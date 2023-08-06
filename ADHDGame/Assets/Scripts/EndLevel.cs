@@ -163,4 +163,9 @@ public class EndLevel : MonoBehaviour
         byTheWay.gameObject.SetActive(false);
         results.gameObject.SetActive(false);
     }
+
+    public void RestartGame()
+    {
+        Game_Manager.gameInstance.ToMainMenu();
+    }
 }

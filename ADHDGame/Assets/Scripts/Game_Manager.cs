@@ -54,6 +54,7 @@ public class Game_Manager : MonoBehaviour
     public void ToMainMenu()
     {
         ScenesManager.SwitchToScene("MainMenu");
+        PhoneController.instance.RestartTime();
     }
 
     public void PauseGame()
