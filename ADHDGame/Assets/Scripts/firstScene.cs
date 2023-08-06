@@ -10,7 +10,7 @@ public class firstScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(startLogo());  
+       // StartCoroutine(startLogo());  
     }
 
     internal IEnumerator startLogo() 

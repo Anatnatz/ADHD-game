@@ -21,6 +21,7 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: 
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
+  waiting: 1
   zoomNeeded: 2
   zoomLocation: {x: 4.87, y: 0.45}

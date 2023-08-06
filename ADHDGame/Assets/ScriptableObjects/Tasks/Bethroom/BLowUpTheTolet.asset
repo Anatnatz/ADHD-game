@@ -21,6 +21,10 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: " On your way to work you couldn\u2019t hold it anymore - you had to GO!
+    You stopped at a gas station and got locked in the toilet. Try to explain that
+    to your boss."
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: 96d65d7ff53605540a92340994c7ccee, type: 2}
   blockingThought: 0
@@ -29,5 +33,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 14000000
   connectedRoomObject: 0
-  zoomNeeded: 0
+  waiting: 0
+  zoomNeeded: 2
   zoomLocation: {x: -7.66, y: -1.72}

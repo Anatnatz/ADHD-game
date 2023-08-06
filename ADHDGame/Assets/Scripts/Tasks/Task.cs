@@ -61,12 +61,17 @@ public class Task : ScriptableObject
     [SerializeField]
     Object_Enum connectedRoomObject;
 
+    public bool waiting = false;
+
 
 
     public float zoomNeeded;
     public Vector2 zoomLocation;
 
-
+    public void start()
+    {
+        waiting = false;
+    }
     public void StartTask(Animator taskAnimator)
     {
         animator = taskAnimator;
@@ -117,6 +122,7 @@ public class Task : ScriptableObject
         {
             Debug.Log(PhoneController.instance.GetCurrentTime() + " > " + (waitUntil) + " ... " + PhoneController.instance.gameMinute);
             yield return new WaitForSeconds(PhoneController.instance.gameMinute);
+            waiting = true;
         }
 
         Debug.Log(PhoneController.instance.GetCurrentTime());
@@ -126,7 +132,7 @@ public class Task : ScriptableObject
         status = TaskStatus_Enum.Done;
         SoundManager.RegisterAction(SoundManager.SoundAction.score);
         CheckFollowingAction();
-
+        waiting = false;
         // TaskManager.instance.StartCoroutine(CameraZoom.instance.ZoomOut());
     }
 
@@ -138,7 +144,7 @@ public class Task : ScriptableObject
         {
             animator.SetBool("isActive", true);
         }
-
+        
         Cursor.lockState = CursorLockMode.Locked;
         Game_Manager.gameInstance.doingTask = true;
         yield return new WaitForSeconds(duration);
@@ -161,6 +167,7 @@ public class Task : ScriptableObject
         }
         else
         {
+            
             status = TaskStatus_Enum.Done;
             SoundManager.RegisterAction(SoundManager.SoundAction.score);
             TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
@@ -172,6 +179,7 @@ public class Task : ScriptableObject
             TaskManager.instance.numberOfTaskDone++;
 
         }
+        
     }
 
     private void checkTasksThought()

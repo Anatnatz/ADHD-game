@@ -21,6 +21,8 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: ' You went to work wearing pyjamas?! Great, everyone in the office loved
+    your style! You created a new trend - Sweatpants Monday! '
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +32,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 18000000
   connectedRoomObject: 0
+  waiting: 0
   zoomNeeded: 4
   zoomLocation: {x: 6.05, y: 0.12}

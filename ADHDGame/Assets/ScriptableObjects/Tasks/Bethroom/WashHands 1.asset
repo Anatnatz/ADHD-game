@@ -21,6 +21,9 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 3
   must: 0
+  results: "You are starting another global pandemic!  We\u2019ll\u2026 not really
+    - but you forgot to wash your hands and that\u2019s just gross"
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: fa122947d45272b408812f0aa392430e, type: 2}
   blockingThought: 0
@@ -29,5 +32,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 12000000
   connectedRoomObject: 7
+  waiting: 0
   zoomNeeded: 1
   zoomLocation: {x: 7.65, y: -1.37}

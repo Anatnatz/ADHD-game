@@ -21,6 +21,8 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: 'Everyone knows that making your bed in the morning is the only thing
+    driving you to success. The meeting went bad and you lost that client. '
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +32,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
+  waiting: 0
   zoomNeeded: 4
   zoomLocation: {x: -6.51, y: -1.83}

@@ -19,8 +19,11 @@ MonoBehaviour:
   waitingTime: 0
   taskScore: 20
   status: 0
-  taskOnAppStatus: 1
+  taskOnAppStatus: 3
   must: 0
+  results: " On your way to work you couldn\u2019t hold it anymore, you tried to
+    pee behind a bush in the park, missed and all your pants got wet. Everyone stared
+    at you in the office. "
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +33,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 1300000017000000
   connectedRoomObject: 6
+  waiting: 0
   zoomNeeded: 2
   zoomLocation: {x: -7.66, y: -1.72}

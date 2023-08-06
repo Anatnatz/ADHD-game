@@ -19,8 +19,11 @@ MonoBehaviour:
   waitingTime: 0
   taskScore: 10
   status: 0
-  taskOnAppStatus: 0
+  taskOnAppStatus: 3
   must: 0
+  results: 
+  textIfNotDone: 'You still got some water and soap on your hands. While trying to
+    put the phone in your pocket it slipped and fell into the toilet. '
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
@@ -29,5 +32,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 08000000
   connectedRoomObject: 0
-  zoomNeeded: 0
+  waiting: 0
+  zoomNeeded: 2
   zoomLocation: {x: 5.09, y: -1.71}

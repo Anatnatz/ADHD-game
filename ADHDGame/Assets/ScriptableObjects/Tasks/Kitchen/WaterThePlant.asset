@@ -21,6 +21,8 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 1
+  results: " You didn\u2019t water the plant. It died and Maya yelled at you for
+    2 hours for it. You didn\u2019t get to finish your game for the GameJam."
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +32,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 0a000000
   connectedRoomObject: 29
+  waiting: 0
   zoomNeeded: 2
-  zoomLocation: {x: 4.91, y: 0.1}
+  zoomLocation: {x: 3.45, y: 0.1}

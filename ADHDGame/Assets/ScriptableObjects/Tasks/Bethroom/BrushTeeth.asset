@@ -21,6 +21,9 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: Everyone you spoke to today took a step back, by noon everyone started
+    avoiding you. Also they went for drinks after work. You weren't invited. Did
+    you forget to brush your teeth?
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
@@ -30,5 +33,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 9
+  waiting: 0
   zoomNeeded: 1
   zoomLocation: {x: 3.28, y: 0.3}

@@ -21,6 +21,7 @@ MonoBehaviour:
   status: 0
   taskOnAppStatus: 0
   must: 0
+  results: no more clean underwear... You will have to deal with it tomorrow
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: d331020d743ef0440b24b34148372881, type: 2}
@@ -30,5 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 01000000
   connectedRoomObject: 22
+  waiting: 0
   zoomNeeded: 2
   zoomLocation: {x: 2.03, y: -2.19}

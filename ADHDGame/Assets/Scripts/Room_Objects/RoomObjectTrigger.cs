@@ -7,21 +7,34 @@ public class RoomObjectTrigger : MonoBehaviour
     [SerializeField]
     RoomObject roomObject;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   // private void OnTriggerEnter2D(Collider2D collision)
+    //{
+      //  if (collision.tag == Tags_Enum.Mouse.ToString() && roomObject.relatedThoughts != null)
+        //{
+          //  roomObject.objectTrigger();
+        //}
+    //}
+
+    private void OnMouseEnter()
     {
-        if (collision.tag == Tags_Enum.Mouse.ToString() && roomObject.relatedThoughts != null)
+        if(roomObject.relatedThoughts != null)
+        { roomObject.objectTrigger(); }
+    }
+    internal void OnMouseDown()
+    { 
+        
+        for (int i = 0; i < roomObject.relatedTasks.Count; i++)
         {
-            roomObject.objectTrigger();
+            if (roomObject.relatedTasks[i].taskType == Task_Enum.Turn_on_Coffemaker)
+            {
+                Debug.Log("triger coffee");
+                if (roomObject.relatedTasks[i].waiting == true)
+                {
+                    Thoughts_Manager.ThoughtsInstance.triggerThought(Thought_Enum.Coffe_Not_Read);
+                }
+            }
+
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        
     }
 }

@@ -19,8 +19,11 @@ MonoBehaviour:
   waitingTime: 0
   taskScore: 100
   status: 0
-  taskOnAppStatus: 3
+  taskOnAppStatus: 1
   must: 0
+  results: " Everything is so much\u2026 s l o w e r without coffee. It took you
+    twice as long to drive to work and you were late.  "
+  textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 11400000, guid: ce8b1b7b01511684ebd60bfeff8ab19d, type: 2}
   blockingThought: 0
@@ -29,5 +32,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 0e000000
   connectedRoomObject: 23
+  waiting: 0
   zoomNeeded: 2
-  zoomLocation: {x: 3.55, y: 0.45}
+  zoomLocation: {x: 4.87, y: 0.45}
