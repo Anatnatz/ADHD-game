@@ -70,6 +70,8 @@ public class PhoneController : MonoBehaviour
     bool firstTimeTiktok = true;
     string lastWrittenMessage;
     string tiktokText = "Don't have time for doomscrolling! Close Tiktok!";
+    public bool runOutOfTime = false;
+    
 
     void Awake()
     {
@@ -150,7 +152,7 @@ public class PhoneController : MonoBehaviour
         }
     }
 
-    bool LevelHasMoreTime()
+   public bool LevelHasMoreTime()
     {
         bool moreTime = true;
         if (hours >= endHours && minutes >= endMinutes)
@@ -176,11 +178,13 @@ public class PhoneController : MonoBehaviour
             ScenesManager.SwitchToScene("Bedroom");
             yield return new WaitForSeconds(3f);
         }
-
+        
         ScenesManager.SwitchToScene("Kitchen");
         yield return new WaitForSeconds(0.5f);
+        runOutOfTime = true;
         StartCoroutine(CameraZoom.instance.ZoomInDoor());
         // Game_Manager.gameInstance.PauseGame();
+        
     }
 
     void FormatTime()

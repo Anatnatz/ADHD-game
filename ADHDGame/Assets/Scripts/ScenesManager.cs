@@ -15,9 +15,13 @@ public class ScenesManager : MonoBehaviour
     introtext introText;
     [SerializeField]
     scoreController score;
+    [SerializeField]
+    GameObject scoreview;
 
     [SerializeField]
     GameObject bottomBar;
+    [SerializeField]
+    GameObject phone;
 
     void Awake()
     {
@@ -45,7 +49,9 @@ public class ScenesManager : MonoBehaviour
         switch (scene.name)
         {
             case "Bedroom":
-                // StartCoroutine(loadIntroText());
+                StartCoroutine(loadIntroText());
+               
+
                 break;
 
             case "Bathroom":
@@ -62,11 +68,14 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
+    
 
     private void EndLevel()
     {
         Debug.Log("finishline");
         bottomBar.gameObject.SetActive(false);
+        phone.SetActive(false);
+
         
     }
 
@@ -76,7 +85,7 @@ public class ScenesManager : MonoBehaviour
     {
 
 
-        score.gameObject.SetActive(true);
+        scoreview.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         introText.gameObject.SetActive(true);
 

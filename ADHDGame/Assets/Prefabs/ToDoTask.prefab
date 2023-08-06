@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3237606534383083028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 16.6}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4897200675659656300
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X
+  m_text: "\tv"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8bb2d82c0807567438d6900159edb2d4, type: 2}
   m_sharedMaterial: {fileID: 6177450681511603522, guid: 8bb2d82c0807567438d6900159edb2d4, type: 2}
@@ -635,6 +635,7 @@ MonoBehaviour:
   taskOnAppStatus: 0
   positionOnApp: 0
   appeared: 0
+  v: {fileID: 3747031723087960661}
 --- !u!114 &2151239472077259417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,16 +770,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112192443738163431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2151239472077259417}
-        m_TargetAssemblyTypeName: buttonsApp, Assembly-CSharp
-        m_MethodName: deleteFromApp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

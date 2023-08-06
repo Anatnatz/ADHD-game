@@ -19,7 +19,7 @@ MonoBehaviour:
     clock
   messageType: 0
   messageOnAppStatus: 0
-  waitingGap: 0
+  waitingGap: 4
   previousAction: 
   relatedTask: 0
   followingMessages: 

@@ -30,6 +30,8 @@ public class Thoughts_Manager : MonoBehaviour
 
     [SerializeField]
     int numOfNotTaskThoughtAppeared = 0;
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -101,7 +103,7 @@ public class Thoughts_Manager : MonoBehaviour
 
             if (currentThought.loop == true)
             {
-                StartCoroutine(changeTextInLoop(newThought, currentThought));
+                //StartCoroutine(changeTextInLoop(newThought, currentThought));
             }
 
 
@@ -197,7 +199,7 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
-
+       
         Thought currentThought = searchForThoughtType(thoughtType);
 
         if (currentThought.previousThought == null)
@@ -341,5 +343,17 @@ public class Thoughts_Manager : MonoBehaviour
         return currentThoughTransform;
     }
 
+    internal void clearThoughtsFromScene()
+    {
+        for (int i = 0; i < thought_Transforms.Count; i++)
+        {
+            if (thought_Transforms[i].thoughtTransformStatus == ThoughtStatus.Appeared) 
+            {
+                thought_Transforms[i].gameObject.SetActive(false);
+            }
 
+        }
+    }
+
+   
 }

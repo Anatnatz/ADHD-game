@@ -145,8 +145,9 @@ public class TaskManager : MonoBehaviour
 
     public void UpdateTotalScore(Task taskForScore)
     {
-       // totalScore += taskForScore.score;
+        // totalScore += taskForScore.score;
         //InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
+        
     }
 
     public void StartTask(Button taskBtn)

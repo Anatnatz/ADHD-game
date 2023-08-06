@@ -17,13 +17,19 @@ MonoBehaviour:
   textInApp: Be ready to leave at 8:10
   duration: 3
   waitingTime: 0
-  score: 20
+  taskScore: 0
   status: 0
-  taskOnAppStatus: 0
-  animation: {fileID: 0}
+  taskOnAppStatus: 1
+  must: 0
+  results: 
+  textIfNotDone: 
+  animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
+  connectedRoomObject: 0
+  zoomNeeded: 0
+  zoomLocation: {x: 0, y: 0}

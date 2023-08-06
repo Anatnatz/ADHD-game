@@ -32,10 +32,14 @@ public class TaskOnApp_Manager : MonoBehaviour
     [SerializeField]
     Transform taskOnAppParent;
 
+    public GameObject pushToAppFeedbackClosePhone;
+    public GameObject pushToAppFeedbackOpenPhone;
+
     // Start is called before the first frame update
     void Start()
     {
         TaskOnAppInstance = this;
+        
     }
 
     // Update is called once per frame
@@ -45,6 +49,12 @@ public class TaskOnApp_Manager : MonoBehaviour
 
     public void createTaskOnAppTransform(Task_Enum taskType)
     {
+        if(serialNum > 0)
+        {
+            StartCoroutine(pushToAppFeedbackCoroutine());
+        }
+       
+
         //create new appTransform
         GameObject newAppTask = Instantiate(appTransform_Prefab);
         AppTransform newAppTransform = newAppTask.GetComponent<AppTransform>();
@@ -98,7 +108,9 @@ public class TaskOnApp_Manager : MonoBehaviour
         searchForTransformOnLIst(name);
         ChangeTaskOnAppStatus(status, currentAppTransformNum);
         AddToList(currentAppTransformNum, status);
-        appTransforms[currentAppTransformNum].gameObject.SetActive(false);
+        
+        appTransforms[currentAppTransformNum].v.gameObject.SetActive(true);
+        // appTransforms[currentAppTransformNum].gameObject.SetActive(false);
         RemoveFromList(currentAppTransformNum, status);
     }
 
@@ -162,6 +174,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     {
         appTransforms[numOnList].taskOnAppStatus = taskOnAppStatus;
         ChangeTask_TaskOnAppStatus(taskOnAppStatus, numOnList);
+        
     }
 
     private void ChangeTask_TaskOnAppStatus(TextOnApp_Enum taskOnAppStatus, int numOnList)
@@ -178,5 +191,27 @@ public class TaskOnApp_Manager : MonoBehaviour
             if (appTransforms[i].taskType == taskType)
             { changeStatus(appTransforms[i].name, TextOnApp_Enum.Marked_As_Done); break; }
         }
+    }
+    internal IEnumerator pushToAppFeedbackCoroutine()
+    {
+        if (PhoneController.instance.phoneStatus == PhoneStatus_Enum.OpenPhone)
+        {
+            pushToAppFeedbackOpenPhone.SetActive(true);
+        }
+
+        if (PhoneController.instance.phoneStatus == PhoneStatus_Enum.ClosePhone)
+        { pushToAppFeedbackClosePhone.SetActive(true); }
+
+        yield return new WaitForSeconds(2);
+
+        if (PhoneController.instance.phoneStatus == PhoneStatus_Enum.OpenPhone)
+        {
+            pushToAppFeedbackOpenPhone.SetActive(false);
+        }
+
+        if (PhoneController.instance.phoneStatus == PhoneStatus_Enum.ClosePhone)
+        { pushToAppFeedbackClosePhone.SetActive(false); }
+
+
     }
 }

@@ -47,6 +47,8 @@ public class MessageController : MonoBehaviour
 
     public static MessageController messageControlInstance;
 
+    public GameObject messagefeedback;
+
 
 
 
@@ -118,10 +120,30 @@ public class MessageController : MonoBehaviour
 
             }
 
+            if(messageName == MessageName_Enum.Good_morning)
+            {
+                StartCoroutine( startMessagefeedback());
+            }
 
         }
     }
 
+    internal IEnumerator startMessagefeedback()
+    {
+        yield return new WaitForSeconds(2);
+        messagefeedback.SetActive(true);
+        MessageScriptble message = SearchMessageOnList(MessageName_Enum.Good_morning);
+        while (message.messageOnAppStatus != MessageOnAppStatus_Enum.Read)
+        {
+            yield return new WaitForSeconds(0.5f);
+            messagefeedback.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            messagefeedback.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            messagefeedback.SetActive(false);
+        }
+        messagefeedback.SetActive(false);
+    }
     public void createMessageOnApp(MessageName_Enum messageName)
     {
         GameObject messageObject = Instantiate(messagePrefab);
@@ -206,7 +228,7 @@ public class MessageController : MonoBehaviour
 
     internal IEnumerator waitToClose()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         setOffPhoneMessage();
     }
 
@@ -244,5 +266,11 @@ public class MessageController : MonoBehaviour
         {
             msgScriptable.messageOnAppStatus = MessageOnAppStatus_Enum.Unread;
         }
+    }
+
+    internal void clearMessagesFromScene()
+    {
+        closePhoneMessage.gameObject.SetActive(false);
+        openPhoneMessage.gameObject.SetActive(false);
     }
 }

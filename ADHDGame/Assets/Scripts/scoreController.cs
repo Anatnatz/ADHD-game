@@ -9,6 +9,7 @@ public class scoreController : MonoBehaviour
     public TMP_Text scoreText;
     public int currentScore = 0;
     public bool scoreTest;
+    
 
     
 
@@ -19,7 +20,6 @@ public class scoreController : MonoBehaviour
     }
     public void changeScore(int Score)
     {
-       Debug.Log("help");
         int newScore = currentScore + Score;
         scoreText.text = "score:" + newScore;
         currentScore = newScore;

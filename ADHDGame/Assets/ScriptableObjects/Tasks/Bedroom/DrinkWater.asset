@@ -20,20 +20,16 @@ MonoBehaviour:
   taskScore: 10
   status: 0
   taskOnAppStatus: 1
-
-  must: 1
-  results: You're thirsty to death
-
   must: 0
-
+  results: 
   textIfNotDone: 
   animator: {fileID: 0}
   waitingOnTask: {fileID: 0}
   blockingThought: 0
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
-  followingMessagesWhenDone: 07000000
+  followingMessagesWhenDone: 
   followingThoughtsWhenDone: 0600000005000000
-  connectedRoomObject: 5
+  connectedRoomObject: 0
   zoomNeeded: 2
   zoomLocation: {x: -2.52, y: -0.44}

@@ -15,6 +15,11 @@ public class thought_Transform : MonoBehaviour
     public int positionOnApp;
     public bool IsItATask;
 
+    public void Start()
+    {
+        
+    }
+
 
 
     internal void changeStatuse(ThoughtStatus thoughtStatus)
@@ -32,7 +37,8 @@ public class thought_Transform : MonoBehaviour
 
     internal void pushToApp()
     {
-       Thought currentThought =  Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
+        
+        Thought currentThought =  Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thoughtType);
         taskType = currentThought.taskType;
         TaskOnApp_Manager.TaskOnAppInstance.createTaskOnAppTransform(taskType);
 

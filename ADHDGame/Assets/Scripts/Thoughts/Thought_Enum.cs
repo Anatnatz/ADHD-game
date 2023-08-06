@@ -28,7 +28,10 @@ public enum Thought_Enum
     IHateMonday,
     LookingGood,
     Dont_Froget_Coffee,
-    Eat_Breakfast
+    Eat_Breakfast,
+    Where_are_my_keys,
+    where_did_I_leave_my_keys,
+    Coffe_Not_Read
 
 
 
