@@ -50,16 +50,6 @@ public class ScenesManager : MonoBehaviour
         {
             case "Bedroom":
                 StartCoroutine(loadIntroText());
-               
-
-                break;
-
-            case "Bathroom":
-                //  StepOnLegos();
-                break;
-            case
-                "Kitchen":
-                KitchenThoughts();
                 break;
 
             case "EndLevel":
@@ -68,7 +58,7 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
-    
+
 
     private void EndLevel()
     {
@@ -76,47 +66,22 @@ public class ScenesManager : MonoBehaviour
         bottomBar.gameObject.SetActive(false);
         phone.SetActive(false);
 
-        
+
     }
 
-    
+
     public IEnumerator loadIntroText()
 
     {
-
-
         scoreview.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         introText.gameObject.SetActive(true);
-
-
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
 
-    }
-
-    void StepOnLegos()
-    {
-        if (bathFirstAppearance)
-        {
-            bathFirstAppearance = false;
-            Thoughts_Manager.ThoughtsInstance.createThought(Thought_Enum.Stepping_on_legos);
-            Debug.Log("beth");
-        }
-    }
-
-    void KitchenThoughts()
-    {
-        if (kitchenFirstAppearance)
-        {
-            kitchenFirstAppearance = false;
-            // Thoughts_Manager.ThoughtsInstance.startWaitGapThought(Thought_Enum.Unload_dishes);
-            // Thoughts_Manager.ThoughtsInstance.startWaitGapThought(Thought_Enum.Take_lunch);
-
-        }
     }
 
 
