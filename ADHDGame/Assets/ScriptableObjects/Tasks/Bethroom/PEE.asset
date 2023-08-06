@@ -31,7 +31,7 @@ MonoBehaviour:
   followingMessagesWhenWaiting: 
   followingThoughtsWhenWaiting: 
   followingMessagesWhenDone: 
-  followingThoughtsWhenDone: 1300000017000000
+  followingThoughtsWhenDone: 13000000
   connectedRoomObject: 6
   waiting: 0
   zoomNeeded: 2

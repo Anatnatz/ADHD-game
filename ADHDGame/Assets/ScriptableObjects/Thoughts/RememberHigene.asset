@@ -23,10 +23,11 @@ MonoBehaviour:
   currentThoughtText: 0
   numOfAppearance: 0
   waitingGap: 0
+  previousThought: {fileID: 0}
   previousAction: 
   showOnlyOnc: 1
   isItATask: 1
-  taskType: 15
+  taskType: 28
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 

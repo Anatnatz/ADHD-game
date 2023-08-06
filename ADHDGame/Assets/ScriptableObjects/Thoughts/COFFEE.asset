@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: COFFEE
   m_EditorClassIdentifier: 
   thoughtText: I need COFFEE to start this day
-  thoughtTexts:
-  - I need COFFEE to start this day
-  - I can't think without coffee
-  - COFFEEEEEEEEE
+  thoughtTexts: []
   thoughtType: 6
   thoughtPosition: {x: 0, y: 0}
   thoughtStatus: 0

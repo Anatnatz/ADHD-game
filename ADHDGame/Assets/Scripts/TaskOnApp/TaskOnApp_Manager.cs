@@ -39,7 +39,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     void Start()
     {
         TaskOnAppInstance = this;
-        
+
     }
 
     // Update is called once per frame
@@ -49,11 +49,11 @@ public class TaskOnApp_Manager : MonoBehaviour
 
     public void createTaskOnAppTransform(Task_Enum taskType)
     {
-        if(serialNum > 0)
+        if (serialNum > 0)
         {
             StartCoroutine(pushToAppFeedbackCoroutine());
         }
-       
+
 
         //create new appTransform
         GameObject newAppTask = Instantiate(appTransform_Prefab);
@@ -108,7 +108,7 @@ public class TaskOnApp_Manager : MonoBehaviour
         searchForTransformOnLIst(name);
         ChangeTaskOnAppStatus(status, currentAppTransformNum);
         AddToList(currentAppTransformNum, status);
-        
+
         appTransforms[currentAppTransformNum].v.gameObject.SetActive(true);
         // appTransforms[currentAppTransformNum].gameObject.SetActive(false);
         RemoveFromList(currentAppTransformNum, status);
@@ -174,7 +174,7 @@ public class TaskOnApp_Manager : MonoBehaviour
     {
         appTransforms[numOnList].taskOnAppStatus = taskOnAppStatus;
         ChangeTask_TaskOnAppStatus(taskOnAppStatus, numOnList);
-        
+
     }
 
     private void ChangeTask_TaskOnAppStatus(TextOnApp_Enum taskOnAppStatus, int numOnList)
@@ -211,7 +211,24 @@ public class TaskOnApp_Manager : MonoBehaviour
 
         if (PhoneController.instance.phoneStatus == PhoneStatus_Enum.ClosePhone)
         { pushToAppFeedbackClosePhone.SetActive(false); }
+    }
 
 
+
+    public void MarkTaskAsDone(Task task)
+    {
+        for (int i = 0; i < appTransforms.Count; i++)
+        {
+            if (appTransforms[i].taskType == task.taskType)
+            {
+                if (serialNum > 0)
+                {
+                    StartCoroutine(pushToAppFeedbackCoroutine());
+                }
+                markedAsDoneOnAppTasks.Add(appTransforms[i]);
+                Destroy(appTransforms[i].gameObject);
+                appTransforms.Remove(appTransforms[i]);
+            }
+        }
     }
 }

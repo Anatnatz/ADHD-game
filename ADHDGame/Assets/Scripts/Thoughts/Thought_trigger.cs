@@ -46,10 +46,10 @@ public class Thought_trigger : MonoBehaviour
 
                 }
             }
-            if(thought_Transform.IsItATask == false)
+            if (thought_Transform.IsItATask == false)
             {
                 StartCoroutine(changeThoughtText());
-               
+
             }
         }
 
@@ -58,18 +58,19 @@ public class Thought_trigger : MonoBehaviour
             InfoManager.instance.SendInfoMessage("Thought ignored");
             thought_Transform.thoughtTransformStatus = ThoughtStatus.Deleted;
             thought_Transform.changeStatuse(ThoughtStatus.Deleted);
+            Thoughts_Manager.ThoughtsInstance.thought_Transforms.Remove(thought_Transform);
             Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
             if (currentThough.loop == true)
-           
+
             { startThoughtLoop(currentThough.thoughtType); }
-            
+
             else
             {
                 Destroy(thought_Transform.gameObject);
                 Destroy(this);
             }
-           
-            
+
+
         }
         else
         {

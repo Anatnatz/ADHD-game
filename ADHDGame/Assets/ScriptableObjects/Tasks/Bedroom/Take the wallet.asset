@@ -19,7 +19,7 @@ MonoBehaviour:
   waitingTime: 0
   taskScore: 5
   status: 0
-  taskOnAppStatus: 0
+  taskOnAppStatus: 3
   must: 0
   results: " You forgot your wallet, but no worries, everything is on the phone now\u2026
     except for the office entrance card\u2026 it was Talk-a-lot-David who let you

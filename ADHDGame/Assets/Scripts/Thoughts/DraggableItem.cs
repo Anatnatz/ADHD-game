@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class
-DraggableItem: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [HideInInspector]
     public Transform parentAfterDrag;
@@ -41,12 +41,12 @@ DraggableItem: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, 
         thoughtCnt++;
         thoughtIndex = thoughtCnt;
 
-        if (thoughtTransform.IsItATask && !firstTaskThought)
+        if (thoughtTransform.IsItATask)
         {
             currentTextHover = taskTextHover;
             firstTaskThought = true;
         }
-        else if (!thoughtTransform.IsItATask && !firstNormalThought)
+        else if (!thoughtTransform.IsItATask)
         {
             currentTextHover = normalTextHover;
             firstNormalThought = true;

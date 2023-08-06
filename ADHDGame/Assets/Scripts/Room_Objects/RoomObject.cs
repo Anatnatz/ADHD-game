@@ -46,7 +46,7 @@ public class RoomObject : MonoBehaviour
     public TMP_Text textInfo;
     public bool textInfoTest;
     private static bool allowTakeKeys;
-
+    public bool showingTheseTasks;
 
 
 
@@ -86,6 +86,21 @@ public class RoomObject : MonoBehaviour
             {
                 animator.SetBool("take", true);
             }
+            if (task.taskType == Task_Enum.Turn_on_Coffemaker)
+            {
+                if (task.status == TaskStatus_Enum.Waiting)
+                {
+                    animator.SetBool("making", true);
+                }
+                else if (task.status == TaskStatus_Enum.Done && TaskManager.instance.searchTaskOnList(Task_Enum.Make_coffee).status != TaskStatus_Enum.Done)
+                {
+                    animator.SetBool("ready", true);
+                }
+            }
+            if (task.taskType == Task_Enum.Make_coffee && task.status == TaskStatus_Enum.Done)
+            {
+                animator.SetBool("take", true);
+            }
         }
     }
 
@@ -93,6 +108,7 @@ public class RoomObject : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject() && !Game_Manager.gameInstance.doingTask)
         {
+            TaskManager.clickedOn = this;
             ShowTasks();
             for (int i = 0; i < relatedTasks.Count; i++)
             {
@@ -120,6 +136,8 @@ public class RoomObject : MonoBehaviour
             isClickable = false;
         }
 
+        DestoryPreviousTasks();
+
         foreach (Task relatedTask in relatedTasks)
         {
             if ((relatedTask.waitingOnTask == null || relatedTask.waitingOnTask.status == TaskStatus_Enum.Done) && relatedTask.status == TaskStatus_Enum.none)
@@ -135,6 +153,16 @@ public class RoomObject : MonoBehaviour
             CreateTaskListeners();
         }
         // TaskButtonController.instance.ButtonsChanged();
+    }
+
+    void DestoryPreviousTasks()
+    {
+        GameObject buttonsSpace = GameObject.Find("ButtonsSpace");
+        for (int i = 0; i < buttonsSpace.transform.childCount; i++)
+        {
+            Destroy(buttonsSpace.transform.GetChild(i).gameObject);
+        }
+
     }
 
     void CreateTaskButton(string name, Task relatedTask)
