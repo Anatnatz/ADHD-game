@@ -11,7 +11,7 @@ public class Thought_trigger : MonoBehaviour
     thought_Transform thought_Transform;
 
     public static Thought_trigger instance;
-    
+
     void Awake()
     {
         instance = this;
@@ -39,9 +39,9 @@ public class Thought_trigger : MonoBehaviour
                     thought_Transform.pushToApp();
                     thought_Transform.updateNumOfAppearanceOnApp();
                     Thought currentThough = Thoughts_Manager.ThoughtsInstance.searchForThoughtType(thought_Transform.thoughtType);
-                    
+
                     Destroy(thought_Transform.gameObject);
-                     Destroy(this);
+                    Destroy(this);
 
 
                 }
@@ -87,11 +87,11 @@ public class Thought_trigger : MonoBehaviour
 
     }
 
-    
+
     internal IEnumerator changeThoughtText()
     {
         TMP_Text thoughtTxt = thought_Transform.transform.GetChild(0).GetComponent<TMP_Text>();
-        thoughtTxt.SetText("there is nothing to do about it, swipe to the left and try to ignor it ");
+        thoughtTxt.SetText("there is nothing to do about it, swipe to the left and try to ignore it ");
         thoughtTxt.color = Color.blue;
 
         yield return new WaitForSeconds(2);

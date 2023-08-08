@@ -83,6 +83,11 @@ public class SoundManager : MonoBehaviour
         music[playingPart].Play();
     }
 
+    public void StopAllMusic()
+    {
+        music[playingPart].Stop();
+    }
+
     public void MusicNextPart()
     {
         music[playingPart].Stop();

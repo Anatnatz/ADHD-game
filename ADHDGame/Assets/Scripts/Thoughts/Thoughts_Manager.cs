@@ -30,7 +30,7 @@ public class Thoughts_Manager : MonoBehaviour
 
     [SerializeField]
     int numOfNotTaskThoughtAppeared = 0;
-   
+
 
 
     // Start is called before the first frame update
@@ -199,7 +199,10 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal void triggerThought(Thought_Enum thoughtType)
     {
-       
+        if (ScenesManager.GetActiveScene() == "EndLevel" || ScenesManager.GetActiveScene() == "MainMenu")
+        {
+            return;
+        }
         Thought currentThought = searchForThoughtType(thoughtType);
 
         if (currentThought.previousThought == null)
@@ -298,6 +301,11 @@ public class Thoughts_Manager : MonoBehaviour
         StartCoroutine(waitGapThought(thoughtType));
     }
 
+    public void EndAllThoughts()
+    {
+        StopAllCoroutines();
+    }
+
     internal IEnumerator waitGapThought(Thought_Enum thoughtType)
     {
         Thought currentThought = searchForThoughtType(thoughtType);
@@ -348,15 +356,22 @@ public class Thoughts_Manager : MonoBehaviour
 
     internal void clearThoughtsFromScene()
     {
+        StopAllCoroutines();
         for (int i = 0; i < thought_Transforms.Count; i++)
         {
-            if (thought_Transforms[i].thoughtTransformStatus == ThoughtStatus.Appeared) 
+            if (thought_Transforms[i].thoughtTransformStatus == ThoughtStatus.Appeared)
             {
                 thought_Transforms[i].gameObject.SetActive(false);
             }
 
+            // if (thought_Transforms[i].gameObject)
+            // {
+            //     thought_Transforms[i].thoughtTransformStatus = ThoughtStatus.None;
+            //     Destroy(thought_Transforms[i].gameObject);
+            // }
+
         }
     }
 
-   
+
 }

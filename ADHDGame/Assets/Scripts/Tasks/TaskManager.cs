@@ -149,7 +149,7 @@ public class TaskManager : MonoBehaviour
     {
         // totalScore += taskForScore.score;
         //InfoManager.instance.SendInfoMessage("Your score:" + totalScore);
-        
+
     }
 
     public void StartTask(Button taskBtn)

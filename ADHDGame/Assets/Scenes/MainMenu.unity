@@ -9308,6 +9308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1238246988}
   - component: {fileID: 1238246989}
+  - component: {fileID: 1238246991}
   - component: {fileID: 1238246990}
   m_Layer: 5
   m_Name: TiktokPlayer
@@ -9354,7 +9355,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
@@ -9368,7 +9369,7 @@ VideoPlayer:
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!114 &1238246990
@@ -9383,6 +9384,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29de2094f98db2d40b3bd7a989c9318a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1238246991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238246987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c815b8e6f41ee164089ec92b02477d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: TiktokScroll.mp4
 --- !u!1 &1239356078
 GameObject:
   m_ObjectHideFlags: 0

@@ -251,7 +251,8 @@ public class PhoneController : MonoBehaviour
         HideAllApps();
         tiktokApp.SetActive(true);
 
-        tiktokPlayer.Play();
+        // tiktokPlayer.Play();
+        VidPlayer.instance.PlayTikTokVideo();
         MoveTimeXTimes(5f);
     }
 
@@ -271,7 +272,8 @@ public class PhoneController : MonoBehaviour
         if (tiktokApp.activeSelf)
         {
             noTouchTime = 0;
-            tiktokPlayer.Pause();
+            // tiktokPlayer.Pause();
+            VidPlayer.instance.PauseTiktokVideo();
             MoveTimeXTimes(0.2f);
 
             if (introtext.instance.introText.text == tiktokText)
