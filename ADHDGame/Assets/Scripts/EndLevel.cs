@@ -31,6 +31,7 @@ public class EndLevel : MonoBehaviour
     void Start()
     {
         instance = this;
+        PhoneController.instance.BackToAllApps();
         ResetUnDoneMustList();
 
         YallaEndLevel();
