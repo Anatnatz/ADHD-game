@@ -171,6 +171,10 @@ public class EndLevel : MonoBehaviour
 
     public void RestartGame()
     {
+        foreach (Task task in TaskManager.instance.tasksList)
+        {
+            task.status = TaskStatus_Enum.none;
+        }
         Game_Manager.gameInstance.ToMainMenu();
     }
 }
