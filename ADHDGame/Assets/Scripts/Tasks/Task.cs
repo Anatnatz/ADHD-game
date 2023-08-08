@@ -144,7 +144,7 @@ public class Task : ScriptableObject
         {
             animator.SetBool("isActive", true);
         }
-        
+
         Cursor.lockState = CursorLockMode.Locked;
         Game_Manager.gameInstance.doingTask = true;
         yield return new WaitForSeconds(duration);
@@ -167,11 +167,11 @@ public class Task : ScriptableObject
         }
         else
         {
-            
+
             status = TaskStatus_Enum.Done;
             SoundManager.RegisterAction(SoundManager.SoundAction.score);
             taskOnAppStatus = TextOnApp_Enum.Marked_As_Done;
-            TaskOnApp_Manager.TaskOnAppInstance.MarkTaskAsDone(this);
+            TaskOnApp_Manager.TaskOnAppInstance.UpdateTaskAsDone(taskType);
             checkTasksThought();
 
             CheckFollowingAction();
@@ -180,7 +180,7 @@ public class Task : ScriptableObject
             TaskManager.instance.numberOfTaskDone++;
 
         }
-        
+
     }
 
     private void checkTasksThought()

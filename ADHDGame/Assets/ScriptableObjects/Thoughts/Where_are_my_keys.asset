@@ -26,8 +26,8 @@ MonoBehaviour:
   previousThought: {fileID: 0}
   previousAction: 
   showOnlyOnc: 1
-  isItATask: 0
-  taskType: 0
+  isItATask: 1
+  taskType: 16
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 
   followingMessagesWhenDeleted: 

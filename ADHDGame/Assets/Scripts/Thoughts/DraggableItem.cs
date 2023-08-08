@@ -79,7 +79,7 @@ DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler,
         {
             textComponent.SetText(currentTextHover);
             originalColor = textComponent.color;
-            textComponent.color = new Color32(25, 25, 112, 255);
+            textComponent.color = new Color32(42, 82, 190, 255);
         }
     }
 

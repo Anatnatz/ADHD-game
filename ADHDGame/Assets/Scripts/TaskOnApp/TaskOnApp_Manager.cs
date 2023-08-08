@@ -110,6 +110,10 @@ public class TaskOnApp_Manager : MonoBehaviour
         AddToList(currentAppTransformNum, status);
 
         appTransforms[currentAppTransformNum].v.gameObject.SetActive(true);
+        TMP_Text appTaskTxt =
+                appTransforms[currentAppTransformNum].transform.GetChild(1).GetComponent<TMP_Text>();
+        appTaskTxt.SetText("<s>" + appTransforms[currentAppTransformNum].appTransformText + "</s>");
+        appTaskTxt.color = new Color32(0, 0, 0, 100);
         // appTransforms[currentAppTransformNum].gameObject.SetActive(false);
         RemoveFromList(currentAppTransformNum, status);
     }
@@ -189,7 +193,10 @@ public class TaskOnApp_Manager : MonoBehaviour
         for (int i = 0; i < appTransforms.Count; i++)
         {
             if (appTransforms[i].taskType == taskType)
-            { changeStatus(appTransforms[i].name, TextOnApp_Enum.Marked_As_Done); break; }
+            {
+                changeStatus(appTransforms[i].name, TextOnApp_Enum.Marked_As_Done);
+                break;
+            }
         }
     }
     internal IEnumerator pushToAppFeedbackCoroutine()
@@ -226,8 +233,8 @@ public class TaskOnApp_Manager : MonoBehaviour
                     StartCoroutine(pushToAppFeedbackCoroutine());
                 }
                 markedAsDoneOnAppTasks.Add(appTransforms[i]);
-                Destroy(appTransforms[i].gameObject);
-                appTransforms.Remove(appTransforms[i]);
+                // Destroy(appTransforms[i].gameObject);
+                // appTransforms.Remove(appTransforms[i]);
             }
         }
     }

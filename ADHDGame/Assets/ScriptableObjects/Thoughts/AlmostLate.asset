@@ -17,7 +17,7 @@ MonoBehaviour:
   thoughtTexts: []
   thoughtType: 17
   thoughtPosition: {x: 500, y: 500}
-  thoughtStatus: 1
+  thoughtStatus: 0
   loop: 0
   loopInterval: 0
   isOnLoop: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   previousAction: 
   showOnlyOnc: 1
   isItATask: 1
-  taskType: 13
+  taskType: 26
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 1c000000
   followingMessagesWhenDeleted: 
