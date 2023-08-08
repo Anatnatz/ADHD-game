@@ -17,21 +17,21 @@ MonoBehaviour:
   thoughtTexts: []
   thoughtType: 17
   thoughtPosition: {x: 500, y: 500}
-  thoughtStatus: 0
+  thoughtStatus: 1
   loop: 0
-  loopInterval: 10
+  loopInterval: 0
   isOnLoop: 0
   currentThoughtText: 0
   numOfAppearance: 0
-  waitingGap: 0
+  waitingGap: 1
   previousThought: {fileID: 0}
   previousAction: 
-  showOnlyOnc: 0
+  showOnlyOnc: 1
   isItATask: 1
   taskType: 13
   followingMessagesWhenAppeared: 
   followingThoughtsWhenAppeared: 1c000000
   followingMessagesWhenDeleted: 
-  followingThoughtsWhenDeleted: 
+  followingThoughtsWhenDeleted: 1c000000
   followingMessagesWhenPushToApp: 
   followingThoughtsWhenPushToApp: 

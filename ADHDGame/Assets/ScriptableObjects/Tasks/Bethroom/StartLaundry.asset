@@ -16,7 +16,7 @@ MonoBehaviour:
   taskType: 6
   textInApp: Wash Towels
   duration: 4
-  waitingTime: 50
+  waitingTime: 0
   taskScore: 20
   status: 0
   taskOnAppStatus: 0
@@ -31,6 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 01000000
   connectedRoomObject: 22
-  waiting: 0
+  waiting: 1
   zoomNeeded: 2
   zoomLocation: {x: 2.03, y: -2.19}

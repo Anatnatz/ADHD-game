@@ -78,10 +78,14 @@ public class EndLevel : MonoBehaviour
             }
             else if (tasksDone < (totalTasks / stars.Count) * 2)
             {
+                stars[0].color = new Color32(255, 255, 255, 255);
+
                 stars[1].color = new Color32(255, 255, 255, 255);
             }
             else if (tasksDone < (totalTasks / stars.Count) * 3)
             {
+                stars[0].color = new Color32(255, 255, 255, 255);
+                stars[1].color = new Color32(255, 255, 255, 255);
                 stars[2].color = new Color32(255, 255, 255, 255);
             }
         }

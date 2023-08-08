@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Take a bag
   m_EditorClassIdentifier: 
   taskName: Take
-  taskType: 13
+  taskType: 0
   textInApp: Take a bag
   duration: 3
   waitingTime: 0
   taskScore: 10
   status: 0
-  taskOnAppStatus: 0
+  taskOnAppStatus: 1
   must: 0
   results: 
   textIfNotDone: 
@@ -31,5 +31,6 @@ MonoBehaviour:
   followingMessagesWhenDone: 
   followingThoughtsWhenDone: 
   connectedRoomObject: 0
+  waiting: 0
   zoomNeeded: 0
   zoomLocation: {x: 0, y: 0}
